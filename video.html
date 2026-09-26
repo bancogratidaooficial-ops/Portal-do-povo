@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><title>Video Tela Cheia</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#000;color:#fff;font-family:Arial}
+header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-bottom:2px solid #ffcc00}
+a{color:#ffcc00;text-decoration:none;font-weight:bold}
+.box{padding:12px;background:#111;margin:10px;border-radius:12px;border:1px solid #222}
+input{width:100%;padding:15px;border-radius:10px;background:#000;color:#fff;border:1px solid #444;font-size:16px}
+.btn{width:100%;padding:15px;border-radius:10px;border:none;background:#ffcc00;color:#000;font-weight:bold;font-size:16px;margin-top:8px}
+#playerWrap{display:none;position:fixed;inset:0;width:100vw;height:100vh;background:#000;z-index:99999;flex-direction:column}
+#top{height:50px;background:#111;display:flex;justify-content:space-between;align-items:center;padding:0 12px;border-bottom:1px solid #333;flex-shrink:0}
+#area{flex:1;width:100%;height:calc(100vh - 50px);background:#000;display:flex}
+#area iframe{width:100%;height:100%;border:0}
+#area video{width:100%;height:100%;object-fit:contain;background:#000}
+.item{display:flex;justify-content:space-between;background:#1e1e1e;padding:10px;border-radius:10px;margin:6px 0;align-items:center}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head><body>
+<header><a href="index.html">⬅️ Voltar</a><b>🎬 Player Universal</b><span style="opacity:.5;font-size:11px">V7 Tela Cheia</span></header>
+
+<div class="box">
+<input id="link" placeholder="Cole aqui: YouTube, link.mp4,.m3u8, Google Drive, etc">
+<button class="btn" onclick="play()">▶️ ASSISTIR EM TELA CHEIA</button>
+<div style="margin-top:10px;font-size:12px;opacity:.6">
+<b style="color:#00ff88">FUNCIONA:</b> YouTube, MP4 direto, M3U8, Drive, Vimeo, Ok.ru, arquivos do seu Drive<br>
+<b style="color:#ff4444">NÃO FUNCIONA:</b> Netflix, Prime, Globoplay (eles bloqueiam de propósito)
+</div>
+</div>
+
+<div id="playerWrap">
+<div id="top"><span id="tit" style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%">Player</span><button onclick="fechar()" style="background:#ff2222;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:bold">✕ FECHAR</button></div>
+<div id="area"></div>
+</div>
+
+<div class="box"><div style="display:flex;justify-content:space-between"><b>🕘 Histórico</b><button onclick="if(confirm('Limpar?')){h=[];localStorage.setItem('tv_v7',JSON.stringify(h));render()}" style="background:#222;color:#fff;border:none;padding:5px 10px;border-radius:6px">🗑️ Limpar</button></div><div id="hist"></div></div>
+
+<script>
+let h=JSON.parse(localStorage.getItem('tv_v7')||'[]');
+function play(){
+ let url=document.getElementById('link').value.trim();
+ if(!url) return alert('Cole o link');
+ let area=document.getElementById('area');
+ document.getElementById('playerWrap').style.display='flex';
+ document.getElementById('tit').innerText=url.slice(0,50);
+ let u=url.toLowerCase();
+
+ if(u.includes('youtube.com')||u.includes('youtu.be')){
+   let id=url.match(/(?:v=|youtu.be\/|embed\/|shorts\/)([A-Za-z0-9_-]{11})/);
+   let vid=id?id[1]:'';
+   area.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${vid}?autoplay=1&modestbranding=1&playsinline=1&rel=0" allow="autoplay; fullscreen; encrypted-media" allowfullscreen></iframe>`;
+ } else if(u.includes('.m3u8')){
+   area.innerHTML=`<video id="v" controls autoplay playsinline style="width:100%;height:100%"></video>`;
+   let video=document.getElementById('v');
+   if(Hls.isSupported()){let hls=new Hls();hls.loadSource(url);hls.attachMedia(video);hls.on(Hls.Events.MANIFEST_PARSED,function(){video.play();});}
+   else if(video.canPlayType('application/vnd.apple.mpegurl')){video.src=url;video.play();}
+ } else if(u.match(/\.(mp4|webm|ogg)(\?|$)/)){
+   area.innerHTML=`<video controls autoplay playsinline controlsList="nodownload"><source src="${url}" type="video/mp4"></video>`;
+ } else if(u.includes('drive.google.com')){
+   let m=url.match(/\/d\/([^\/]+)/); let id=m?m[1]:'';
+   area.innerHTML=id?`<iframe src="https://drive.google.com/file/d/${id}/preview" allow="autoplay; fullscreen" allowfullscreen></iframe>`:`<iframe src="${url}"></iframe>`;
+ } else {
+   area.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="no-referrer"></iframe>`;
+   setTimeout(()=>{if(area.innerHTML.includes('iframe') && area.querySelector('iframe').clientHeight<50){alert('Esse site bloqueou tela cheia. Vou abrir fora.');window.open(url,'_blank');fechar();}},2500);
+ }
+ h.unshift({url,data:new Date().toLocaleTimeString()}); h=h.slice(0,25); localStorage.setItem('tv_v7',JSON.stringify(h)); render();
+}
+function fechar(){document.getElementById('playerWrap').style.display='none';document.getElementById('area').innerHTML='';}
+function render(){document.getElementById('hist').innerHTML=h.map((x,i)=>`<div class="item"><div style="flex:1;overflow:hidden;font-size:12px"><div style="color:#ffcc00;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${x.url}</div><small style="opacity:.5">${x.data}</small></div><div style="display:flex;gap:5px"><button onclick="document.getElementById('link').value='${x.url}';play()" style="background:#ffcc00;border:none;padding:8px 12px;border-radius:6px">▶️</button><button onclick="h.splice(${i},1);localStorage.setItem('tv_v7',JSON.stringify(h));render()" style="background:#ff4444;color:#fff;border:none;padding:8px 10px;border-radius:6px">🗑️</button></div></div>`).join('')||'<center style="opacity:.3;padding:10px">Nenhum vídeo ainda</center>';}
+render();
+</script>
+</body></html>
