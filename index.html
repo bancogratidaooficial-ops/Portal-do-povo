@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal Banco Gratidão - Completo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;padding-bottom:30px}
+header{text-align:center;background:#111;border:2px solid #ffcc00;border-radius:14px;padding:12px;margin-bottom:10px}
+.topBtns{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.topBtns button{padding:10px 12px;border-radius:10px;border:none;font-weight:bold;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#1a1a1a;border-radius:14px;padding:14px;text-align:center;position:relative;border:1px solid #222;min-height:140px}
+.del{position:absolute;top:6px;right:6px;background:#ff4444;color:#fff;border:none;border-radius:50%;width:28px;height:28px;font-weight:bold;z-index:2}
+.btnAbrir{width:100%;padding:11px;border-radius:10px;border:none;font-weight:bold;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+<h1 style="color:#ffcc00;margin:0">📋 MEU PORTAL - BANCO GRATIDÃO</h1>
+<small style="opacity:.5">bancogratidaooficial-ops.github.io</small>
+<div class="topBtns">
+<button onclick="novoApp()" style="background:#00ff88;color:#000">+ NOVO APP</button>
+<button onclick="compartilhar()" style="background:#00aaff;color:#fff">📤 Compartilhar</button>
+<button onclick="convidar()" style="background:#ffcc00;color:#000">👥 Convidar</button>
+<button onclick="backup()" style="background:#8888ff;color:#fff">💾 Backup</button>
+<button onclick="document.getElementById('file').click()" style="background:#fff;color:#000">♻️ Restaurar</button>
+<button onclick="if(confirm('Apagar só os apps extras que você criou? Os fixos ficam.')){localStorage.removeItem('extras_final');location.reload();}" style="background:#ff4444;color:#fff">🧹 Reset</button>
+<input type="file" id="file" style="display:none" onchange="restaurar(this)">
+</div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+const FIXOS = [
+ {nome:"📋 DÍVIDAS",file:"dividas.html",cor:"#ffcc00",txt:"#000"},
+ {nome:"🏦 Bancos",file:"bancos.html"},
+ {nome:"💸 Gastos",file:"gastos.html"},
+ {nome:"💬 Mensagens",file:"mensagens.html"},
+ {nome:"🎵 Musicas",file:"musicas.html"},
+ {nome:"🎬 Videos",file:"video.html"},
+ {nome:"📱 Redes",file:"redes.html"},
+ {nome:"✂️ Tesoura",file:"tesoura.html"},
+ {nome:"🗺️ Mapas",file:"mapas.html"},
+ {nome:"🅿️ Estacionamento",file:"estacionamento.html"},
+ {nome:"💰 Caixa",file:"caixa.html"},
+ {nome:"📦 Estoque",file:"estoque.html"},
+ {nome:"🛒 Mercado",file:"mercado.html"},
+];
+
+function getExtras(){ return JSON.parse(localStorage.getItem('extras_final')||'[]'); }
+function setExtras(e){ localStorage.setItem('extras_final',JSON.stringify(e)); }
+
+function render(){
+ let extras = getExtras();
+ let g = document.getElementById('grid'); g.innerHTML='';
+ // FIXOS NUNCA SOMEM
+ FIXOS.forEach((a,i)=>{
+   g.innerHTML+=`<div class="card"><div style="font-size:32px"> ${a.nome.split(' ')[0]} </div><div style="font-weight:bold;margin:6px 0">${a.nome}</div><button class="btnAbrir" style="background:${a.cor||'#222'};color:${a.txt||'#fff'}" onclick="location.href='${a.file}'">Abrir</button><small style="opacity:.3;font-size:10px;display:block;margin-top:4px">${a.file}</small></div>`;
+ });
+ // EXTRAS COM LIXEIRINHA
+ extras.forEach((a,i)=>{
+   g.innerHTML+=`<div class="card" style="border-color:#00ff88"><button class="del" onclick="delExtra(${i})">🗑️</button><div style="font-size:32px;margin-top:10px">${a.nome.split(' ')[0]}</div><div style="font-weight:bold;margin:6px 0">${a.nome}</div><button class="btnAbrir" style="background:#222;color:#fff" onclick="location.href='${a.file}'">Abrir</button><small style="opacity:.3;font-size:10px;display:block;margin-top:4px">${a.file}</small></div>`;
+ });
+}
+
+function novoApp(){
+ let nome = prompt("Nome do app: ex: 📝 Notas");
+ if(!nome) return;
+ let file = prompt("Arquivo: ex: notas.html (tudo minúsculo, tem que existir no GitHub)");
+ if(!file) return;
+ let extras = getExtras();
+ extras.push({nome,file});
+ setExtras(extras);
+ render();
+}
+
+function delExtra(i){
+ if(confirm("Apagar esse app extra? 🗑️")){
+   let extras = getExtras();
+   extras.splice(i,1);
+   setExtras(extras);
+   render();
+ }
+}
+
+function backup(){
+ let dados = {extras:getExtras(),data:new Date().toLocaleString()};
+ let blob = new Blob([JSON.stringify(dados)],{type:'application/json'});
+ let a = document.createElement('a');
+ a.href = URL.createObjectURL(blob);
+ a.download = 'backup-portal-banco.json';
+ a.click();
+}
+
+function restaurar(input){
+ let f = input.files[0]; if(!f) return;
+ let r = new FileReader();
+ r.onload = e=>{
+   try{
+     let d = JSON.parse(e.target.result);
+     if(d.extras){ setExtras(d.extras); render(); alert("Restaurado! "+d.extras.length+" apps extras voltaram."); }
+     else{ alert("Backup inválido"); }
+   }catch(err){ alert("Erro no arquivo"); }
+ };
+ r.readAsText(f);
+}
+
+function compartilhar(){
+ let url = location.href;
+ if(navigator.share){ navigator.share({title:'Meu Portal',text:'Acessa meu portal Banco Gratidão',url}) }
+ else{ prompt("Copia o link:",url); }
+}
+
+function convidar(){
+ let url = location.href;
+ window.open("https://wa.me/?text="+encodeURIComponent("Entra no meu Portal Banco Gratidão 👉 "+url));
+}
+
+render();
+</script>
+</body>
+</html>
