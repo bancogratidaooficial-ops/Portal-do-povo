@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Meu Portal - Fixo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px}
+header{text-align:center;padding:15px;background:#111;border:2px solid #ffcc00;border-radius:14px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#1a1a1a;border-radius:14px;padding:14px;text-align:center;position:relative;border:1px solid #222}
+.card .lixo{position:absolute;top:6px;right:6px;background:#ff4444;color:#fff;border:none;border-radius:50%;width:26px;height:26px}
+.app-btn{width:100%;padding:12px;border-radius:10px;border:none;font-weight:bold;margin-top:8px;background:#222;color:#fff}
+.topBtns{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.topBtns button{padding:8px 10px;border-radius:8px;border:none;font-weight:bold;font-size:12px}
+#modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;padding:12px;overflow:auto}
+</style>
+</head>
+<body>
+<header>
+<h1 style="color:#ffcc00;margin:0">📋 MEU PORTAL</h1>
+<div class="topBtns">
+<button onclick="addApp()" style="background:#00ff88">+ NOVO APP</button>
+<button onclick="if(navigator.share){navigator.share({url:location.href})}else{prompt('Link:',location.href)}" style="background:#00aaff;color:#fff">📤 Compartilhar</button>
+<button onclick="window.open('https://wa.me/?text='+encodeURIComponent('Meu Portal: '+location.href))" style="background:#ffcc00">👥 Convidar</button>
+<button onclick="backup()" style="background:#8888ff;color:#fff">💾 Backup</button>
+</div>
+</header>
+<div class="grid" id="grid"></div>
+
+<script>
+// APPS FIXOS - NUNCA SOMEM, mesmo dando Reset
+const APPS_FIXOS = [
+ {id:101,nome:"📋 DÍVIDAS",tipo:"dividas",cor:"#ffcc00"},
+ {id:102,nome:"🏦 Bancos",file:"bancos.html"},
+ {id:103,nome:"💸 Gastos",file:"gastos.html"},
+ {id:104,nome:"💬 Mensagens",file:"mensagens.html"},
+ {id:105,nome:"🎵 Musicas",file:"musicas.html"},
+ {id:106,nome:"🎬 Videos",file:"video.html"},
+ {id:107,nome:"📱 Redes",file:"redes.html"},
+ {id:108,nome:"✂️ Tesoura",file:"tesoura.html"},
+ {id:109,nome:"🗺️ Mapas",file:"mapas.html"},
+ {id:110,nome:"🅿️ Estacionamento",file:"estacionamento.html"},
+ {id:111,nome:"💰 Caixa",file:"caixa.html"},
+ {id:112,nome:"📦 Estoque",file:"estoque.html"},
+ {id:113,nome:"🅿️ Controle",file:"controle.html"},
+];
+
+let extras = JSON.parse(localStorage.getItem('portal_extras')||'[]');
+let apps = [...APPS_FIXOS, ...extras];
+
+function render(){
+ let g=document.getElementById('grid');g.innerHTML='';
+ apps.forEach(a=>{
+   let isFixo = APPS_FIXOS.find(f=>f.id==a.id);
+   g.innerHTML+=`<div class="card">
+   ${!isFixo?`<button class="lixo" onclick="del(${a.id})">🗑️</button>`:''}
+   <div style="font-size:28px">${a.nome.split(' ')[0]}</div>
+   <div style="font-weight:bold;margin:6px 0">${a.nome}</div>
+   <button class="app-btn" style="${a.tipo=='dividas'?'background:#ffcc00;color:#000':''}" onclick="${a.tipo=='dividas'?'alert(\'Dívidas já está dentro do portal\')':'location.href=\''+a.file+'\''}">Abrir</button>
+   <small style="opacity:.5">${a.file||''}</small></div>`;
+ });
+}
+function addApp(){let nome=prompt("Nome: ex: 📝 Notas");let file=prompt("Arquivo: ex: notas.html");if(nome&&file){extras.push({id:Date.now(),nome,file});localStorage.setItem('portal_extras',JSON.stringify(extras));apps=[...APPS_FIXOS,...extras];render();}}
+function del(id){if(confirm('Apagar?')){extras=extras.filter(x=>x.id!=id);localStorage.setItem('portal_extras',JSON.stringify(extras));apps=[...APPS_FIXOS,...extras];render();}}
+function backup(){let blob=new Blob([JSON.stringify({apps,extras},null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup-portal.json';a.click();}
+render();
+</script>
+</body>
+</html>
