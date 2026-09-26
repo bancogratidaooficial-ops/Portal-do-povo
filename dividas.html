@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Controle de Dívidas</title><style>
+*{box-sizing:border-box}body{margin:0;background:#0f0f0f;color:#fff;font-family:Arial;padding:12px}
+h1{color:#ffcc00;text-align:center;margin:5px 0;line-height:1.1} .sub{text-align:center;opacity:.6;margin-bottom:12px}
+.box{background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:12px;margin-bottom:10px}
+input,select{width:100%;padding:14px;border-radius:10px;border:1px solid #333;background:#2a2a2a;color:#fff;margin:5px 0}
+.btn{width:100%;padding:14px;border-radius:10px;border:none;font-weight:bold;margin-top:6px}
+.item{background:#2d2a0a;border:1px solid #ffcc00;border-radius:10px;padding:10px;display:flex;justify-content:space-between;margin:6px 0}
+.totais{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+.totais div{background:#1a1a1a;border-radius:10px;padding:10px;text-align:center;border:1px solid #333}
+.dividaItem{background:#222;padding:8px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between}
+a{color:#ffcc00;text-decoration:none}
+</style></head><body>
+<a href="index.html">⬅️ Voltar pro Portal</a>
+<h1>📋 CONTROLE DE<br>DÍVIDAS</h1><div class="sub">Banco Gratidão</div>
+
+<div class="box">
+<input id="nomeDev" placeholder="Nome do devedor...">
+<button class="btn" style="background:#ffcc00" onclick="addDev()">+ ADICIONAR DEVEDOR</button>
+<div id="listaDevs"></div>
+</div>
+
+<div class="totais">
+<div>TOTAL<br><b id="tTotal" style="color:#ffcc00;font-size:22px">0.00</b></div>
+<div>RECEBIDO<br><b id="tRec" style="color:#00ff88;font-size:22px">0.00</b></div>
+<div>FALTA<br><b id="tFalta" style="color:#ff4444;font-size:22px">0.00</b></div>
+</div>
+
+<div class="box" id="boxDivida" style="display:none">
+<h3 id="tituloDivida" style="margin:0 0 8px 0">DÍVIDA - </h3>
+<select id="tipo"><option>➕ ADICIONAR DÍVIDA - O que ele deve</option><option>💰 ADICIONAR PAGAMENTO - O que ele pagou</option></select>
+<input id="oQue" placeholder="O que foi? Ex: empréstimo, produto...">
+<input id="valor" type="number" placeholder="Valor R$">
+<input id="data" type="date">
+<button class="btn" style="background:#ff4444;color:#fff" onclick="addItem()">➕ ADICIONAR NA DÍVIDA</button>
+<div id="listaItens" style="margin-top:10px"></div>
+</div>
+
+<script>
+let dados=JSON.parse(localStorage.getItem('dividas_banco')||'[]');
+let sel=null;
+document.getElementById('data').valueAsDate=new Date();
+function addDev(){let n=document.getElementById('nomeDev').value.trim();if(!n)return;dados.push({id:Date.now(),nome:n,itens:[]});document.getElementById('nomeDev').value='';salvar();}
+function salvar(){localStorage.setItem('dividas_banco',JSON.stringify(dados));render();}
+function render(){
+ let html='';let total=0,rec=0;
+ dados.forEach(d=>{
+   let falta=0; d.itens.forEach(i=>{if(i.tipo.includes('DÍVIDA')){total+=i.valor;falta+=i.valor}else{rec+=i.valor;falta-=i.valor}});
+   let selStyle = sel==d.id?'border-color:#ffcc00;background:#3d3600':'';
+   html+=`<div class="item" style="${selStyle}" onclick="abrir(${d.id})"><div><b>${d.nome}</b><br><small>Falta R$ ${falta.toFixed(2)}</small></div><button onclick="event.stopPropagation();delDev(${d.id})" style="background:none;border:none;color:#ff4444;font-size:18px">X</button></div>`;
+ });
+ document.getElementById('listaDevs').innerHTML=html;
+ document.getElementById('tTotal').innerText=total.toFixed(2);
+ document.getElementById('tRec').innerText=rec.toFixed(2);
+ document.getElementById('tFalta').innerText=(total-rec).toFixed(2);
+ if(sel!=null)renderItens();
+}
+function abrir(id){sel=id;let d=dados.find(x=>x.id==id);document.getElementById('boxDivida').style.display='block';document.getElementById('tituloDivida').innerText='DÍVIDA - '+d.nome;render();}
+function renderItens(){let d=dados.find(x=>x.id==sel);if(!d)return;let h='';[...d.itens].reverse().forEach(it=>{h+=`<div class="dividaItem"><div>${it.tipo.includes('DÍVIDA')?'🔴':'🟢'} ${it.oQue}<br><small>${it.data} - R$ ${it.valor.toFixed(2)}</small></div><button onclick="delItem(${it.id})" style="background:#ff4444;border:none;color:#fff;border-radius:5px;padding:4px 8px">🗑️</button></div>`});document.getElementById('listaItens').innerHTML=h;}
+function addItem(){let d=dados.find(x=>x.id==sel);if(!d)return alert('Selecione devedor');let tipo=document.getElementById('tipo').value;let oQue=document.getElementById('oQue').value;let valor=parseFloat(document.getElementById('valor').value);let data=document.getElementById('data').value;if(!oQue||!valor)return alert('Preenche');d.itens.push({id:Date.now(),tipo,oQue,valor,data});document.getElementById('oQue').value='';document.getElementById('valor').value='';salvar();}
+function delDev(id){if(confirm('Apagar devedor?')){dados=dados.filter(x=>x.id!=id);if(sel==id){sel=null;document.getElementById('boxDivida').style.display='none'}salvar();}}
+function delItem(idItem){let d=dados.find(x=>x.id==sel);d.itens=d.itens.filter(i=>i.id!=idItem);salvar();}
+render();
+</script></body></html>
