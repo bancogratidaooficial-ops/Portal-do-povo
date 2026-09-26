@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meu Novo Portal</title><style>body{background:#0a0a0a;color:#fff;font-family:Arial;padding:10px}header{text-align:center;padding:15px;background:#111;border-bottom:2px solid #ffcc00;border-radius:12px;margin-bottom:12px}h1{color:#ffcc00}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.app{padding:18px;border-radius:14px;text-align:center;font-weight:bold;text-decoration:none;display:block;border:none;cursor:pointer}#modalDividas{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:999;padding:12px;overflow:auto}</style></head><body>
+<header><h1>📋 MEU PORTAL</h1><button onclick="novoApp()" style="background:#00ff88;border:none;padding:8px 12px;border-radius:8px;font-weight:bold">+ NOVO APP</button></header>
+<div class="grid" id="grid"></div>
+<div id="modalDividas"><h2>📋 Dívidas</h2><div id="listaDividas"></div><input id="nomeDiv" placeholder="Quem deve"><input id="valorDiv" type="number" placeholder="Valor"><button onclick="addDiv()">Add Dívida</button><button onclick="this.parentElement.style.display='none'">Fechar</button></div>
+<script>
+let apps = JSON.parse(localStorage.getItem('meus_apps')||'[]');
+if(apps.length==0){apps=[{nome:"📋 DÍVIDAS",acao:"dividas"},{nome:"🏦 Bancos",file:"bancos.html"}];}
+function render(){let g=document.getElementById('grid');g.innerHTML='';apps.forEach(a=>{if(a.acao=='dividas'){g.innerHTML+=`<button onclick="document.getElementById('modalDividas').style.display='block'" class="app" style="background:#ffcc00;color:#000">${a.nome}</button>`}else{g.innerHTML+=`<a href="${a.file}" class="app" style="background:#222;color:#fff">${a.nome}</a>`}})}
+function novoApp(){let nome=prompt("Nome do app? Ex: 🎵 Músicas");let file=prompt("Nome do arquivo? Ex: musicas.html");if(nome&&file){apps.push({nome,file});localStorage.setItem('meus_apps',JSON.stringify(apps));render()}}
+render();
+// dividas simples
+let divs=JSON.parse(localStorage.getItem('divs')||'[]');
+function addDiv(){let n=document.getElementById('nomeDiv').value;let v=parseFloat(document.getElementById('valorDiv').value);if(n&&v){divs.push({n,v});localStorage.setItem('divs',JSON.stringify(divs));alert('Adicionado!');}}
+</script></body></html>
