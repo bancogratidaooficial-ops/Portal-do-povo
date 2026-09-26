@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mensagens Diárias IA - Portal do Povo</title>
+<style>body{background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;margin:0}h2{color:#FFD700;text-align:center;margin:6px;font-size:20px}select,textarea,input{width:100%;padding:12px;border-radius:10px;border:none;margin:5px 0;background:#151515;color:#fff;box-sizing:border-box}button{padding:11px;border-radius:10px;border:none;font-weight:900;margin:3px 0;cursor:pointer}.amarelo{background:#FFD700;color:#000;width:100%}.verde{background:#25D366;color:#fff}.azul{background:#0b5bd3;color:#fff}.preto{background:#222;color:#fff;border:1px solid #333}.filtros{display:flex;gap:5px;overflow:auto;padding:6px 0}.filtros button{white-space:nowrap;width:auto;padding:8px 12px}.ativo{background:#FFD700!important;color:#000!important}.item{background:#151515;border:1px solid #2a2a2a;border-radius:12px;padding:10px;margin:7px 0}.topo{display:flex;justify-content:space-between;align-items:center}.tag{font-size:10px;padding:3px 6px;border-radius:5px;background:#FFD700;color:#000;font-weight:800}.botoes{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.botoes button{width:auto;padding:6px 9px;font-size:11px}.lixeira{background:#3a0f0f;color:#fff;padding:6px 10px;border-radius:7px}.alarme-box{background:#111;border:1px dashed #FFD700;border-radius:10px;padding:10px;margin:8px 0}.ia-box{background:linear-gradient(45deg,#111,#222);border:1px solid #FFD700;border-radius:10px;padding:10px;margin:8px 0;text-align:center}</style></head>
+<body>
+<h2>💬 MENSAGENS DIÁRIAS - IA ATUALIZA</h2>
+
+<div class="ia-box">
+<span style="color:#FFD700">🤖 IA ATIVA</span><br><small id="infoIA" style="color:#aaa">Gerando mensagens novas todo dia...</small><br>
+<button class="azul" onclick="gerarIA()" style="margin-top:6px;width:auto">✨ GERAR 5 MENSAGENS NOVAS COM IA</button>
+</div>
+
+<select id="periodo"><option value="manha">🌅 Manhã</option><option value="tarde">🌞 Tarde</option><option value="noite">🌙 Noite</option><option value="gratidao">💛 Gratidão</option><option value="motivacao">🔥 Motivação</option><option value="esperanca">🙏 Esperança</option></select>
+<textarea id="nova" placeholder="Escreva sua mensagem..."></textarea>
+<div style="display:flex;gap:5px">
+<button class="preto" onclick="document.getElementById('audioFile').click()" style="flex:1">🎤 Add Áudio Celular</button>
+<button class="preto" onclick="document.getElementById('txtFile').click()" style="flex:1">📄 Add Texto Celular</button>
+</div>
+<input type="file" id="audioFile" accept="audio/*" style="display:none">
+<input type="file" id="txtFile" accept=".txt,.json" style="display:none">
+<button class="amarelo" onclick="addMsg()">➕ SALVAR MENSAGEM</button>
+
+<div class="alarme-box">
+<strong style="color:#FFD700">⏰ ALARME COM ÁUDIO ADICIONADO</strong>
+<div style="display:flex;gap:5px;margin-top:5px"><input type="time" id="horaAlarme" style="flex:1"><select id="alarmeMsg" style="flex:2"></select></div>
+<div style="display:flex;gap:5px"><button class="azul" onclick="setAlarme()" style="flex:1">🔔 ATIVAR ALARME</button><button class="preto" onclick="pararAlarme()" style="flex:1">⏹️ Parar</button></div>
+<small id="statusAlarme" style="color:#aaa">Nenhum alarme ativo</small><audio id="playerAlarme" controls style="width:100%;margin-top:5px;display:none"></audio>
+</div>
+
+<div class="filtros" id="filtros">
+<button class="preto ativo" onclick="filtrar('todas')">Todas</button>
+<button class="preto" onclick="filtrar('manha')">🌅 Manhã</button>
+<button class="preto" onclick="filtrar('tarde')">🌞 Tarde</button>
+<button class="preto" onclick="filtrar('noite')">🌙 Noite</button>
+<button class="preto" onclick="filtrar('gratidao')">💛 Gratidão</button>
+<button class="preto" onclick="filtrar('motivacao')">🔥 Motivação</button>
+<button class="preto" onclick="filtrar('esperanca')">🙏 Esperança</button>
+</div>
+
+<div id="lista"></div>
+<hr style="opacity:0.2">
+<button class="preto" onclick="backup()" style="width:100%">💾 BACKUP (buckcap)</button>
+<input type="file" id="rest" style="display:none" onchange="restaurar(event)">
+<button class="preto" onclick="document.getElementById('rest').click()" style="width:100%">♻️ RESTAURAR</button>
+<button class="preto" onclick="resetar()" style="width:100%;background:#500;color:#fff">🗑️ RESETAR TUDO</button>
+<a href="index.html" style="color:#FFD700;display:block;text-align:center;margin:12px">◀️ VOLTAR PRO PORTAL</a>
+
+<script>
+let padraoIA=[
+{texto:'🌅 Bom dia! Que hoje seu dia seja abençoado, cheio de luz e gratidão. Vai dar certo!',cat:'manha'},
+{texto:'🌅 Acorde com fé! Deus já preparou um dia lindo pra você. Gratidão gera milagres!',cat:'manha'},
+{texto:'🌅 Bom dia povo! Sorria, agradeça, o melhor dia da sua vida é HOJE!',cat:'manha'},
+{texto:'🌅 Manhã de vitória! Levanta, agradece e vai pra luta que a prosperidade te espera.',cat:'manha'},
+{texto:'🌅 Bom dia! Que sua conta transborde gratidão hoje. Banco Gratidão te abençoa!',cat:'manha'},
+{texto:'🌞 Boa tarde! Não desista agora, a tarde é hora de continuar firme no propósito.',cat:'tarde'},
+{texto:'🌞 Boa tarde! Se está difícil, é sinal que você está crescendo. Persista!',cat:'tarde'},
+{texto:'🌞 Tarde abençoada! Deus está vendo seu esforço, sua recompensa vem!',cat:'tarde'},
+{texto:'🌞 Boa tarde Portal do Povo! Compartilhe uma mensagem e alegre alguém hoje.',cat:'tarde'},
+{texto:'🌞 Força na tarde! Quem agradece na luta, prospera na vitória.',cat:'tarde'},
+{texto:'🌙 Boa noite! Descanse em paz, entregue nas mãos de Deus e durma tranquilo.',cat:'noite'},
+{texto:'🌙 Boa noite! Que seus sonhos sejam leves e seu amanhã seja próspero.',cat:'noite'},
+{texto:'🌙 Noite de gratidão! Agradeça pelo dia, mesmo difícil, amanhã será melhor.',cat:'noite'},
+{texto:'🌙 Boa noite povo abençoado! Dorme com fé que Deus cuida de tudo.',cat:'noite'},
+{texto:'🌙 Boa noite! Amanhã é uma
