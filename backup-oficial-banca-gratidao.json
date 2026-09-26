@@ -1,0 +1,21 @@
+{
+  "versao": "V5 - OFICIAL - Ficou muito boa",
+  "data": "26/09/2026",
+  "site": "bancogratidaooficial-ops.github.io",
+  "fixos": [
+    {"nome":"📋 DÍVIDAS","file":"dividas.html"},
+    {"nome":"🏦 Bancos","file":"bancos.html"},
+    {"nome":"💸 Gastos","file":"gastos.html"},
+    {"nome":"💬 Mensagens","file":"mensagens.html"},
+    {"nome":"🎵 Musicas","file":"musicas.html"},
+    {"nome":"🎬 Videos","file":"video.html"},
+    {"nome":"📱 Redes","file":"redes.html"},
+    {"nome":"✂️ Tesoura","file":"tesoura.html"},
+    {"nome":"🗺️ Mapas","file":"mapas.html"},
+    {"nome":"🅿️ Estacionamento","file":"estacionamento.html"},
+    {"nome":"💰 Caixa","file":"caixa.html"},
+    {"nome":"📦 Estoque","file":"estoque.html"},
+    {"nome":"🛒 Mercado","file":"mercado.html"}
+  ],
+  "extras": []
+}
