@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controle de Estacionamento</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;padding-bottom:80px}
+header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-radius:12px;border:1px solid #ffcc00;margin-bottom:10px}
+header a{color:#ffcc00;text-decoration:none;font-weight:bold}
+.box{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:10px}
+input{width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#000;color:#fff;margin:5px 0;text-transform:uppercase}
+.btn{width:100%;padding:12px;border-radius:10px;border:none;font-weight:bold;margin-top:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item{background:#1e1e1e;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #ffcc00}
+.item.saiu{border-left-color:#00ff88;opacity:.7}
+.total{text-align:center;font-size:18px;color:#ffcc00;margin:8px 0}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html">⬅️ Voltar</a>
+<h3 style="margin:0">🅿️ Estacionamento</h3>
+<button onclick="exportar()" style="background:#00ff88;border:none;padding:6px 10px;border-radius:8px;font-weight:bold">📤 Planilha</button>
+</header>
+
+<div class="box">
+<div class="total">🚗 No pátio: <span id="qtd">0</span> | Hoje: <span id="hoje">0</span></div>
+<div class="grid2">
+<input id="placa" placeholder="PLACA ex: ABC1234" maxlength="7">
+<input id="modelo" placeholder="Modelo/Cor ex: Gol Preto">
+</div>
+<input id="dono" placeholder="Dono / Obs (opcional)">
+<button class="btn" style="background:#ffcc00" onclick="entrada()">+ REGISTRAR ENTRADA</button>
+<input id="busca" placeholder="🔍 Buscar placa..." oninput="render()" style="margin-top:10px">
+</div>
+
+<div class="box">
+<h4 style="color:#ffcc00;margin:0 0 8px 0">🚗 DENTRO DO PÁTIO</h4>
+<div id="listaDentro"></div>
+</div>
+
+<div class="box">
+<h4 style="color:#00ff88;margin:0 0 8px 0">✅ SAÍDAS DE HOJE</h4>
+<div id="listaSaiu"></div>
+</div>
+
+<script>
+let carros = JSON.parse(localStorage.getItem('estacionamento')||'[]');
+
+function entrada(){
+ let p=document.getElementById('placa').value.toUpperCase().trim();
+ let m=document.getElementById('modelo').value.trim();
+ let d=document.getElementById('dono').value.trim();
+ if(!p){alert('Digite a placa!');return}
+ if(carros.find(c=>c.placa==p &&!c.saida)){alert('Carro já está dentro!');return}
+ let agora=new Date();
+ carros.unshift({id:Date.now(),placa:p,modelo:m,dono:d,entrada:agora.toLocaleString('pt-BR'),entradaTime:agora.getTime(),saida:null,saidaTime:null});
+ localStorage.setItem('estacionamento',JSON.stringify(carros));
+ document.getElementById('placa').value='';document.getElementById('modelo').value='';document.getElementById('dono').value='';
+ render();
+}
+
+function saida(id){
+ let c=carros.find(x=>x.id==id);
+ if(!c)return;
+ if(confirm(`Dar SAÍDA no ${c.placa}?`)){
+   let agora=new Date();
+   c.saida=agora.toLocaleString('pt-BR');
+   c.saidaTime=agora.getTime();
+   localStorage.setItem('estacionamento',JSON.stringify(carros));
+   render();
+ }
+}
+function darBaixa(id){ // lixeirinha
+ if(confirm('Apagar registro? Isso dá baixa definitiva!')){
+   carros=carros.filter(x=>x.id!=id);
+   localStorage.setItem('estacionamento',JSON.stringify(carros));
+   render();
+ }
+}
+
+function tempo(permanencia){
+ let ms=permanencia;
+ let h=Math.floor(ms/3600000);
+ let m=Math.floor((ms%3600000)/60000);
+ return `${h}h ${m}min`;
+}
+
+function render(){
+ let busca=document.getElementById('busca').value.toUpperCase();
+ let dentro=carros.filter(c=>!c.saida && c.placa.includes(busca));
+ let fora=carros.filter(c=>c.saida && (c.placa.includes(busca) || busca=='' )).slice(0,30);
+
+ document.getElementById('qtd').innerText=carros.filter(c=>!c.saida).length;
+ document.getElementById('hoje').innerText=carros.filter(c=>c.saida).length;
+
+ let html='';
+ dentro.forEach(c=>{
+   let tempoAgora=tempo(Date.now()-c.entradaTime);
+   html+=`<div class="item"><div><b>🚗 ${c.placa}</b> - ${c.modelo}<br><small>Ent: ${c.entrada} (${tempoAgora})<br>${c.dono}</small></div><div style="display:flex;gap:5px"><button onclick="saida(${c.id})" style="background:#00ff88;border:none;padding:8px;border-radius:8px;font-weight:bold">SAÍDA</button><button onclick="darBaixa(${c.id})" style="background:#ff4444;color:#fff;border:none;padding:8px;border-radius:8px">🗑️</button></div></div>`;
+ });
+ document.getElementById('listaDentro').innerHTML=html||'<small style="opacity:.5">Nenhum carro no pátio</small>';
+
+ let html2='';
+ fora.forEach(c=>{
+   let permanencia=c.saidaTime-c.entradaTime;
+   html2+=`<div class="item saiu"><div><b>${c.placa}</b> - ${c.modelo}<br><small>Ent: ${c.entrada}<br>Saiu: ${c.saida} | Ficou: ${tempo(permanencia)}</small></div><button onclick="darBaixa(${c.id})" style="background:#ff4444;color:#fff;border:none;padding:8px;border-radius:8px">🗑️</button></div>`;
+ });
+ document.getElementById('listaSaiu').innerHTML=html2||'<small style="opacity:.5">Nenhuma saída hoje</small>';
+}
+
+function exportar(){
+ let csv="Placa,Modelo,Dono,Entrada,Saida,Tempo\n";
+ carros.forEach(c=>{
+   let t=c.saidaTime?tempo(c.saidaTime-c.entradaTime):'NO PATIO';
+   csv+=`${c.placa},${c.modelo},${c.dono},${c.entrada},${c.saida||''},${t}\n`;
+ });
+ let blob=new Blob([csv],{type:'text/csv'});
+ let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='estacionamento.csv';a.click();
+}
+render();
+</script>
+</body>
+</html>
