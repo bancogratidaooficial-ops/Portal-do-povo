@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CORTA TRECHO PRO V16</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0a;color:#fff;font-family:Arial;text-align:center;padding-bottom:80px}
+.top{background:linear-gradient(90deg,#FFD700,#FFA000);color:#000;padding:14px;font-weight:bold;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+.btn{padding:14px 10px;margin:6px 3px;border:none;border-radius:12px;font-size:13px;font-weight:bold;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px}
+.verde{background:#00C853;color:#fff}.azul{background:#2962FF;color:#fff}.amarelo{background:#FFD700;color:#000}.vermelho{background:#FF1744;color:#fff}.cinza{background:#333;color:#fff}.roxo{background:#6A1B9A;color:#fff}
+.row{display:flex;flex-wrap:wrap;justify-content:center}
+.card{background:#1e1e1e;margin:8px;border-radius:14px;padding:12px;text-align:left;border:1px solid #333}
+#wave{width:100%;height:90px;background:#111;border-radius:10px;border:2px solid #FFD700}
+.item{background:#252525;border:1px solid #444;border-radius:12px;padding:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center}
+.iconBtn{width:36px;height:36px;border-radius:50%;border:none;font-size:16px;margin:2px;cursor:pointer}
+.shareBar{background:#111;padding:10px;border-radius:12px;margin:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:center;border:1px dashed #FFD700}
+input[type=range]{width:100%;accent-color:#FFD700}
+</style>
+</head>
+<body>
+<div class="top"><span>✂️ CORTA TRECHO PRO V16</span><span style="font-size:12px">by José</span></div>
+
+<div class="shareBar">
+<b style="color:#FFD700;width:100%;text-align:center">📤 CONVIDAR E COMPARTILHAR (igual Pluto.TV)</b>
+<button class="btn verde" onclick="convidar()">💬 Convidar Amigos no WhatsApp</button>
+<button class="btn azul" onclick="compartilharApp()">📤 Compartilhar App</button>
+<button class="btn amarelo" onclick="copiarLink()">🔗 Copiar Link do App</button>
+</div>
+
+<div class="card">
+<b style="color:#FFD700">📁 ADICIONAR MÚSICA</b>
+<div class="row">
+<button class="btn azul" onclick="document.getElementById('file').click()">➕ ADICIONAR ÁUDIO</button>
+<button class="btn verde" onclick="document.getElementById('file').click()">📁 ABRIR DA MEMÓRIA</button>
+</div>
+<input type="file" id="file" accept="audio/*" style="display:none">
+<div id="info" style="font-size:11px;color:#aaa"></div>
+</div>
+
+<div class="card" id="editor" style="display:none">
+<b style="color:#FFD700">✂️ MODO TESOURA</b>
+<canvas id="wave"></canvas>
+<div style="display:flex;gap:8px;margin:6px 0">
+<div style="flex:1"><label style="font-size:10px">INÍCIO: <span id="lIni" style="color:#FFD700">0s</span></label><input type="range" id="rIni" min="0" max="100" value="0" step="0.1"></div>
+<div style="flex:1"><label style="font-size:10px">FIM: <span id="lFim" style="color:#FFD700">10s</span></label><input type="range" id="rFim" min="0" max="100" value="10" step="0.1"></div>
+</div>
+<div style="font-size:12px">Trecho: <b id="lDur" style="color:#00E676">0s</b></div>
+<audio id="pPrev" controls style="width:100%;margin:6px 0"></audio>
+<div class="row">
+<button class="btn amarelo" onclick="cortar()">✂️ CORTAR</button>
+<button class="btn verde" onclick="cortarESalvar()">💾 CORTAR E SALVAR</button>
+<button class="btn cinza" onclick="document.getElementById('pPrev').play()">▶️ Ouvir</button>
+</div>
+</div>
+
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<b style="color:#FFD700">📂 MEUS TRECHOS (botões)</b>
+<span id="count" style="font-size:11px;color:#aaa">0 itens</span>
+</div>
+<div id="lista"></div>
+<div class="row" style="margin-top:10px;border-top:1px solid #333;padding-top:8px">
+<button class="btn cinza" onclick="exportarBackup()">💾 BACKUP (Exportar)</button>
+<button class="btn roxo" onclick="document.getElementById('importFile').click()">📥 RESTAURAR BACKUP</button>
+<input type="file" id="importFile" accept=".json" style="display:none">
+<button class="btn vermelho" onclick="resetar()">🔄 RESETAR TUDO</button>
+</div>
+</div>
+
+<script>
+let audioBuf=null, ctx=new (window.AudioContext||window.webkitAudioContext)();
+let ini=0,fim=10; let lista=JSON.parse(localStorage.getItem('cortaV16')||'[]');
+render();
+
+document.getElementById('file').addEventListener('change', async e=>{
+  let f=e.target.files[0]; if(!f)return;
+  document.getElementById('info').innerText='Carregando '+f.name+' ('+(f.size/1024/1024).toFixed(2)+'MB)';
+  let b=await f.arrayBuffer(); audioBuf=await ctx.decodeAudioData(b);
+  document.getElementById('editor').style.display='block';
+  document.getElementById('rIni').max=audioBuf.duration; document.getElementById('rFim').max=audioBuf.duration;
+  document.getElementById('rFim').value=Math.min(30,audioBuf.duration); fim=Math.min(30,audioBuf.duration); ini=0;
+  draw(); update(); document.getElementById('editor').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('rIni').addEventListener('input', e=>{ini=parseFloat(e.target.value); if(fim-ini>60)fim=ini+60; document.getElementById('rFim').value=fim; update();});
+document.getElementById('rFim').addEventListener('input', e=>{fim=parseFloat(e.target.value); if(fim-ini>60)ini=fim-60; document.getElementById('rIni').value=ini; update();});
+document.getElementById('importFile').addEventListener('change', importarBackup);
+
+function draw(){
+  let c=document.getElementById('wave'); let w=c.width=c.clientWidth*2; let h=c.height=180; let x=c.getContext('2d');
+  x.fillStyle='#111'; x.fillRect(0,0,w,h); if(!audioBuf)return;
+  let data=audioBuf.getChannelData(0); let step=Math.floor(data.length/w); let amp=h/2;
+  x.strokeStyle='#FFD700'; x.beginPath(); for(let i=0;i<w;i++){let min=1,max=-1; for(let j=0;j<step;j++){let d=data[i*step+j]; if(d<min)min=d; if(d>max)max=d;} x.moveTo(i,(1+min)*amp); x.lineTo(i,(1+max)*amp);} x.stroke();
+  let x1=(ini/audioBuf.duration)*w, x2=(fim/audioBuf.duration)*w; x.fillStyle='rgba(0,200,83,0.35)'; x.fillRect(x1,0,x2-x1,h); x.fillStyle='#00E676'; x.fillRect(x1,0,6,h); x.fillRect(x2-6,0,6,h);
+}
+function update(){
+  document.getElementById('lIni').innerText=ini.toFixed(1)+'s'; document.getElementById('lFim').innerText=fim.toFixed(1)+'s'; document.getElementById('lDur').innerText=(fim-ini).toFixed(1)+'s'; draw();
+  if(!audioBuf)return; let sr=audioBuf.sampleRate, s=Math.floor(ini*sr), e=Math.floor(fim*sr), len=e-s;
+  let off=new OfflineAudioContext(1,len,sr); let buf=off.createBuffer(1,len,sr); buf.getChannelData(0).set(audioBuf.getChannelData(0).slice(s,e));
+  let src=off.createBufferSource(); src.buffer=buf; src.connect(off.destination); src.start();
+  off.startRendering().then(r=>{let wav=bufToWav(r); let blob=new Blob([wav],{type:'audio/wav'}); document.getElementById('pPrev').src=URL.createObjectURL(blob); window._blob=blob;});
+}
+function cortar(){update(); alert('✂️ Trecho cortado! Agora clique em 💾 SALVAR');}
+function cortarESalvar(){
+  if(!window._blob)return alert('Carregue áudio e corte primeiro');
+  let nome=prompt('Nome do botão/trecho:','Trecho '+(lista.length+1))||'Trecho '+(lista.length+1);
+  let r=new FileReader(); r.onload=()=>{lista.unshift({id:Date.now(),nome:nome,dur:(fim-ini).toFixed(1)+'s',audio:r.result}); salvar(); alert('💾 Salvo como botão "'+nome+'"!');}; r.readAsDataURL(window._blob);
+}
+function render(){
+  let d=document.getElementById('lista'); document.getElementById('count').innerText=lista.length+' itens';
+  if(lista.length==0){d.innerHTML='<p style="color:#666;font-size:12px">Nenhum botão. Adicione uma música e corte ✂️</p>';return;}
+  d.innerHTML=lista.map(it=>`
+    <div class="item">
+      <div style="flex:1"><b>🎵 ${it.nome}</b> <span style="font-size:10px;color:#aaa">${it.dur}</span><br><audio controls src="${it.audio}" style="width:95%;height:28px;margin-top:4px"></audio></div>
+      <div style="display:flex;flex-direction:column">
+        <button class="iconBtn" style="background:#00C853" onclick="shareItem(${it.id})" title="Compartilhar">📤</button>
+        <button class="iconBtn" style="background:#2962FF" onclick="downloadItem(${it.id})" title="Baixar">⬇️</button>
+        <button class="iconBtn" style="background:#FF1744" onclick="del(${it.id})" title="Lixeira">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+function salvar(){localStorage.setItem('cortaV16',JSON.stringify(lista)); render();}
+function downloadItem(id){let it=lista.find(x=>x.id==id); let a=document.createElement('a'); a.href=it.audio; a.download=it.nome+'.wav'; a.click();}
+function del(id){if(confirm('🗑️ Apagar este botão/trecho?')){lista=lista.filter(x=>x.id!=id); salvar();}}
+function resetar(){if(confirm('🔄 RESETAR TUDO? Vai apagar todos os botões e trechos!')){localStorage.clear(); lista=[]; render(); alert('Resetado!');}}
+function exportarBackup(){
+  if(lista.length==0)return alert('Nada para backup');
+  let dataStr="data:text/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(lista));
+  let a=document.createElement('a'); a.href=dataStr; a.download='backup-corta-trecho-'+Date.now()+'.json'; a.click();
+  alert('💾 Backup exportado! Guarde esse arquivo.json');
+}
+function importarBackup(e){
+  let f=e.target.files[0]; if(!f)return; let r=new FileReader(); r.onload=()=>{try{let imp=JSON.parse(r.result); lista=imp.concat(lista); salvar(); alert('📥 Backup restaurado! '+imp.length+' itens');}catch{alert('Arquivo inválido');}}; r.readAsText(f);
+}
+// FUNÇÕES COMPARTILHAR IGUAL PLUTO.TV
+function getLink(){return window.location.href;}
+function convidar(){
+  let link=getLink(); let msg=`🎵 Olha esse app que fiz: CORTA TRECHO - Corte suas músicas! ✂️\n\nCorta refrão, faz toque, corta pregação!\n\nBaixa aqui: ${link}\n\nTe convidei pra usar também!`;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+function compartilharApp(){
+  let link=getLink();
+  if(navigator.share){ navigator.share({title:'CORTA TRECHO - Corte sua música',text:'Corta suas músicas e faz toques!',url:link}); }
+  else{ copiarLink(); }
+}
+function copiarLink(){
+  navigator.clipboard.writeText(getLink()).then(()=>alert('🔗 Link copiado! Cole no WhatsApp:\n'+getLink()));
+}
+function shareItem(id){
+  let it=lista.find(x=>x.id==id);
+  if(navigator.share){ navigator.share({title:it.nome, text:'Olha meu trecho cortado: '+it.nome}); }
+  else{ alert('📤 Para compartilhar o áudio, baixe e mande no WhatsApp: '+it.nome); downloadItem(id); }
+}
+function bufToWav(b){let l=b.length*2;let w=new ArrayBuffer(44+l);let v=new DataView(w);function ws(o,s){for(let i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i));}ws(0,'RIFF');v.setUint32(4,36+l,true);ws(8,'WAVE');ws(12,'fmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);v.setUint32(24,b.sampleRate,true);v.setUint32(28,b.sampleRate*2,true);v.setUint16(32,2,true);v.setUint16(34,16,true);ws(36,'data');v.setUint32(40,l,true);let o=44,c=b.getChannelData(0);for(let i=0;i<c.length;i++){let s=Math.max(-1,Math.min(1,c[i]));v.setInt16(o,s<0?s*0x8000:s*0x7FFF,true);o+=2;}return w;}
+</script>
+</body>
+</html>
