@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redes Sociais - Portal do Povo</title>
+<style>body{background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;margin:0}h2{color:#FFD700;text-align:center;margin:6px}.top{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin:8px 0}.top button{padding:8px 10px;border-radius:8px;border:none;font-size:11px;font-weight:800}.card{background:#151515;border:1px solid #2a2a2a;border-radius:14px;padding:10px;display:flex;align-items:center;gap:10px;margin:7px 0}.ico{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}.nome{flex:1}.nome b{font-size:14px}.nome small{color:#aaa;font-size:11px;display:block}.btns{display:flex;gap:4px;flex-wrap:wrap}.b{padding:6px 8px;border-radius:7px;border:none;font-size:11px;font-weight:800}.abrir{background:#222;color:#fff;border:1px solid #444}.inst{background:#0a7f2e;color:#fff}.comp{background:#222;color:#fff}.lixeira{background:#3a0f0f;color:#fff;margin-left:auto;padding:6px 9px;border-radius:7px;border:none}.foot button{width:100%;padding:11px;margin:4px 0;border-radius:8px;border:none}.voltar{background:#111;color:#FFD700;border:1px solid #FFD700!important}</style></head>
+<body>
+<h2>📱 REDES SOCIAIS - Portal do Povo</h2>
+<div class="top">
+<button onclick="sharePortal()" style="background:#0b5bd3;color:#fff">📤 Compartilhar Portal</button>
+<button onclick="convidar()" style="background:#0a7f2e;color:#fff">👥 Convidar</button>
+<button onclick="alert('No Chrome: 3 pontinhos > Instalar app')" style="background:#FFD700;color:#000">📲 Instalar</button>
+</div>
+<div id="lista"></div>
+<div class="foot">
+<button onclick="addRede()" style="background:#FFD700;color:#000">➕ ADICIONAR REDE</button>
+<button onclick="backup()" style="background:#222;color:#fff">💾 BACKUP (buckcap)</button>
+<button onclick="document.getElementById('rest').click()" style="background:#222;color:#fff">♻️ RESTAURAR</button><input type="file" id="rest" style="display:none" onchange="restaurar(event)">
+<button onclick="resetar()" style="background:#500;color:#fff">🗑️ RESETAR TUDO</button>
+<a href="index.html"><button class="voltar">◀️ VOLTAR PRO PORTAL</button></a>
+</div>
+<script>
+const padrao=[
+{n:'Facebook',pkg:'com.facebook.katana',play:'com.facebook.katana',ico:'📘',cor:'#1877f2',link:'https://facebook.com'},
+{n:'Instagram',pkg:'com.instagram.android',play:'com.instagram.android',ico:'📸',cor:'#e1306c',link:'https://instagram.com'},
+{n:'Twitter / X',pkg:'com.twitter.android',play:'com.twitter.android',ico:'🐦',cor:'#000',link:'https://x.com'},
+{n:'TikTok',pkg:'com.zhiliaoapp.musically',play:'com.zhiliaoapp.musically',ico:'🎵',cor:'#000',link:'https://tiktok.com'},
+{n:'Kwai',pkg:'com.kwai.video',play:'com.kwai.video',ico:'🧡',cor:'#ff5100',link:'https://kwai.com'},
+{n:'WhatsApp',pkg:'com.whatsapp',play:'com.whatsapp',ico:'💚',cor:'#25D366',link:'https://wa.me'},
+{n:'WhatsApp Business',pkg:'com.whatsapp.w4b',play:'com.whatsapp.w4b',ico:'💼',cor:'#25D366',link:'https://wa.me'},
+{n:'YouTube',pkg:'com.google.android.youtube',play:'com.google.android.youtube',ico:'▶️',cor:'#ff0000',link:'https://youtube.com'},
+{n:'Messenger',pkg:'com.facebook.orca',play:'com.facebook.orca',ico:'💬',cor:'#0084ff',link:'https://messenger.com'},
+{n:'Telegram',pkg:'org.telegram.messenger',play:'org.telegram.messenger',ico:'✈️',cor:'#0088cc',link:'https://telegram.org'},
+{n:'Snapchat',pkg:'com.snapchat.android',play:'com.snapchat.android',ico:'👻',cor:'#fffc00',link:'https://snapchat.com'},
+{n:'LinkedIn',pkg:'com.linkedin.android',play:'com.linkedin.android',ico:'💼',cor:'#0a66c2',link:'https://linkedin.com'},
+{n:'Pinterest',pkg:'com.pinterest',play:'com.pinterest',ico:'📌',cor:'#e60023',link:'https://pinterest.com'},
+{n:'Threads',pkg:'com.instagram.barcelona',play:'com.instagram.barcelona',ico:'🧵',cor:'#000',link:'https://threads.net'},
+{n:'Koo',pkg:'com.koo.app',play:'com.koo.app',ico:'🐤',cor:'#ffde00',link:'https://kooapp.com'}
+];
+let redes=JSON.parse(localStorage.getItem('redes_sociais_v2')||'null')||padrao;
+
+function render(){
+let d=document.getElementById('lista');d.innerHTML='';
+redes.forEach((r,i)=>{
+d.innerHTML+=`<div class="card"><div class="ico" style="background:${r.cor}22">${r.ico}</div><div class="nome"><b>${r.n}</b><small>${r.pkg}</small></div><div class="btns"><button class="b abrir" onclick="abrir(${i})">▶️ Abrir</button><button class="b inst" onclick="instalar(${i})">📲 INSTALAR</button><button class="b comp" onclick="compartilhar(${i})">📤</button></div><button class="lixeira" onclick="apagar(${i})">🗑️</button></div>`;
+});
+localStorage.setItem('redes_sociais_v2',JSON.stringify(redes));
+}
+function abrir(i){
+let pkg=redes[i].pkg;
+let intent=`intent://#Intent;package=${pkg};action=android.intent.action.VIEW;end`;
+let inicio=Date.now();
+window.location.href=intent;
+setTimeout(()=>{if(Date.now()-inicio<1500) instalar(i)},1200);
+}
+function instalar(i){
+let play=redes[i].play;
+window.location.href=`market://details?id=${play}`;
+setTimeout(()=>{window.open(`https://play.google.com/store/apps/details?id=${play}`,'_blank')},800);
+}
+function compartilhar(i){let l=`https://play.google.com/store/apps/details?id=${redes[i].play}`;if(navigator.share)navigator.share({title:redes[i].n,text:`Baixa ${redes[i].n}: ${l}`});else window.open(`https://wa.me/?text=${encodeURIComponent('Baixa '+redes[i].n+' '+l)}`)}
+function apagar(i){if(confirm(`Apagar ${redes[i].n}?`)){redes.splice(i,1);render()}}
+function addRede(){let n=prompt('Nome da rede:');if(!n)return;let pkg=prompt('ID Play Store / pacote (ex: com.facebook.katana):');if(!pkg)return;redes.push({n:n,pkg:pkg,play:pkg,ico:'📱',cor:'#333',link:''});render()}
+function backup(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(redes)],{type:'application/json'}));a.download='buckcap_redes_sociais.json';a.click()}
+function restaurar(e){let f=e.target.files[0];let r=new FileReader();r.onload=ev=>{redes=JSON.parse(ev.target.result);render()};r.readAsText(f)}
+function resetar(){if(confirm('Voltar padrão?')){redes=[...padrao];render()}}
+function sharePortal(){let u=location.href;if(navigator.share)navigator.share({title:'Portal do Povo',url:u});else window.open('https://wa.me/?text='+encodeURIComponent(u))}
+function convidar(){window.open('https://wa.me/?text='+encodeURIComponent('Veja meu Portal do Povo com redes sociais: '+location.href))}
+render();
+</script></body></html>
