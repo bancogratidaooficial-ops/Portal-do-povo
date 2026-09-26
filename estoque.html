@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controle de Estoque</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;padding-bottom:80px}
+header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-radius:12px;border:1px solid #ffcc00;margin-bottom:10px}
+header a{color:#ffcc00;text-decoration:none;font-weight:bold}
+.box{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:10px}
+input{width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#000;color:#fff;margin:4px 0}
+.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px}
+.btn{width:100%;padding:12px;border-radius:10px;border:none;font-weight:bold;margin-top:6px}
+.item{background:#1e1e1e;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #00ff88}
+.item.baixo{border-left-color:#ff4444;background:#2a1a1a}
+.topInfo{display:flex;justify-content:space-around;text-align:center;color:#ffcc00;font-weight:bold}
+.qtdBtns{display:flex;gap:4px;align-items:center}
+.qtdBtns button{width:32px;height:32px;border-radius:6px;border:none;font-weight:bold;font-size:18px}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html">⬅️ Voltar</a>
+<h3 style="margin:0">📦 Estoque</h3>
+<button onclick="exportar()" style="background:#00ff88;border:none;padding:6px 10px;border-radius:8px;font-weight:bold">📤 Planilha</button>
+</header>
+
+<div class="box">
+<div class="topInfo"><div>Itens: <span id="totalItens">0</span></div><div>Valor: R$ <span id="valorTotal">0.00</span></div><div>Baixo: <span id="baixo" style="color:#ff4444">0</span></div></div>
+</div>
+
+<div class="box">
+<div class="grid3">
+<input id="nome" placeholder="Produto ex: Óleo 10W30">
+<input id="qtd" type="number" placeholder="Qtd">
+<input id="min" type="number" placeholder="Mín">
+</div>
+<div class="grid3">
+<input id="preco" type="number" placeholder="Preço R$">
+<input id="local" placeholder="Local/Gaveta">
+<button class="btn" style="background:#ffcc00;margin:0" onclick="add()">+ ADD</button>
+</div>
+<input id="busca" placeholder="🔍 Buscar produto..." oninput="render()" style="margin-top:8px">
+</div>
+
+<div class="box" id="lista"></div>
+
+<script>
+let estoque = JSON.parse(localStorage.getItem('estoque_v2')||'[]');
+
+function add(){
+ let nome=document.getElementById('nome').value.trim();
+ let qtd=parseInt(document.getElementById('qtd').value)||0;
+ let min=parseInt(document.getElementById('min').value)||2;
+ let preco=parseFloat(document.getElementById('preco').value)||0;
+ let local=document.getElementById('local').value.trim();
+ if(!nome||qtd<0){alert('Digite nome e quantidade');return}
+ estoque.unshift({id:Date.now(),nome,qtd,min,preco,local});
+ salvar();
+ document.getElementById('nome').value='';document.getElementById('qtd').value='';document.getElementById('min').value='';document.getElementById('preco').value='';document.getElementById('local').value='';
+}
+
+function alterar(id,delta){
+ let p=estoque.find(x=>x.id==id);
+ if(!p)return;
+ p.qtd+=delta;
+ if(p.qtd<0)p.qtd=0;
+ salvar();
+}
+
+function del(id){
+ if(confirm('Apagar produto do estoque? 🗑️')){
+   estoque=estoque.filter(x=>x.id!=id);
+   salvar();
+ }
+}
+
+function salvar(){
+ localStorage.setItem('estoque_v2',JSON.stringify(estoque));
+ render();
+}
+
+function render(){
+ let busca=document.getElementById('busca').value.toUpperCase();
+ let filtrados=estoque.filter(p=>p.nome.toUpperCase().includes(busca));
+ let totItens=0; let valor=0; let baixo=0;
+ let html='';
+ filtrados.forEach(p=>{
+   totItens+=p.qtd;
+   valor+=p.qtd*p.preco;
+   if(p.qtd<=p.min)baixo++;
+   let classe=p.qtd<=p.min?'item baixo':'item';
+   html+=`<div class="${classe}"><div style="flex:1"><b>${p.nome}</b> ${p.qtd<=p.min?'⚠️':''}<br><small>${p.local||'Sem local'} | Mín: ${p.min} | R$ ${p.preco.toFixed(2)} | Total: R$ ${(p.qtd*p.preco).toFixed(2)}</small></div>
+   <div class="qtdBtns"><button onclick="alterar(${p.id},-1)" style="background:#ff4444;color:#fff">-</button><span style="min-width:30px;text-align:center;font-weight:bold">${p.qtd}</span><button onclick="alterar(${p.id},1)" style="background:#00ff88">+</button><button onclick="del(${p.id})" style="background:#222;color:#fff;margin-left:4px">🗑️</button></div></div>`;
+ });
+ document.getElementById('lista').innerHTML=html||'<small style="opacity:.5">Nenhum produto</small>';
+ document.getElementById('totalItens').innerText=totItens;
+ document.getElementById('valorTotal').innerText=valor.toFixed(2);
+ document.getElementById('baixo').innerText=baixo;
+}
+
+function exportar(){
+ let csv="Produto,Qtd,Min,Preco,Total,Local\n";
+ estoque.forEach(p=>{csv+=`${p.nome},${p.qtd},${p.min},${p.preco},${(p.qtd*p.preco).toFixed(2)},${p.local}\n`});
+ let blob=new Blob([csv],{type:'text/csv'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='estoque.csv';a.click();
+}
+render();
+</script>
+</body>
+</html>
