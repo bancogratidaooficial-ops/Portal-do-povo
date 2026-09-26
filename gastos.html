@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G GRATIDÃO V86 GASTOS</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffcc00">
+<link rel="apple-touch-icon" href="icon-192.png">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0a0a0a;color:#fff;padding:15px}
+h1{text-align:center;color:#ffcc00;margin:10px 0}
+.cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:15px 0}
+.card{background:#1a1a1a;border-radius:12px;padding:10px;text-align:center;border:1px solid #333}
+.entrada{color:#00ff88}.saida{color:#ff4444}.saldo{color:#ffcc00}
+.box{background:#1a1a1a;border-radius:12px;padding:15px;margin:15px 0;border:1px solid #333}
+input,select,button{width:100%;padding:14px;border-radius:10px;border:none;margin:7px 0;font-size:16px}
+input,select{background:#2a2a2a;color:#fff;border:1px solid #555}
+button{background:#ffcc00;color:#000;font-weight:bold}
+.export{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0 10px 0}
+.export button{background:#333;color:#fff;border:1px solid #555}
+.ad-box{background:#111;border:1px solid #222;border-radius:10px;padding:5px;margin:15px 0;min-height:90px;display:flex;align-items:center;justify-content:center}
+.footer{margin:30px 0 90px 0;text-align:center}
+.footer a{color:#666;font-size:12px;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+<h1>G GRATIDÃO V86 GASTOS</h1>
+<div class="cards">
+<div class="card"><b>ENTRADAS</b><span class="entrada" id="totalEntrada">R$ 0</span></div>
+<div class="card"><b>SAÍDAS</b><span class="saida" id="totalSaida">R$ 0</span></div>
+<div class="card"><b>SALDO</b><span class="saldo" id="totalSaldo">R$ 0</span></div>
+</div>
+<div class="box">
+<h3>+ Novo Lançamento</h3>
+<select id="tipo"><option value="saida">SAÍDA - Gastei</option><option value="entrada">ENTRADA - Recebi</option></select>
+<input id="desc" placeholder="O que foi?">
+<input id="valor" type="number" step="0.01" placeholder="Valor R$">
+<select id="cat" onchange="checkCat()"></select>
+<div id="novaCatBox" style="display:none"><input id="novaCat" placeholder="Nova categoria"><button onclick="addCat()" style="background:#555;color:#fff">Adicionar</button></div>
+<button onclick="add()">SALVAR LANÇAMENTO</button>
+</div>
+<div class="ad-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="box"><h3>📊 Onde tô gastando mais?</h3><canvas id="grafico" height="200"></canvas></div>
+<div class="ad-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="box"><h3>📋 Planilha</h3><div id="lista"></div></div>
+<div class="export"><button onclick="exportCSV()">📊 Exportar</button><button onclick="limpar()">🗑️ Zerar Mês</button></div>
+<div class="footer"><a href="privacidade.html">Política de Privacidade</a> <a href="termos.html">Termos de Uso</a></div>
+<script>
+let dados=JSON.parse(localStorage.getItem('v86gastos_v2')||'[]');let cats=JSON.parse(localStorage.getItem('v86cats')||'null')||["Mercado","Farmácia","Combustível","Aluguel","Alimentação","Transporte","Luz/Água/Internet","Lazer","Saúde","Trabalho"];let chart;
+function salvar(){localStorage.setItem('v86gastos_v2',JSON.stringify(dados));localStorage.setItem('v86cats',JSON.stringify(cats));render();}
+function checkCat(){document.getElementById('novaCatBox').style.display=document.getElementById('cat').value==='__outro'?'block':'none';}
+function addCat(){let n=document.getElementById('novaCat').value.trim();if(!n)return;if(!cats.includes(n))cats.push(n);document.getElementById('novaCat').value='';document.getElementById('novaCatBox').style.display='none';render();}
+function renderCats(){let sel=document.getElementById('cat');sel.innerHTML='';cats.forEach(c=>{sel.innerHTML+=`<option value="${c}">${c}</option>`});sel.innerHTML+=`<option value="__outro">+ Adicionar outro...</option>`;}
+function add(){let d=document.getElementById('desc').value.trim();let v=parseFloat(document.getElementById('valor').value);let t=document.getElementById('tipo').value;let c=document.getElementById('cat').value;if(c==='__outro'){alert('Crie a categoria');return;}if(!d||isNaN(v)){alert('Preencha tudo!');return;}dados.unshift({id:Date.now(),desc:d,valor:v,tipo:t,cat:c,data:new Date().toLocaleDateString('pt-BR')});document.getElementById('desc').value='';document.getElementById('valor').value='';salvar();}
+function del(id){if(confirm('Excluir?')){dados=dados.filter(x=>x.id!==id);salvar();}}
+function render(){let e=0,s=0;let html='';let porCat={};dados.forEach(x=>{if(x.tipo==='entrada')e+=x.valor;else{s+=x.valor;porCat[x.cat]=(porCat[x.cat]||0)+x.valor;}html+=`<div style="display:flex;justify-content:space-between;padding:12px 5px;border-bottom:1px solid #222"><div><b>${x.desc}</b><br><small>${x.data} • ${x.cat}</small></div><div style="text-align:right"><span style="padding:4px 8px;border-radius:20px;font-size:12px;background:${x.tipo==='entrada'?'#00ff8822':'#ff444422'};color:${x.tipo==='entrada'?'#00ff88':'#ff4444'}">${x.tipo==='entrada'?'+':'-'} R$ ${x.valor.toFixed(2)}</span><br><small onclick="del(${x.id})" style="color:#ff4444">excluir</small></div></div>`;});document.getElementById('totalEntrada').innerText='R$ '+e.toFixed(2);document.getElementById('totalSaida').innerText='R$ '+s.toFixed(2);document.getElementById('totalSaldo').innerText='R$ '+(e-s).toFixed(2);document.getElementById('lista').innerHTML=html||'<p style="text-align:center;color:#666;padding:15px">Nada ainda</p>';let labels=Object.keys(porCat);let valores=Object.values(porCat);let ctx=document.getElementById('grafico').getContext('2d');if(chart)chart.destroy();if(labels.length===0){ctx.clearRect(0,0,300,200);ctx.fillStyle='#666';ctx.textAlign='center';ctx.fillText('Adicione gastos',150,100);return;}chart=new Chart(ctx,{type:'doughnut',data:{labels:labels,datasets:[{data:valores,backgroundColor:['#ffcc00','#ff4444','#00ff88','#4488ff','#ff88cc','#88ffcc']}]},options:{plugins:{legend:{labels:{color:'#fff'}}}}});}
+function exportCSV(){if(!dados.length){alert('Nada');return;}let csv='Data,Descricao,Tipo,Categoria,Valor\n';dados.forEach(x=>{csv+=`${x.data},"${x.desc}",${x.tipo},${x.cat},${x.valor}\n`;});let blob=new Blob([csv],{type:'text/csv'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='v86-gastos.csv';a.click();}
+function limpar(){if(confirm('Zerar tudo?')){dados=[];salvar();}}
+renderCats();render();
+let deferredPrompt;window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;let btn=document.createElement('button');btn.innerText='📲 INSTALAR APP';btn.style.cssText='position:fixed;bottom:10px;left:10px;right:10px;z-index:9999;background:#ffcc00;color:#000;padding:16px;border-radius:12px;font-weight:bold;border:none;';btn.onclick=()=>{deferredPrompt.prompt();};document.body.appendChild(btn);});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
+</script>
+<!-- INÍCIO BLOCO COMPARTILHAR V86 - PODE COLAR SEM MEDO -->
+<!-- BOTÃO INSTALAR DIRETO -->
+<button id="btnInstalar" style="display:none; width: calc(100% - 30px); margin: 0 15px 10px 15px; padding: 14px; background: #ffcc00; color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px;">
+  📲 Instalar App no Celular
+</button>
+
+<script>
+let appParaInstalar = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  appParaInstalar = e;
+  document.getElementById('btnInstalar').style.display = 'block';
+});
+document.getElementById('btnInstalar').addEventListener('click', async () => {
+  if (!appParaInstalar) return;
+  appParaInstalar.prompt();
+  const escolha = await appParaInstalar.userChoice;
+  if (escolha.outcome === 'accepted') {
+    document.getElementById('btnInstalar').style.display = 'none';
+  }
+  appParaInstalar = null;
+});
+</script>
+<!-- FIM BOTÃO INSTALAR -->
+<div style="margin: 30px 15px; padding: 20px; background: #1a1a1a; border-radius: 15px; border: 1px solid #ffcc00; text-align: center;">
+  <h3 style="color: #ffcc00; margin-bottom: 10px;">💛 Gostou do controle?</h3>
+  <p style="color: #fff; font-size: 14px; margin-bottom: 15px;">Tenha controle dos seus gastos! Use este aplicativo e não fique desorganizado.</p>
+  
+  <button onclick="compartilharApp()" style="width: 100%; padding: 12px; background: #25D366; color: #fff; border: none; border-radius: 10px; font-weight: bold; font-size: 16px; margin-bottom: 10px;">
+    📲 Compartilhar no WhatsApp
+  </button>
+  
+  <button onclick="convidarAmigo()" style="width: 100%; padding: 12px; background: #ffcc00; color: #000; border: none; border-radius: 10px; font-weight: bold; font-size: 16px;">
+    🎁 Convidar um Amigo
+  </button>
+</div>
+
+<script>
+function compartilharApp(){
+  const texto = "Tenha controle em seus gastos! Use este aplicativo e não fique desorganizado: " + window.location.href;
+  const url = "https://wa.me/?text=" + encodeURIComponent(texto);
+  window.open(url, '_blank');
+}
+function convidarAmigo(){
+  if(navigator.share){
+    navigator.share({
+      title: 'V86 GASTOS',
+      text: 'Tenha controle em seus gastos! Use este aplicativo e não fique desorganizado.',
+      url: window.location.href
+    });
+  } else {
+    compartilharApp();
+  }
+}
+</script>
+<!-- FIM BLOCO COMPARTILHAR -->
+</body>
+</html>
