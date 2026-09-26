@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mercado - Carrinho</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;padding-bottom:20px}
+header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-radius:14px;border:2px solid #ffcc00;margin-bottom:10px}
+header a{color:#ffcc00;text-decoration:none;font-weight:bold}
+.totalBox{background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000;border-radius:14px;padding:14px;text-align:center;margin-bottom:10px}
+.totalBox b{font-size:36px;display:block}
+.box{background:#111;border:1px solid #222;border-radius:12px;padding:10px;margin-bottom:10px}
+input{padding:14px;border-radius:10px;border:1px solid #333;background:#000;color:#fff}
+.grid{display:grid;grid-template-columns:2fr 1fr 70px;gap:6px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.btn{padding:14px;border-radius:10px;border:none;font-weight:bold;width:100%}
+.item{background:#1e1e1e;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #ffcc00}
+.qtdCtrl{display:flex;gap:6px;align-items:center}
+.qtdCtrl button{width:36px;height:36px;border-radius:8px;border:none;font-weight:bold;font-size:18px}
+</style>
+</head>
+<body>
+<header>
+<a href="index.html">⬅️ Voltar</a>
+<h3 style="margin:0">🛒 MERCADO</h3>
+<button onclick="limpar()" style="background:#ff4444;color:#fff;border:none;padding:8px 10px;border-radius:8px;font-weight:bold">🗑️ Limpar</button>
+</header>
+
+<div class="totalBox">
+<small>🛒 TOTAL NO CAIXA</small>
+<b>R$ <span id="total">0.00</span></b>
+<span id="qtdInfo">0 itens no carrinho</span>
+</div>
+
+<div class="box">
+<div class="grid">
+<input id="nome" placeholder="Produto ex: Arroz" style="text-transform:capitalize">
+<input id="preco" type="number" inputmode="decimal" placeholder="Preço R$" step="0.01">
+<button class="btn" style="background:#ffcc00" onclick="add()">+ ADD</button>
+</div>
+<div class="grid2">
+<input id="qtd" type="number" value="1" min="1" placeholder="Qtd">
+<input id="busca" placeholder="🔍 Buscar no carrinho" oninput="render()">
+</div>
+</div>
+
+<div class="box" id="lista"></div>
+
+<div class="box" style="text-align:center">
+<button class="btn" style="background:#00ff88" onclick="compartilhar()">📤 Compartilhar total</button>
+<small style="opacity:.5;display:block;margin-top:6px">Dica: clica no preço pra editar rápido</small>
+</div>
+
+<script>
+let carrinho = JSON.parse(localStorage.getItem('mercado_carrinho')||'[]');
+
+function add(){
+ let nome=document.getElementById('nome').value.trim();
+ let preco=parseFloat(document.getElementById('preco').value);
+ let qtd=parseInt(document.getElementById('qtd').value)||1;
+ if(!nome||!preco){alert('Digite nome e preço');return}
+ carrinho.unshift({id:Date.now(),nome,preco,qtd});
+ salvar();
+ document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('qtd').value='1';
+ document.getElementById('nome').focus();
+}
+
+function salvar(){localStorage.setItem('mercado_carrinho',JSON.stringify(carrinho));render();}
+
+function alterar(id,delta){
+ let p=carrinho.find(x=>x.id==id);
+ p.qtd+=delta;
+ if(p.qtd<=0)p.qtd=1;
+ salvar();
+}
+
+function del(id){
+ if(confirm('Devolver produto pro mercado? 🗑️')){
+   carrinho=carrinho.filter(x=>x.id!=id);
+   salvar();
+ }
+}
+
+function editarPreco(id){
+ let p=carrinho.find(x=>x.id==id);
+ let novo=prompt(`Editar preço de ${p.nome}`,p.preco);
+ if(novo){p.preco=parseFloat(novo);salvar();}
+}
+
+function render(){
+ let busca=(document.getElementById('busca').value||'').toUpperCase();
+ let filtrados=carrinho.filter(c=>c.nome.toUpperCase().includes(busca));
+ let total=0, itens=0;
+ let html='';
+ filtrados.forEach(c=>{
+   let sub=c.preco*c.qtd;
+   total+=sub; itens+=c.qtd;
+   html+=`<div class="item"><div style="flex:1"><b>${c.nome}</b><br><small onclick="editarPreco(${c.id})" style="color:#ffcc00">R$ ${c.preco.toFixed(2)} x ${c.qtd} = <b>R$ ${sub.toFixed(2)}</b> ✏️</small></div>
+   <div class="qtdCtrl"><button onclick="alterar(${c.id},-1)" style="background:#ff4444;color:#fff">-</button><b>${c.qtd}</b><button onclick="alterar(${c.id},1)" style="background:#00ff88">+</button><button onclick="del(${c.id})" style="background:#222;margin-left:4px">🗑️</button></div></div>`;
+ });
+ // total real de tudo (não só do filtro)
+ let totalReal=0, itensReal=0;
+ carrinho.forEach(c=>{totalReal+=c.preco*c.qtd; itensReal+=c.qtd;});
+ document.getElementById('lista').innerHTML=html||'<center style="opacity:.4;padding:10px">Carrinho vazio - começa a adicionar 🛒</center>';
+ document.getElementById('total').innerText=totalReal.toFixed(2);
+ document.getElementById('qtdInfo').innerText=`${itensReal} itens | ${carrinho.length} produtos`;
+}
+
+function limpar(){if(confirm('Limpar carrinho todo? Zera tudo pra nova compra.')){carrinho=[];salvar();}}
+
+function compartilhar(){
+ let texto=`🛒 MEU CARRINHO - MERCADO\n\n`;
+ let total=0;
+ carrinho.forEach(c=>{let sub=c.preco*c.qtd;total+=sub; texto+=`• ${c.nome} - ${c.qtd}x R$ ${c.preco.toFixed(2)} = R$ ${sub.toFixed(2)}\n`;});
+ texto+=`\nTOTAL: R$ ${total.toFixed(2)} - ${carrinho.length} produtos`;
+ if(navigator.share){navigator.share({text:texto})}else{prompt('Copia:',texto)}
+}
+
+document.getElementById('preco').addEventListener('keydown',e=>{if(e.key==='Enter')add();});
+document.getElementById('nome').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('preco').focus();});
+
+render();
+</script>
+</body>
+</html>
