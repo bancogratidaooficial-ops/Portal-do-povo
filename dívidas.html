@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Controle de Dívidas</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icone-marcos.png">
+<meta name="theme-color" content="#ffcc00">
+<style>
+body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:12px}
+h1{color:#ffcc00;text-align:center;margin:8px 0 2px}
+.sub{text-align:center;color:#aaa;margin-bottom:10px;font-size:12px}
+.cards{display:flex;gap:6px;margin-bottom:10px}
+.card{flex:1;background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:8px;text-align:center;font-size:13px}
+.saldo{color:#ffcc00;font-size:20px;font-weight:bold}
+.entradas{color:#00ff88;font-size:20px;font-weight:bold}
+.saidas{color:#ff4444;font-size:20px;font-weight:bold}
+.box{background:#151515;border:1px solid #333;border-radius:14px;padding:10px;margin-bottom:10px}
+input,select{width:100%;background:#2a2a2a;border:1px solid #444;color:#fff;padding:12px;border-radius:10px;margin:5px 0;box-sizing:border-box}
+.btn{border:none;width:100%;padding:14px;border-radius:10px;font-weight:bold;margin-top:5px}
+.btn-yellow{background:#ffcc00;color:#000}
+.btn-red{background:#ff4444;color:#fff}
+.btn-green{background:#00c853;color:#fff}
+.devedor{padding:10px;border-radius:10px;margin:5px 0;background:#222;border:1px solid #333;display:flex;justify-content:space-between}
+.devedor.ativo{border-color:#ffcc00;background:#332e00}
+.item{background:#222;padding:9px;border-radius:8px;margin:5px 0;display:flex;justify-content:space-between;border-left:4px solid #ffcc00;font-size:14px}
+</style>
+</head>
+<body>
+<h1>📋 CONTROLE DE DÍVIDAS</h1>
+<div class="sub">Banco Gratidão</div>
+
+<div class="box">
+<input id="novoDevedor" placeholder="Nome do devedor...">
+<button class="btn btn-yellow" onclick="addDevedor()">+ ADICIONAR DEVEDOR</button>
+<div id="listaDevedores"></div>
+</div>
+
+<div id="areaControle" style="display:none">
+<div class="cards">
+<div class="card">TOTAL<br><div id="totalDivida" class="saldo">0.00</div></div>
+<div class="card">RECEBIDO<br><div id="totalRecebido" class="entradas">0.00</div></div>
+<div class="card">FALTA<br><div id="totalFalta" class="saidas">0.00</div></div>
+</div>
+
+<div class="box">
+<b id="tituloDev"></b>
+<select id="tipo" onchange="trocaTipo()">
+<option value="divida">➕ ADICIONAR DÍVIDA - O que ele deve</option>
+<option value="recebido">✅ RECEBI - Pagamento</option>
+</select>
+<input id="desc" placeholder="O que foi? Ex: empréstimo, produto...">
+<input id="valor" type="number" placeholder="Valor R$">
+<input id="data" type="date">
+<button class="btn btn-red" id="btnSalvar" onclick="salvar()">➕ ADICIONAR NA DÍVIDA</button>
+</div>
+<div class="box" id="lista"></div>
+</div>
+
+<script>
+let db=JSON.parse(localStorage.getItem('controleDividasPRO2')||'{"devedores":[],"atual":null}');
+function addDevedor(){let n=novoDevedor.value.trim();if(!n)return;if(!db.devedores.find(d=>d.nome==n))db.devedores.push({nome:n,lancs:[]});db.atual=n;novoDevedor.value='';save();renderDev()}
+function selectDev(n){db.atual=n;save();renderDev()}
+function delDev(n){if(confirm('Apagar '+n+'?')){db.devedores=db.devedores.filter(d=>d.nome!=n);if(db.atual==n)db.atual=null;save();renderDev()}}
+function save(){localStorage.setItem('controleDividasPRO2',JSON.stringify(db))}
+function trocaTipo(){if(tipo.value=='divida'){btnSalvar.className='btn btn-red';btnSalvar.innerText='➕ ADICIONAR NA DÍVIDA'}else{btnSalvar.className='btn btn-green';btnSalvar.innerText='✅ SALVAR RECEBIMENTO'}}
+function renderDev(){listaDevedores.innerHTML='';db.devedores.forEach(d=>{let a=db.atual==d.nome?'ativo':'';let t=d.lancs.filter(l=>l.tipo=='divida').reduce((s,x)=>s+x.valor,0);let r=d.lancs.filter(l=>l.tipo=='recebido').reduce((s,x)=>s+x.valor,0);listaDevedores.innerHTML+=`<div class="devedor ${a}" onclick="selectDev('${d.nome}')"><div><b>${d.nome}</b><br><small>Falta R$ ${(t-r).toFixed(2)}</small></div><button onclick="event.stopPropagation();delDev('${d.nome}')" style="background:none;border:none;color:#f44">X</button></div>`});if(db.atual){areaControle.style.display='block';tituloDev.innerText='DÍVIDA - '+db.atual;if(!data.value)data.valueAsDate=new Date();renderLanc()}else areaControle.style.display='none';trocaTipo()}
+function salvar(){let d=db.devedores.find(x=>x.nome==db.atual);let v=parseFloat(valor.value);if(!v)return alert('Coloca o valor');d.lancs.unshift({tipo:tipo.value,desc:desc.value|| (tipo.value=='divida'?'Dívida':'Pagamento'),valor:v,data:data.value||new Date().toLocaleDateString()});valor.value='';desc.value='';save();renderLanc()}
+function excluir(i){db.devedores.find(x=>x.nome==db.atual).lancs.splice(i,1);save();renderLanc()}
+function renderLanc(){let d=db.devedores.find(x=>x.nome==db.atual);let rec=0,adi=0;lista.innerHTML='';d.lancs.forEach((l,i)=>{if(l.tipo=='recebido')rec+=l.valor;else adi+=l.valor;let cor=l.tipo=='recebido'?'#00ff88':'#ff4444';lista.innerHTML+=`<div class="item" style="border-left-color:${cor}"><div><b style="color:${cor}">R$ ${l.valor.toFixed(2)}</b> - ${l.desc}<br><small style="color:#888">${l.data}</small></div><button onclick="excluir(${i})" style="background:#333;border:none;color:#f44;padding:5px 10px;border-radius:6px">X</button></div>`});totalDivida.innerText=adi.toFixed(2);totalRecebido.innerText=rec.toFixed(2);totalFalta.innerText=(adi-rec).toFixed(2)}
+renderDev()
+</script>
+</body>
+</html>
