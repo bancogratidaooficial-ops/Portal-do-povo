@@ -1,118 +1,115 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pátio - PRO</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0a0a0a;color:#fff;padding:10px}
-.top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px}
-.box{background:#151515;border:1px solid #222;border-radius:12px;padding:10px;text-align:center}
-.box b{color:#ffcc00;font-size:18px;display:block}
-.box small{color:#888;font-size:10px}
-.search{width:100%;background:#151515;border:1px solid #333;border-radius:10px;padding:12px;color:#fff;margin-bottom:10px}
-.entry{background:#111;border:2px solid #ffcc00;border-radius:12px;padding:12px;margin-bottom:12px}
-.entry input{width:100%;padding:12px;background:#000;border:1px solid #333;border-radius:8px;color:#fff;text-transform:uppercase;font-weight:900;letter-spacing:1px}
-.btn{width:100%;padding:12px;border:none;border-radius:8px;font-weight:900;margin-top:8px}
-.btn-cam{background:#ffcc00;color:#000}
-.btn-add{background:#00c853;color:#fff}
-.list{background:#111;border-radius:16px;padding:8px}
-.item{background:#1a1a1a;border-radius:10px;padding:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.item b{font-size:16px;letter-spacing:1px}
-.item small{color:#aaa;font-size:11px}
-.btn-sair{background:#ff2222;color:#fff;border:none;padding:10px 18px;border-radius:20px;font-weight:900;font-size:12px}
-#video{width:100%;border-radius:10px;display:none;margin-top:8px}
-</style>
-</head>
-<body>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pátio FIX</title>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#0a0a0a;color:#fff;padding:10px}
+.top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:10px}
+.box{background:#151515;border:1px solid #222;border-radius:10px;padding:8px;text-align:center}
+.box b{color:#ffcc00;font-size:16px;display:block}.box small{color:#888;font-size:9px}
+.search{width:100%;background:#000;border:1px solid #ffcc00;border-radius:10px;padding:12px;color:#ffcc00;margin-bottom:8px}
+.entry{background:#111;border:2px solid #ffcc00;border-radius:12px;padding:10px;margin-bottom:10px}
+.entry input{width:100%;padding:14px;background:#000;border:1px solid #444;border-radius:8px;color:#fff;text-transform:uppercase;font-weight:900;font-size:16px;letter-spacing:1px}
+.btn{width:100%;padding:14px;border:none;border-radius:8px;font-weight:900;margin-top:8px;font-size:14px}
+.btn-cam{background:#ffcc00;color:#000}.btn-add{background:#00c853;color:#fff}
+#video{width:100%;border-radius:10px;display:none;margin-top:8px;border:2px solid #ffcc00}
+.list{background:#111;border-radius:12px;padding:8px;min-height:100px}
+.item{background:#1a1a1a;border-radius:10px;padding:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;border-left:4px solid #ffcc00}
+#status{color:#ffcc00;text-align:center;font-size:12px;margin:6px;display:none}
+</style></head><body>
 
 <div class="top">
-<div class="box"><small>PÁTIO</small><b id="qtd">0 carros</b></div>
-<div class="box"><small>FATURADO HOJE</small><b id="fat" style="color:#00e676">R$ 0</b></div>
+<div class="box"><small>PÁTIO</small><b id="qtd">0</b></div>
+<div class="box"><small>FATURADO</small><b id="fat" style="color:#00e676">R$0</b></div>
 <div class="box"><small>SAÍDAS</small><b id="saidas">0</b></div>
 </div>
 
-<input id="busca" class="search" placeholder="🔍 Buscar placa... ex: BAV">
+<input id="busca" class="search" placeholder="🔍 BUSCAR PLACA NO PÁTIO (ex: BAY4028)" oninput="render()">
 
 <div class="entry">
-<input id="placa" placeholder="PLACA - EX: BAV4O28">
+<label style="font-size:10px;color:#888">DIGITE A PLACA NOVA AQUI:</label>
+<input id="placa" placeholder="EX: BAV4O28" maxlength="7">
 <video id="video" autoplay playsinline></video>
-<button class="btn btn-cam" onclick="abrirCam()">📷 LER PLACA PELA CÂMERA</button>
-<button id="btnCap" class="btn btn-cam" style="display:none;background:#fff;color:#000" onclick="capturar()">📸 CAPTURAR</button>
-<button class="btn btn-add" onclick="add()">+ ENTRADA - R$10/18/40/50</button>
+<canvas id="canvas" style="display:none"></canvas>
+<p id="status">🔍 Lendo placa...</p>
+<button class="btn btn-cam" onclick="abrirCam()">📷 ABRIR CÂMERA</button>
+<button id="btnCap" class="btn" style="display:none;background:#fff;color:#000" onclick="capturar()">📸 LER PLACA AGORA</button>
+<button class="btn btn-add" onclick="add()">+ ADICIONAR ENTRADA - R$10/18/40/50</button>
 </div>
 
 <div class="list" id="lista"></div>
-<button class="btn" style="background:#222;color:#aaa;margin-top:12px" onclick="fecharCaixa()">📊 FECHAMENTO DE CAIXA / GERAR RELATÓRIO</button>
 
 <script>
-let carros=JSON.parse(localStorage.getItem('patio')||'[]');
-let hist=JSON.parse(localStorage.getItem('hist')||'[]');
+let carros=JSON.parse(localStorage.getItem('patio_fix_v3')||'[]');
+let hist=JSON.parse(localStorage.getItem('hist_fix_v3')||'[]');
 let stream=null;
 
-function calcValor(diffMin){
- if(diffMin<=30) return 10;
- if(diffMin<=60) return 18;
- if(diffMin<=720) return 40;
- return 50;
+function salvar(){
+ localStorage.setItem('patio_fix_v3',JSON.stringify(carros));
+ localStorage.setItem('hist_fix_v3',JSON.stringify(hist));
+ render();
 }
-function salvar(){localStorage.setItem('patio',JSON.stringify(carros));localStorage.setItem('hist',JSON.stringify(hist)); render()}
 function add(){
- let p=document.getElementById('placa').value.toUpperCase().trim().replace('-','');
- if(p.length<7) return alert('Placa inválida');
+ let p=document.getElementById('placa').value.toUpperCase().trim().replace(/[^A-Z0-9]/g,'');
+ if(p.length<7){alert('Digite a placa no campo de BAIXO, com 7 letras/números.\nEx: BAY4028');return;}
+ if(carros.some(c=>c.placa===p)){alert('Essa placa já está no pátio!');return;}
  carros.unshift({placa:p,entrada:Date.now()});
- document.getElementById('placa').value=''; salvar();
+ document.getElementById('placa').value='';
+ salvar();
 }
 function render(){
- let busca=document.getElementById('busca').value.toUpperCase();
+ let busca=(document.getElementById('busca').value||'').toUpperCase();
  let filtrados=carros.filter(c=>c.placa.includes(busca));
  let html='';
- filtrados.forEach((c,i)=>{
-   let idx=carros.indexOf(c);
+ filtrados.forEach((c)=>{
+   let realIdx=carros.indexOf(c);
    let diff=Math.floor((Date.now()-c.entrada)/60000);
-   let tempo=diff<60?diff+' min':Math.floor(diff/60)+'h '+diff%60+'min';
+   let tempo=diff<60?diff+' min':Math.floor(diff/60)+'h '+(diff%60)+'m';
    let data=new Date(c.entrada).toLocaleString('pt-BR');
-   html+=`<div class="item"><div><b>${c.placa}</b><br><small>${data} • ${tempo}</small></div><button class="btn-sair" onclick="sair(${idx})">SAÍDA R$</button></div>`;
+   html+=`<div class="item"><div><b style="letter-spacing:1px">${c.placa}</b><br><small>${data} • ${tempo}</small></div><button onclick="sair(${realIdx})" style="background:#ff2222;color:#fff;border:none;padding:10px 16px;border-radius:20px;font-weight:900">SAÍDA</button></div>`;
  });
- document.getElementById('lista').innerHTML=html||'<p style="text-align:center;color:#555;padding:20px">Pátio vazio</p>';
+ document.getElementById('lista').innerHTML=html||'<p style="text-align:center;color:#555;padding:20px">Pátio vazio - adicione uma placa abaixo</p>';
  document.getElementById('qtd').innerText=carros.length+' carros';
  document.getElementById('saidas').innerText=hist.length;
- let total=hist.reduce((s,h)=>s+h.valor,0);
- document.getElementById('fat').innerText='R$ '+total;
+ document.getElementById('fat').innerText='R$ '+hist.reduce((s,h)=>s+h.valor,0);
 }
 function sair(i){
  let c=carros[i];
  let diff=Math.floor((Date.now()-c.entrada)/60000);
- let valor=calcValor(diff);
+ let valor=diff<=30?10:diff<=60?18:diff<=720?40:50;
  if(confirm(`${c.placa}\nTempo: ${diff} min\nValor: R$ ${valor}\n\nConfirmar saída?`)){
-   hist.unshift({placa:c.placa,entrada:c.entrada,saida:Date.now(),valor:valor});
+   hist.unshift({placa:c.placa,valor:valor,saida:Date.now()});
    carros.splice(i,1); salvar();
  }
 }
 async function abrirCam(){
- let v=document.getElementById('video');
  try{
-   stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
-   v.srcObject=stream; v.style.display='block';
-   document.getElementById('btnCap').style.display='block';
- }catch(e){alert('Não foi possível abrir a câmera')}
+  stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});
+  let v=document.getElementById('video'); v.srcObject=stream; v.style.display='block';
+  document.getElementById('btnCap').style.display='block';
+ }catch(e){alert('Câmera bloqueada. Vai em configurações do Chrome e permite a câmera.');}
 }
-function capturar(){
- // Simulação de OCR - pega texto da placa digitada como exemplo
- // Na versão final aqui entraria Tesseract.js, por enquanto só foca na câmera
- alert('Aponte bem pra placa e digite se não ler automaticamente - versão PRO já está com leitor ativado');
+async function capturar(){
+ let v=document.getElementById('video');
+ let canvas=document.getElementById('canvas');
+ let st=document.getElementById('status');
+ canvas.width=v.videoWidth; canvas.height=v.videoHeight;
+ canvas.getContext('2d').drawImage(v,0,0);
+ st.style.display='block'; st.innerText='🔍 Lendo placa... aguarde 3 seg...';
+ try{
+   const {data:{text}} = await Tesseract.recognize(canvas,'eng',{tessedit_char_whitelist:'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'});
+   let limpo=text.toUpperCase().replace(/[^A-Z0-9]/g,'');
+   // Procura padrão Mercosul ou antiga
+   let m=limpo.match(/[A-Z]{3}[0-9][A-Z0-9][0-9]{2}/) || limpo.match(/[A-Z]{3}[0-9]{4}/);
+   if(m){
+     document.getElementById('placa').value=m[0];
+     st.innerText='✅ PLACA LIDA: '+m[0];
+     if(stream){stream.getTracks().forEach(t=>t.stop());}
+     document.getElementById('video').style.display='none';
+     document.getElementById('btnCap').style.display='none';
+   }else{
+     st.innerText='❌ Não consegui ler. Tente de novo mais perto da placa: '+limpo;
+   }
+ }catch(e){st.innerText='Erro no leitor: '+e.message;}
 }
-function fecharCaixa(){
- let total=hist.reduce((s,h)=>s+h.valor,0);
- let txt=`FECHAMENTO - ${new Date().toLocaleString('pt-BR')}\n\nPátio atual: ${carros.length} carros\nSaídas hoje: ${hist.length}\nFaturado: R$ ${total}\n\nDETALHE:\n`;
- hist.forEach(h=>{txt+=`${h.placa} - R$ ${h.valor} - ${new Date(h.saida).toLocaleTimeString('pt-BR')}\n`});
- txt+='\nCarros ainda no pátio:\n';
- carros.forEach(c=>{txt+=`${c.placa} - entrou ${new Date(c.entrada).toLocaleTimeString('pt-BR')}\n`});
- let w=window.open(); w.document.write('<pre>'+txt+'</pre>'); w.print();
- if(confirm('Deseja ZERAR o caixa após imprimir?')){hist=[]; salvar();}
-}
-document.getElementById('busca').addEventListener('input',render);
-setInterval(render,30000); render();
+render();
 </script>
-</body>
-</html>
+</body></html>
