@@ -1,152 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Banco Gratidão - Portal Oficial</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#080808;color:#fff}
-header{background:#000;border-bottom:3px solid #ffcc00;padding:16px;text-align:center;position:sticky;top:0;z-index:10}
-header h1{color:#ffcc00;font-size:24px;letter-spacing:1px}
-header p{color:#aaa;font-size:12px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
-@media(min-width:600px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.card{background:#111;border:1px solid #222;border-radius:14px;padding:16px;text-align:center;text-decoration:none;color:#fff;display:block;transition:0.2s}
-.card:active{transform:scale(0.96)}
-.card b{color:#ffcc00;display:block;margin:6px 0;font-size:13px}
-.card small{color:#999;font-size:11px}
-.card .icon{font-size:32px}
-.card.destaque{border-color:#ffcc00;background:#1a1500;grid-column:span 2}
-.badge{background:#ffcc00;color:#000;font-size:9px;font-weight:900;padding:3px 7px;border-radius:10px;display:inline-block;margin-top:6px}
-footer{text-align:center;padding:20px;color:#555;font-size:11px}
-</style>
-</head>
-<body>
-
-<header>
-<h1>BANCO GRATIDÃO OFICIAL</h1>
-<p>Portal do Povo - Tudo em um só lugar</p>
-</header>
-
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Banco Gratidão</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#080808;color:#fff}
+header{background:#000;border-bottom:3px solid #ffcc00;padding:16px;text-align:center}
+h1{color:#ffcc00;font-size:22px} .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;text-align:center;text-decoration:none;color:#fff;display:block}
+.card b{color:#ffcc00;display:block;margin-top:5px;font-size:12px} .card small{color:#aaa;font-size:10px} .icon{font-size:28px}
+.destaque{border:2px solid #ffcc00;background:#1a1500;grid-column:span 2}
+</style></head><body>
+<header><h1>BANCO GRATIDÃO OFICIAL</h1><p style="color:#aaa;font-size:11px">Portal do Povo - Tudo em um só lugar</p></header>
 <div class="grid">
 
-<!-- DESTAQUE NOVO -->
-<a href="Estacionamento,/index.html" class="card destaque">
-<div class="icon">🅿️</div>
-<b>ESTACIONAMENTO COM CÂMERA</b>
-<small>Leitor de placa + cálculo automático</small>
-<span class="badge">NOVO 📷 10/18/40/50</span>
-</a>
+<a href="estacionamento/index.html" class="card destaque"><div class="icon">🅿️</div><b>ESTACIONAMENTO COM CÂMERA</b><small>R$10 / R$18 / R$40 / R$50 - Leitor de placa</small></a>
 
-<a href="filmes/index.html" class="card">
-<div class="icon">🎬</div>
-<b>GRATIFLIX TV</b>
-<small>Filmes grátis</small>
-</a>
+<a href="filmes/index.html" class="card"><div class="icon">🎬</div><b>FILMES / GRATIFLIX</b></a>
 
-<a href="bancos.html" class="card">
-<div class="icon">🏦</div>
-<b>BANCOS</b>
-<small>Portal bancário</small>
-</a>
+<a href="matérias/index.html" class="card"><div class="icon">📚</div><b>MATÉRIAS / CURSOS</b><small>com acento</small></a>
 
-<a href="caixa.html" class="card">
-<div class="icon">💰</div>
-<b>CAIXA</b>
-<small>Fluxo de vendas</small>
-</a>
+<a href="viagens-tempo/index.html" class="card"><div class="icon">⏳</div><b>VIAGENS NO TEMPO</b><small>paradoxos</small></a>
 
-<a href="estoque.html" class="card">
-<div class="icon">📦</div>
-<b>ESTOQUE</b>
-<small>Controle</small>
-</a>
-
-<a href="gastos.html" class="card">
-<div class="icon">📉</div>
-<b>GASTOS</b>
-<small>Despesas</small>
-</a>
-
-<a href="dividas.html" class="card">
-<div class="icon">📒</div>
-<b>DÍVIDAS</b>
-<small>Controle</small>
-</a>
-
-<a href="mercado.html" class="card">
-<div class="icon">🛒</div>
-<b>MERCADO</b>
-<small>Carrinho</small>
-</a>
-
-<a href="musicas.html" class="card">
-<div class="icon">🎵</div>
-<b>MÚSICAS</b>
-<small>Player</small>
-</a>
-
-<a href="video.html" class="card">
-<div class="icon">📹</div>
-<b>VÍDEOS</b>
-<small>Player</small>
-</a>
-
-<a href="mapas.html" class="card">
-<div class="icon">🗺️</div>
-<b>MAPAS</b>
-<small>Localização</small>
-</a>
-
-<a href="materias/index.html" class="card">
-<div class="icon">📚</div>
-<b>MATÉRIAS</b>
-<small>Inglês e cursos</small>
-</a>
-
-<a href="viagens-tempo/index.html" class="card">
-<div class="icon">⏳</div>
-<b>VIAGEM NO TEMPO</b>
-<small>Paradoxos</small>
-</a>
-
-<a href="mensagens.html" class="card">
-<div class="icon">💌</div>
-<b>MENSAGENS</b>
-<small>Diárias</small>
-</a>
-
-<a href="redes.html" class="card">
-<div class="icon">📱</div>
-<b>REDES</b>
-<small>Social</small>
-</a>
-
-<a href="sobre.html" class="card">
-<div class="icon">ℹ️</div>
-<b>SOBRE</b>
-<small>Portal do Povo</small>
-</a>
-
-<a href="contato.html" class="card">
-<div class="icon">☎️</div>
-<b>CONTATO</b>
-<small>Fale conosco</small>
-</a>
-
-<a href="ajuda.html" class="card">
-<div class="icon">❓</div>
-<b>AJUDA</b>
-<small>Tutoriais</small>
-</a>
+<a href="bancos.html" class="card"><div class="icon">🏦</div><b>BANCOS</b></a>
+<a href="caixa.html" class="card"><div class="icon">💰</div><b>CAIXA</b></a>
+<a href="estoque.html" class="card"><div class="icon">📦</div><b>ESTOQUE</b></a>
+<a href="gastos.html" class="card"><div class="icon">📉</div><b>GASTOS</b></a>
+<a href="dividas.html" class="card"><div class="icon">📒</div><b>DÍVIDAS</b></a>
+<a href="mercado.html" class="card"><div class="icon">🛒</div><b>MERCADO</b></a>
+<a href="musicas.html" class="card"><div class="icon">🎵</div><b>MÚSICAS</b></a>
+<a href="video.html" class="card"><div class="icon">📹</div><b>VÍDEO</b></a>
+<a href="mapas.html" class="card"><div class="icon">🗺️</div><b>MAPAS</b></a>
+<a href="mensagens.html" class="card"><div class="icon">💌</div><b>MENSAGENS</b></a>
+<a href="sobre.html" class="card"><div class="icon">ℹ️</div><b>SOBRE</b></a>
+<a href="contato.html" class="card"><div class="icon">☎️</div><b>CONTATO</b></a>
 
 </div>
-
-<footer>
-Banco Gratidão Oficial © 2026<br>
-Todos os sistemas em um só portal
-</footer>
-
-</body>
-</html>
+<p style="text-align:center;color:#444;font-size:10px;padding:15px">Banco Gratidão © 2026 - github-pages verde em 2 min</p>
+</body></html>
