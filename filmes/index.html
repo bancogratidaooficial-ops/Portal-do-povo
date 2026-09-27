@@ -1,85 +1,43 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Banco GratiFlix - Grátis</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica}
-body{background:#000;color:#fff}
-header{padding:14px 16px;display:flex;align-items:center;gap:15px;position:sticky;top:0;background:#000;z-index:10;border-bottom:1px solid #1a1a1a}
-.logo{font-size:24px;font-weight:900} .logo span{color:#ffcc00}
-.cats{display:flex;gap:18px;overflow-x:auto;white-space:nowrap;padding:12px 16px;font-weight:bold;color:#999}
-.cats b{color:#fff;border-bottom:2px solid #ffcc00;padding-bottom:3px}
-.row-title{padding:18px 16px 10px;font-size:19px;font-weight:800;display:flex;justify-content:space-between}
-.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
-.row::-webkit-scrollbar{display:none}
-.card{min-width:135px;max-width:135px;cursor:pointer;transition:.2s}
-.card:hover{transform:scale(1.05)}
-.card img{width:100%;height:195px;object-fit:cover;border-radius:8px;background:#111}
-.card p{font-size:13px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ddd}
-/* PLAYER MODAL */
-#player{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;z-index:99;align-items:center;justify-content:center;padding:10px}
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GratiFlix</title>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#000;color:#fff}
+header{padding:14px;display:flex;gap:10px;background:#000;border-bottom:1px solid #222;position:sticky;top:0;z-index:5}
+.row-title{padding:16px;font-weight:800;font-size:18px}
+.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 10px}
+.card{min-width:130px;cursor:pointer} .card img{width:130px;height:190px;object-fit:cover;border-radius:8px;background:#222}
+.card p{font-size:12px;margin-top:5px;color:#ccc}
+#player{position:fixed;inset:0;background:#000;display:none;z-index:99;flex-direction:column}
 #player.active{display:flex}
-.player-box{width:100%;max-width:900px;background:#111;border-radius:12px;overflow:hidden;border:1px solid #333}
-video{width:100%;aspect-ratio:16/9;background:#000}
-.player-info{padding:12px}
-.legenda{text-align:center;color:#fff;font-size:15px;margin-top:8px;text-shadow:1px 1px 2px #000;background:rgba(0,0,0,.6);padding:4px}
-.btn{background:#ffcc00;color:#000;padding:8px 14px;border-radius:20px;font-weight:800;text-decoration:none;display:inline-block;border:none;cursor:pointer}
-</style>
-</head>
-<body>
+video{width:100%;height:60vh;background:#000}
+</style></head><body>
+<header><b style="color:#ffcc00;font-size:22px">gratiFlix</b><span>tv</span></header>
 
-<header>
-<div style="font-size:26px">☰</div>
-<div class="logo">grati<span>flix</span><sup style="font-size:10px">tv</sup></div>
-</header>
-
-<div class="cats">
-<b>Ação e Aventura</b> <span>Comédia</span> <span>Documentário</span> <span>Terror</span> <span>Educativo</span>
-</div>
-
-<div class="row-title">Em Alta <span>></span></div>
+<div class="row-title">Em Alta - Funcionando 100%</div>
 <div class="row">
-<div class="card" onclick="play('CSI: Miami','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BZjI1MDI2Y2ItZDAzMy00M2RlLWI5MzEtY2M2ZGM4YjVhYjYxXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"><p>CSI: Miami</p></div>
-<div class="card" onclick="play('NCIS','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BMTQyMTg0MjM5MV5BMl5BanBnXkFtZTcwMTQwMTUzMw@@._V1_.jpg"><p>NCIS</p></div>
-<div class="card" onclick="play('Inferno Sobre Rodas','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4')"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Hell_on_Wheels_title_card.jpg/250px-Hell_on_Wheels_title_card.jpg"><p>Inferno Sobre...</p></div>
-<div class="card" onclick="play('Capitão Marvel','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4')"><img src="https://i.imgur.com/8Km9tLL.png"><p>Capitain Marvel</p></div>
+<div class="card" onclick="play('Batman e Robin 1949 - COMPLETO','https://archive.org/download/BatmanAndRobin1949/BatmanAndRobin1949_512kb.mp4','Agora vemos que pagamos por isso com a nossa liberdade.')"><img src="https://m.media-amazon.com/images/M/MV5BYjU3ZTI1ZTMtYjI1YS00MTIzLTk5ZTItY2QyNGU0MWQ5NmQzXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"><p>Batman e Robin 1949</p></div>
+<div class="card" onclick="play('Captain Marvel 1941','https://archive.org/download/ADVENTURESOFCAPTAINMARVEL/Adventure-Of-Captain-Marvel-1941-E01-Curse-Of-The-Scorpion.mp4','A maldição do escorpião começa!')"><img src="https://m.media-amazon.com/images/M/MV5BMTY1MzM1Njg1MF5BMl5BanBnXkFtZTcwMDQwMDYyMQ@@._V1_.jpg"><p>Captain Marvel</p></div>
+<div class="card" onclick="play('Big Buck Bunny - Desenho Livre','https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4','Desenho gratuito para teste do player')"><img src="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg"><p>Big Buck Bunny</p></div>
 </div>
 
-<div class="row-title">Ação e Aventura A-Z <span>></span></div>
-<div class="row">
-<div class="card" onclick="play('Adventures of Captain Marvel','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BMTY1MzM1Njg1MF5BMl5BanBnXkFtZTcwMDQwMDYyMQ@@._V1_.jpg"><p>Captain Marvel 1941</p></div>
-<div class="card" onclick="play('Jim Bridger','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BMTUyNTc5MTE0N15BMl5BanBnXkFtZTcwMTM0NDUyMw@@._V1_.jpg"><p>Grandes Histórias...</p></div>
-<div class="card" onclick="play('Batman e Robin 1949','https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BYjU3ZTI1ZTMtYjI1YS00MTIzLTk5ZTItY2QyNGU0MWQ5NmQzXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"><p>Batman and Robin</p></div>
-</div>
-
-<!-- PLAYER ESTILO PLUTO -->
-<div id="player" onclick="closePlayer()">
-<div class="player-box" onclick="event.stopPropagation()">
-<video id="video" controls autoplay><source id="src" src=""></video>
-<div class="player-info">
-<h3 id="titulo" style="color:#ffcc00">Título</h3>
-<p id="leg" class="legenda">Agora vemos que pagamos<br>por isso com a nossa liberdade.</p>
-<div style="margin-top:10px;display:flex;gap:10px">
-<button class="btn" onclick="closePlayer()">✕ Fechar</button>
-<a href="../index.html" class="btn" style="background:#222;color:#fff">🏠 Portal</a>
-</div>
-</div>
+<div id="player">
+<video id="video" controls autoplay playsinline></video>
+<div style="padding:15px;background:#111;flex:1">
+<h3 id="titulo" style="color:#ffcc00"></h3>
+<p id="legenda" style="margin-top:10px;background:#000;padding:10px;border-radius:6px;text-align:center"></p>
+<button onclick="closePlayer()" style="margin-top:15px;background:#ffcc00;border:none;padding:10px 20px;border-radius:20px;font-weight:800">X Fechar</button>
+<a href="../index.html" style="margin-left:10px;background:#222;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none">🏠 Portal</a>
 </div>
 </div>
 
 <script>
-function play(titulo, url){
- document.getElementById('titulo').innerText=titulo;
- document.getElementById('src').src=url;
- document.getElementById('video').load();
- document.getElementById('video').play();
- document.getElementById('player').classList.add('active');
+function play(t,url,leg){
+document.getElementById('titulo').innerText=t;
+document.getElementById('legenda').innerText=leg;
+let v=document.getElementById('video');
+v.src=url; v.load(); v.play();
+document.getElementById('player').classList.add('active');
 }
-function closePlayer(){
- document.getElementById('player').classList.remove('active');
- document.getElementById('video').pause();
-}
+function closePlayer(){document.getElementById('player').classList.remove('active');document.getElementById('video').pause();}
 </script>
-</body>
-</html>
+</body></html>
