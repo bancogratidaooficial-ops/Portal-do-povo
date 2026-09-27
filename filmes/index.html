@@ -1,43 +1,68 @@
-<!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GratiFlix</title>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GratiFlix Pro</title>
 <style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#000;color:#fff}
-header{padding:14px;display:flex;gap:10px;background:#000;border-bottom:1px solid #222;position:sticky;top:0;z-index:5}
-.row-title{padding:16px;font-weight:800;font-size:18px}
-.row{display:flex;gap:12px;overflow-x:auto;padding:0 16px 10px}
-.card{min-width:130px;cursor:pointer} .card img{width:130px;height:190px;object-fit:cover;border-radius:8px;background:#222}
-.card p{font-size:12px;margin-top:5px;color:#ccc}
+header{padding:12px;background:#000;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center}
+.row-title{padding:14px 16px;font-weight:800}
+.row{display:flex;gap:10px;overflow-x:auto;padding:0 16px 10px}
+.card{min-width:125px;cursor:pointer}.card img{width:125px;height:185px;object-fit:cover;border-radius:8px;background:#222}
+.card p{font-size:11px;margin-top:4px;color:#ccc}
 #player{position:fixed;inset:0;background:#000;display:none;z-index:99;flex-direction:column}
-#player.active{display:flex}
-video{width:100%;height:60vh;background:#000}
+#player.active{display:flex} video{width:100%;height:55vh;background:#000}
+.form{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;z-index:100;padding:20px;overflow:auto}
+.form.active{display:block} input{width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #333;background:#111;color:#fff}
+.btn{padding:10px 18px;border-radius:20px;border:none;font-weight:800;cursor:pointer}
 </style></head><body>
-<header><b style="color:#ffcc00;font-size:22px">gratiFlix</b><span>tv</span></header>
+<header><b style="color:#ffcc00;font-size:22px">gratiFlix tv</b><button class="btn" style="background:#0f0;color:#000" onclick="abrirForm()">+ ADICIONAR FILME</button></header>
 
 <div class="row-title">Em Alta - Funcionando 100%</div>
-<div class="row">
-<div class="card" onclick="play('Batman e Robin 1949 - COMPLETO','https://archive.org/download/BatmanAndRobin1949/BatmanAndRobin1949_512kb.mp4','Agora vemos que pagamos por isso com a nossa liberdade.')"><img src="https://m.media-amazon.com/images/M/MV5BYjU3ZTI1ZTMtYjI1YS00MTIzLTk5ZTItY2QyNGU0MWQ5NmQzXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"><p>Batman e Robin 1949</p></div>
-<div class="card" onclick="play('Captain Marvel 1941','https://archive.org/download/ADVENTURESOFCAPTAINMARVEL/Adventure-Of-Captain-Marvel-1941-E01-Curse-Of-The-Scorpion.mp4','A maldição do escorpião começa!')"><img src="https://m.media-amazon.com/images/M/MV5BMTY1MzM1Njg1MF5BMl5BanBnXkFtZTcwMDQwMDYyMQ@@._V1_.jpg"><p>Captain Marvel</p></div>
-<div class="card" onclick="play('Big Buck Bunny - Desenho Livre','https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4','Desenho gratuito para teste do player')"><img src="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg"><p>Big Buck Bunny</p></div>
-</div>
+<div class="row" id="lista"></div>
 
-<div id="player">
-<video id="video" controls autoplay playsinline></video>
-<div style="padding:15px;background:#111;flex:1">
-<h3 id="titulo" style="color:#ffcc00"></h3>
-<p id="legenda" style="margin-top:10px;background:#000;padding:10px;border-radius:6px;text-align:center"></p>
-<button onclick="closePlayer()" style="margin-top:15px;background:#ffcc00;border:none;padding:10px 20px;border-radius:20px;font-weight:800">X Fechar</button>
-<a href="../index.html" style="margin-left:10px;background:#222;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none">🏠 Portal</a>
-</div>
+<div id="player"><video id="video" controls autoplay playsinline></video><div style="padding:15px;background:#111"><h3 id="titulo" style="color:#ffcc00"></h3><p id="legenda" style="margin-top:8px;background:#000;padding:8px;border-radius:6px;text-align:center"></p><button class="btn" style="background:#ffcc00;margin-top:10px" onclick="fechar()">X Fechar</button></div></div>
+
+<div id="form" class="form"><h2 style="color:#ffcc00">Adicionar Filme pelo Celular</h2>
+<p style="font-size:12px;color:#aaa;margin:8px 0">O filme fica salvo SÓ no seu celular. Não vai pro GitHub, então não bloqueia.</p>
+<input id="f_titulo" placeholder="Nome do filme ex: Batman">
+<input id="f_link" placeholder="Link do vídeo MP4 (ou do archive.org)">
+<input id="f_capa" placeholder="Link da capa (imagem)">
+<input id="f_leg" placeholder="Legenda que aparece embaixo">
+<button class="btn" style="background:#ffcc00;width:100%;margin-top:10px" onclick="salvar()">Salvar Filme</button>
+<button class="btn" style="background:#222;color:#fff;width:100%;margin-top:8px" onclick="fecharForm()">Cancelar</button>
+<hr style="margin:15px 0;border-color:#222">
+<button class="btn" style="background:#111;color:#fff;border:1px solid #333" onclick="exportar()">💾 Backup</button>
+<button class="btn" style="background:#111;color:#fff;border:1px solid #333" onclick="importar()">♻️ Restaurar</button>
+<p id="msg" style="margin-top:10px;font-size:12px;color:#0f0"></p>
 </div>
 
 <script>
-function play(t,url,leg){
-document.getElementById('titulo').innerText=t;
-document.getElementById('legenda').innerText=leg;
-let v=document.getElementById('video');
-v.src=url; v.load(); v.play();
+let filmes = JSON.parse(localStorage.getItem('gratiflix')||'[]');
+if(filmes.length==0){
+filmes=[
+{t:'Batman 1949',l:'https://archive.org/download/BatmanAndRobin1949/BatmanAndRobin1949_512kb.mp4',c:'https://i.imgur.com/8Km9tLL.png',leg:'Agora vemos que pagamos por isso com a nossa liberdade.'},
+{t:'Big Buck Bunny',l:'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4',c:'https://peach.blender.org/wp-content/uploads/title_anouncement.jpg',leg:'Desenho livre para testes'}
+];
+}
+
+function render(){
+let html=''; filmes.forEach((f,i)=>{
+html+=`<div class="card" onclick="play(${i})"><img src="${f.c}" onerror="this.src='https://via.placeholder.com/130x190?text=Sem+Capa'"><p>${f.t}</p></div>`;
+}); document.getElementById('lista').innerHTML=html;
+}
+function play(i){
+let f=filmes[i]; document.getElementById('titulo').innerText=f.t; document.getElementById('legenda').innerText=f.leg;
+let v=document.getElementById('video'); v.src=f.l; v.load(); v.play();
 document.getElementById('player').classList.add('active');
 }
-function closePlayer(){document.getElementById('player').classList.remove('active');document.getElementById('video').pause();}
+function fechar(){document.getElementById('player').classList.remove('active');document.getElementById('video').pause();}
+function abrirForm(){document.getElementById('form').classList.add('active')}
+function fecharForm(){document.getElementById('form').classList.remove('active')}
+function salvar(){
+let t=document.getElementById('f_titulo').value, l=document.getElementById('f_link').value, c=document.getElementById('f_capa').value, leg=document.getElementById('f_leg').value;
+if(!t||!l){alert('Precisa de título e link do vídeo');return}
+filmes.push({t,l,c:c||'https://via.placeholder.com/130x190?text=Sem+Capa',leg:leg||''});
+localStorage.setItem('gratiflix',JSON.stringify(filmes)); render(); fecharForm();
+document.getElementById('msg').innerText='Filme salvo só no seu celular!';
+}
+function exportar(){let d=btoa(JSON.stringify(filmes)); prompt('Copia esse código pra restaurar depois:',d)}
+function importar(){let d=prompt('Cola o código do Backup:'); if(d){filmes=JSON.parse(atob(d)); localStorage.setItem('gratiflix',JSON.stringify(filmes)); render();}}
+render();
 </script>
 </body></html>
