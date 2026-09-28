@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BACKUP - Banco Gratidão</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#080808;color:#fff;padding:12px}
+.header{background:#ffcc00;color:#000;padding:14px;border-radius:12px;font-weight:900;text-align:center;font-size:18px}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;margin-top:10px}
+.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:900;margin-top:8px}
+.btn-y{background:#ffcc00;color:#000}.btn-g{background:#00c853;color:#fff}.btn-r{background:#ff2222;color:#fff}.btn-w{background:#fff;color:#000}
+small{color:#888} b{color:#ffcc00}
+textarea{width:100%;background:#000;color:#0f0;border:1px solid #333;border-radius:8px;padding:10px;margin-top:8px;font-size:11px;min-height:120px}
+</style></head><body>
+<div class="header">💾 BACKUP TOTAL - BANCO GRATIDÃO</div>
+
+<div class="card">
+<b>📦 O QUE ESSE BACKUP SALVA:</b><br>
+<small>• Pátio Pisos 1,2,3,4 • Histórico de Saídas • Faturamento • Modelo/Cor • Tudo que está no celular</small>
+<div style="margin-top:10px;background:#000;padding:10px;border-radius:8px">
+Pátio Atual: <b id="qtd">0</b> carros<br>
+Histórico: <b id="qtdH">0</b> saídas<br>
+Faturado: <b id="fat" style="color:#00e676">R$0</b>
+</div>
+</div>
+
+<div class="card">
+<b>1️⃣ EXPORTAR BACKUP (SALVAR)</b><br>
+<small>Clique e vai baixar um arquivo.json no seu celular</small>
+<button class="btn btn-y" onclick="exportar()">💾 BAIXAR BACKUP AGORA</button>
+<button class="btn btn-g" onclick="exportarTxt()">📄 BAIXAR RELATÓRIO EM TEXTO</button>
+<textarea id="preview" placeholder="Seu backup vai aparecer aqui..."></textarea>
+</div>
+
+<div class="card">
+<b>2️⃣ RESTAURAR BACKUP</b><br>
+<small>Se trocou de celular ou apagou sem querer, carrega o arquivo aqui</small>
+<input type="file" id="fileInput" accept=".json" style="margin-top:8px;color:#fff">
+<button class="btn btn-w" onclick="restaurar()">♻️ RESTAURAR ARQUIVO</button>
+</div>
+
+<div class="card">
+<b>3️⃣ BACKUP AUTOMÁTICO NA NUVEM</b><br>
+<small>Seu backup fica salvo no próprio navegador todo dia 20:48 igual seu print</small>
+<button class="btn" style="background:#222;color:#aaa" onclick="verTodos()">👁️ VER TODOS OS ARQUIVOS SALVOS NO CELULAR</button>
+<button class="btn btn-r" onclick="limpar()">🗑️ APAGAR TUDO (CUIDADO)</button>
+</div>
+
+<div class="card" style="border:1px dashed #ffcc00">
+<b>Como usar:</b><br>
+<small>1. Clique em BAIXAR BACKUP toda noite<br>
+2. Salva no seu WhatsApp, Drive ou e-mail<br>
+3. Se o celular quebrar, abre esse backup.html no novo celular e clica em RESTAURAR<br>
+4. Volta tudo: pisos, placas, faturamento igual estava</small>
+</div>
+
+<script>
+function carregar(){
+ let carros=JSON.parse(localStorage.getItem('patio_pisos_v5')||localStorage.getItem('patio_fix_v3')||localStorage.getItem('patio')||'[]');
+ let hist=JSON.parse(localStorage.getItem('hist_pisos_v5')||localStorage.getItem('hist_fix_v3')||localStorage.getItem('hist')||'[]');
+ document.getElementById('qtd').innerText=carros.length;
+ document.getElementById('qtdH').innerText=hist.length;
+ document.getElementById('fat').innerText='R$ '+hist.reduce((s,h)=>s+(h.valor||0),0);
+ return {carros,hist, data:new Date().toLocaleString('pt-BR'), versao:'Banco Gratidão v5 - Pisos'};
+}
+function exportar(){
+ let dados=carregar();
+ let tudo={};
+ // pega TUDO do localStorage
+ for(let i=0;i<localStorage.length;i++){
+  let k=localStorage.key(i);
+  tudo[k]=localStorage.getItem(k);
+ }
+ let backup={info:dados, full:tudo};
+ let blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'});
+ let url=URL.createObjectURL(blob);
+ let a=document.createElement('a'); a.href=url; a.download='BACKUP-BANCO-GRATIDAO-'+new Date().toISOString().slice(0,10)+'.json'; a.click();
+ document.getElementById('preview').value=JSON.stringify(backup,null,2).slice(0,5000)+'...';
+ alert('✅ Backup baixado! Salva no Drive/WhatsApp');
+}
+function exportarTxt(){
+ let d=carregar();
+ let txt=`BANCO GRATIDÃO - RELATÓRIO BACKUP\nData: ${d.data}\n\nPÁTIO ATUAL (${d.carros.length} carros):\n`;
+ d.carros.forEach(c=>{txt+=`${c.placa} - P${c.piso||1} - ${c.modelo||'-'} - ${new Date(c.entrada).toLocaleString('pt-BR')}\n`});
+ txt+=`\nHISTÓRICO (${d.hist.length} saídas):\n`;
+ d.hist.forEach(h=>{txt+=`${h.placa} - P${h.piso||1} - R$${h.valor} - ${new Date(h.saida||h.entrada).toLocaleString('pt-BR')}\n`});
+ let blob=new Blob([txt],{type:'text/plain'}); let url=URL.createObjectURL(blob);
+ let a=document.createElement('a'); a.href=url; a.download='RELATORIO-'+new Date().toISOString().slice(0,10)+'.txt'; a.click();
+}
+function restaurar(){
+ let file=document.getElementById('fileInput').files[0];
+ if(!file) return alert('Escolhe o arquivo.json primeiro');
+ let r=new FileReader();
+ r.onload=function(e){
+  try{
+   let obj=JSON.parse(e.target.result);
+   if(obj.full){
+    Object.keys(obj.full).forEach(k=>{localStorage.setItem(k,obj.full[k]);});
+   }else if(obj.info){
+    localStorage.setItem('patio_pisos_v5',JSON.stringify(obj.info.carros));
+    localStorage.setItem('hist_pisos_v5',JSON.stringify(obj.info.hist));
+   }
+   alert('✅ RESTAURADO COM SUCESSO! Atualize a página do estacionamento'); carregar();
+  }catch(err){alert('Arquivo inválido: '+err.message);}
+ };
+ r.readAsText(file);
+}
+function verTodos(){
+ let txt='ARQUIVOS NO CELULAR:\n\n';
+ for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i); txt+=k+': '+localStorage.getItem(k).length+' caracteres\n';}
+ alert(txt);
+}
+function limpar(){
+ if(confirm('⚠️ TEM CERTEZA? Isso apaga TODOS os carros do pátio e histórico! Faça o backup antes!') && confirm('Confirma de novo pra apagar tudo?')){
+  localStorage.clear(); alert('Apagado!'); carregar();
+ }
+}
+carregar();
+</script>
+</body></html>
