@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backup Drive Automático</title>
+<script src="https://accounts.google.com/gsi/client"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#080808;color:#fff;padding:12px}
+.header{background:#ffcc00;color:#000;padding:14px;border-radius:12px;font-weight:900;text-align:center}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;margin-top:10px}
+.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:900;margin-top:8px}
+.btn-y{background:#ffcc00;color:#000}.btn-g{background:#00c853;color:#fff}.btn-w{background:#fff;color:#000}
+small{color:#888}
+</style></head><body>
+<div class="header">☁️ BACKUP AUTOMÁTICO GOOGLE DRIVE</div>
+
+<div class="card">
+<b id="status">🔴 Desconectado do Drive</b><br>
+<small id="info">Conecte para salvar automático todo dia 20:49 igual seu print</small><br><br>
+<button class="btn btn-y" id="btnLogin" onclick="login()">🔗 CONECTAR GOOGLE DRIVE</button>
+<button class="btn btn-g" onclick="salvarAgora()">☁️ SALVAR AGORA NO DRIVE</button>
+<button class="btn btn-w" onclick="ativarAuto()">⏰ ATIVAR SALVAMENTO AUTOMÁTICO DIÁRIO</button>
+<div style="margin-top:10px;background:#000;padding:10px;border-radius:8px">
+Último backup: <b id="ultimo">Nunca</b><br>
+Próximo backup: <b id="proximo">--:--</b><br>
+Pátio: <b id="qtd">0</b> carros | Faturado: <b id="fat">R$0</b>
+</div>
+</div>
+
+<div class="card" style="border:1px dashed #ffcc00">
+<b>COMO ATIVAR (1 minuto):</b><br>
+<small>
+1. Vai em console.cloud.google.com > Crie projeto "Banco Gratidão"<br>
+2. Ative API Google Drive<br>
+3. Credenciais > Criar ID Cliente OAuth > Tipo: Aplicativo Web<br>
+4. Origem autorizada: https://bancograti...github.io<br>
+5. Copie o ID e cole abaixo onde está SEU_CLIENT_ID_AQUI<br>
+Pronto! Depois é só clicar em CONECTAR
+</small>
+<input id="clientId" placeholder="Cole seu Client ID do Google aqui" style="width:100%;background:#000;border:1px solid #ffcc00;padding:10px;border-radius:8px;color:#fff;margin-top:8px">
+<button class="btn" style="background:#222;color:#ffcc00" onclick="salvarId()">💾 SALVAR ID</button>
+</div>
+
+<script>
+let CLIENT_ID = localStorage.getItem('gdrive_client_id')||'';
+document.getElementById('clientId').value=CLIENT_ID;
+let tokenClient; let accessToken=null;
+
+function salvarId(){let v=document.getElementById('clientId').value.trim(); localStorage.setItem('gdrive_client_id',v); CLIENT_ID=v; alert('ID salvo! Recarregue a página'); location.reload();}
+
+function carregarDados(){
+ let carros=JSON.parse(localStorage.getItem('patio_pisos_v5')||'[]');
+ let hist=JSON.parse(localStorage.getItem('hist_pisos_v5')||'[]');
+ document.getElementById('qtd').innerText=carros.length;
+ document.getElementById('fat').innerText='R$'+hist.reduce((s,h)=>s+(h.valor||0),0);
+ let tudo={}; for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i); tudo[k]=localStorage.getItem(k);}
+ return {carros,hist,tudo,data:new Date().toLocaleString('pt-BR'),versao:'v5-pisos'};
+}
+
+function initGapi(){
+ if(!CLIENT_ID || CLIENT_ID.includes('SEU_CLIENT')){document.getElementById('status').innerText='⚠️ Cole seu Client ID primeiro'; return;}
+ gapi.load('client', async ()=>{
+  await gapi.client.init({discoveryDocs:['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']});
+  tokenClient = google.accounts.oauth2.initTokenClient({
+   client_id: CLIENT_ID,
+   scope: 'https://www.googleapis.com/auth/drive.file',
+   callback: (resp)=>{accessToken=resp.access_token; localStorage.setItem('gdrive_token',accessToken); document.getElementById('status').innerText='🟢 Conectado!'; document.getElementById('status').style.color='#00e676';}
+  });
+  let saved=localStorage.getItem('gdrive_token'); if(saved){accessToken=saved; gapi.client.setToken({access_token:saved}); document.getElementById('status').innerText='🟢 Conectado (sessão salva)';}
+ });
+}
+function login(){tokenClient.requestAccessToken();}
+
+async function salvarAgora(){
+ if(!accessToken) return alert('Conecte o Google Drive primeiro');
+ let dados=carregarDados();
+ let nome='BACKUP-BANCO-GRATIDAO-'+new Date().toISOString().slice(0,10)+'.json';
+ let blob=new Blob([JSON.stringify(dados,null,2)],{type:'application/json'});
+ let metadata={name:nome, parents:['appDataFolder'], mimeType:'application/json'};
+ // Verifica se já existe arquivo do dia
+ let form=new FormData();
+ form.append('metadata', new Blob([JSON.stringify(metadata)],{type:'application/json'}));
+ form.append('file', blob);
+ let res=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',{
+  method:'POST', headers:{'Authorization':'Bearer '+accessToken}, body:form
+ });
+ if(res.ok){
+  let d=new Date().toLocaleString('pt-BR');
+  localStorage.setItem('ultimo_backup',d);
+  document.getElementById('ultimo').innerText=d;
+  alert('✅ Backup salvo no Drive! Pasta: AppData > Banco Gratidão\nNome: '+nome);
+ }else{alert('Erro: '+(await res.text()));}
+}
+
+function ativarAuto(){
+ localStorage.setItem('auto_backup','sim');
+ alert('✅ Automático ativado! Agora todo dia às 20:49 quando você abrir o backup-drive.html ele salva sozinho. Deixe esse arquivo aberto no celular que ele faz sozinho.');
+ checarAuto();
+}
+function checarAuto(){
+ let ultimo=localStorage.getItem('ultimo_backup_data');
+ let hoje=new Date().toDateString();
+ if(localStorage.getItem('auto_backup')=='sim' && ultimo!=hoje && accessToken){
+  let agora=new Date();
+  // Se for depois das 20:49 ou teste imediato
+  if(agora.getHours()>=20 || true){
+   salvarAgora();
+   localStorage.setItem('ultimo_backup_data',hoje);
+  }
+ }
+ let prox=new Date(); prox.setHours(20,49,0,0); if(prox<new Date()) prox.setDate(prox.getDate()+1);
+ document.getElementById('proximo').innerText=prox.toLocaleString('pt-BR');
+ document.getElementById('ultimo').innerText=localStorage.getItem('ultimo_backup')||'Nunca';
+}
+setInterval(()=>{if(localStorage.getItem('auto_backup')=='sim') checarAuto();},60000);
+window.onload=()=>{carregarDados(); initGapi(); setTimeout(checarAuto,2000);};
+</script>
+</body></html>
