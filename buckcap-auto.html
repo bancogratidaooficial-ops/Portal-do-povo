@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backup Grátis</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#080808;color:#fff;padding:12px}
+.header{background:#00e676;color:#000;padding:14px;border-radius:12px;font-weight:900;text-align:center}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;margin-top:10px}
+.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:900;margin-top:8px}
+.btn-y{background:#ffcc00;color:#000}.btn-g{background:#00e676;color:#000}.btn-w{background:#fff;color:#000}
+</style></head><body>
+<div class="header">💾 BACKUP AUTOMÁTICO GRÁTIS - SEM GOOGLE CLOUD</div>
+
+<div class="card">
+<b>✅ Status:</b> <span id="status">Pronto</span><br>
+<small>Esse backup salva sozinho todo dia 20:49 na pasta Download do seu celular. Seu celular já manda pro Google Drive sozinho.</small>
+<div style="margin-top:10px;background:#000;padding:10px;border-radius:8px">
+Último backup: <b id="ultimo">Nunca</b><br>
+Pátio: <b id="qtd">0</b> carros | Faturado: <b id="fat">R$0</b><br>
+Próximo automático: <b>Hoje às 20:49</b>
+</div>
+<button class="btn btn-y" onclick="salvarAgora()">💾 SALVAR AGORA NO CELULAR</button>
+<button class="btn btn-g" onclick="compartilharZap()">📲 ENVIAR BACKUP PRO WHATSAPP</button>
+<button class="btn btn-w" onclick="ativarAuto()">⏰ ATIVAR AUTOMÁTICO TODO DIA 20:49</button>
+</div>
+
+<script>
+function dados(){
+ let carros=JSON.parse(localStorage.getItem('patio_pisos_v5')||localStorage.getItem('patio_fix_v3')||'[]');
+ let hist=JSON.parse(localStorage.getItem('hist_pisos_v5')||'[]');
+ document.getElementById('qtd').innerText=carros.length;
+ document.getElementById('fat').innerText='R$'+hist.reduce((s,h)=>s+(h.valor||0),0);
+ let tudo={}; for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i); tudo[k]=localStorage.getItem(k);}
+ return {carros,hist,tudo,data:new Date().toLocaleString('pt-BR')};
+}
+function salvarAgora(){
+ let d=dados();
+ let blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+ let url=URL.createObjectURL(blob);
+ let a=document.createElement('a'); a.href=url; a.download='BACKUP-BANCO-'+new Date().toISOString().slice(0,10)+'-'+new Date().toLocaleTimeString('pt-BR').replace(/:/g,'-')+'.json'; a.click();
+ let agora=new Date().toLocaleString('pt-BR');
+ localStorage.setItem('ultimo_backup',agora);
+ localStorage.setItem('ultimo_backup_data',new Date().toDateString());
+ document.getElementById('ultimo').innerText=agora;
+ document.getElementById('status').innerText='✅ Salvo em Downloads!';
+}
+function compartilharZap(){
+ let d=dados();
+ let txt=`*BANCO GRATIDÃO BACKUP*%0AData: ${d.data}%0ACarros: ${d.carros.length}%0AFaturado: R$${d.hist.reduce((s,h)=>s+(h.valor||0),0)}%0A%0A*PÁTIO:*%0A`+d.carros.map(c=>`${c.placa} P${c.piso||1}`).join('%0A');
+ window.open('https://wa.me/?text='+txt,'_blank');
+}
+function ativarAuto(){
+ localStorage.setItem('auto_backup','sim');
+ alert('✅ ATIVADO! Todo dia 20:49 quando você abrir o portal, ele vai baixar o backup sozinho na pasta Download. Deixa o portal aberto que ele faz sozinho.');
+}
+setInterval(()=>{
+ if(localStorage.getItem('auto_backup')=='sim'){
+  let hoje=new Date().toDateString();
+  if(localStorage.getItem('ultimo_backup_data')!=hoje){
+   let h=new Date().getHours();
+   if(h>=20){ salvarAgora(); }
+  }
+ }
+},60000);
+window.onload=()=>{dados(); document.getElementById('ultimo').innerText=localStorage.getItem('ultimo_backup')||'Nunca'; if(localStorage.getItem('auto_backup')=='sim') document.getElementById('status').innerText='🟢 Automático ATIVADO';}
+</script>
+</body></html>
