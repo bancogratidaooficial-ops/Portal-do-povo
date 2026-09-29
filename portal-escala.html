@@ -1,0 +1,31 @@
+<!-- COPIA DAQUI PRA BAIXO -->
+<div style="padding:10px;border:2px solid #1F4E79;border-radius:12px">
+<h3 style="color:#1F4E79">Gerador de Escala - Digite a folga e gera automático</h3>
+Nome: <input id="n" placeholder="Ex: Kaue">
+Folga: 
+<select id="f">
+<option>Segunda</option><option>Terça</option><option>Quarta</option><option>Quinta</option><option>Sexta</option><option>Sábado</option><option>Domingo</option>
+</select>
+<button onclick="gerar()" style="background:#1F4E79;color:#fff;padding:8px 12px;border:0;border-radius:6px">Gerar</button>
+<div id="res" style="margin-top:10px"></div>
+<script>
+function gerar(){
+ let nome=document.getElementById('n').value||'Funcionário';
+ let folga=document.getElementById('f').value;
+ let dias=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+ let html='<table border=1 cellpadding=5 style="width:100%;border-collapse:collapse"><tr><th>Dia</th><th>Status</th></tr>';
+ let hoje=new Date();
+ let ano=hoje.getFullYear(), mes=hoje.getMonth();
+ let total=new Date(ano,mes+1,0).getDate();
+ for(let d=1;d<=total;d++){
+  let dt=new Date(ano,mes,d);
+  let diaNome=dias[dt.getDay()];
+  let status=(diaNome===folga)?'F - FOLGA':'T - TRABALHA';
+  let cor=(status.includes('F'))?'#FFC7CE':'#C6EFCE';
+  html+=`<tr style="background:${cor}"><td>${d}/${mes+1} ${diaNome}</td><td><b>${status}</b></td></tr>`;
+ }
+ html+='</table>';
+ document.getElementById('res').innerHTML='<b>'+nome+' - Folga: '+folga+'</b>'+html;
+}
+</script>
+</div>
