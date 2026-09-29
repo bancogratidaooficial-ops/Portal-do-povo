@@ -1,31 +1,71 @@
-<!-- COPIA DAQUI PRA BAIXO -->
-<div style="padding:10px;border:2px solid #1F4E79;border-radius:12px">
-<h3 style="color:#1F4E79">Gerador de Escala - Digite a folga e gera automático</h3>
-Nome: <input id="n" placeholder="Ex: Kaue">
-Folga: 
-<select id="f">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escala 5x1 - Editor Livre</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial;background:#eef2f7;margin:0;padding:10px}
+.box{background:#fff;border-radius:12px;padding:16px;max-width:1300px;margin:auto;box-shadow:0 2px 12px #0002}
+h2{color:#1F4E79;text-align:center;margin:0 0 10px}
+.form{display:grid;grid-template-columns:2fr 1.2fr 1.2fr auto;gap:8px;background:#f8fafc;padding:10px;border-radius:10px;border:1px dashed #1F4E79}
+@media(max-width:700px){.form{grid-template-columns:1fr}}
+input,select{padding:10px;border:1px solid #ccc;border-radius:8px;width:100%;font-size:14px}
+button{padding:10px 14px;border:0;border-radius:8px;background:#1F4E79;color:#fff;font-weight:bold;cursor:pointer}
+button.green{background:#27ae60}
+button.red{background:#c0392b}
+button.gray{background:#7f8c8d}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-top:14px}
+th{background:#1F4E79;color:#fff;padding:7px;position:sticky;top:0}
+td{border:1px solid #ddd;padding:5px;text-align:center}
+.T{background:#C6EFCE;font-weight:bold}
+.F{background:#FFC7CE;font-weight:bold}
+.ENC{background:#FFE699}
+.small{font-size:9px;display:block}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>📋 EDITOR DE ESCALA 5x1</h2>
+<p style="text-align:center;color:#555;font-size:12px">Adicione NOME + HORÁRIO + TIPO DE FOLGA. O sistema gera T e F automático.<br>Tipo 5x1 = 5 trabalha / 1 folga rodando | Encarregado = folga Sáb/Dom fixo</p>
+
+<div class="form">
+<input id="nome" placeholder="Nome: ex: Natal">
+<input id="horario" placeholder="Horário: ex: 15:20-22:40">
+<select id="tipo">
+<option value="5x1">5x1 - Automático</option>
+<option value="encarregado">Encarregado - Folga Sáb/Dom</option>
+<option value="fixa">Folga Fixa por Dia</option>
+</select>
+<select id="folgaFixa" style="display:none">
 <option>Segunda</option><option>Terça</option><option>Quarta</option><option>Quinta</option><option>Sexta</option><option>Sábado</option><option>Domingo</option>
 </select>
-<button onclick="gerar()" style="background:#1F4E79;color:#fff;padding:8px 12px;border:0;border-radius:6px">Gerar</button>
-<div id="res" style="margin-top:10px"></div>
-<script>
-function gerar(){
- let nome=document.getElementById('n').value||'Funcionário';
- let folga=document.getElementById('f').value;
- let dias=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
- let html='<table border=1 cellpadding=5 style="width:100%;border-collapse:collapse"><tr><th>Dia</th><th>Status</th></tr>';
- let hoje=new Date();
- let ano=hoje.getFullYear(), mes=hoje.getMonth();
- let total=new Date(ano,mes+1,0).getDate();
- for(let d=1;d<=total;d++){
-  let dt=new Date(ano,mes,d);
-  let diaNome=dias[dt.getDay()];
-  let status=(diaNome===folga)?'F - FOLGA':'T - TRABALHA';
-  let cor=(status.includes('F'))?'#FFC7CE':'#C6EFCE';
-  html+=`<tr style="background:${cor}"><td>${d}/${mes+1} ${diaNome}</td><td><b>${status}</b></td></tr>`;
- }
- html+='</table>';
- document.getElementById('res').innerHTML='<b>'+nome+' - Folga: '+folga+'</b>'+html;
-}
-</script>
+<button onclick="add()" class="green">+ Adicionar</button>
 </div>
+
+<div style="text-align:center;margin-top:12px">
+Mês: <input type="month" id="mes" value="2026-10" style="width:160px" onchange="gerar()">
+<button onclick="gerar()">🔄 Gerar Escala</button>
+<button onclick="window.print()">🖨️ Imprimir PDF</button>
+<button class="red" onclick="limpar()">Limpar Tudo</button>
+<button class="gray" onclick="exemplo()">Carregar Exemplo 5x1</button>
+</div>
+
+<div style="overflow:auto;max-height:70vh"><table id="tab"></table></div>
+</div>
+
+<script>
+let lista = JSON.parse(localStorage.getItem('escala_editavel_final')||'[]');
+document.getElementById('tipo').addEventListener('change', function(){
+ document.getElementById('folgaFixa').style.display = this.value==='fixa'?'block':'none';
+});
+function add(){
+ let nome=document.getElementById('nome').value.trim();
+ let horario=document.getElementById('horario').value.trim()||'08:00-17:00';
+ let tipo=document.getElementById('tipo').value;
+ let folgaFixa=document.getElementById('folgaFixa').value;
+ if(!nome){alert('Digite o nome!');return}
+ let offset = lista.length;
+ lista.push({nome, horario, tipo, folgaFixa, offset});
+ localStorage.setItem('escala_editavel_final', JSON.stringify(lista));
