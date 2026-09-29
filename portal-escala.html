@@ -1,85 +1,40 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala 5x1 - Corrigida</title>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body{font-family:Arial;background:#f0f2f5;padding:8px}
-.box{background:#fff;border-radius:12px;padding:12px;max-width:1000px;margin:auto}
-h2{color:#1F4E79;text-align:center}
-input,select{width:100%;padding:12px;margin:5px 0;border:1px solid #ccc;border-radius:8px;font-size:16px}
-button{width:100%;padding:14px;border:0;border-radius:8px;font-weight:bold;color:#fff;margin:5px 0;font-size:16px}
-.green{background:#27ae60}.blue{background:#1F4E79}.red{background:#c0392b}.gray{background:#7f8c8d}
-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
-th{background:#1F4E79;color:#fff;padding:6px}
-td{border:1px solid #ccc;padding:5px;text-align:center}
-.T{background:#C6EFCE}.F{background:#FFC7CE;font-weight:bold}
+body{font-family:Arial;padding:10px;background:#f0f0f0}
+.box{background:#fff;padding:15px;border-radius:10px;max-width:900px;margin:auto}
+input,select{width:100%;padding:12px;margin:5px 0;border:1px solid #ccc;border-radius:6px}
+button{width:100%;padding:14px;margin:5px 0;border:0;border-radius:6px;color:#fff;font-weight:bold}
+.verde{background:green}.azul{background:#1F4E79}.cinza{background:gray}.vermelho{background:red}
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:11px}
+th{background:#1F4E79;color:#fff;padding:5px}
+td{border:1px solid #ccc;padding:4px;text-align:center}
+.T{background:#C6EFCE}.F{background:#FFC7CE}
 </style>
 </head>
 <body>
 <div class="box">
-<h2>📋 EDITOR 5x1 - VERSÃO CORRIGIDA</h2>
-<input id="nome" placeholder="Nome: ex: José Marcos">
-<input id="hor" placeholder="Horário: ex: 10:00 a 18:20">
-<select id="tipo">
-<option value="5x1">5x1 - Automático</option>
-<option value="encarregado">Encarregado - Folga Sáb e Dom</option>
-</select>
-<button class="green" onclick="add()">+ ADICIONAR NA LISTA</button>
-<select id="mes" onchange="gerar()">
-<option value="9">Setembro 2026</option>
-<option value="10" selected>Outubro 2026</option>
-<option value="11">Novembro 2026</option>
-</select>
-<button class="blue" onclick="gerar()">🔄 GERAR ESCALA AGORA</button>
-<div id="lista" style="background:#eef;padding:8px;border-radius:8px;margin:8px 0;font-size:12px"></div>
+<h2 style="text-align:center">ESCALA 5x1 - FINAL</h2>
+<input id="nome" placeholder="Nome">
+<input id="hor" placeholder="Horario ex: 10:00-18:20">
+<select id="tipo"><option value="5x1">5x1 AUTOMATICO</option><option value="encarregado">ENCARREGADO - Folga Sab Dom</option></select>
+<button class="verde" onclick="add()">ADICIONAR</button>
+<select id="mes"><option value="9">SETEMBRO</option><option value="10" selected>OUTUBRO</option><option value="11">NOVEMBRO</option></select>
+<button class="azul" onclick="gerar()">GERAR ESCALA</button>
+<div id="lista" style="background:#eee;padding:8px;margin:8px 0"></div>
 <div style="overflow:auto"><table id="tab"></table></div>
-<button class="gray" onclick="carregarExemplo()">Carregar Exemplo 5x1 com sua equipe</button>
-<button class="blue" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
+<button class="cinza" onclick="exemplo()">CARREGAR MINHA EQUIPE 5x1</button>
+<button class="azul" onclick="window.print()">IMPRIMIR PDF</button>
+<button class="vermelho" onclick="limpar()">LIMPAR</button>
 </div>
 <script>
-let funcionarios = [];
-function add(){
- let n=document.getElementById('nome').value.trim();
- let h=document.getElementById('hor').value.trim();
- let t=document.getElementById('tipo').value;
- if(n==""){alert("Digite o nome!");return;}
- funcionarios.push({nome:n, hor:h||"08:00-18:00", tipo:t, offset:funcionarios.length});
- document.getElementById('nome').value="";document.getElementById('hor').value="";
- atualizarLista();gerar();
-}
-function atualizarLista(){
- let div=document.getElementById('lista');
- if(funcionarios.length==0)div.innerHTML="Nenhum funcionário adicionado.";
- else{let txt="<b>Adicionados ("+funcionarios.length+"):</b><br>";funcionarios.forEach((f,i)=>{txt+=(i+1)+". "+f.nome+" - "+f.hor+" - "+f.tipo+" <a href='#' onclick='remover("+i+")'>[x]</a><br>";});div.innerHTML=txt;}
-}
-function remover(i){funcionarios.splice(i,1);funcionarios.forEach((f,idx)=>f.offset=idx);atualizarLista();gerar();}
-function carregarExemplo(){
- funcionarios=[
-  {nome:"Natal", hor:"15:20-22:40", tipo:"5x1", offset:0},
-  {nome:"Kaue", hor:"07:00-15:20", tipo:"5x1", offset:1},
-  {nome:"Mário", hor:"22:40-07:00", tipo:"5x1", offset:2},
-  {nome:"José Marcos", hor:"10:00-18:20", tipo:"5x1", offset:3},
-  {nome:"Alechandre", hor:"22:40-07:00", tipo:"5x1", offset:4},
-  {nome:"Célio (Encarregado)", hor:"11:00-19:40", tipo:"encarregado", offset:5}
- ];atualizarLista();gerar();
-}
-function gerar(){
- let mes=parseInt(document.getElementById('mes').value);let ano=2026;let dias=new Date(ano,mes,0).getDate();
- let tab=document.getElementById('tab');
- if(funcionarios.length==0){tab.innerHTML="<tr><td style='padding:20px;color:red;text-align:center'>Adicione funcionários e clique em GERAR</td></tr>";return;}
- let diasSem=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
- let h="<tr><th>Nome</th><th>Horário</th>";for(let d=1;d<=dias;d++){let dt=new Date(ano,mes-1,d);h+="<th>"+d+"/"+mes+"<br>"+diasSem[dt.getDay()]+"</th>";}h+="</tr>";
- funcionarios.forEach(f=>{
-  h+="<tr><td><b>"+f.nome+"</b></td><td><small>"+f.hor+"</small></td>";
-  for(let d=1;d<=dias;d++){
-   let dt=new Date(ano,mes-1,d);let wd=dt.getDay();
-   if(f.tipo=="encarregado"){if(wd==0||wd==6)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}
-   else{if((d+f.offset)%6==0)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}
-  }h+="</tr>";
- });tab.innerHTML=h;
-}
+var funcionarios=[];
+function add(){var n=document.getElementById('nome').value;var h=document.getElementById('hor').value;var t=document.getElementById('tipo').value;if(n==""){alert("Digite nome");return}funcionarios.push({nome:n,hor:h,tipo:t,offset:funcionarios.length});document.getElementById('nome').value="";document.getElementById('hor').value="";lista();gerar();}
+function lista(){var d=document.getElementById('lista');if(funcionarios.length==0)d.innerHTML="Nenhum";else{var t="Adicionados: "+funcionarios.length+"<br>";for(var i=0;i<funcionarios.length;i++){t+=(i+1)+". "+funcionarios[i].nome+" "+funcionarios[i].hor+" <a href='#' onclick='rem("+i+")'>[X]</a><br>"}d.innerHTML=t}}
+function rem(i){funcionarios.splice(i,1);for(var k=0;k<funcionarios.length;k++)funcionarios[k].offset=k;lista();gerar();}
+function limpar(){funcionarios=[];lista();gerar();}
+function exemplo(){funcionarios=[{nome:"Natal",hor:"15:20-22:40",tipo:"5x1",offset:0},{nome:"Kaue",hor:"07:00-15:20",tipo:"5x1",offset:1},{nome:"Mario",hor:"22:40-07:00",tipo:"5x1",offset:2},{nome:"Jose Marcos",hor:"10:00-18:20",tipo:"5x1",offset:3},{nome:"Alechandre",hor:"22:40-07:00",tipo:"5x1",offset:4},{nome:"Celio Encarregado",hor:"11:00-19:40",tipo:"encarregado",offset:5}];lista();gerar();}
+function gerar(){var mes=parseInt(document.getElementById('mes').value);var ano=2026;var dias=new Date(ano,mes,0).getDate();var tab=document.getElementById('tab');if(funcionarios.length==0){tab.innerHTML="<tr><td>Adicione funcionario</td></tr>";return}var dsem=["Dom","Seg","Ter","Qua","Qui","Sex","Sab"];var h="<tr><th>Nome</th><th>Horario</th>";for(var d=1;d<=dias;d++){var dt=new Date(ano,mes-1,d);h+="<th>"+d+"/"+mes+"<br>"+dsem[dt.getDay()]+"</th>"}h+="</tr>";for(var f=0;f<funcionarios.length;f++){var fun=funcionarios[f];h+="<tr><td><b>"+fun.nome+"</b></td><td>"+fun.hor+"</td>";for(var d=1;d<=dias;d++){var dt=new Date(ano,mes-1,d);var wd=dt.getDay();if(fun.tipo=="encarregado"){if(wd==0||wd==6)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>"}else{if((d+fun.offset)%6==0)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>"}}h+="</tr>"}tab.innerHTML=h;}
 </script>
 </body>
 </html>
