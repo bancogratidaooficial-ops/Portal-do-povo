@@ -3,69 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escala 5x1 - Editor Livre</title>
+<title>Escala 5x1 - Corrigida</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:Arial;background:#eef2f7;margin:0;padding:10px}
-.box{background:#fff;border-radius:12px;padding:16px;max-width:1300px;margin:auto;box-shadow:0 2px 12px #0002}
-h2{color:#1F4E79;text-align:center;margin:0 0 10px}
-.form{display:grid;grid-template-columns:2fr 1.2fr 1.2fr auto;gap:8px;background:#f8fafc;padding:10px;border-radius:10px;border:1px dashed #1F4E79}
-@media(max-width:700px){.form{grid-template-columns:1fr}}
-input,select{padding:10px;border:1px solid #ccc;border-radius:8px;width:100%;font-size:14px}
-button{padding:10px 14px;border:0;border-radius:8px;background:#1F4E79;color:#fff;font-weight:bold;cursor:pointer}
-button.green{background:#27ae60}
-button.red{background:#c0392b}
-button.gray{background:#7f8c8d}
-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:14px}
-th{background:#1F4E79;color:#fff;padding:7px;position:sticky;top:0}
-td{border:1px solid #ddd;padding:5px;text-align:center}
-.T{background:#C6EFCE;font-weight:bold}
-.F{background:#FFC7CE;font-weight:bold}
-.ENC{background:#FFE699}
-.small{font-size:9px;display:block}
+body{font-family:Arial;background:#f0f2f5;padding:8px}
+.box{background:#fff;border-radius:12px;padding:12px;max-width:1000px;margin:auto}
+h2{color:#1F4E79;text-align:center}
+input,select{width:100%;padding:12px;margin:5px 0;border:1px solid #ccc;border-radius:8px;font-size:16px}
+button{width:100%;padding:14px;border:0;border-radius:8px;font-weight:bold;color:#fff;margin:5px 0;font-size:16px}
+.green{background:#27ae60}.blue{background:#1F4E79}.red{background:#c0392b}.gray{background:#7f8c8d}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-top:10px}
+th{background:#1F4E79;color:#fff;padding:6px}
+td{border:1px solid #ccc;padding:5px;text-align:center}
+.T{background:#C6EFCE}.F{background:#FFC7CE;font-weight:bold}
 </style>
 </head>
 <body>
 <div class="box">
-<h2>📋 EDITOR DE ESCALA 5x1</h2>
-<p style="text-align:center;color:#555;font-size:12px">Adicione NOME + HORÁRIO + TIPO DE FOLGA. O sistema gera T e F automático.<br>Tipo 5x1 = 5 trabalha / 1 folga rodando | Encarregado = folga Sáb/Dom fixo</p>
-
-<div class="form">
-<input id="nome" placeholder="Nome: ex: Natal">
-<input id="horario" placeholder="Horário: ex: 15:20-22:40">
+<h2>📋 EDITOR 5x1 - VERSÃO CORRIGIDA</h2>
+<input id="nome" placeholder="Nome: ex: José Marcos">
+<input id="hor" placeholder="Horário: ex: 10:00 a 18:20">
 <select id="tipo">
 <option value="5x1">5x1 - Automático</option>
-<option value="encarregado">Encarregado - Folga Sáb/Dom</option>
-<option value="fixa">Folga Fixa por Dia</option>
+<option value="encarregado">Encarregado - Folga Sáb e Dom</option>
 </select>
-<select id="folgaFixa" style="display:none">
-<option>Segunda</option><option>Terça</option><option>Quarta</option><option>Quinta</option><option>Sexta</option><option>Sábado</option><option>Domingo</option>
+<button class="green" onclick="add()">+ ADICIONAR NA LISTA</button>
+<select id="mes" onchange="gerar()">
+<option value="9">Setembro 2026</option>
+<option value="10" selected>Outubro 2026</option>
+<option value="11">Novembro 2026</option>
 </select>
-<button onclick="add()" class="green">+ Adicionar</button>
+<button class="blue" onclick="gerar()">🔄 GERAR ESCALA AGORA</button>
+<div id="lista" style="background:#eef;padding:8px;border-radius:8px;margin:8px 0;font-size:12px"></div>
+<div style="overflow:auto"><table id="tab"></table></div>
+<button class="gray" onclick="carregarExemplo()">Carregar Exemplo 5x1 com sua equipe</button>
+<button class="blue" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
 </div>
-
-<div style="text-align:center;margin-top:12px">
-Mês: <input type="month" id="mes" value="2026-10" style="width:160px" onchange="gerar()">
-<button onclick="gerar()">🔄 Gerar Escala</button>
-<button onclick="window.print()">🖨️ Imprimir PDF</button>
-<button class="red" onclick="limpar()">Limpar Tudo</button>
-<button class="gray" onclick="exemplo()">Carregar Exemplo 5x1</button>
-</div>
-
-<div style="overflow:auto;max-height:70vh"><table id="tab"></table></div>
-</div>
-
 <script>
-let lista = JSON.parse(localStorage.getItem('escala_editavel_final')||'[]');
-document.getElementById('tipo').addEventListener('change', function(){
- document.getElementById('folgaFixa').style.display = this.value==='fixa'?'block':'none';
-});
+let funcionarios = [];
 function add(){
- let nome=document.getElementById('nome').value.trim();
- let horario=document.getElementById('horario').value.trim()||'08:00-17:00';
- let tipo=document.getElementById('tipo').value;
- let folgaFixa=document.getElementById('folgaFixa').value;
- if(!nome){alert('Digite o nome!');return}
- let offset = lista.length;
- lista.push({nome, horario, tipo, folgaFixa, offset});
- localStorage.setItem('escala_editavel_final', JSON.stringify(lista));
+ let n=document.getElementById('nome').value.trim();
+ let h=document.getElementById('hor').value.trim();
+ let t=document.getElementById('tipo').value;
+ if(n==""){alert("Digite o nome!");return;}
+ funcionarios.push({nome:n, hor:h||"08:00-18:00", tipo:t, offset:funcionarios.length});
+ document.getElementById('nome').value="";document.getElementById('hor').value="";
+ atualizarLista();gerar();
+}
+function atualizarLista(){
+ let div=document.getElementById('lista');
+ if(funcionarios.length==0)div.innerHTML="Nenhum funcionário adicionado.";
+ else{let txt="<b>Adicionados ("+funcionarios.length+"):</b><br>";funcionarios.forEach((f,i)=>{txt+=(i+1)+". "+f.nome+" - "+f.hor+" - "+f.tipo+" <a href='#' onclick='remover("+i+")'>[x]</a><br>";});div.innerHTML=txt;}
+}
+function remover(i){funcionarios.splice(i,1);funcionarios.forEach((f,idx)=>f.offset=idx);atualizarLista();gerar();}
+function carregarExemplo(){
+ funcionarios=[
+  {nome:"Natal", hor:"15:20-22:40", tipo:"5x1", offset:0},
+  {nome:"Kaue", hor:"07:00-15:20", tipo:"5x1", offset:1},
+  {nome:"Mário", hor:"22:40-07:00", tipo:"5x1", offset:2},
+  {nome:"José Marcos", hor:"10:00-18:20", tipo:"5x1", offset:3},
+  {nome:"Alechandre", hor:"22:40-07:00", tipo:"5x1", offset:4},
+  {nome:"Célio (Encarregado)", hor:"11:00-19:40", tipo:"encarregado", offset:5}
+ ];atualizarLista();gerar();
+}
+function gerar(){
+ let mes=parseInt(document.getElementById('mes').value);let ano=2026;let dias=new Date(ano,mes,0).getDate();
+ let tab=document.getElementById('tab');
+ if(funcionarios.length==0){tab.innerHTML="<tr><td style='padding:20px;color:red;text-align:center'>Adicione funcionários e clique em GERAR</td></tr>";return;}
+ let diasSem=["Dom","Seg","Ter","Qua","Qui","Sex","Sáb"];
+ let h="<tr><th>Nome</th><th>Horário</th>";for(let d=1;d<=dias;d++){let dt=new Date(ano,mes-1,d);h+="<th>"+d+"/"+mes+"<br>"+diasSem[dt.getDay()]+"</th>";}h+="</tr>";
+ funcionarios.forEach(f=>{
+  h+="<tr><td><b>"+f.nome+"</b></td><td><small>"+f.hor+"</small></td>";
+  for(let d=1;d<=dias;d++){
+   let dt=new Date(ano,mes-1,d);let wd=dt.getDay();
+   if(f.tipo=="encarregado"){if(wd==0||wd==6)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}
+   else{if((d+f.offset)%6==0)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}
+  }h+="</tr>";
+ });tab.innerHTML=h;
+}
+</script>
+</body>
+</html>
