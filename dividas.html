@@ -1,63 +1,89 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Controle de Dívidas</title><style>
-*{box-sizing:border-box}body{margin:0;background:#0f0f0f;color:#fff;font-family:Arial;padding:12px}
-h1{color:#ffcc00;text-align:center;margin:5px 0;line-height:1.1} .sub{text-align:center;opacity:.6;margin-bottom:12px}
-.box{background:#1a1a1a;border:1px solid #333;border-radius:14px;padding:12px;margin-bottom:10px}
-input,select{width:100%;padding:14px;border-radius:10px;border:1px solid #333;background:#2a2a2a;color:#fff;margin:5px 0}
-.btn{width:100%;padding:14px;border-radius:10px;border:none;font-weight:bold;margin-top:6px}
-.item{background:#2d2a0a;border:1px solid #ffcc00;border-radius:10px;padding:10px;display:flex;justify-content:space-between;margin:6px 0}
-.totais{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
-.totais div{background:#1a1a1a;border-radius:10px;padding:10px;text-align:center;border:1px solid #333}
-.dividaItem{background:#222;padding:8px;border-radius:8px;margin:4px 0;display:flex;justify-content:space-between}
-a{color:#ffcc00;text-decoration:none}
-</style></head><body>
-<a href="index.html">⬅️ Voltar pro Portal</a>
-<h1>📋 CONTROLE DE<br>DÍVIDAS</h1><div class="sub">Banco Gratidão</div>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Controle de Dívidas - Marcos</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffcc00">
+<style>
+body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:12px;padding-bottom:160px}
+h1{color:#ffcc00;text-align:center;margin:8px 0 2px}
+.sub{text-align:center;color:#aaa;margin-bottom:10px;font-size:12px}
+.cards{display:flex;gap:6px;margin-bottom:10px}
+.card{flex:1;background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:8px;text-align:center;font-size:13px}
+.saldo{color:#ffcc00;font-size:20px;font-weight:bold}.entradas{color:#00ff88;font-size:20px;font-weight:bold}.saidas{color:#ff4444;font-size:20px;font-weight:bold}
+.box{background:#151515;border:1px solid #333;border-radius:14px;padding:10px;margin-bottom:10px}
+input,select{width:100%;padding:12px;border:1px solid #444;color:#fff;background:#2a2a2a;border-radius:10px;margin:5px 0;font-size:15px}
+.btn{border:none;width:100%;padding:12px;border-radius:10px;font-weight:bold;margin-top:5px}
+.btn-yellow{background:#ffcc00;color:#000}.btn-red{background:#ff4444;color:#fff}.btn-green{background:#00c853;color:#fff}.btn-blue{background:#0091ff;color:#fff}
+.devedor{padding:10px;border-radius:10px;margin:5px 0;background:#222;border:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.devedor.ativo{border-color:#ffcc00;background:#332e00}
+.item{background:#222;padding:8px;border-radius:8px;margin:5px 0;display:flex;justify-content:space-between;border-left:4px solid #ffcc00}
+.linha{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+</style>
+</head>
+<body>
+<h1>💰 CONTROLE DE DÍVIDAS</h1>
+<div class="sub">Banco Gratidão - Para receber do Marcos</div>
 <div class="box">
-<input id="nomeDev" placeholder="Nome do devedor...">
-<button class="btn" style="background:#ffcc00" onclick="addDev()">+ ADICIONAR DEVEDOR</button>
-<div id="listaDevs"></div>
+<input id="novoDevedor" placeholder="Nome do devedor... ex: Marcos">
+<button class="btn btn-yellow" onclick="addDevedor()">+ ADICIONAR DEVEDOR</button>
+<div id="listaDevedores"></div>
 </div>
-
-<div class="totais">
-<div>TOTAL<br><b id="tTotal" style="color:#ffcc00;font-size:22px">0.00</b></div>
-<div>RECEBIDO<br><b id="tRec" style="color:#00ff88;font-size:22px">0.00</b></div>
-<div>FALTA<br><b id="tFalta" style="color:#ff4444;font-size:22px">0.00</b></div>
+<div id="areaControle" style="display:none">
+<div class="cards">
+<div class="card">TOTAL<br><div id="totalDivida" class="saldo">0,00</div></div>
+<div class="card">RECEBIDO<br><div id="totalRecebido" class="entradas">0,00</div></div>
+<div class="card">FALTA<br><div id="totalFalta" class="saidas">0,00</div></div>
 </div>
-
-<div class="box" id="boxDivida" style="display:none">
-<h3 id="tituloDivida" style="margin:0 0 8px 0">DÍVIDA - </h3>
-<select id="tipo"><option>➕ ADICIONAR DÍVIDA - O que ele deve</option><option>💰 ADICIONAR PAGAMENTO - O que ele pagou</option></select>
-<input id="oQue" placeholder="O que foi? Ex: empréstimo, produto...">
+<div class="box">
+<b id="tituloDev"></b>
+<select id="tipo" onchange="trocaTipo()">
+<option value="divida">+ ADICIONAR DÍVIDA - O que ele deve</option>
+<option value="recebido">✅ RECEBI - Pagamento</option>
+</select>
+<input id="desc" placeholder="O que foi? Ex: empréstimo, produto...">
 <input id="valor" type="number" placeholder="Valor R$">
 <input id="data" type="date">
-<button class="btn" style="background:#ff4444;color:#fff" onclick="addItem()">➕ ADICIONAR NA DÍVIDA</button>
-<div id="listaItens" style="margin-top:10px"></div>
+<button class="btn btn-red" id="btnSalvar" onclick="salvar()">+ ADICIONAR NA DÍVIDA</button>
 </div>
-
+<div class="box" id="lista"></div>
+</div>
+<div class="box">
+<div class="linha">
+<button class="btn btn-green" onclick="fazerBackup()">💾 BACKUP</button>
+<button class="btn btn-blue" onclick="document.getElementById('file').click()">♻️ RESTAURAR</button>
+</div>
+<input type="file" id="file" accept=".json" style="display:none">
+<button class="btn btn-yellow" onclick="recuperarAntigo()">🔍 RECUPERAR ANTIGO</button>
+<button class="btn" style="background:#222;color:#ff4444;border:1px solid #ff4444" onclick="zerarTudo()">🗑️ ZERAR TUDO</button>
+<div id="aviso" style="display:none;background:#00c853;color:#fff;padding:10px;border-radius:8px;margin-top:8px;text-align:center;font-weight:bold"></div>
+</div>
 <script>
-let dados=JSON.parse(localStorage.getItem('dividas_banco')||'[]');
-let sel=null;
-document.getElementById('data').valueAsDate=new Date();
-function addDev(){let n=document.getElementById('nomeDev').value.trim();if(!n)return;dados.push({id:Date.now(),nome:n,itens:[]});document.getElementById('nomeDev').value='';salvar();}
-function salvar(){localStorage.setItem('dividas_banco',JSON.stringify(dados));render();}
-function render(){
- let html='';let total=0,rec=0;
- dados.forEach(d=>{
-   let falta=0; d.itens.forEach(i=>{if(i.tipo.includes('DÍVIDA')){total+=i.valor;falta+=i.valor}else{rec+=i.valor;falta-=i.valor}});
-   let selStyle = sel==d.id?'border-color:#ffcc00;background:#3d3600':'';
-   html+=`<div class="item" style="${selStyle}" onclick="abrir(${d.id})"><div><b>${d.nome}</b><br><small>Falta R$ ${falta.toFixed(2)}</small></div><button onclick="event.stopPropagation();delDev(${d.id})" style="background:none;border:none;color:#ff4444;font-size:18px">X</button></div>`;
- });
- document.getElementById('listaDevs').innerHTML=html;
- document.getElementById('tTotal').innerText=total.toFixed(2);
- document.getElementById('tRec').innerText=rec.toFixed(2);
- document.getElementById('tFalta').innerText=(total-rec).toFixed(2);
- if(sel!=null)renderItens();
-}
-function abrir(id){sel=id;let d=dados.find(x=>x.id==id);document.getElementById('boxDivida').style.display='block';document.getElementById('tituloDivida').innerText='DÍVIDA - '+d.nome;render();}
-function renderItens(){let d=dados.find(x=>x.id==sel);if(!d)return;let h='';[...d.itens].reverse().forEach(it=>{h+=`<div class="dividaItem"><div>${it.tipo.includes('DÍVIDA')?'🔴':'🟢'} ${it.oQue}<br><small>${it.data} - R$ ${it.valor.toFixed(2)}</small></div><button onclick="delItem(${it.id})" style="background:#ff4444;border:none;color:#fff;border-radius:5px;padding:4px 8px">🗑️</button></div>`});document.getElementById('listaItens').innerHTML=h;}
-function addItem(){let d=dados.find(x=>x.id==sel);if(!d)return alert('Selecione devedor');let tipo=document.getElementById('tipo').value;let oQue=document.getElementById('oQue').value;let valor=parseFloat(document.getElementById('valor').value);let data=document.getElementById('data').value;if(!oQue||!valor)return alert('Preenche');d.itens.push({id:Date.now(),tipo,oQue,valor,data});document.getElementById('oQue').value='';document.getElementById('valor').value='';salvar();}
-function delDev(id){if(confirm('Apagar devedor?')){dados=dados.filter(x=>x.id!=id);if(sel==id){sel=null;document.getElementById('boxDivida').style.display='none'}salvar();}}
-function delItem(idItem){let d=dados.find(x=>x.id==sel);d.itens=d.itens.filter(i=>i.id!=idItem);salvar();}
-render();
-</script></body></html>
+let chaveFixa='plugtv_DIVIDAS_FINAL_UNICO_V2';
+let db;
+try{
+let atual=localStorage.getItem(chaveFixa);
+if(atual){db=JSON.parse(atual);}
+else{let antigo=localStorage.getItem('controleDividasPRO2')||localStorage.getItem('controleDividasPRO')||localStorage.getItem('dividasMarcos');if(antigo){db=JSON.parse(antigo);localStorage.setItem(chaveFixa,antigo);}else{db={devedores:[],atual:null};}}
+}catch(e){db={devedores:[],atual:null};}
+function aviso(txt){let d=document.getElementById('aviso');d.style.display='block';d.innerText=txt;setTimeout(()=>d.style.display='none',3000);}
+function save(){localStorage.setItem(chaveFixa,JSON.stringify(db));localStorage.setItem('controleDividasPRO2',JSON.stringify(db));localStorage.setItem('dividasMarcos',JSON.stringify(db));renderDev();renderLanc();}
+function addDevedor(){let n=document.getElementById('novoDevedor').value.trim();if(!n)return;if(db.devedores.find(d=>d.nome.toLowerCase()===n.toLowerCase())){alert('Já existe');return;}db.devedores.push({nome:n,lancs:[]});db.atual=n;document.getElementById('novoDevedor').value='';save();aviso('Devedor '+n+' adicionado');}
+function selectDev(n){db.atual=n;save();}
+function trocaTipo(){let t=document.getElementById('tipo').value;let btn=document.getElementById('btnSalvar');if(t==='recebido'){btn.innerText='✅ CONFIRMAR PAGAMENTO';btn.className='btn btn-green';}else{btn.innerText='+ ADICIONAR NA DÍVIDA';btn.className='btn btn-red';}}
+function salvar(){let desc=document.getElementById('desc').value.trim();let valor=parseFloat(document.getElementById('valor').value);let data=document.getElementById('data').value||new Date().toISOString().slice(0,10);let tipo=document.getElementById('tipo').value;if(!db.atual)return alert('Selecione um devedor');if(!desc)return alert('Digite o que foi');if(isNaN(valor)||valor<=0)return alert('Digite valor');let dev=db.devedores.find(d=>d.nome===db.atual);dev.lancs.push({desc:desc,valor:valor,tipo:tipo,data:data});document.getElementById('desc').value='';document.getElementById('valor').value='';save();aviso(tipo==='recebido'?'Pagamento R$ '+valor.toFixed(2)+' salvo!':'Dívida R$ '+valor.toFixed(2)+' adicionada');}
+function renderDev(){let div=document.getElementById('listaDevedores');div.innerHTML='';db.devedores.forEach(d=>{let total=0,recebido=0;d.lancs.forEach(l=>{if(l.tipo==='divida')total+=l.valor;else recebido+=l.valor;});let falta=total-recebido;div.innerHTML+=`<div class="devedor ${db.atual===d.nome?'ativo':''}" onclick="selectDev('${d.nome}')"><span><b>${d.nome}</b><br><small style="color:${falta>0?'#ff4444':'#00ff88'}">Falta R$ ${falta.toFixed(2)} | Total R$ ${total.toFixed(2)}</small></span><button onclick="event.stopPropagation(); excluirDev('${d.nome}')" style="background:#333;color:#fff;border:none;padding:6px 10px;border-radius:8px">🗑️</button></div>`;});let area=document.getElementById('areaControle');if(db.atual){area.style.display='block';document.getElementById('tituloDev').innerText='Devedor: '+db.atual;}else area.style.display='none';}
+function renderLanc(){if(!db.atual)return;let dev=db.devedores.find(d=>d.nome===db.atual);if(!dev)return;let total=0,recebido=0;dev.lancs.forEach(l=>{if(l.tipo==='divida')total+=l.valor;else recebido+=l.valor;});let falta=total-recebido;document.getElementById('totalDivida').innerText='R$ '+total.toFixed(2).replace('.',',');document.getElementById('totalRecebido').innerText='R$ '+recebido.toFixed(2).replace('.',',');document.getElementById('totalFalta').innerText='R$ '+falta.toFixed(2).replace('.',',');let lista=document.getElementById('lista');lista.innerHTML='<b>📋 Histórico - '+dev.nome+'</b>';if(dev.lancs.length===0)lista.innerHTML+='<br><small>Nenhum lançamento</small>';else{[...dev.lancs].reverse().forEach((l,i)=>{let idx=dev.lancs.length-1-i;let cor=l.tipo==='divida'?'#ffcc00':'#00ff88';let sinal=l.tipo==='divida'?'+ DÍVIDA':'- PAGO';lista.innerHTML+=`<div class="item" style="border-left-color:${cor}"><span><b>${sinal} R$ ${l.valor.toFixed(2)}</b> - ${l.desc}<br><small>${l.data}</small></span><button onclick="apagarLanc(${idx})" style="background:#333;color:#fff;border:none;padding:6px 8px;border-radius:6px">🗑️</button></div>`;});}}
+function apagarLanc(idx){if(!confirm('Excluir?'))return;let dev=db.devedores.find(d=>d.nome===db.atual);if(dev){dev.lancs.splice(idx,1);save();}}
+function excluirDev(nome){if(!confirm('Excluir devedor '+nome+' e todas dívidas?'))return;db.devedores=db.devedores.filter(d=>d.nome!==nome);if(db.atual===nome)db.atual=db.devedores[0]?.nome||null;save();}
+function zerarTudo(){if(!confirm('APAGAR TUDO MESMO? Faça backup antes!'))return;if(!confirm('Tem certeza absoluta?'))return;db={devedores:[],atual:null};save();}
+function fazerBackup(){let blob=new Blob([JSON.stringify(db)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='backup_dividas_'+new Date().toISOString().slice(0,10)+'.json';a.click();aviso('Backup baixado!');}
+document.getElementById('file').addEventListener('change',function(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=ev=>{try{let obj=JSON.parse(ev.target.result);if(obj.devedores&&confirm('Restaurar '+obj.devedores.length+' devedores?')){db=obj;save();aviso('Restaurado!');}}catch(err){alert('Erro: '+err.message);}};r.readAsText(f);});
+function recuperarAntigo(){let achados=[];for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);if(k.toLowerCase().includes('divid')||k.toLowerCase().includes('marcos')){try{let v=JSON.parse(localStorage.getItem(k));if(v.devedores&&v.devedores.length>0)achados.push(k+' ('+v.devedores.length+')');}catch(e){}}}if(achados.length===0)return alert('Nada antigo encontrado');if(confirm('Achei: '+achados.join(', ')+'\nTentar recuperar?')){let maior=null,max=0;for(let i=0;i<localStorage.length;i++){let k=localStorage.key(i);try{let v=JSON.parse(localStorage.getItem(k));if(v.devedores&&v.devedores.length>max){max=v.devedores.length;maior=v;}}catch(e){}}if(maior){db=maior;save();aviso('Recuperado '+max+' devedores');}}}
+document.getElementById('data').valueAsDate=new Date();trocaTipo();renderDev();renderLanc();
+</script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}</script>
+</body>
+</html>
