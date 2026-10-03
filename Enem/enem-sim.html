@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ENEM SIM</title>
+<style>/* tema igual seu estoque dark */
+:root{--am:#FFCC00;--bg:#0a0a0a;--card:#141414}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#fff;font-family:Arial;padding-bottom:40px}
+header{padding:14px;position:sticky;top:0;background:#0a0a0a;border-bottom:1px solid #222;display:flex;justify-content:space-between}
+.card{background:var(--card);border:1px solid #222;border-radius:14px;padding:14px;margin:10px}
+.btn{width:100%;padding:14px;border-radius:10px;border:none;font-weight:800}
+.btn-am{background:var(--am)}.q{padding:10px;border:1px solid #333;border-radius:10px;margin:6px 0}
+.q.sel{border-color:var(--am);background:#221e00}
+.q.certo{border-color:#00ff88;background:#002a14}
+.q.errado{border-color:#ff4444;background:#2a0000}
+</style>
+</head>
+<body>
+<header><b>🎓 ENEM SIM</b><span id="timer">⏱ 00:00</span></header>
+
+<div id="inicio" class="card">
+<h2>Simulação ENEM real</h2>
+<p>Estude o que mais cai e faça a prova</p>
+<button class="btn btn-am" onclick="iniciar()">🚀 COMEÇAR SIMULAÇÃO</button>
+</div>
+
+<div id="quiz" style="display:none" class="card">
+<small id="pos"></small><h3 id="perg"></h3><div id="ops"></div>
+<button class="btn" style="background:#222;color:#fff;margin-top:10px" onclick="proxima()">Próxima →</button>
+</div>
+
+<div id="final" style="display:none">
+<div class="card"><h2 id="nota"></h2><div id="resumo"></div>
+<button class="btn btn-am" onclick="verGabarito()">VER CERTO E ERRADO</button></div>
+<div id="gab"></div>
+</div>
+
+<script>
+const questoes=[
+{m:"Linguagens",p:"Função apelativa é:",o:["Enfeitar texto","Convencer o leitor","Relatar fato","Expressar emoção"],c:1,exp:"Usa imperativo e 2ª pessoa. Ex: Compre, faça."},
+{m:"Humanas",p:"Globalização acelerou por:",o:["Internet e tecnologia pós Guerra Fria","Descoberta do Brasil","Rev. Francesa","Crise 29"],c:0,exp:"Meio técnico-científico-informacional."},
+{m:"Natureza",p:"Efeito estufa piora por:",o:["O2","CO2 e CH4 humanos","N2","Vapor só"],c:1,exp:"Ecologia é 40% da prova."},
+{m:"Matematica",p:"Desconto 20% + 10% =?",o:["30%","28%","25%","20%"],c:1,exp:"0,8 x 0,9 = 0,72 = 28% desconto."},
+{m:"Redacao",p:"Intervenção precisa:",o:["Só opinião","Agente, ação, meio, efeito","Só governo","Só lei"],c:1,exp:"Competência 5 completa vale 200pts."},
+];
+// completa para 20
+while(questoes.length<20) questoes.push(...JSON.parse(JSON.stringify(questoes.slice(0,5))));
+let qi=0, resp=[], t0, it;
+
+function iniciar(){document.getElementById('inicio').style.display='none';document.getElementById('quiz').style.display='block';t0=Date.now();it=setInterval(()=>{let s=Math.floor((Date.now()-t0)/1000);document.getElementById('timer').innerText=`⏱ ${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`},1000);mostrar()}
+function mostrar(){let q=questoes[qi];document.getElementById('pos').innerText=`Q ${qi+1}/20 - ${q.m}`;document.getElementById('perg').innerText=q.p;let h='';q.o.forEach((op,i)=>h+=`<div class="q ${resp[qi]==i?'sel':''}" onclick="resp[${qi}]=${i};mostrar()">${String.fromCharCode(65+i)}) ${op}</div>`);document.getElementById('ops').innerHTML=h}
+function proxima(){if(resp[qi]==undefined)return alert('Escolha uma');if(qi<19){qi++;mostrar()}else{finalizar()}}
+function finalizar(){clearInterval(it);document.getElementById('quiz').style.display='none';document.getElementById('final').style.display='block';let ac=questoes.filter((q,i)=>resp[i]==q.c).length;document.getElementById('nota').innerText=`${ac}/20 acertos - Nota ${Math.round(ac/20*1000)}`;document.getElementById('resumo').innerHTML=`✅ Certas: ${ac}<br>❌ Erradas: ${20-ac}`}
+function verGabarito(){let h='';questoes.forEach((q,i)=>{let ok=resp[i]==q.c;h+=`<div class="card">${ok?'✅':'❌'} <b>${i+1}. ${q.p}</b>`;q.o.forEach((op,j)=>{let cl=j==q.c?' certo':(j==resp[i]&&!ok?' errado':'');h+=`<div class="q${cl}">${op}</div>`});h+=`<small>💡 ${q.exp}</small></div>`});document.getElementById('gab').innerHTML=h}
+</script>
+</body>
+</html>
