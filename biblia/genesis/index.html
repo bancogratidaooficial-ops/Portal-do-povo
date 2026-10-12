@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bíblia Editável - Banco Gratidão</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0;padding:10px}
+.topo{background:#000;text-align:center;padding:15px;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:20}
+.topo h1{color:#ffcc00;margin:0;font-size:18px}
+.busca{width:90%;padding:12px;border-radius:25px;border:2px solid #ffcc00;background:#1a1a1a;color:#fff;margin:12px auto;display:block;text-align:center}
+.card{background:#1a1a1a;border:1px solid #333;border-radius:15px;padding:15px;margin:12px 0}
+.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;background:#000}
+.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.titulo-linha{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.titulo{color:#ffcc00;margin:0;font-size:15px;flex:1;background:transparent;border:1px dashed #444;padding:8px;border-radius:8px;color:#ffcc00}
+.lapis{background:#ffcc00;color:#000;border:0;border-radius:50%;width:36px;height:36px;font-size:18px;margin-left:8px;cursor:pointer;font-weight:bold}
+.salvo{color:#0f0;font-size:11px;margin-top:5px;display:none}
+</style>
+<script>
+function filtrar(){let t=document.getElementById('busca').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(t)?'block':'none'})}
+function editar(id){let input=document.getElementById('t-'+id);input.focus();input.select()}
+function salvar(id){let input=document.getElementById('t-'+id);localStorage.setItem('biblia-'+id,input.value);let msg=document.getElementById('s-'+id);msg.style.display='block';setTimeout(()=>msg.style.display='none',2000)}
+function carregar(){document.querySelectorAll('.titulo').forEach(inp=>{let id=inp.dataset.id;let salvo=localStorage.getItem('biblia-'+id);if(salvo){inp.value=salvo}})}
+window.onload=carregar;
+</script>
+</head><body>
+<div class="topo"><h1>📖 BANCO GRATIDÃO - EDITÁVEL</h1><p style="margin:5px 0 0;color:#aaa;font-size:11px">Toque no ✏️ e digite o nome certo - salva automático</p><input id="busca" class="busca" placeholder="🔍 Buscar: Gênesis, Salmos..." onkeyup="filtrar()"></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-RTrn29m5TnQ" data-id="RTrn29m5TnQ" class="titulo" value="🙏 PAI NOSSO - Oração Poderosa" onblur="salvar('RTrn29m5TnQ')"><button class="lapis" onclick="editar('RTrn29m5TnQ')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/RTrn29m5TnQ" loading="lazy"></iframe></div><div id="s-RTrn29m5TnQ" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-UFbI-kAuCQQ" data-id="UFbI-kAuCQQ" class="titulo" value="📖 01 - GÊNESIS" onblur="salvar('UFbI-kAuCQQ')"><button class="lapis" onclick="editar('UFbI-kAuCQQ')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/UFbI-kAuCQQ" loading="lazy"></iframe></div><div id="s-UFbI-kAuCQQ" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-lHkQKAz743k" data-id="lHkQKAz743k" class="titulo" value="📖 02 - ÊXODO" onblur="salvar('lHkQKAz743k')"><button class="lapis" onclick="editar('lHkQKAz743k')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/lHkQKAz743k" loading="lazy"></iframe></div><div id="s-lHkQKAz743k" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-mWxj7sGmGo4" data-id="mWxj7sGmGo4" class="titulo" value="📖 03 - LEVÍTICO" onblur="salvar('mWxj7sGmGo4')"><button class="lapis" onclick="editar('mWxj7sGmGo4')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/mWxj7sGmGo4" loading="lazy"></iframe></div><div id="s-mWxj7sGmGo4" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-32nZVN5Giy4" data-id="32nZVN5Giy4" class="titulo" value="📖 04 - NÚMEROS" onblur="salvar('32nZVN5Giy4')"><button class="lapis" onclick="editar('32nZVN5Giy4')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/32nZVN5Giy4" loading="lazy"></iframe></div><div id="s-32nZVN5Giy4" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-z6M37VjwUxY" data-id="z6M37VjwUxY" class="titulo" value="📖 05 - DEUTERONÔMIO" onblur="salvar('z6M37VjwUxY')"><button class="lapis" onclick="editar('z6M37VjwUxY')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/z6M37VjwUxY" loading="lazy"></iframe></div><div id="s-z6M37VjwUxY" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-y90qirTUGkY" data-id="y90qirTUGkY" class="titulo" value="📖 06 - JOSUÉ - CORRIJA AQUI ✏️" onblur="salvar('y90qirTUGkY')"><button class="lapis" onclick="editar('y90qirTUGkY')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/y90qirTUGkY" loading="lazy"></iframe></div><div id="s-y90qirTUGkY" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-lTi9RUANLZI" data-id="lTi9RUANLZI" class="titulo" value="📖 07 - JUÍZES - CORRIJA AQUI ✏️" onblur="salvar('lTi9RUANLZI')"><button class="lapis" onclick="editar('lTi9RUANLZI')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/lTi9RUANLZI" loading="lazy"></iframe></div><div id="s-lTi9RUANLZI" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-jd8ULYrZ4dw" data-id="jd8ULYrZ4dw" class="titulo" value="📖 08 - RUTE - CORRIJA AQUI ✏️" onblur="salvar('jd8ULYrZ4dw')"><button class="lapis" onclick="editar('jd8ULYrZ4dw')"><button class="lapis" onclick="editar('jd8ULYrZ4dw')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/jd8ULYrZ4dw" loading="lazy"></iframe></div><div id="s-jd8ULYrZ4dw" class="salvo">✅ Salvo!</div></div>
+
+<!-- CONTINUE O MESMO MODELO PARA OS OUTROS 54 VÍDEOS - SÓ TROCAR O ID E O VALUE -->
+<div class="card"><div class="titulo-linha"><input id="t-6Dai2Agx6S4" data-id="6Dai2Agx6S4" class="titulo" value="📖 09 - 1 SAMUEL - CORRIJA AQUI ✏️" onblur="salvar('6Dai2Agx6S4')"><button class="lapis" onclick="editar('6Dai2Agx6S4')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/6Dai2Agx6S4" loading="lazy"></iframe></div><div id="s-6Dai2Agx6S4" class="salvo">✅ Salvo!</div></div>
+
+<div class="card"><div class="titulo-linha"><input id="t-BuDW_byOPqw" data-id="BuDW_byOPqw" class="titulo" value="📖 10 - 2 SAMUEL - CORRIJA AQUI ✏️" onblur="salvar('BuDW_byOPqw')"><button class="lapis" onclick="editar('BuDW_byOPqw')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/BuDW_byOPqw" loading="lazy"></iframe></div><div id="s-BuDW_byOPqw" class="salvo">✅ Salvo!</div></div>
+
+<!-- COLE AQUI O RESTO DOS 52 QUE TE MANDEI ANTES SEGUINDO O MESMO MODELO COM LÁPIS -->
+
+</body></html>
