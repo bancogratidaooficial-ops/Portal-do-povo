@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Banco Gratidão Editável</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0;padding:10px}
+.topo{background:#000;text-align:center;padding:15px;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:99}
+.topo h1{color:#ffcc00;margin:0}
+.busca{width:90%;padding:12px;border-radius:25px;border:2px solid #ffcc00;background:#1a1a1a;color:#fff;margin:12px auto;display:block;text-align:center}
+.card{background:#1a1a1a;border:2px solid #333;border-radius:15px;padding:12px;margin:15px 0}
+.topo-card{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+.input-titulo{flex:1;background:#222;border:2px dashed #ffcc00;color:#ffcc00;padding:10px;border-radius:8px;font-weight:bold;font-size:15px}
+.btn-lapis{background:#ffcc00;color:#000;border:0;border-radius:8px;padding:10px 14px;font-size:20px;font-weight:bold}
+.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;background:#000}
+.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.ok{color:#0f0;font-size:12px;display:none;margin-top:6px}
+</style>
+<script>
+function filtrar(){let t=document.getElementById('busca').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(t)?'block':'none'})}
+function salvar(id){let v=document.getElementById('in-'+id).value;localStorage.setItem('bg-'+id,v);let o=document.getElementById('ok-'+id);o.style.display='block';setTimeout(()=>o.style.display='none',1500)}
+function carregar(){document.querySelectorAll('.input-titulo').forEach(i=>{let id=i.dataset.id;let s=localStorage.getItem('bg-'+id);if(s)i.value=s})}
+window.onload=carregar;
+</script>
+</head><body>
+<div class="topo"><h1>📖 BANCO GRATIDÃO - EDITÁVEL</h1><p style="color:#aaa;font-size:12px;margin:5px 0">Toque no lápis ✏️ digite o nome certo e clique fora</p><input id="busca" class="busca" placeholder="🔍 Buscar livro..." onkeyup="filtrar()"></div>
+
+<!-- MODELO COM LÁPIS - COPIE PARA TODOS -->
+<div class="card">
+<div class="topo-card">
+<input id="in-1" data-id="1" class="input-titulo" value="01 - GÊNESIS" onblur="salvar('1')">
+<button class="btn-lapis" onclick="document.getElementById('in-1').focus()">✏️</button>
+</div>
+<div class="video"><iframe src="https://www.youtube.com/embed/UFbI-kAuCQQ" loading="lazy" allowfullscreen></iframe></div>
+<div id="ok-1" class="ok">✅ Nome salvo!</div>
+</div>
+
+<div class="card">
+<div class="topo-card">
+<input id="in-2" data-id="2" class="input-titulo" value="02 - ÊXODO" onblur="salvar('2')">
+<button class="btn-lapis" onclick="document.getElementById('in-2').focus()">✏️</button>
+</div>
+<div class="video"><iframe src="https://www.youtube.com/embed/lHkQKAz743k" loading="lazy" allowfullscreen></iframe></div>
+<div id="ok-2" class="ok">✅ Nome salvo!</div>
+</div>
+
+<div class="card">
+<div class="topo-card">
+<input id="in-3" data-id="3" class="input-titulo" value="03 - LEVÍTICO - TOQUE NO LÁPIS E CORRIJA" onblur="salvar('3')">
+<button class="btn-lapis" onclick="document.getElementById('in-3').focus()">✏️</button>
+</div>
+<div class="video"><iframe src="https://www.youtube.com/embed/mWxj7sGmGo4" loading="lazy" allowfullscreen></iframe></div>
+<div id="ok-3" class="ok">✅ Nome salvo!</div>
+</div>
+
+<div class="card">
+<div class="topo-card">
+<input id="in-4" data-id="4" class="input-titulo" value="04 - NÚMEROS - TOQUE NO LÁPIS" onblur="salvar('4')">
+<button class="btn-lapis" onclick="document.getElementById('in-4').focus()">✏️</button>
+</div>
+<div class="video"><iframe src="https://www.youtube.com/embed/32nZVN5Giy4" loading="lazy" allowfullscreen></iframe></div>
+<div id="ok-4" class="ok">✅ Nome salvo!</div>
+</div>
+
+<!-- ADICIONE OS OUTROS 58 AQUI COPIANDO O BLOCO ACIMA E TROCANDO O ID DO VIDEO E O NÚMERO -->
+
+</body></html>
