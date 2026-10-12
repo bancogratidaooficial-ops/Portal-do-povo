@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+⁶<!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BANCO GRATIDÃO - 62 Vídeos Dourado Editável</title>
 <style>
@@ -86,5 +86,25 @@ window.onload=carregar;
 <div class="card"><div class="top-card"><input id="in-60" data-id="60" class="input-titulo" value="60 - Toque no lápis para nomear" onblur="salvar('60')"><button class="btn-lapis" onclick="focar('60')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/BWiep5BWC2Q" loading="lazy" allowfullscreen></iframe></div><div id="ok-60" class="ok">✅ Salvo!</div></div>
 <div class="card"><div class="top-card"><input id="in-61" data-id="61" class="input-titulo" value="61 - Toque no lápis para nomear" onblur="salvar('61')"><button class="btn-lapis" onclick="focar('61')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/fN4uwAxH7r4" loading="lazy" allowfullscreen></iframe></div><div id="ok-61" class="ok">✅ Salvo!</div></div>
 <div class="card"><div class="top-card"><input id="in-62" data-id="62" class="input-titulo" value="62 - Toque no lápis para nomear" onblur="salvar('62')"><button class="btn-lapis" onclick="focar('62')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/3WtK7f932-A" loading="lazy" allowfullscreen></iframe></div><div id="ok-62" class="ok">✅ Salvo!</div></div>
-
+<div style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999">
+<button onclick="gerarFixo()" style="background:#00ff88;color:#000;border:0;padding:15px 30px;border-radius:30px;font-weight:bold;font-size:16px">💾 GERAR ARQUIVO FIXO</button>
+</div>
+<script>
+function gerarFixo(){
+let html='<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BANCO GRATIDÃO - FINAL</title><style>body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0;padding:10px}.card{background:#1a1a1a;border:1px solid #333;border-left:4px solid #ffcc00;border-radius:15px;padding:15px;margin:15px 0}.titulo{color:#ffcc00;font-weight:bold;font-size:15px;margin-bottom:10px}.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000}.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}</style></head><body><h1 style="color:#ffcc00;text-align:center">📖 BANCO GRATIDÃO - BÍBLIA COMPLETA</h1>';
+document.querySelectorAll('.card').forEach(c=>{
+let nome=c.querySelector('.input-titulo').value;
+let iframe=c.querySelector('iframe').outerHTML;
+html+=`<div class="card"><div class="titulo">${nome}</div><div class="video">${iframe}</div></div>`;
+});
+html+='</body></html>';
+let blob=new Blob([html],{type:'text/html'});
+let a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='biblia-final-permanente.html';
+a.click();
+alert('✅ Arquivo final gerado!');
+}
+</script>
+  
 </body></html>
