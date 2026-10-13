@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HARPA CRISTÃ TV</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:Arial}
+header{background:#000;padding:15px;position:sticky;top:0;z-index:99;border-bottom:2px solid #ffcc00;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.logo{font-size:22px;font-weight:900;color:#ffcc00}
+.search input{width:260px;padding:10px 12px;border-radius:20px;border:none;font-weight:bold}
+.btn{padding:9px 16px;border-radius:20px;border:none;font-weight:bold;cursor:pointer}
+.btn-add{background:#ffcc00;color:#000}.btn-back{background:#222;color:#ffcc00;border:1px solid #ffcc00}
+.cat{padding:20px 15px 5px;color:#ffcc00;font-weight:bold;border-left:4px solid #ffcc00;margin:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:12px}
+.card{background:#111;border-radius:10px;overflow:hidden;border:1px solid #222}
+.thumb{aspect-ratio:16/9;position:relative;cursor:pointer}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.info{padding:7px}.titulo{font-size:12px;height:32px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:999;align-items:center;justify-content:center;padding:10px}.modal.on{display:flex}
+#box{width:100%;max-width:900px;background:#000;border-radius:10px;border:2px solid #ffcc00;overflow:hidden}
+#box-top{display:flex;justify-content:space-between;padding:10px;background:#111}
+#player{width:100%;aspect-ratio:16/9;border:none}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">HARPA<span style="color:#fff">CRISTÃ</span> TV</div>
+<div class="search"><input id="q" placeholder="Buscar hino..." oninput="render()"></div>
+<button class="btn btn-back" onclick="location.href='../'">VOLTAR</button>
+</header>
+<div class="cat">🎵 HARPA CRISTÃ - <span id="total"></span> HINOS</div>
+<div class="grid" id="grid"></div>
+<div class="modal" id="modal" onclick="if(event.target.id=='modal')closeModal()">
+<div id="box"><div id="box-top"><span id="mTitle"></span><button onclick="closeModal()" style="background:#ffcc00;border:none;padding:5px 10px;border-radius:5px;font-weight:bold">X</button></div><iframe id="player" allowfullscreen></iframe></div>
+</div>
+<script>
+const lista = [
+{id:"uPgVjWvik7o",titulo:"01 - Arpa Cristã"},
+{id:"kxfcTWXHOFI",titulo:"02 - Voz da Verdade"},
+{id:"LelPJzfcjZM",titulo:"03 - Eram Cem Ovelhas"},
+{id:"XhVnibJZ9wI",titulo:"04 - Rose Nascimento"},
+{id:"AUAmWpul5Vg",titulo:"05 - Irmão Lázaro"},
+{id:"dp_A6foVD84",titulo:"06 - Sobre as Ondas do Mar"},
+{id:"sSE6SKN5QUM",titulo:"07 - Mais Firme do que Nunca"},
+{id:"xAQscRpZCFo",titulo:"08 - Firme nas Promessas"},
+{id:"gQSjDha-1WE",titulo:"09 - Conversão"},
+{id:"XTcpnHDXsqQ",titulo:"10 - Rosa Vermelha"},
+{id:"mFPH7Hx1KZA",titulo:"11 - Os Guerreiros se Preparam"},
+{id:"q_krGry3yFE",titulo:"12 - Grandioso Es Tu"}
+];
+function render(){
+let q=document.getElementById('q').value.toLowerCase();
+let g=document.getElementById('grid');g.innerHTML='';
+let f=lista.filter(v=>v.titulo.toLowerCase().includes(q));
+document.getElementById('total').innerText=f.length;
+f.forEach((v,i)=>{
+let idx=lista.indexOf(v);
+g.innerHTML+=`<div class="card"><div class="thumb" onclick="play(${idx})"><img src="https://img.youtube.com/vi/${v.id}/hqdefault.jpg"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="background:#ffcc00;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#000">▶</div></div></div><div class="info"><div class="titulo">${v.titulo}</div></div></div>`;
+});
+}
+function play(i){document.getElementById('mTitle').innerText=lista[i].titulo;document.getElementById('player').src='https://www.youtube.com/embed/'+lista[i].id+'?autoplay=1';document.getElementById('modal').classList.add('on')}
+function closeModal(){document.getElementById('modal').classList.remove('on');document.getElementById('player').src=''}
+render();
+</script>
+</body>
+</html>
