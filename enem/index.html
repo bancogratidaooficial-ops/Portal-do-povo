@@ -1,84 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GRATIFLIX - ENEM</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>gratiFlix ENEM</title>
 <style>
-  body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0}
-  .header{padding:15px 15px 5px;display:flex;justify-content:space-between;align-items:center;background:#000;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
-  .logo{font-size:28px;font-weight:900;color:#ffcc00}
-  .logo span{color:#fff}
-  .categoria{border-left:4px solid #ffcc00;margin:15px;padding-left:12px;font-size:18px;font-weight:bold;color:#ffcc00}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px 30px}
-  .card{background:#151515;border-radius:12px;overflow:hidden;position:relative;border:1px solid #222}
-  .thumb{position:relative;width:100%;aspect-ratio:16/9;background:#000}
-  .thumb img{width:100%;height:100%;object-fit:cover}
-  .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#ffcc00;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#000;box-shadow:0 4px 15px rgba(0,0,0,.6)}
-  .titulo{padding:10px;font-size:14px;font-weight:bold}
-  .footer-card{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:#111}
-  .footer-card span{font-size:12px;color:#666}
-  .icone{width:32px;height:32px;background:#222;border-radius:50%;display:flex;align-items:center;justify-content:center}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:#fff;font-family:Arial}
+header{padding:14px 16px;background:#000;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+header b{color:#ffcc00;font-size:22px}
+.row{display:flex;flex-wrap:wrap;gap:12px;padding:16px}
+.card{width:160px;cursor:pointer}
+.card img{width:160px;height:90px;object-fit:cover;object-position:center;border-radius:10px;background:#111;border:1px solid #222;display:block}
+.card p{font-size:13px;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#player{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;z-index:99;flex-direction:column}
+#player.active{display:flex;justify-content:center;align-items:center}
+.box-video{width:100%;max-width:900px;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.box-video iframe{width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">GRATI<span>FLIX</span></div>
+<header><b>gratiFlix ENEM</b><span style="font-size:12px;color:#666">24 aulas</span></header>
+
+<div class="row" id="lista"></div>
+
+<div id="player">
+  <div class="box-video">
+    <iframe id="v2" allowfullscreen></iframe>
+  </div>
+  <div style="margin-top:20px;text-align:center">
+    <h3 id="titulo" style="color:#ffcc00"></h3>
+    <button style="margin-top:15px;padding:12px 30px;border-radius:20px;border:0;background:#ffcc00;font-weight:800" onclick="fechar()">X FECHAR</button>
+  </div>
 </div>
-
-<div class="categoria">📺 GRATIFLIX ENEM - 24 VÍDEOS</div>
-
-<div class="grid" id="grid"></div>
 
 <script>
 const aulas = [
-  {id:"LX7abdOcIXA", titulo:"ENEM Aula 01"},
-  {id:"x07QsN2eZM4", titulo:"ENEM Aula 02"},
-  {id:"yYSiPjDB1JU", titulo:"ENEM Aula 03"},
-  {id:"KrB0tn9XfME", titulo:"ENEM Aula 04"},
-  {id:"NMqGgSunrIA", titulo:"ENEM Aula 05"},
-  {id:"5EyYtHwVsqg", titulo:"ENEM Aula 06"},
-  {id:"Q1QVEqSczHI", titulo:"ENEM Aula 07"},
-  {id:"tqlKvTE8Rq4", titulo:"ENEM Aula 08"},
-  {id:"qmtzGf2t_04", titulo:"ENEM Aula 09"},
-  {id:"jR6FYWM6kuQ", titulo:"ENEM Aula 10"},
-  {id:"nhkqWaSPJXk", titulo:"ENEM Aula 11"},
-  {id:"NbCt6aL2haA", titulo:"ENEM Aula 12"},
-  {id:"LSrPcgwkVOE", titulo:"ENEM Aula 13"},
-  {id:"tyz9kZ2IWtk", titulo:"ENEM Aula 14"},
-  {id:"8BhPBaX4d3w", titulo:"ENEM Aula 15"},
-  {id:"K-usgtb41vk", titulo:"ENEM Aula 16"},
-  {id:"yv3WWEvqswU", titulo:"ENEM Aula 17"},
-  {id:"zQqMQxBoLnc", titulo:"ENEM Aula 18"},
-  {id:"EkPkppNArcw", titulo:"ENEM Aula 19"},
-  {id:"V7QBNtbZ-zM", titulo:"ENEM Aula 20"},
-  {id:"xB4Cy9tjSKk", titulo:"ENEM Aula 21"},
-  {id:"MH_bJ1rVX6I", titulo:"ENEM Aula 22"},
-  {id:"Pei5eIGFgzo", titulo:"ENEM Aula 23"},
-  {id:"SXO9_bIn6zM", titulo:"ENEM Aula 24"},
+{t:"ENEM Aula 01",i:"https://img.youtube.com/vi/LX7abdOcIXA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/LX7abdOcIXA"},
+{t:"ENEM Aula 02",i:"https://img.youtube.com/vi/x07QsN2eZM4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/x07QsN2eZM4"},
+{t:"ENEM Aula 03",i:"https://img.youtube.com/vi/yYSiPjDB1JU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/yYSiPjDB1JU"},
+{t:"ENEM Aula 04",i:"https://img.youtube.com/vi/KrB0tn9XfME/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KrB0tn9XfME"},
+{t:"ENEM Aula 05",i:"https://img.youtube.com/vi/NMqGgSunrIA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/NMqGgSunrIA"},
+{t:"ENEM Aula 06",i:"https://img.youtube.com/vi/5EyYtHwVsqg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/5EyYtHwVsqg"},
+{t:"ENEM Aula 07",i:"https://img.youtube.com/vi/Q1QVEqSczHI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Q1QVEqSczHI"},
+{t:"ENEM Aula 08",i:"https://img.youtube.com/vi/tqlKvTE8Rq4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tqlKvTE8Rq4"},
+{t:"ENEM Aula 09",i:"https://img.youtube.com/vi/qmtzGf2t_04/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qmtzGf2t_04"},
+{t:"ENEM Aula 10",i:"https://img.youtube.com/vi/jR6FYWM6kuQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/jR6FYWM6kuQ"},
+{t:"ENEM Aula 11",i:"https://img.youtube.com/vi/nhkqWaSPJXk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/nhkqWaSPJXk"},
+{t:"ENEM Aula 12",i:"https://img.youtube.com/vi/NbCt6aL2haA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/NbCt6aL2haA"},
+{t:"ENEM Aula 13",i:"https://img.youtube.com/vi/LSrPcgwkVOE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/LSrPcgwkVOE"},
+{t:"ENEM Aula 14",i:"https://img.youtube.com/vi/tyz9kZ2IWtk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tyz9kZ2IWtk"},
+{t:"ENEM Aula 15",i:"https://img.youtube.com/vi/8BhPBaX4d3w/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8BhPBaX4d3w"},
+{t:"ENEM Aula 16",i:"https://img.youtube.com/vi/K-usgtb41vk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/K-usgtb41vk"},
+{t:"ENEM Aula 17",i:"https://img.youtube.com/vi/yv3WWEvqswU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/yv3WWEvqswU"},
+{t:"ENEM Aula 18",i:"https://img.youtube.com/vi/zQqMQxBoLnc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/zQqMQxBoLnc"},
+{t:"ENEM Aula 19",i:"https://img.youtube.com/vi/EkPkppNArcw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/EkPkppNArcw"},
+{t:"ENEM Aula 20",i:"https://img.youtube.com/vi/V7QBNtbZ-zM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/V7QBNtbZ-zM"},
+{t:"ENEM Aula 21",i:"https://img.youtube.com/vi/xB4Cy9tjSKk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/xB4Cy9tjSKk"},
+{t:"ENEM Aula 22",i:"https://img.youtube.com/vi/MH_bJ1rVX6I/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/MH_bJ1rVX6I"},
+{t:"ENEM Aula 23",i:"https://img.youtube.com/vi/Pei5eIGFgzo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Pei5eIGFgzo"},
+{t:"ENEM Aula 24",i:"https://img.youtube.com/vi/SXO9_bIn6zM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/SXO9_bIn6zM"}
 ];
 
-const grid = document.getElementById('grid');
-let n = 1;
-aulas.forEach(a=>{
-  grid.innerHTML += `
-    <div class="card" onclick="window.open('https://www.youtube.com/watch?v=${a.id}','_blank')">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/${a.id}/hqdefault.jpg">
-        <div class="play">▶</div>
-      </div>
-      <div class="titulo">Vídeo ${String(n).padStart(3,'0')} - ${a.titulo}</div>
-      <div class="footer-card">
-        <div class="icone">✏️</div>
-        <span>#${String(n).padStart(3,'0')}</span>
-        <div class="icone">🗑️</div>
-      </div>
-    </div>
-  `;
-  n++;
+const lista=document.getElementById('lista');
+lista.innerHTML='';
+aulas.forEach((f,i)=>{
+  let div=document.createElement('div');
+  div.className='card';
+  div.innerHTML=`<img src="${f.i}" loading="lazy"><p>${f.t}</p>`;
+  div.onclick=()=>abrir(i);
+  lista.appendChild(div);
 });
-</script>
 
+function abrir(i){
+  let f=aulas[i];
+  document.getElementById('titulo').textContent=f.t;
+  document.getElementById('player').classList.add('active');
+  document.getElementById('v2').src=f.l+'?autoplay=1';
+}
+function fechar(){
+  document.getElementById('player').classList.remove('active');
+  document.getElementById('v2').src='';
+}
+</script>
 </body>
 </html>
