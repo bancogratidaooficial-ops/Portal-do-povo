@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENEM - gratflix</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#141414;color:#fff;font-family:'Helvetica Neue',Arial,sans-serif}
+  header{background:#000;padding:18px 50px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:10}
+  header h1{color:#e50914;font-size:32px;letter-spacing:2px}
+  header span{color:#999;font-size:14px}
+  .categoria{padding:25px 50px 10px;font-size:20px;font-weight:bold}
+  .row{display:flex;gap:12px;overflow-x:auto;padding:10px 50px 30px;scrollbar-width:none}
+  .row::-webkit-scrollbar{display:none}
+  .card{min-width:280px;height:158px;background:#222;border-radius:6px;overflow:hidden;cursor:pointer;position:relative;transition:.3s;flex-shrink:0}
+  .card:hover{transform:scale(1.08);z-index:2;box-shadow:0 10px 30px rgba(0,0,0,.8)}
+  .card img{width:100%;height:100%;object-fit:cover}
+  .card .info{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent, rgba(0,0,0,.9));padding:35px 10px 10px;font-size:13px;font-weight:bold}
+  .card .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.6);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;opacity:0;transition:.3s}
+  .card:hover .play{opacity:1}
+  
+  /* MODAL PLAYER */
+  #modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:99;align-items:center;justify-content:center}
+  #modal.active{display:flex}
+  #modal .box{width:90%;max-width:900px;background:#000;border-radius:10px;overflow:hidden;position:relative}
+  #modal iframe{width:100%;height:500px;border:0}
+  #fechar{position:absolute;top:10px;right:15px;background:#e50914;border:0;color:#fff;font-size:20px;width:35px;height:35px;border-radius:50%;cursor:pointer;z-index:2}
+  #tituloModal{padding:12px 20px;background:#111;font-size:16px}
+  @media(max-width:600px){header{padding:15px 20px}header h1{font-size:22px}.categoria{padding:20px}.row{padding:10px 20px 20px}.card{min-width:200px;height:113px}#modal iframe{height:250px}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ENEMFLIX</h1>
+  <span>24 Aulas Completas</span>
+</header>
+
+<div class="categoria">Todas as Aulas • ENEM</div>
+<div class="row" id="grid"></div>
+
+<div class="categoria">Continuar assistindo</div>
+<div class="row" id="grid2"></div>
+
+<!-- PLAYER -->
+<div id="modal">
+  <div class="box">
+    <button id="fechar">✕</button>
+    <iframe id="player" allowfullscreen></iframe>
+    <div id="tituloModal"></div>
+  </div>
+</div>
+
+<script>
+const aulas = [
+  {id:"LX7abdOcIXA", titulo:"Aula 01"},
+  {id:"x07QsN2eZM4", titulo:"Aula 02"},
+  {id:"yYSiPjDB1JU", titulo:"Aula 03"},
+  {id:"KrB0tn9XfME", titulo:"Aula 04"},
+  {id:"NMqGgSunrIA", titulo:"Aula 05"},
+  {id:"5EyYtHwVsqg", titulo:"Aula 06"},
+  {id:"Q1QVEqSczHI", titulo:"Aula 07"},
+  {id:"tqlKvTE8Rq4", titulo:"Aula 08"},
+  {id:"qmtzGf2t_04", titulo:"Aula 09"},
+  {id:"jR6FYWM6kuQ", titulo:"Aula 10"},
+  {id:"nhkqWaSPJXk", titulo:"Aula 11"},
+  {id:"NbCt6aL2haA", titulo:"Aula 12"},
+  {id:"LSrPcgwkVOE", titulo:"Aula 13"},
+  {id:"tyz9kZ2IWtk", titulo:"Aula 14"},
+  {id:"8BhPBaX4d3w", titulo:"Aula 15"},
+  {id:"K-usgtb41vk", titulo:"Aula 16"},
+  {id:"yv3WWEvqswU", titulo:"Aula 17"},
+  {id:"zQqMQxBoLnc", titulo:"Aula 18"},
+  {id:"EkPkppNArcw", titulo:"Aula 19"},
+  {id:"V7QBNtbZ-zM", titulo:"Aula 20"},
+  {id:"xB4Cy9tjSKk", titulo:"Aula 21"},
+  {id:"MH_bJ1rVX6I", titulo:"Aula 22"},
+  {id:"Pei5eIGFgzo", titulo:"Aula 23"},
+  {id:"SXO9_bIn6zM", titulo:"Aula 24"},
+];
+
+const grid = document.getElementById('grid');
+const grid2 = document.getElementById('grid2');
+
+function criarCards(container, lista){
+  lista.forEach(aula=>{
+    const div = document.createElement('div');
+    div.className='card';
+    div.innerHTML = `
+      <img src="https://img.youtube.com/vi/${aula.id}/hqdefault.jpg">
+      <div class="play">▶</div>
+      <div class="info">${aula.titulo}</div>
+    `;
+    div.onclick = ()=> abrir(aula);
+    container.appendChild(div);
+  });
+}
+criarCards(grid, aulas);
+criarCards(grid2, [...aulas].reverse().slice(0,10));
+
+const modal = document.getElementById('modal');
+const player = document.getElementById('player');
+const tituloModal = document.getElementById('tituloModal');
+
+function abrir(aula){
+  player.src = `https://www.youtube.com/embed/${aula.id}?autoplay=1`;
+  tituloModal.textContent = aula.titulo + " - ENEM";
+  modal.classList.add('active');
+}
+document.getElementById('fechar').onclick = ()=>{
+  modal.classList.remove('active');
+  player.src = "";
+}
+modal.onclick = (e)=>{ if(e.target==modal){ modal.classList.remove('active'); player.src=""; } }
+</script>
+
+</body>
+</html>
