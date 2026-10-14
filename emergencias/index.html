@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emergências - Portal do Povo</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#080808;color:#fff;font-family:Arial;padding-bottom:40px}
+header{padding:14px 16px;background:#000;border-bottom:1px solid #222;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
+header b{color:#ffcc00;font-size:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}}
+.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:.2s}
+.card:active{transform:scale(0.97)}
+.card .icon{font-size:32px;margin-bottom:8px}
+.card b{font-size:36px;color:#ffcc00;display:block;margin:6px 0}
+.card span{font-size:12px;color:#aaa}
+.card.vermelho{border-color:#ff3333;background:#1a0a0a}
+.card.vermelho b{color:#ff4444}
+.btn-ligar{display:block;margin-top:10px;background:#ffcc00;color:#000;padding:8px;border-radius:20px;font-weight:800;font-size:13px;text-decoration:none}
+.vermelho .btn-ligar{background:#ff3333;color:#fff}
+.titulo-secao{padding:16px 16px 0 16px;color:#ffcc00;font-size:14px;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<header>
+<a href="../index.html" style="text-decoration:none;color:#fff;font-size:20px">←</a>
+<b>🚨 EMERGÊNCIAS 24H</b>
+</header>
+
+<div class="titulo-secao">PRINCIPAIS</div>
+<div class="grid">
+  <div class="card vermelho"><div class="icon">🚓</div><span>POLÍCIA MILITAR</span><b>190</b><a class="btn-ligar" href="tel:190">LIGAR AGORA</a></div>
+  <div class="card vermelho"><div class="icon">🚑</div><span>SAMU</span><b>192</b><a class="btn-ligar" href="tel:192">LIGAR AGORA</a></div>
+  <div class="card vermelho"><div class="icon">🚒</div><span>BOMBEIROS</span><b>193</b><a class="btn-ligar" href="tel:193">LIGAR AGORA</a></div>
+  <div class="card"><div class="icon">🚔</div><span>POLÍCIA CIVIL</span><b>197</b><a class="btn-ligar" href="tel:197">LIGAR</a></div>
+  <div class="card"><div class="icon">🛣️</div><span>PRF - RODOVIA</span><b>191</b><a class="btn-ligar" href="tel:191">LIGAR</a></div>
+  <div class="card"><div class="icon">🌊</div><span>DEFESA CIVIL</span><b>199</b><a class="btn-ligar" href="tel:199">LIGAR</a></div>
+</div>
+
+<div class="titulo-secao">PROTEÇÃO</div>
+<div class="grid">
+  <div class="card"><div class="icon">👩</div><span>MULHER</span><b>180</b><a class="btn-ligar" href="tel:180">LIGAR</a></div>
+  <div class="card"><div class="icon">👶</div><span>CONSELHO TUTELAR</span><b>100</b><span style="font-size:10px">DIREITOS HUMANOS</span><a class="btn-ligar" href="tel:100">LIGAR</a></div>
+  <div class="card"><div class="icon">🤫</div><span>DENÚNCIA ANÔNIMA</span><b>181</b><a class="btn-ligar" href="tel:181">LIGAR</a></div>
+  <div class="card"><div class="icon">💛</div><span>CVV - APOIO EMOCIONAL</span><b>188</b><a class="btn-ligar" href="tel:188">LIGAR</a></div>
+  <div class="card"><div class="icon">💡</div><span>COPEL</span><b>0800 51 00 116</b><a class="btn-ligar" href="tel:08005100116">LIGAR</a></div>
+  <div class="card"><div class="icon">💧</div><span>SANEPAR</span><b>0800 200 0115</b><a class="btn-ligar" href="tel:08002000115">LIGAR</a></div>
+</div>
+
+<div style="margin:20px;padding:14px;background:#111;border-radius:12px;border:1px solid #222;text-align:center">
+<p style="font-size:12px;color:#666">Toque em LIGAR AGORA e o celular já disca. Em Curitiba, você também pode usar o app 190 PR.</p>
+</div>
+
+</body>
+</html>
