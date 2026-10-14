@@ -3,30 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>gratiFlix tv</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;color:#fff;font-family:Arial}
-header{padding:12px;background:#000;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.row{display:flex;gap:12px;overflow-x:auto;padding:16px;scrollbar-width:none}
+header{padding:14px 16px;background:#000;border-bottom:1px solid #1a1a1a;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+header b{color:#ffcc00;font-size:24px}
+.row{display:flex;gap:12px;overflow-x:auto;padding:16px;scroll-behavior:smooth}
 .row::-webkit-scrollbar{display:none}
-.card{min-width:145px;cursor:pointer;flex-shrink:0}
-.card img{width:145px;height:210px;object-fit:cover;object-position:top center;border-radius:10px;background:#1a1a1a;display:block;border:1px solid #222}
-.card p{font-size:13px;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:145px}
-#player{position:fixed;inset:0;background:#000;display:none;z-index:99;flex-direction:column}
+.card{min-width:150px;cursor:pointer;transition:.3s}
+.card:hover{transform:scale(1.05)}
+.card img{width:150px;height:225px;object-fit:cover;object-position:center top;border-radius:12px;background:#111;border:1px solid #222;display:block}
+.card p{font-size:13px;margin-top:8px;width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#ddd}
+#player{position:fixed;inset:0;background:rgba(0,0,0,.95);display:none;z-index:99;flex-direction:column;justify-content:center}
 #player.active{display:flex}
-.box-video{width:100%;height:60vh;background:#000;position:relative;flex-shrink:0}
-.box-video video,.box-video iframe{width:100%;height:100%;border:none}
+.box-video{width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.box-video iframe,.box-video video{width:100%;height:100%;border:0}
 .form{position:fixed;inset:0;background:#000;display:none;z-index:100;padding:20px;overflow:auto}
 .form.active{display:block}
-input{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #333;background:#111;color:#fff;border-radius:8px}
-.btn{padding:10px 18px;border-radius:20px;border:0;font-weight:800;cursor:pointer}
+input{width:100%;padding:12px;margin:8px 0;border:1px solid #333;background:#111;color:#fff;border-radius:8px}
+.btn{padding:12px 18px;border-radius:20px;border:0;font-weight:800;cursor:pointer}
 </style>
 </head>
 <body>
 
 <header>
-  <b style="color:#ffcc00;font-size:22px">gratiFlix tv</b>
-  <button class="btn" style="background:#ffcc00" onclick="document.getElementById('form').classList.add('active')">+ ADICIONAR</button>
+<b>gratiFlix tv</b>
+<button class="btn" style="background:#ffcc00" onclick="document.getElementById('form').classList.add('active')">+ ADICIONAR</button>
 </header>
 
 <div class="row" id="lista"></div>
@@ -34,163 +37,4 @@ input{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #333;background
 <div id="player">
   <div class="box-video">
     <video id="v1" controls playsinline style="display:none"></video>
-    <iframe id="v2" style="display:none" allowfullscreen></iframe>
-  </div>
-  <div style="padding:15px;background:#111">
-    <h3 id="titulo" style="color:#ffcc00"></h3>
-    <p id="legenda" style="margin-top:8px;text-align:center;background:#000;padding:8px;border-radius:6px"></p>
-    <button class="btn" style="background:#ffcc00;margin-top:12px;width:100%" onclick="fechar()">X Fechar</button>
-  </div>
-</div>
-
-<div id="form" class="form">
-  <h2 style="color:#ffcc00">Adicionar Filme</h2>
-  <p style="font-size:11px;color:#aaa;margin:6px 0">Pode colar link do YouTube agora! Ex: https://youtu.be/...</p>
-  <input id="f_titulo" placeholder="Nome do filme">
-  <input id="f_link" placeholder="Link do vídeo YouTube ou MP4">
-  <input id="f_capa" placeholder="Link da capa (opcional) - se deixar vazio eu crio automática com a cara do filme">
-  <input id="f_leg" placeholder="Legenda">
-  <button class="btn" style="background:#ffcc00;width:100%;margin-top:10px" onclick="salvar()">Salvar</button>
-  <button class="btn" style="background:#222;color:#fff;width:100%;margin-top:8px" onclick="document.getElementById('form').classList.remove('active')">Cancelar</button>
-</div>
-
-<script>
-let filmes = JSON.parse(localStorage.getItem('gratiflix_v4')) || [
-{"t":"filmes 1","c":"https://img.youtube.com/vi/qKQyKxNwU1I/hqdefault.jpg","l":"https://www.youtube-nocookie.com/embed/qKQyKxNwU1I","leg":""},
-{"t":"filmes 2","c":"https://img.youtube.com/vi/MUZAFGzqUQI/hqdefault.jpg","l":"https://www.youtube-nocookie.com/embed/MUZAFGzqUQI","leg":""},
-{t:"filmes 1",i:"https://img.youtube.com/vi/qKRyqXnwbNI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qKRyqXnwbNI",pasta:"filmes"},
-{t:"filmes 2",i:"https://img.youtube.com/vi/MUZ4FpGzsqU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/MUZ4FpGzsqU",pasta:"filmes"},
-{t:"filmes 3",i:"https://img.youtube.com/vi/bSKIBqSHrNI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/bSKIBqSHrNI",pasta:"filmes"},
-{t:"filmes 4",i:"https://img.youtube.com/vi/Gnv_rD6sJgM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Gnv_rD6sJgM",pasta:"filmes"},
-{t:"filmes 5",i:"https://img.youtube.com/vi/kDBSwSeSd8o/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kDBSwSeSd8o",pasta:"filmes"},
-{t:"filmes 6",i:"https://img.youtube.com/vi/t89cAmA3oec/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t89cAmA3oec",pasta:"filmes"},
-{t:"filmes 7",i:"https://img.youtube.com/vi/PuVuB9iKZGg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/PuVuB9iKZGg",pasta:"filmes"},
-{t:"filmes 8",i:"https://img.youtube.com/vi/eBNd-V4duWY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/eBNd-V4duWY",pasta:"filmes"},
-{t:"filmes 9",i:"https://img.youtube.com/vi/RJdueseYras/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RJdueseYras",pasta:"filmes"},
-{t:"filmes 10",i:"https://img.youtube.com/vi/VPT0gE8Ve3I/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/VPT0gE8Ve3I",pasta:"filmes"},
-{t:"filmes 11",i:"https://img.youtube.com/vi/t5nv9FneoZs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t5nv9FneoZs",pasta:"filmes"},
-{t:"filmes 12",i:"https://img.youtube.com/vi/cZYOWew11MM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/cZYOWew11MM",pasta:"filmes"},
-{t:"filmes 13",i:"https://img.youtube.com/vi/KSA8LJBcuBw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KSA8LJBcuBw",pasta:"filmes"},
-{t:"filmes 14",i:"https://img.youtube.com/vi/6vyGebfwe94/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/6vyGebfwe94",pasta:"filmes"},
-{t:"filmes 15",i:"https://img.youtube.com/vi/QOcbqIMBGEo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/QOcbqIMBGEo",pasta:"filmes"},
-{t:"filmes 16",i:"https://img.youtube.com/vi/GwzaCpHKSco/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/GwzaCpHKSco",pasta:"filmes"},
-{t:"filmes 17",i:"https://img.youtube.com/vi/LniTsQUUaIY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/LniTsQUUaIY",pasta:"filmes"},
-{t:"filmes 18",i:"https://img.youtube.com/vi/g20SBcNiqvI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/g20SBcNiqvI",pasta:"filmes"},
-{t:"filmes 19",i:"https://img.youtube.com/vi/16iMqoXFdwA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/16iMqoXFdwA",pasta:"filmes"},
-{t:"filmes 20",i:"https://img.youtube.com/vi/fZTEVgeYmd4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fZTEVgeYmd4",pasta:"filmes"},
-{t:"filmes 21",i:"https://img.youtube.com/vi/t5-es5PlQUs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t5-es5PlQUs",pasta:"filmes"},
-{t:"filmes 22",i:"https://img.youtube.com/vi/vZj0X0Qzstg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/vZj0X0Qzstg",pasta:"filmes"},
-{t:"filmes 23",i:"https://img.youtube.com/vi/ajMd9c8QHMI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ajMd9c8QHMI",pasta:"filmes"},
-{t:"filmes 24",i:"https://img.youtube.com/vi/HPIQ3-eJmwY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/HPIQ3-eJmwY",pasta:"filmes"},
-{t:"filmes 25",i:"https://img.youtube.com/vi/JkwFWFbir1E/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/JkwFWFbir1E",pasta:"filmes"},
-{t:"filmes 26",i:"https://img.youtube.com/vi/zsdQFZnDfoA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/zsdQFZnDfoA",pasta:"filmes"},
-{t:"filmes 27",i:"https://img.youtube.com/vi/PNRXZx3Bz-Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/PNRXZx3Bz-Q",pasta:"filmes"},
-{t:"filmes 28",i:"https://img.youtube.com/vi/kU-7uPQZBWM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kU-7uPQZBWM",pasta:"filmes"},
-{t:"filmes 29",i:"https://img.youtube.com/vi/cYxgBL9X-4Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/cYxgBL9X-4Q",pasta:"filmes"},
-{t:"filmes 30",i:"https://img.youtube.com/vi/kNl7YVgvAXk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kNl7YVgvAXk",pasta:"filmes"},
-{t:"filmes 31",i:"https://img.youtube.com/vi/fUyp2e3R1i8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fUyp2e3R1i8",pasta:"filmes"},
-{t:"filmes 32",i:"https://img.youtube.com/vi/8jshmm8ev74/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8jshmm8ev74",pasta:"filmes"},
-{t:"filmes 33",i:"https://img.youtube.com/vi/xdvl0KfI3dk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/xdvl0KfI3dk",pasta:"filmes"},
-{t:"filmes 34",i:"https://img.youtube.com/vi/CSe_rCyNGzs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/CSe_rCyNGzs",pasta:"filmes"},
-{t:"filmes 35",i:"https://img.youtube.com/vi/bQQ0PGVAGaQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/bQQ0PGVAGaQ",pasta:"filmes"},
-{t:"filmes 36",i:"https://img.youtube.com/vi/68WyOt9egTU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/68WyOt9egTU",pasta:"filmes"},
-{t:"filmes 37",i:"https://img.youtube.com/vi/nqxCRAzakE8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/nqxCRAzakE8",pasta:"filmes"},
-{t:"filmes 38",i:"https://img.youtube.com/vi/R6Iq8aSt0Zg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/R6Iq8aSt0Zg",pasta:"filmes"},
-{t:"filmes 39",i:"https://img.youtube.com/vi/53yDYHibm04/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/53yDYHibm04",pasta:"filmes"},
-{t:"filmes 40",i:"https://img.youtube.com/vi/yysbH_A8sXM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/yysbH_A8sXM",pasta:"filmes"},
-{t:"filmes 41",i:"https://img.youtube.com/vi/jYBruJX9RHw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/jYBruJX9RHw",pasta:"filmes"},
-{t:"filmes 42",i:"https://img.youtube.com/vi/qw1bSUmXpUY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qw1bSUmXpUY",pasta:"filmes"},
-{t:"filmes 43",i:"https://img.youtube.com/vi/O_PlC4DZaiw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/O_PlC4DZaiw",pasta:"filmes"},
-{t:"filmes 44",i:"https://img.youtube.com/vi/TiSz_xUkoIY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/TiSz_xUkoIY",pasta:"filmes"},
-{t:"filmes 45",i:"https://img.youtube.com/vi/UVk6EDSCKMc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/UVk6EDSCKMc",pasta:"filmes"},
-{t:"filmes 46",i:"https://img.youtube.com/vi/s-GgY7QiYSE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/s-GgY7QiYSE",pasta:"filmes"},
-{t:"filmes 47",i:"https://img.youtube.com/vi/qzy5S3LQ0Nw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qzy5S3LQ0Nw",pasta:"filmes"},
-{t:"filmes 48",i:"https://img.youtube.com/vi/IFSUcW4Spag/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/IFSUcW4Spag",pasta:"filmes"},
-{t:"filmes 49",i:"https://img.youtube.com/vi/iBZukP-9XdA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/iBZukP-9XdA",pasta:"filmes"},
-{t:"filmes 50",i:"https://img.youtube.com/vi/FD4CeWNIQdk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/FD4CeWNIQdk",pasta:"filmes"},
-{t:"filmes 51",i:"https://img.youtube.com/vi/3cAaosl9FoY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3cAaosl9FoY",pasta:"filmes"},
-{t:"filmes 52",i:"https://img.youtube.com/vi/tWZxrVwUyN8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tWZxrVwUyN8",pasta:"filmes"},
-{t:"filmes 53",i:"https://img.youtube.com/vi/9CjByZriDkA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/9CjByZriDkA",pasta:"filmes"},
-{t:"filmes 54",i:"https://img.youtube.com/vi/8h54C7tIj-M/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8h54C7tIj-M",pasta:"filmes"},
-{t:"filmes 55",i:"https://img.youtube.com/vi/IkUCBicGnk0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/IkUCBicGnk0",pasta:"filmes"},
-{t:"filmes 56",i:"https://img.youtube.com/vi/MbgjeF9QAVE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/MbgjeF9QAVE",pasta:"filmes"},
-{t:"filmes 57",i:"https://img.youtube.com/vi/fwLrlXZTdK0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fwLrlXZTdK0",pasta:"filmes"},
-{t:"filmes 58",i:"https://img.youtube.com/vi/KKJ5e_ksjO4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KKJ5e_ksjO4",pasta:"filmes"},
-{t:"filmes 59",i:"https://img.youtube.com/vi/qIN82R8MLrQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qIN82R8MLrQ",pasta:"filmes"},
-{t:"filmes 60",i:"https://img.youtube.com/vi/ZXc-hKDDGRA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ZXc-hKDDGRA",pasta:"filmes"},
-{t:"filmes 61",i:"https://img.youtube.com/vi/i_QMcbI61yo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/i_QMcbI61yo",pasta:"filmes"},
-{t:"filmes 62",i:"https://img.youtube.com/vi/Br9PbQBuQtg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Br9PbQBuQtg",pasta:"filmes"},
-{t:"filmes 63",i:"https://img.youtube.com/vi/3f5TlLMocHs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3f5TlLMocHs",pasta:"filmes"},
-{t:"filmes 64",i:"https://img.youtube.com/vi/RZ4p-VyShMU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RZ4p-VyShMU",pasta:"filmes"},
-{t:"filmes 65",i:"https://img.youtube.com/vi/3k35crCBBB4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3k35crCBBB4",pasta:"filmes"},
-{t:"filmes 66",i:"https://img.youtube.com/vi/nIHU2SVLNQ0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/nIHU2SVLNQ0",pasta:"filmes"},
-{t:"filmes 67",i:"https://img.youtube.com/vi/poGy3eNjO3A/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/poGy3eNjO3A",pasta:"filmes"},
-{t:"filmes 68",i:"https://img.youtube.com/vi/zGgrvHKKHuA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/zGgrvHKKHuA",pasta:"filmes"},
-{t:"filmes 69",i:"https://img.youtube.com/vi/8Uufoi9xv7Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8Uufoi9xv7Q",pasta:"filmes"},
-{t:"filmes 70",i:"https://img.youtube.com/vi/TaDQWHlC8YY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/TaDQWHlC8YY",pasta:"filmes"},
-{t:"filmes 71",i:"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/G9qBZ6NaMfY",pasta:"filmes"},
-{t:"filmes 72",i:"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ppmUuEv6TBk",pasta:"filmes"},
-{t:'Viagem no Tempo (YouTube Livre)',l:'https://www.youtube.com/embed/5qap5aO4i9A',c:'https://i.ytimg.com/vi/5qap5aO4i9A/hqdefault.jpg',leg:'Em português - Lofi que funciona 24h no YouTube'},
-{t:'Batman 1949 MP4',l:'https://archive.org/download/BatmanAndRobin1949/BatmanAndRobin1949_512kb.mp4',c:'https://i.imgur.com/8Km9tLL.png',leg:'Agora vemos que pagamos por isso com a nossa liberdade.'}
-{"t":"filmes 3","c":"https://img.youtube.com/vi/bSKIRqBShNl/hqdefault.jpg","l":"https://www.youtube-nocookie.com/embed/bSKIRqBShNl","leg":""}
-];
-
-// FUNÇÃO QUE EXTRAI ID E CRIA CAPA BONITA
-function getId(url){
-  let m = url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/);
-  return m? m[1] : null;
-}
-function capaBonita(url, capaSalva){
-  if(capaSalva && capaSalva.includes('http')) return capaSalva;
-  let id = getId(url);
-  if(id) return `https://img.youtube.com/vi/${id}/mqdefault.jpg`; // mqdefault mostra a cara melhor que hqdefault
-  return url;
-}
-
-const lista = document.getElementById('lista');
-function render(){
-  lista.innerHTML = '';
-  filmes.forEach((f,i)=>{
-    let imgSrc = capaBonita(f.l, f.c);
-    let div = document.createElement('div');
-    div.className = 'card';
-    div.innerHTML = `<img src="${imgSrc}" onerror="this.src='https://img.youtube.com/vi/${getId(f.l)}/hqdefault.jpg'" loading="lazy"><p>${f.t}</p>`;
-    div.onclick = ()=> abrir(i);
-    lista.appendChild(div);
-  });
-}
-function abrir(i){
-  let f = filmes[i];
-  document.getElementById('titulo').textContent = f.t;
-  document.getElementById('legenda').textContent = f.leg || '';
-  document.getElementById('player').classList.add('active');
-  let id = getId(f.l);
-  if(f.l.includes('.mp4')){
-    document.getElementById('v1').src = f.l; document.getElementById('v1').style.display='block'; document.getElementById('v2').style.display='none'; document.getElementById('v1').play();
-  } else {
-    document.getElementById('v2').src = f.l.includes('embed')? f.l : `https://www.youtube.com/embed/${id}`; document.getElementById('v2').style.display='block'; document.getElementById('v1').style.display='none';
-  }
-}
-function fechar(){
-  document.getElementById('player').classList.remove('active');
-  document.getElementById('v1').pause(); document.getElementById('v1').src=''; document.getElementById('v2').src='';
-}
-function salvar(){
-  let t = document.getElementById('f_titulo').value || 'Novo Filme';
-  let l = document.getElementById('f_link').value.trim();
-  let c = document.getElementById('f_capa').value.trim();
-  let leg = document.getElementById('f_leg').value;
-  if(!l) return alert('Cola o link do filme');
-  // se colou youtu.be já converte pra embed
-  let id = getId(l);
-  if(id &&!l.includes('embed')) l = `https://www.youtube-nocookie.com/embed/${id}`;
-  let finalCapa = capaBonita(l, c);
-  filmes.unshift({t:t,c:finalCapa,l:l,leg:leg});
-  localStorage.setItem('gratiflix_v4', JSON.stringify(filmes));
-  document.getElementById('form').classList.remove('active');
-  render();
-}
-render();
-</script>
-</body>
-</html>
+    <iframe id="v2" style="display:none" allowfullscreen allow="autoplay"></
