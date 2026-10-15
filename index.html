@@ -156,6 +156,12 @@ function convidarMembros(){
 window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
 function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
 function mostrarComoInstalar(){alert("Para INSTALAR:\n1. Clique nos 3 pontinhos ⋮\n2. Adicionar à tela inicial");}
+function mostrarComoInstalar(){alert("Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos ⋮ lá em cima no Chrome\n2. Clique em 'Instalar app' ou 'Adicionar à tela inicial'");}
+
+// REGISTRA O APP
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>
