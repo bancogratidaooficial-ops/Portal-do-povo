@@ -96,7 +96,51 @@ Banco Gratidão Oficial é um portal gratuito para organizar finanças, dívidas
 <div id="btnRadar" onclick="abrirRadar()" style="background:#ff0000;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;margin:12px;cursor:pointer;animation: pulse 1s infinite">
 📡 VER RADARES DE HOJE - 4 NOVOS NA BR-376!
 </div>
+<!-- BOTÃO QUE ABRE MESMO -->
+<div id="btnRadar" onclick="abrirRadar()" style="background:#ff0000;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;margin:12px;cursor:pointer;animation: pulse 1s infinite">
+📡 VER RADARES DE HOJE - 4 NOVOS NA BR-376!
+</div>
 
+<style>
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+</style>
+
+<!-- LISTA ESCONDIDA QUE APARECE QUANDO CLICA -->
+<div id="listaRadar" style="display:none;background:#111;border:2px solid #ffcc00;border-radius:12px;margin:12px;padding:12px">
+
+<div style="background:#ffcc00;color:#000;padding:8px;font-weight:900;text-align:center;border-radius:8px">📍 SÃO JOSÉ DOS PINHAIS - 4 NOVOS HOJE 14/10</div>
+<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 14.980 - Antiga PUC (Bairro-Centro) - 70km/h - 3 faixas</b></div>
+<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 15.101 - Antiga PUC (Centro-Bairro) - 70km/h - 3 faixas</b></div>
+<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.828 - Avipec (Bairro-Centro) - 70km/h - 2 faixas</b></div>
+<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.811 - Avipec (Centro-Bairro) - 70km/h - 2 faixas</b></div>
+
+<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 CURITIBA - 14 RADARES</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Padre Agostinho x Visconde Nácar - Centro - 40km/h NOVO</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 101 - Atuba - 70km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 107 - Uberaba - 70km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Av. das Torres, 2500 - Uberaba - 60km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Marechal Floriano, 4800 - Hauer - 60km/h</div>
+
+<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Contorno Leste BR-116 - Pinhais - 60km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Rod. da Uva, 1500 - Colombo - 60km/h</div>
+<div style="padding:8px 0;color:#fff;font-size:12px">⚫ BR-476 - Araucária - 60km/h</div>
+
+<div style="padding:12px;text-align:center;margin-top:10px">
+<a href="https://wa.me/?text=Radares%20de%20hoje%20Curitiba%20https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="background:#25D366;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold">📲 COMPARTILHAR</a>
+<div onclick="abrirRadar()" style="margin-top:10px;color:#aaa;font-size:12px;cursor:pointer">❌ FECHAR</div>
+</div>
+</div>
+
+<script>
+function abrirRadar(){
+ var l = document.getElementById('listaRadar');
+ if(l.style.display=='none'){ l.style.display='block'; l.scrollIntoView({behavior:'smooth'}); }
+ else { l.style.display='none'; }
+}
+</script>
+<!-- FIM DO BLOCO QUE FUNCIONA -->
 <style>
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 </style>
