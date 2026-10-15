@@ -1,9 +1,9 @@
 {
-  "name": "Banco Gratidão",
-  "short_name": "Banco Gratidão",
-  "start_url": "./index.html",
+  "name": "Banco Gratidão Oficial - Portal do Povo",
+  "short_name": "Portal do Povo",
+  "start_url": "/Portal-do-povo/",
   "display": "standalone",
-  "background_color": "#080808",
+  "background_color": "#000000",
   "theme_color": "#ffcc00",
-  "icons": [{"src":"https://cdn-icons-png.flaticon.com/512/588/588397.png","sizes":"512x512","type":"image/png"}]
+  "icons": [{"src":"https://cdn-icons-png.flaticon.com/512/3135/3135715.png","sizes":"512x512","type":"image/png"}]
 }
