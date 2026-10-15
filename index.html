@@ -50,6 +50,27 @@ function mostrarComoInstalar(){alert("Para INSTALAR no celular:\n\n1. Clique nos
 </script>
 
 <header>
+<div class="acoes-topo">
+<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
+<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
+<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
+<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR</button>
+</div>
+
+<script>
+let promptInstalacao;
+function compartilharPortal(){
+  const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
+  if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url))}
+}
+function convidarMembros(){
+  const msg="Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
+function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
+function mostrarComoInstalar(){alert("Para INSTALAR:\n1. Clique nos 3 pontinhos ⋮\n2. Adicionar à tela inicial");}
+</script>
 <b>BANCO GRATIDÃO OFICIAL</b>
 <span>Portal do Povo - Tudo em um só lugar - 20 anos de gratidão</span>
 </header>
