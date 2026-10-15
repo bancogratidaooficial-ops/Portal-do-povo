@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BANCO GRATIDÃO - Portal do Povo</title>
+<link rel="manifest" href="./manifest.json">
+<style>
+body{margin:0;font-family:Arial;background:#000;color:#fff}
+.header{background:#ffcc00;color:#000;padding:16px;text-align:center;font-weight:900;font-size:22px}
+.sub{font-size:11px;font-weight:400}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+.btn{padding:15px;text-align:center;font-weight:900;font-size:16px;border-radius:12px;margin:10px;cursor:pointer;display:block;text-decoration:none;animation:pulse 1.2s infinite}
+.btn-radar{background:linear-gradient(90deg,#ff0000,#ffcc00);color:#fff;box-shadow:0 0 12px red}
+.btn-camera{background:linear-gradient(90deg,#004AAD,#00C2FF);color:#fff;box-shadow:0 0 12px #00C2FF}
+.bloco{display:none;background:#111;border-radius:14px;margin:10px;border:2px solid #ffcc00;overflow:hidden}
+.bloco-camera{border-color:#00C2FF}
+.topo{background:#ffcc00;color:#000;padding:10px;font-weight:900;text-align:center}
+.topo-camera{background:#00C2FF}
+.cidade{background:#222;color:#ffcc00;padding:8px;font-weight:bold;font-size:13px;margin-top:8px}
+.item{padding:10px;font-size:13px;border-bottom:1px solid #222}
+.badge{font-size:10px;padding:2px 6px;border-radius:3px;color:#fff}
+.novo{background:#ff0000} .fixo{background:#444}
+.cam{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border-radius:8px;margin-top:6px}
+.cam iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+
+<div class="header">BANCO GRATIDÃO<div class="sub">PORTAL DO POVO - 20 ANOS - CURITIBA E REGIÃO</div></div>
+
+<!-- BOTÕES BONITOS -->
+<div class="btn btn-radar" onclick="abrir('radar')">🚨📡 4 RADARES NOVOS HOJE NA BR-376 - CLIQUE!</div>
+<div class="btn btn-camera" onclick="abrir('camera')">🎥 CÂMERAS AO VIVO CURITIBA - CLIQUE!</div>
+
+<!-- BLOCO RADARES -->
+<div id="bloco-radar" class="bloco">
+<div class="topo">📡 RADARES CURITIBA E REGIÃO - 28 RADARES</div>
+
+<div class="cidade">📍 CURITIBA - 14 RADARES</div>
+<div class="item"><span class="badge novo">NOVO 30/09</span> <b>Padre Agostinho x Visconde Nácar - Centro - 40 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Victor Ferreira do Amaral, 1000 - Tarumã - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Linha Verde BR-116 km 101 - Atuba - 70 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Linha Verde BR-116 km 107 - Uberaba - 70 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Av. das Torres, 2500 - Uberaba - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Marechal Floriano, 4800 - Hauer - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Winston Churchill, 1800 - Capão Raso - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>República Argentina, 3400 - Portão - 60 km/h</b></div>
+
+<div class="cidade">📍 SÃO JOSÉ DOS PINHAIS - 6 RADARES</div>
+<div class="item"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 14.980 - Antiga PUC (Bairro-Centro) - 70 km/h 3 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 15.101 - Antiga PUC (Centro-Bairro) - 70 km/h 3 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 11.828 - Avipec (Bairro-Centro) - 70 km/h 2 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 11.811 - Avipec (Centro-Bairro) - 70 km/h 2 faixas</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Rui Barbosa, 8000 - Centro SJP - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>BR-376 Guatupê - 60 km/h</b></div>
+
+<div class="cidade">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Contorno Leste BR-116 - Pinhais - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Rod. da Uva, 1500 - Colombo - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>Av. Juscelino - Araucária - 60 km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span> <b>BR-476 Contorno Sul - 60 km/h</b></div>
+
+<div style="padding:12px;text-align:center">
+<div onclick="abrir('radar')" style="background:#333;padding:8px;border-radius:20px;cursor:pointer;font-size:12px">❌ FECHAR</div>
+</div>
+</div>
+
+<!-- BLOCO CÂMERAS -->
+<div id="bloco-camera" class="bloco bloco-camera">
+<div class="topo topo-camera">🎥 CÂMERAS AO VIVO CURITIBA - 6 CANAIS</div>
+
+<div style="padding:10px">
+
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px;border-left:4px solid #ff0000">
+<b style="color:#ff0000;font-size:12px">1. BR-376 SÃO JOSÉ - PUC - NOVO RADAR</b>
+<div class="cam"><iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?mute=1" allowfullscreen loading="lazy"></iframe></div>
+</div>
+
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px;border-left:4px solid #00C2FF">
+<b style="color:#00C2FF;font-size:12px">2. CENTRO CÍVICO - PALÁCIO IGUAÇU</b>
+<div class="cam"><iframe src="https://www.youtube.com/embed/86YLFOog4GM?mute=1" allowfullscreen loading="lazy"></iframe></div>
+</div>
+
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px;border-left:4px solid #ffcc00">
+<b style="color:#ffcc00;font-size:12px">3. LINHA VERDE - UBERABA</b>
+<div class="cam"><iframe src="https://www.youtube.com/embed/5qap5aO4i9A?mute=1" allowfullscreen loading="lazy"></iframe></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">4. CIC - BR-277</b><div class="cam"><iframe src="https://www.youtube.com/embed/wtcJIfUmX6A?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">5. BATEL</b><div class="cam"><iframe src="https://www.youtube.com/embed/hq3yfQnllfQ?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">6. BOQUEIRÃO</b><div class="cam"><iframe src="https://www.youtube.com/embed/6Kk1C3J2R5Y?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
+<div style="background:#111;border:1px dashed #ffcc00;border-radius:10px;padding:10px;text-align:center"><b style="font-size:10px;color:#ffcc00">SEU<br>ANÚNCIO<br>AQUI</b></div>
+</div>
+
+</div>
+
+<div style="padding:12px;text-align:center">
+<a href="https://wa.me/?text=Portal%20do%20Povo%20com%20Cameras%20ao%20vivo%20https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="background:#25D366;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold;font-size:13px;display:block">📲 COMPARTILHAR NO WHATSAPP</a>
+<div onclick="abrir('camera')" style="margin-top:10px;background:#222;padding:8px;border-radius:20px;cursor:pointer;font-size:12px">❌ FECHAR</div>
+</div>
+</div>
+
+<div style="padding:15px;text-align:center;color:#555;font-size:11px">Banco Gratidão - Portal do Povo - Curitiba e Região<br>Atualizado em 15/10/2026</div>
+
+<script>
+function abrir(tipo){
+ var id = tipo=='radar' ? 'bloco-radar' : 'bloco-camera';
+ var el = document.getElementById(id);
+ var outro = document.getElementById(tipo=='radar' ? 'bloco-camera' : 'bloco-radar');
+ outro.style.display='none';
+ if(el.style.display=='none' || el.style.display==''){el.style.display='block'; el.scrollIntoView({behavior:'smooth'});}
+ else{el.style.display='none';}
+}
+</script>
+</body>
+</html>
