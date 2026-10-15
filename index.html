@@ -3,107 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="./manifest.json">
+<link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#ffcc00">
 <title>BANCO GRATIDÃO OFICIAL</title>
 <style>
+*{margin:0;box-sizing:border-box}
 .acoes-topo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 12px}
-.btn-acao{background:#111;border:1px solid #ffcc00;color:#ffcc00;padding:10px 6px;border-radius:12px;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
-.btn-acao span{display:block;font-size:18px;margin-bottom:2px}
+.btn-acao{background:#111;border:1px solid #ffcc00;color:#ffcc00;padding:8px 6px;border-radius:12px;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
 .btn-acao.destaque{background:#ffcc00;color:#000}
-*{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0a;color:#fff;font-family:Arial}
 header{background:#000;padding:14px;text-align:center;border-bottom:2px solid #ffcc00;position:sticky;top:0;z-index:10}
 header b{color:#ffcc00;font-size:20px;display:block}
 header span{font-size:11px;color:#888}
-.cat{padding:18px 12px 6px;color:#ffcc00;font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px}
+.cat{padding:12px 12px 6px;color:#ffcc00;font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px}
 @media(min-width:600px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.btn{background:#161616;border:1px solid #222;border-radius:14px;padding:14px 8px;text-align:center;text-decoration:none;color:#fff;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:80px;justify-content:center}
-.btn b{font-size:12px} .btn .ic{font-size:22px}
+.btn{background:#161616;border:1px solid #222;border-radius:14px;padding:14px 8px;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;min-height:62px}
+.btn .ic{font-size:22px}.btn .btn-amarelo{color:#ffcc00;font-size:13px}
 .btn-destaque{border-color:#ffcc00;background:#1a1600}
 .btn-green{border-color:#00ff88;background:#001a0f}
 .btn-blue{border-color:#3b82f6;background:#000e1a}
-.btn-amarelo{color:#ffcc00}
+
+/* BOTÕES TOPO */
+.btn-top{padding:16px;text-align:center;font-weight:900;font-size:16px;border-radius:12px;margin:10px 12px;cursor:pointer;animation:pulse 1.2s infinite}
+.btn-radar{background:linear-gradient(90deg,#ff0000,#ffcc00);color:#fff;box-shadow:0 0 12px red}
+.btn-camera{background:linear-gradient(90deg,#004AAD,#00C2FF);color:#fff;box-shadow:0 0 12px #00C2FF}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+/* BLOCOS */
+.bloco{display:none;background:#111;border-radius:14px;margin:10px 12px;border:2px solid #ffcc00;overflow:hidden}
+.bloco-camera{border-color:#00C2FF}
+.topo{background:#ffcc00;color:#000;padding:10px;font-weight:900;text-align:center}
+.topo-camera{background:#00C2FF}
+.cidade{background:#222;color:#ffcc00;padding:8px;font-weight:bold;font-size:12px;margin-top:8px}
+.item{padding:9px 10px;font-size:12px;border-bottom:1px solid #222;color:#fff}
+.badge{font-size:9px;padding:2px 5px;border-radius:3px;color:#fff;margin-right:4px}
+.novo{background:#ff0000}.fixo{background:#444}
+.cam{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border-radius:8px;margin-top:6px}
+.cam iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.fechar{background:#222;padding:10px;border-radius:20px;text-align:center;cursor:pointer;margin:10px;font-size:12px}
 </style>
 </head>
 <body>
 
+<header><b>BANCO GRATIDÃO OFICIAL</b><span>Portal do Povo - Tudo em um só lugar - 20 anos de gratidão</span></header>
+
+<!-- AÇÕES TOPO - EM CIMA -->
 <div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR</button>
+<button class="btn-acao" onclick="compartilharPortal()">📤<br>COMPARTILHAR</button>
+<button class="btn-acao" onclick="convidarMembros()">👥<br>CONVIDAR</button>
+<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
+<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()">📲<br>INSTALAR APP</button>
 </div>
 
-<script>
-function compartilharPortal(){
-  const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar - 20 anos de gratidão',url:location.href};
-  if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url))}
-}
-function convidarMembros(){
-  const msg="Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
-  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
-}
-let promptInstalacao;
-window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
-function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
-function mostrarComoInstalar(){alert("Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos ⋮ lá em cima no Chrome\n2. Clique em 'Instalar app' ou 'Adicionar à tela inicial'");}
-</script>
+<!-- 2 BOTÕES BONITOS - RADARES E CÂMERAS -->
+<div class="btn-top btn-radar" onclick="abrirPortal('radar')">🚨📡 4 RADARES NOVOS HOJE NA BR-376</div>
+<div class="btn-top btn-camera" onclick="abrirPortal('camera')">🎥 CÂMERAS AO VIVO CURITIBA</div>
 
-<header><!-- ===== COLE ISSO NO SEU INDEX.HTML PRINCIPAL ===== -->
-<style>
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-.btn{padding:15px;text-align:center;font-weight:900;font-size:16px;border-radius:12px;margin:10px;cursor:pointer;display:block;animation:pulse 1.2s infinite}
-.btn-radar{background:linear-gradient(90deg,#ff0000,#ffcc00);color:#fff;box-shadow:0 0 12px red}
-.btn-camera{background:linear-gradient(90deg,#004AAD,#00C2FF);color:#fff;box-shadow:0 0 12px #00C2FF}
-.bloco{display:none;background:#111;border-radius:14px;margin:10px;border:2px solid #ffcc00;overflow:hidden}
-.bloco-camera{border-color:#00C2FF}
-.topo{background:#ffcc00;color:#000;padding:10px;font-weight:900;text-align:center}
-.topo-camera{background:#00C2FF}
-.cidade{background:#222;color:#ffcc00;padding:8px;font-weight:bold;font-size:13px;margin-top:8px}
-.item{padding:10px;font-size:13px;border-bottom:1px solid #222;color:#fff}
-.badge{font-size:10px;padding:2px 6px;border-radius:3px;color:#fff}
-.novo{background:#ff0000} .fixo{background:#444}
-.cam{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border-radius:8px;margin-top:6px}
-.cam iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-</style>
-
-<!-- 2 BOTÕES BONITOS -->
-<div class="btn btn-radar" onclick="abrirPortal('radar')">🚨📡 4 RADARES NOVOS HOJE NA BR-376</div>
-<div class="btn btn-camera" onclick="abrirPortal('camera')">🎥 CÂMERAS AO VIVO CURITIBA</div>
-
-<!-- BLOCO RADARES -->
+<!-- BLOCO RADARES - LIMPO SEM DUPLICAR -->
 <div id="bloco-radar" class="bloco">
-<div class="topo">📡 RADARES - CURITIBA E REGIÃO - 28 RADARES</div>
+<div class="topo">📡 RADARES CURITIBA E REGIÃO - 28 RADARES</div>
+<div class="cidade">📍 SÃO JOSÉ DOS PINHAIS - NOVOS HOJE 14/10</div>
+<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 14.980 - Antiga PUC - 70km/h - 3 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 15.101 - Antiga PUC - 70km/h - 3 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 11.828 - Avipec - 70km/h - 2 faixas</b></div>
+<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 11.811 - Avipec - 70km/h - 2 faixas</b></div>
 <div class="cidade">📍 CURITIBA - 14</div>
-<div class="item"><span class="badge novo">NOVO HOJE</span> <b>BR-376 km 14.980 - PUC - 70km/h 3 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO HOJE</span> <b>BR-376 km 15.101 - PUC - 70km/h 3 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO HOJE</span> <b>BR-376 km 11.828 - Avipec - 70km/h 2 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO HOJE</span> <b>BR-376 km 11.811 - Avipec - 70km/h 2 faixas</b></div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>Linha Verde BR-116 km 101 - Atuba - 70km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>Marechal Floriano, 4800 - Hauer - 60km/h</b></div>
-<div class="cidade">📍 SÃO JOSÉ / PINHAIS / COLOMBO / ARAUCÁRIA</div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>Contorno Leste - Pinhais - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>Rod. da Uva - Colombo - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span> <b>BR-476 - Araucária - 60km/h</b></div>
-<div style="padding:10px;text-align:center"><div onclick="abrirPortal('radar')" style="background:#333;padding:8px;border-radius:20px;cursor:pointer;font-size:12px">❌ FECHAR</div></div>
+<div class="item"><span class="badge novo">NOVO 30/09</span><b>Padre Agostinho x Visconde Nácar - Centro - 40km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Linha Verde BR-116 km 101 e 107 - Atuba/Uberaba - 70km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Av. das Torres, 2500 - Uberaba - 60km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Marechal Floriano, 4800 - Hauer - 60km/h</b></div>
+<div class="cidade">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Contorno Leste - Pinhais - 60km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>Rod. da Uva, 1500 - Colombo - 60km/h</b></div>
+<div class="item"><span class="badge fixo">FIXO</span><b>BR-476 - Araucária - 60km/h</b></div>
+<div class="fechar" onclick="abrirPortal('radar')">❌ FECHAR</div>
 </div>
 
-<!-- BLOCO CÂMERAS -->
+<!-- BLOCO CÂMERAS - LIMPO -->
 <div id="bloco-camera" class="bloco bloco-camera">
 <div class="topo topo-camera">🎥 CÂMERAS AO VIVO - 6 CANAIS</div>
 <div style="padding:10px">
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ff0000;font-size:12px">1. BR-376 SJP - PUC</b><div class="cam"><iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#00C2FF;font-size:12px">2. CENTRO CÍVICO</b><div class="cam"><iframe src="https://www.youtube.com/embed/86YLFOog4GM?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ffcc00;font-size:12px">3. LINHA VERDE</b><div class="cam"><iframe src="https://www.youtube.com/embed/5qap5aO4i9A?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ff0000;font-size:12px">1. BR-376 SJP - PUC</b><div class="cam"><iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#00C2FF;font-size:12px">2. CENTRO CÍVICO</b><div class="cam"><iframe src="https://www.youtube.com/embed/86YLFOog4GM?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ffcc00;font-size:12px">3. LINHA VERDE</b><div class="cam"><iframe src="https://www.youtube.com/embed/5qap5aO4i9A?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">4. CIC - BR-277</b><div class="cam"><iframe src="https://www.youtube.com/embed/wtcJIfUmX6A?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">5. BATEL</b><div class="cam"><iframe src="https://www.youtube.com/embed/hq3yfQnllfQ?mute=1" allowfullscreen loading="lazy"></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">4. CIC - BR-277</b><div class="cam"><iframe src="https://www.youtube.com/embed/wtcJIfUmX6A?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
+<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">5. BATEL</b><div class="cam"><iframe src="https://www.youtube.com/embed/hq3yfQnllfQ?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
 </div>
 </div>
-<div style="padding:10px;text-align:center"><div onclick="abrirPortal('camera')" style="background:#222;padding:8px;border-radius:20px;cursor:pointer;font-size:12px">❌ FECHAR</div></div>
+<div class="fechar" onclick="abrirPortal('camera')">❌ FECHAR</div>
+</div>
+
+<div style="background:#151515;border:1px solid #333;border-radius:16px;padding:16px;text-align:center;color:#888;font-size:11px;margin:12px">
+Banco Gratidão Oficial é um portal gratuito sobre finanças, dívidas, gastos, caixa, estoque e memórias. Criado há 20 anos.<br>
+<a href="sobre/index.html" style="color:#ffcc00">Saiba mais</a> | <a href="privacidade/index.html" style="color:#ffcc00">Privacidade</a> | <a href="contato/index.html" style="color:#ffcc00">Contato</a>
+</div>
+
+<div class="cat">🧰 TRABALHO E ESTUDO</div>
+<div class="grid">
+<a class="btn btn-destaque" href="vagas/index.html"><span class="ic">💼</span><b class="btn-amarelo">VAGAS DE EMPREGO</b></a>
+<a class="btn btn-destaque" href="cursos/index.html"><span class="ic">🎓</span><b class="btn-amarelo">CURSOS GRÁTIS</b></a>
+<a class="btn" href="enem/index.html"><span class="ic">📝</span><b class="btn-amarelo">ENEM</b></a>
+<a class="btn" href="materias/index.html"><span class="ic">📚</span><b class="btn-amarelo">MATÉRIAS</b></a>
+</div>
+
+<div class="cat">🏥 SAÚDE E CIDADE</div>
+<div class="grid">
+<a class="btn" href="saude/index.html"><span class="ic">🏥</span><b class="btn-amarelo">SAÚDE</b></a>
+<a class="btn" href="onibus/index.html"><span class="ic">🚌</span><b class="btn-amarelo">ÔNIBUS</b></a>
+<a class="btn" href="emergencias/index.html"><span class="ic">🚨</span><b class="btn-amarelo">EMERGÊNCIAS</b></a>
+<a class="btn" href="mapas/index.html"><span class="ic">🗺️</span><b class="btn-amarelo">MAPAS</b></a>
+<a class="btn" href="orgaos-publicos/index.html"><span class="ic">🏛️</span><b class="btn-amarelo">ÓRGÃOS PÚBLICOS</b></a>
+<a class="btn" href="estacionamento/index.html"><span class="ic">🅿️</span><b class="btn-amarelo">ESTACIONAMENTO P1-4</b></a>
+</div>
+
+<div class="cat">🏠 CASA E DINHEIRO</div>
+<div class="grid">
+<a class="btn" href="caixa/index.html"><span class="ic">💰</span><b class="btn-amarelo">CAIXA</b></a>
+<a class="btn" href="estoque/index.html"><span class="ic">📦</span><b class="btn-amarelo">ESTOQUE</b></a>
+<a class="btn" href="gastos/index.html"><span class="ic">💸</span><b class="btn-amarelo">GASTOS</b></a>
+<a class="btn" href="dividas/index.html"><span class="ic">📋</span><b class="btn-amarelo">DÍVIDAS</b></a>
+<a class="btn" href="mercado/index.html"><span class="ic">🛒</span><b class="btn-amarelo">MERCADO</b></a>
+<a class="btn" href="bancos/index.html"><span class="ic">🏦</span><b class="btn-amarelo">BANCOS</b></a>
+<a class="btn" href="classificados/index.html"><span class="ic">🛍️</span><b class="btn-amarelo">CLASSIFICADOS</b></a>
+</div>
+
+<div class="cat">✝️ FÉ E CONHECIMENTO</div>
+<div class="grid">
+<a class="btn" href="biblia/index.html"><span class="ic">📖</span><b class="btn-amarelo">BIBLIA</b></a>
+<a class="btn" href="biblia-curiosidades/index.html"><span class="ic">✨</span><b class="btn-amarelo">BIBLIA CURIOSIDADES</b></a>
+<a class="btn" href="harpa-crista/index.html"><span class="ic">🎵</span><b class="btn-amarelo">HARPA CRISTÃ</b></a>
+<a class="btn" href="escalas/index.html"><span class="ic">⚖️</span><b class="btn-amarelo">ESCALAS</b></a>
+</div>
+
+<div class="cat">🎬 LAZER E UTILIDADES</div>
+<div class="grid">
+<a class="btn" href="filmes/index.html"><span class="ic">🎬</span><b class="btn-amarelo">FILMES / GRATIFLIX</b></a>
+<a class="btn" href="musicas/index.html"><span class="ic">🎶</span><b class="btn-amarelo">MUSICAS</b></a>
+<a class="btn" href="video/index.html"><span class="ic">🎥</span><b class="btn-amarelo">VIDEO</b></a>
+<a class="btn" href="viagens-no-tempo/index.html"><span class="ic">⏳</span><b class="btn-amarelo">VIAGENS NO TEMPO</b></a>
+<a class="btn" href="sites-uteis/index.html"><span class="ic">🌐</span><b class="btn-amarelo">SITES ÚTEIS</b></a>
+<a class="btn" href="mensagens/index.html"><span class="ic">💌</span><b class="btn-amarelo">MENSAGENS</b></a>
+</div>
+
+<div class="cat">⚙️ SISTEMA</div>
+<div class="grid">
+<a class="btn btn-green" href="backup/index.html"><span class="ic">💾</span><b class="btn-amarelo">BACKUP TOTAL - BAIXAR</b></a>
+<a class="btn btn-blue" href="backup-drive/index.html"><span class="ic">☁️</span><b class="btn-amarelo">BACKUP DRIVE AUTOMÁTICO</b></a>
+<a class="btn" href="sobre/index.html"><span class="ic">ℹ️</span><b class="btn-amarelo">SOBRE</b></a>
+<a class="btn" href="contato/index.html"><span class="ic">📞</span><b class="btn-amarelo">CONTATO</b></a>
+</div>
+
+<div style="padding:20px;text-align:center;color:#444;font-size:10px">Banco Gratidão Oficial - 20 anos de gratidão<br>31 serviços em um só lugar</div>
+
+<!-- AÇÕES EM BAIXO - REPETIDO COMO PEDIU -->
+<div class="acoes-topo">
+<button class="btn-acao" onclick="compartilharPortal()">📤<br>COMPARTILHAR</button>
+<button class="btn-acao" onclick="convidarMembros()">👥<br>CONVIDAR</button>
+<button class="btn-acao" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
 </div>
 
 <script>
@@ -115,238 +174,19 @@ function abrirPortal(tipo){
  if(el.style.display=='none' || el.style.display==''){el.style.display='block'; el.scrollIntoView({behavior:'smooth'});}
  else{el.style.display='none';}
 }
-</script>
-<!-- ===== FIM DA PARTE PARA COLAR ===== -->
-<div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR</button>
-</div>
-
-<script>
 let promptInstalacao;
 function compartilharPortal(){
-  const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
-  if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url))}
+ const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
+ if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url),'_blank')}
 }
 function convidarMembros(){
-  const msg="Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
-  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+ const msg='Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão! '+location.href;
+ window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
 }
 window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
 function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
-function mostrarComoInstalar(){alert("Para INSTALAR:\n1. Clique nos 3 pontinhos ⋮\n2. Adicionar à tela inicial");}
-</script>
-<b>BANCO GRATIDÃO OFICIAL</b>
-<span>Portal do Povo - Tudo em um só lugar - 20 anos de gratidão</span>
-</header>
-<div style="background:#151515;border:1px solid #333;border-radius:16px;margin:12px;padding:16px;text-align:center;color:#bbb;font-size:13px;line-height:1.4">
-Banco Gratidão Oficial é um portal gratuito para organizar finanças, dívidas, gastos, caixa, estoque e memórias. Criado para ajudar famílias brasileiras a terem mais controle e organização no dia a dia.<br>
-<a href="sobre/index.html" style="color:#ffcc00;text-decoration:underline">Saiba mais</a> | 
-<a href="privacidade/index.html" style="color:#ffcc00;text-decoration:underline">Privacidade</a> | 
-<a href="contato/index.html" style="color:#ffcc00;text-decoration:underline">Contato</a>
-</div>
-<div class="cat">💼 TRABALHO E ESTUDO</div>
-<div class="grid">
-<a class="btn btn-destaque" href="vagas/index.html"><span class="ic">💼</span><b>VAGAS DE EMPREGO</b></a>
-<a class="btn btn-destaque" href="cursos/index.html"><span class="ic">🎓</span><b>CURSOS GRÁTIS</b></a>
-<a class="btn" href="enem/index.html"><span class="ic">📚</span><b class="btn-amarelo">ENEM</b></a>
-<a class="btn" href="materias/index.html"><span class="ic">📖</span><b class="btn-amarelo">MATÉRIAS</b></a>
-</div>
-
-<div class="cat">🏥 SAÚDE E CIDADE</div>
-<div class="grid">
-<!-- BOTÃO QUE ABRE MESMO -->
-<div id="btnRadar" onclick="abrirRadar()" style="background:#ff0000;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;margin:12px;cursor:pointer;animation: pulse 1s infinite">
-📡 VER RADARES DE HOJE - 4 NOVOS NA BR-376!
-</div>
-<!-- BOTÃO QUE ABRE MESMO -->
-<div id="btnRadar" onclick="abrirRadar()" style="background:#ff0000;color:#fff;padding:16px;text-align:center;font-weight:900;font-size:17px;border-radius:12px;margin:12px;cursor:pointer;animation: pulse 1s infinite">
-📡 VER RADARES DE HOJE - 4 NOVOS NA BR-376!
-</div>
-<!-- ===== CHAMAR PASTA - COLE ISSO NO INDEX.HTML PRINCIPAL ===== -->
-<div onclick="abrirPasta('cameras')" style="background:linear-gradient(90deg,#004AAD,#00C2FF);color:#fff;padding:15px;text-align:center;font-weight:900;font-size:16px;border-radius:12px;margin:10px;cursor:pointer;animation:pulse 1s infinite">
-🎥 ABRIR PASTA CÂMERAS AO VIVO
-</div>
-<div onclick="abrirPasta('radares')" style="background:linear-gradient(90deg,#ff0000,#ffcc00);color:#fff;padding:15px;text-align:center;font-weight:900;border-radius:12px;margin:10px;cursor:pointer">
-📡 ABRIR PASTA RADARES
-</div>
-<div id="pasta-radares" style="display:none;margin:10px;border:2px solid #ffcc00;border-radius:12px;overflow:hidden;height:600px">
-<iframe id="iframe-radares" src="" style="width:100%;height:100%;border:0"></iframe>
-</div>
-<div id="pasta-cameras" style="display:none;margin:10px;border:2px solid #00C2FF;border-radius:12px;overflow:hidden;height:600px">
-<iframe id="iframe-cameras" src="" style="width:100%;height:100%;border:0"></iframe>
-</div>
-
-<style>@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}</style>
-
-<script>
-function abrirPasta(nomePasta){
- var div = document.getElementById('pasta-'+nomePasta);
- var iframe = document.getElementById('iframe-'+nomePasta);
- if(div.style.display=='none'){
-   iframe.src = './' + nomePasta + '/index.html'; // CHAMA A PASTA
-   div.style.display='block';
-   div.scrollIntoView({behavior:'smooth'});
- } else {
-   div.style.display='none';
-   iframe.src='';
- }
-}
-</script>
-<!-- ===== FIM CHAMAR PASTA ===== -->
-<style>
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-</style>
-
-<!-- LISTA ESCONDIDA QUE APARECE QUANDO CLICA -->
-<div id="listaRadar" style="display:none;background:#111;border:2px solid #ffcc00;border-radius:12px;margin:12px;padding:12px">
-
-<div style="background:#ffcc00;color:#000;padding:8px;font-weight:900;text-align:center;border-radius:8px">📍 SÃO JOSÉ DOS PINHAIS - 4 NOVOS HOJE 14/10</div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 14.980 - Antiga PUC (Bairro-Centro) - 70km/h - 3 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 15.101 - Antiga PUC (Centro-Bairro) - 70km/h - 3 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.828 - Avipec (Bairro-Centro) - 70km/h - 2 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.811 - Avipec (Centro-Bairro) - 70km/h - 2 faixas</b></div>
-
-<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 CURITIBA - 14 RADARES</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Padre Agostinho x Visconde Nácar - Centro - 40km/h NOVO</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 101 - Atuba - 70km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 107 - Uberaba - 70km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Av. das Torres, 2500 - Uberaba - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Marechal Floriano, 4800 - Hauer - 60km/h</div>
-
-<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Contorno Leste BR-116 - Pinhais - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Rod. da Uva, 1500 - Colombo - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ BR-476 - Araucária - 60km/h</div>
-
-<div style="padding:12px;text-align:center;margin-top:10px">
-<a href="https://wa.me/?text=Radares%20de%20hoje%20Curitiba%20https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="background:#25D366;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold">📲 COMPARTILHAR</a>
-<div onclick="abrirRadar()" style="margin-top:10px;color:#aaa;font-size:12px;cursor:pointer">❌ FECHAR</div>
-</div>
-</div>
-
-<script>
-function abrirRadar(){
- var l = document.getElementById('listaRadar');
- if(l.style.display=='none'){ l.style.display='block'; l.scrollIntoView({behavior:'smooth'}); }
- else { l.style.display='none'; }
-}
-</script>
-<!-- FIM DO BLOCO QUE FUNCIONA -->
-<style>
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-</style>
-
-<!-- LISTA ESCONDIDA QUE APARECE QUANDO CLICA -->
-<div id="listaRadar" style="display:none;background:#111;border:2px solid #ffcc00;border-radius:12px;margin:12px;padding:12px">
-
-<div style="background:#ffcc00;color:#000;padding:8px;font-weight:900;text-align:center;border-radius:8px">📍 SÃO JOSÉ DOS PINHAIS - 4 NOVOS HOJE 14/10</div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 14.980 - Antiga PUC (Bairro-Centro) - 70km/h - 3 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 15.101 - Antiga PUC (Centro-Bairro) - 70km/h - 3 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.828 - Avipec (Bairro-Centro) - 70km/h - 2 faixas</b></div>
-<div style="padding:10px 0;color:#fff;font-size:13px;border-bottom:1px solid #333">🔴 <b>BR-376 km 11.811 - Avipec (Centro-Bairro) - 70km/h - 2 faixas</b></div>
-
-<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 CURITIBA - 14 RADARES</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Padre Agostinho x Visconde Nácar - Centro - 40km/h NOVO</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 101 - Atuba - 70km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Linha Verde BR-116 km 107 - Uberaba - 70km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Av. das Torres, 2500 - Uberaba - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Marechal Floriano, 4800 - Hauer - 60km/h</div>
-
-<div style="background:#222;color:#ffcc00;padding:8px;font-weight:bold;margin-top:12px;border-radius:8px">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Contorno Leste BR-116 - Pinhais - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ Rod. da Uva, 1500 - Colombo - 60km/h</div>
-<div style="padding:8px 0;color:#fff;font-size:12px">⚫ BR-476 - Araucária - 60km/h</div>
-
-<div style="padding:12px;text-align:center;margin-top:10px">
-<a href="https://wa.me/?text=Radares%20de%20hoje%20Curitiba%20https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="background:#25D366;color:#fff;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:bold">📲 COMPARTILHAR</a>
-<div onclick="abrirRadar()" style="margin-top:10px;color:#aaa;font-size:12px;cursor:pointer">❌ FECHAR</div>
-</div>
-</div>
-<script>
-function abrirRadar(){
- var l = document.getElementById('listaRadar');
- if(l.style.display=='none'){ l.style.display='block'; l.scrollIntoView({behavior:'smooth'}); }
- else { l.style.display='none'; }
-}
-</script>
-<!-- FIM DO BLOCO QUE FUNCIONA -->
-  <a class="btn" href="saude/index.html"><span class="ic">🩺</span><b>SAÚDE</b></a>
-<a class="btn" href="onibus/index.html"><span class="ic">🚌</span><b>ÔNIBUS</b></a>
-<a class="btn" href="emergencias/index.html"><span class="ic">🚨</span><b>EMERGÊNCIAS</b></a>
-<a class="btn" href="mapas/index.html"><span class="ic">🗺️</span><b class="btn-amarelo">MAPAS</b></a>
-<a class="btn" href="orgaos-publicos/index.html"><span class="ic">🏛️</span><b>ÓRGÃOS PÚBLICOS</b></a>
-<a class="btn" href="estacionamento/index.html"><span class="ic">🅿️</span><b class="btn-amarelo">ESTACIONAMENTO P1-4</b></a>
-</div>
-
-<div class="cat">🏠 CASA E DINHEIRO</div>
-<div class="grid">
-<a class="btn" href="caixa/index.html"><span class="ic">💰</span><b class="btn-amarelo">CAIXA</b></a>
-<a class="btn" href="estoque/index.html"><span class="ic">📦</span><b class="btn-amarelo">ESTOQUE</b></a>
-<a class="btn" href="gastos/index.html"><span class="ic">💸</span><b class="btn-amarelo">GASTOS</b></a>
-<a class="btn" href="dividas/index.html"><span class="ic">📋</span><b class="btn-amarelo">DIVIDAS</b></a>
-<a class="btn" href="mercado/index.html"><span class="ic">🛒</span><b class="btn-amarelo">MERCADO</b></a>
-<a class="btn" href="bancos/index.html"><span class="ic">🏦</span><b class="btn-amarelo">BANCOS</b></a>
-<a class="btn" href="classificados/index.html"><span class="ic">🛍️</span><b>CLASSIFICADOS</b></a>
-</div>
-
-<div class="cat">✝️ FÉ E CONHECIMENTO</div>
-<div class="grid">
-<a class="btn" href="biblia/index.html"><span class="ic">📖</span><b>BIBLIA</b></a>
-<a class="btn" href="biblia-curiosidades/index.html"><span class="ic">✨</span><b>BIBLIA CURIOSIDADES</b></a>
-<a class="btn" href="harpa-crista/index.html"><span class="ic">🎵</span><b>HARPA CRISTÃ</b></a>
-<a class="btn" href="escalas/index.html"><span class="ic">⚖️</span><b>ESCALAS</b></a>
-</div>
-
-<div class="cat">🎬 LAZER E UTILIDADES</div>
-<div class="grid">
-<a class="btn" href="filmes/index.html"><span class="ic">🎬</span><b class="btn-amarelo">FILMES / GRATIFLIX</b></a>
-<a class="btn" href="musicas/index.html"><span class="ic">🎶</span><b class="btn-amarelo">MUSICAS</b></a>
-<a class="btn" href="video/index.html"><span class="ic">🎥</span><b>video</b></a>
-<a class="btn" href="viagens-no-tempo/index.html"><span class="ic">⏳</span><b class="btn-amarelo">VIAGENS NO TEMPO</b></a>
-<a class="btn" href="sites-uteis/index.html"><span class="ic">🌐</span><b>SITES ÚTEIS</b></a>
-<a class="btn" href="mensagens/index.html"><span class="ic">💌</span><b class="btn-amarelo">MENSAGENS</b></a>
-</div>
-
-<div class="cat">⚙️ SISTEMA</div>
-<div class="grid">
-<a class="btn btn-green" href="backup/index.html"><span class="ic">💾</span><b>BACKUP TOTAL - BAIXAR</b></a>
-<a class="btn btn-blue" href="backup-drive/index.html"><span class="ic">☁️</span><b>BACKUP DRIVE AUTOMÁTICO</b></a>
-<a class="btn" href="sobre/index.html"><span class="ic">ℹ️</span><b class="btn-amarelo">SOBRE</b></a>
-<a class="btn" href="contato/index.html"><span class="ic">📞</span><b class="btn-amarelo">CONTATO</b></a>
-</div>
-
-<div style="padding:20px;text-align:center;color:#444;font-size:10px">Banco Gratidão Oficial - 20 anos de gratidão<br>31 serviços em um só lugar</div>
-<div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR</button>
-</div>
-
-<script>
-let promptInstalacao;
-function compartilharPortal(){
-  const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
-  if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url))}
-}
-function convidarMembros(){
-  const msg="Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
-  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
-}
-window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
-function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
-function mostrarComoInstalar(){alert("Para INSTALAR:\n1. Clique nos 3 pontinhos ⋮\n2. Adicionar à tela inicial");}
-function mostrarComoInstalar(){alert("Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos ⋮ lá em cima no Chrome\n2. Clique em 'Instalar app' ou 'Adicionar à tela inicial'");}
-
-// REGISTRA O APP
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
-}
+function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Adicionar à tela inicial');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
 </script>
 </body>
 </html>
