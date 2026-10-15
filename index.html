@@ -5,48 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BANCO GRATIDÃO OFICIAL</title>
 <style>
-  <!-- BOTÕES QUE FALTAVAM - COMPARTILHAR / CONVIDAR / INSTALAR -->
-.acoes-topo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0}
+.acoes-topo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 12px}
 .btn-acao{background:#111;border:1px solid #ffcc00;color:#ffcc00;padding:10px 6px;border-radius:12px;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
 .btn-acao span{display:block;font-size:18px;margin-bottom:2px}
 .btn-acao.destaque{background:#ffcc00;color:#000}
-</style>
-
-<div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR APP</button>
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
-</div>
-
-<script>
-// 1. COMPARTILHAR
-function compartilharPortal(){
-  const dados = {title:'BANCO GRATIDÃO OFICIAL', text:'Portal do Povo - Tudo em um só lugar - 20 anos de gratidão', url: location.href};
-  if(navigator.share){ navigator.share(dados); }
-  else { window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url)); }
-}
-// 2. CONVIDAR MEMBROS
-function convidarMembros(){
-  const msg = "Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
-  window.open('https://wa.me/?text='+encodeURIComponent(msg), '_blank');
-}
-// 3. INSTALAR - PWA
-let promptInstalacao;
-window.addEventListener('beforeinstallprompt', (e)=>{
-  e.preventDefault();
-  promptInstalacao = e;
-  document.getElementById('btnInstalar').style.display='block';
-  document.getElementById('btnInstalarFake').style.display='none';
-});
-function instalarApp(){
-  if(promptInstalacao){ promptInstalacao.prompt(); promptInstalacao.userChoice.then(()=>{promptInstalacao=null}); }
-}
-function mostrarComoInstalar(){
-  alert("Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos ⋮ lá em cima no Chrome\n2. Clique em 'Instalar app' ou 'Adicionar à tela inicial'\n\nPronto! Vai ficar igual um app do Banco Gratidão!");
-}
-</script>
-<!-- FIM DOS BOTÕES -->
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0a;color:#fff;font-family:Arial}
 header{background:#000;padding:14px;text-align:center;border-bottom:2px solid #ffcc00;position:sticky;top:0;z-index:10}
@@ -56,8 +18,7 @@ header span{font-size:11px;color:#888}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px}
 @media(min-width:600px){.grid{grid-template-columns:1fr 1fr 1fr}}
 .btn{background:#161616;border:1px solid #222;border-radius:14px;padding:14px 8px;text-align:center;text-decoration:none;color:#fff;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:80px;justify-content:center}
-.btn b{font-size:12px}
-.btn .ic{font-size:22px}
+.btn b{font-size:12px} .btn .ic{font-size:22px}
 .btn-destaque{border-color:#ffcc00;background:#1a1600}
 .btn-green{border-color:#00ff88;background:#001a0f}
 .btn-blue{border-color:#3b82f6;background:#000e1a}
@@ -65,6 +26,28 @@ header span{font-size:11px;color:#888}
 </style>
 </head>
 <body>
+
+<div class="acoes-topo">
+<button class="btn-acao" onclick="compartilharPortal()"><span>📤</span>COMPARTILHAR</button>
+<button class="btn-acao" onclick="convidarMembros()"><span>👥</span>CONVIDAR</button>
+<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()"><span>📲</span>INSTALAR</button>
+<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()"><span>📲</span>INSTALAR</button>
+</div>
+
+<script>
+function compartilharPortal(){
+  const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar - 20 anos de gratidão',url:location.href};
+  if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url))}
+}
+function convidarMembros(){
+  const msg="Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão - GRÁTIS: "+location.href;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+let promptInstalacao;
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
+function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
+function mostrarComoInstalar(){alert("Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos ⋮ lá em cima no Chrome\n2. Clique em 'Instalar app' ou 'Adicionar à tela inicial'");}
+</script>
 
 <header>
 <b>BANCO GRATIDÃO OFICIAL</b>
