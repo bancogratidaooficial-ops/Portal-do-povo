@@ -1,13 +1,19 @@
 {
   "name": "BANCO GRATIDÃO OFICIAL - Portal do Povo",
-  "short_name": "Banco Gratidão",
-  "description": "20 anos de gratidão - Portal de Informações do Povo",
-  "start_url": "./",
+  "short_name": "BG OFICIAL",
+  "description": "Portal do Povo - Banco Gratidão Oficial",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#ffcc00",
   "orientation": "portrait",
   "icons": [
+    {
+      "src": "./icone.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
     {
       "src": "./icone.png",
       "sizes": "512x512",
