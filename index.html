@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="manifest" href="./manifest.json">
-<link rel="icon" type="image/png" href="./icone.png">
-<link rel="apple-touch-icon" href="./icone.png">
-<meta name="theme-color" content="#ffcc00">
+<link rel="manifest" href="../manifest.json">
 <meta name="theme-color" content="#ffcc00">
 <title>BANCO GRATIDÃO OFICIAL</title>
 <style>
@@ -205,8 +202,6 @@ window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptIns
 function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
 function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Adicionar à tela inicial');}
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()">📲<br>INSTALAR APP</button>
 </script>
 </body>
 </html>
