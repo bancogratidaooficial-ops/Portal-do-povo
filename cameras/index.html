@@ -3,84 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cameras Curitiba - Portal do Povo</title>
+<title>Câmeras Curitiba - Portal do Povo</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#000e33;font-family:Arial;color:#fff}
 .top{background:#000;padding:14px;text-align:center;border-bottom:2px solid #FFD700;position:sticky;top:0;z-index:9}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
-.card{background:linear-gradient(135deg,#0a2a6e,#001a4d);border:2px solid #FFD700;border-radius:18px;padding:16px 10px;text-align:center;cursor:pointer;transition:0.2s}
-.card:active{transform:scale(0.96)}
-.card b{color:#FFD700;font-size:12px;display:block;margin-top:6px;line-height:1.2}
+.card{background:linear-gradient(135deg,#0a2a6e,#001a4d);border:2px solid #FFD700;border-radius:18px;padding:16px 10px;text-align:center;display:block;text-decoration:none}
+.card b{color:#FFD700;font-size:12px;display:block;margin-top:6px}
 .card span{color:#8ab4ff;font-size:10px}
-.live{color:#00ff88!important;font-size:9px;font-weight:900;margin-top:4px;display:block}
+.live{color:#00ff88!important;font-size:10px;font-weight:900;margin-top:4px;display:block}
 .icon{font-size:34px}
-.full{grid-column:span 2;background:linear-gradient(135deg,#001a4d,#003399);border-color:#00ff88;padding:20px}
-.btnvoltar{background:#000;color:#FFD700;border:2px solid #FFD700;padding:10px 24px;border-radius:30px;font-weight:900;cursor:pointer}
+.full{grid-column:span 2;border-color:#00ff88}
+.btnvoltar{background:#000;color:#FFD700;border:2px solid #FFD700;padding:10px 24px;border-radius:30px;font-weight:900}
 </style>
 </head>
 <body>
 <div class="top">
-<button class="btnvoltar" onclick="location.href='https://bancogratidaooficial-ops.github.io/Portal-do-povo/'">⬅️ VOLTAR AO PORTAL</button>
-<div style="margin-top:10px"><b style="color:#FFD700;font-size:15px">📷 CÂMERAS CURITIBA AO VIVO</b><br><small style="color:#7ab8ff">Ouro Verde - Portal do Povo</small></div>
+<a href="https://bancogratidaooficial-ops.github.io/Portal-do-povo/"><button class="btnvoltar">⬅️ VOLTAR AO PORTAL</button></a>
+<div style="margin-top:10px"><b style="color:#FFD700">📷 CÂMERAS CURITIBA AO VIVO</b></div>
 </div>
 
 <div class="grid">
 
-<!-- CAMERA PRINCIPAL QUE VOCE MANDOU -->
-<div class="card full" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica','_blank')">
+<!-- LINK QUE VOCÊ MANDOU - AGORA VAI ABRIR -->
+<a class="card full" href="https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica" target="_blank">
 <div class="icon">📡</div>
 <b>OURO VERDE PANORÂMICA</b>
-<span>Curitiba - Vista 360° Panorâmica</span>
-<span class="live">● AO VIVO - CLIQUE PARA ABRIR AGORA</span>
-</div>
+<span>Curitiba - Vista 360° - Clique para abrir</span>
+<span class="live">● AO VIVO - ABRE EM NOVA ABA</span>
+</a>
 
-<div class="card" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica','_blank')">
+<a class="card" href="https://curitiba-cams.preview.emergentagent.com/" target="_blank">
 <div class="icon">🏙️</div>
+<b>TODAS AS CÂMERAS</b>
+<span>Grade completa</span>
+<span class="live">● PORTAL OFICIAL</span>
+</a>
+
+<a class="card" href="https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica" target="_blank">
+<div class="icon">🌃</div>
 <b>CENTRO CURITIBA</b>
 <span>Ouro Verde FM</span>
 <span class="live">● AO VIVO</span>
-</div>
+</a>
 
-<div class="card" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica','_blank')">
-<div class="icon">🌃</div>
-<b>BATEL / ÁGUA VERDE</b>
-<span>Região Sul</span>
-<span class="live">● AO VIVO</span>
-</div>
-
-<div class="card" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica','_blank')">
+<a class="card" href="https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica" target="_blank">
 <div class="icon">🌳</div>
 <b>BARIGUI</b>
 <span>Parque Barigui</span>
 <span class="live">● AO VIVO</span>
-</div>
+</a>
 
-<div class="card" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica','_blank')">
+<a class="card" href="https://curitiba-cams.preview.emergentagent.com/camera/cam-ouroverde-panoramica" target="_blank">
 <div class="icon">🚌</div>
-<b>URBS - TRÂNSITO</b>
-<span>Terminais Curitiba</span>
-<span class="live">● PREFEITURA</span>
-</div>
+<b>LINHA VERDE</b>
+<span>BR-376 SJP</span>
+<span class="live">● AO VIVO</span>
+</a>
 
-<div class="card" onclick="window.open('https://curitiba-cams.preview.emergentagent.com/','_blank')">
-<div class="icon">📺</div>
-<b>GRADE COMPLETA</b>
-<span>Ver todas as câmeras</span>
-<span class="live">● PORTAL OFICIAL</span>
-</div>
-
-<div class="card full" onclick="window.open('https://www.youtube.com/results?search_query=curitiba+ao+vivo+camera+ouro+verde','_blank')" style="border-color:#ff0000">
-<div class="icon">▶️</div>
-<b>CÂMERAS AO VIVO NO YOUTUBE - CURITIBA 24H</b>
-<span>Transmissões ao vivo no YouTube</span>
-<span class="live" style="color:#ff4444!important">● YOUTUBE AO VIVO</span>
-</div>
+<a class="card full" href="https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="border-color:#fff">
+<div class="icon">🏠</div>
+<b>VOLTAR AO PORTAL DO POVO</b>
+<span>Banco Gratidão Oficial</span>
+<span class="live" style="color:#fff!important">● MENU PRINCIPAL</span>
+</a>
 
 </div>
-
-<div style="padding:16px;text-align:center">
-<a href="https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="color:#7ab8ff;font-size:12px;text-decoration:none;background:#001a4d;padding:10px 18px;border-radius:20px;border:1px solid #FFD700;display:inline-block">⬅️ Voltar ao Portal do Povo</a>
-</div>
-
 </body>
 </html>
