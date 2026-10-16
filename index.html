@@ -205,6 +205,8 @@ window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptIns
 function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
 function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Adicionar à tela inicial');}
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
+<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()">📲<br>INSTALAR APP</button>
 </script>
 </body>
 </html>
