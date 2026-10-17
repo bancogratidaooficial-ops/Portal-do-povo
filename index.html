@@ -1,266 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ffcc00">
-<link rel="manifest" href="./manifest.json?v=bg99">
-<link rel="icon" type="image/png" href="./icone.png?v=bg99">
-<link rel="apple-touch-icon" href="./icone.png?v=bg99">
-<title>BANCO GRATIDÃO OFICIAL</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal do Povo - Banco Gratidão Oficial</title>
 <style>
-*{margin:0;box-sizing:border-box}
-.acoes-topo{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 12px}
-.btn-acao{background:#111;border:1px solid #ffcc00;color:#ffcc00;padding:8px 6px;border-radius:12px;font-size:11px;font-weight:800;text-align:center;cursor:pointer}
-.btn-acao.destaque{background:#ffcc00;color:#000}
-body{background:#0a0a0a;color:#fff;font-family:Arial}
-header{background:#000;padding:14px;text-align:center;border-bottom:2px solid #ffcc00;position:sticky;top:0;z-index:10}
-header b{color:#ffcc00;font-size:20px;display:block}
-header span{font-size:11px;color:#888}
-.cat{padding:12px 12px 6px;color:#ffcc00;font-weight:800;font-size:13px;display:flex;align-items:center;gap:6px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px}
-@media(min-width:600px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.btn{background:#161616;border:1px solid #222;border-radius:14px;padding:14px 8px;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;min-height:62px}
-.btn .ic{font-size:22px}.btn .btn-amarelo{color:#ffcc00;font-size:13px}
-.btn-destaque{border-color:#ffcc00;background:#1a1600}
-.btn-green{border-color:#00ff88;background:#001a0f}
-.btn-blue{border-color:#3b82f6;background:#000e1a}
-
-/* BOTÕES TOPO */
-.btn-top{padding:16px;text-align:center;font-weight:900;font-size:16px;border-radius:12px;margin:10px 12px;cursor:pointer;animation:pulse 1.2s infinite}
-.btn-radar{background:linear-gradient(90deg,#ff0000,#ffcc00);color:#fff;box-shadow:0 0 12px red}
-.btn-camera{background:linear-gradient(90deg,#004AAD,#00C2FF);color:#fff;box-shadow:0 0 12px #00C2FF}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-
-/* BLOCOS */
-.bloco{display:none;background:#111;border-radius:14px;margin:10px 12px;border:2px solid #ffcc00;overflow:hidden}
-.bloco-camera{border-color:#00C2FF}
-.topo{background:#ffcc00;color:#000;padding:10px;font-weight:900;text-align:center}
-.topo-camera{background:#00C2FF}
-.cidade{background:#222;color:#ffcc00;padding:8px;font-weight:bold;font-size:12px;margin-top:8px}
-.item{padding:9px 10px;font-size:12px;border-bottom:1px solid #222;color:#fff}
-.badge{font-size:9px;padding:2px 5px;border-radius:3px;color:#fff;margin-right:4px}
-.novo{background:#ff0000}.fixo{background:#444}
-.cam{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border-radius:8px;margin-top:6px}
-.cam iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-.fechar{background:#222;padding:10px;border-radius:20px;text-align:center;cursor:pointer;margin:10px;font-size:12px}
-</style>
-</head>
-<body>
-
-<header><b>BANCO GRATIDÃO OFICIAL</b><span>Portal do Povo - Tudo em um só lugar - 20 anos de gratidão</span></header>
-
-<!-- AÇÕES TOPO - EM CIMA -->
-<div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()">📤<br>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()">👥<br>CONVIDAR</button>
-<button class="btn-acao" id="btnInstalarFake" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
-<button class="btn-acao destaque" id="btnInstalar" style="display:none" onclick="instalarApp()">📲<br>INSTALAR APP</button>
-</div>
-
-<!-- 2 BOTÕES BONITOS - RADARES E CÂMERAS -->
-<div class="btn-top btn-radar" onclick="abrirPortal('radar')">🚨📡 4 RADARES NOVOS HOJE NA BR-376</div>
-<div class="btn-top btn-camera" onclick="abrirPortal('camera')">🎥 CÂMERAS AO VIVO CURITIBA</div>
-
-<!-- BLOCO RADARES - LIMPO SEM DUPLICAR -->
-<div id="bloco-radar" class="bloco">
-<div class="topo">📡 RADARES CURITIBA E REGIÃO - 28 RADARES</div>
-<div class="cidade">📍 SÃO JOSÉ DOS PINHAIS - NOVOS HOJE 14/10</div>
-<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 14.980 - Antiga PUC - 70km/h - 3 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 15.101 - Antiga PUC - 70km/h - 3 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 11.828 - Avipec - 70km/h - 2 faixas</b></div>
-<div class="item"><span class="badge novo">NOVO</span><b>BR-376 km 11.811 - Avipec - 70km/h - 2 faixas</b></div>
-<div class="cidade">📍 CURITIBA - 14</div>
-<div class="item"><span class="badge novo">NOVO 30/09</span><b>Padre Agostinho x Visconde Nácar - Centro - 40km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Victor Ferreira do Amaral, 1000 - Tarumã - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Linha Verde BR-116 km 101 e 107 - Atuba/Uberaba - 70km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Av. das Torres, 2500 - Uberaba - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Marechal Floriano, 4800 - Hauer - 60km/h</b></div>
-<div class="cidade">📍 PINHAIS / COLOMBO / ARAUCÁRIA</div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Contorno Leste - Pinhais - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>Rod. da Uva, 1500 - Colombo - 60km/h</b></div>
-<div class="item"><span class="badge fixo">FIXO</span><b>BR-476 - Araucária - 60km/h</b></div>
-<div class="fechar" onclick="abrirPortal('radar')">❌ FECHAR</div>
-</div>
-
-<!-- BLOCO CÂMERAS - LIMPO -->
-<div id="bloco-camera" class="bloco bloco-camera">
-<div class="topo topo-camera">🎥 CÂMERAS AO VIVO - 6 CANAIS</div>
-<div style="padding:10px">
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ff0000;font-size:12px">1. BR-376 SJP - PUC</b><div class="cam"><iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#00C2FF;font-size:12px">2. CENTRO CÍVICO</b><div class="cam"><iframe src="https://www.youtube.com/embed/86YLFOog4GM?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:8px;margin-bottom:10px"><b style="color:#ffcc00;font-size:12px">3. LINHA VERDE</b><div class="cam"><iframe src="https://www.youtube.com/embed/5qap5aO4i9A?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">4. CIC - BR-277</b><div class="cam"><iframe src="https://www.youtube.com/embed/wtcJIfUmX6A?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
-<div style="background:#151515;border-radius:10px;padding:6px"><b style="font-size:10px">5. BATEL</b><div class="cam"><iframe src="https://www.youtube.com/embed/hq3yfQnllfQ?mute=1" loading="lazy" allowfullscreen></iframe></div></div>
-</div>
-</div>
-<div class="fechar" onclick="abrirPortal('camera')">❌ FECHAR</div>
-</div>
-
-<div style="background:#151515;border:1px solid #333;border-radius:16px;padding:16px;text-align:center;color:#888;font-size:11px;margin:12px">
-Banco Gratidão Oficial é um portal gratuito sobre finanças, dívidas, gastos, caixa, estoque e memórias. Criado há 20 anos.<br>
-<a href="sobre/index.html" style="color:#ffcc00">Saiba mais</a> | <a href="privacidade/index.html" style="color:#ffcc00">Privacidade</a> | <a href="contato/index.html" style="color:#ffcc00">Contato</a>
-</div>
-<div class="cat">🧰 TRABALHO E ESTUDO</div>
-<!-- GRATIFLUXO PONTOS - INÍCIO -->
-<a href="./gratifluxo-pontos/index.html" style="text-decoration:none">
-<div style="background:linear-gradient(135deg,#001a4d 0%,#0a2a6e 100%);border:2px solid #D4AF37;border-radius:16px;padding:16px;margin:10px 0;display:flex;align-items:center;gap:14px;box-shadow:0 4px 12px rgba(0,0,0,.3)">
-  
-  <img src="./gratifluxo-pontos/icon-192.png" style="width:58px;height:58px;border-radius:14px;background:#001a4d;box-shadow:0 0 0 2px #D4AF37">
-  
-  <div style="flex:1">
-    <div style="color:#FFD700;font-weight:900;font-size:16px;letter-spacing:0.5px">GRATIFLUXO PONTOS</div>
-    <div style="color:#7ab8ff;font-size:11px;margin-top:2px">Planilha Ponto Dia / Data / Hora</div>
-    <div style="color:#25D366;font-size:10px;margin-top:4px;font-weight:700">● ONLINE - NOVO!</div>
-  </div>
-
-  <div style="background:#D4AF37;color:#001a4d;font-weight:900;padding:8px 14px;border-radius:20px;font-size:12px">ABRIR</div>
-
-</div>
-</a>
-<!-- GRATIFLUXO PONTOS - FIM -->
-<a class="btn btn-destaque" href="vagas/index.html"><span class="ic">💼</span><b class="btn-amarelo">VAGAS DE EMPREGO</b></a>
-<a class="btn btn-destaque" href="cursos/index.html"><span class="ic">🎓</span><b class="btn-amarelo">CURSOS GRÁTIS</b></a>
-<a class="btn" href="enem/index.html"><span class="ic">📝</span><b class="btn-amarelo">ENEM</b></a>
-<a class="btn" href="materias/index.html"><span class="ic">📚</span><b class="btn-amarelo">MATÉRIAS</b></a>
-</div>
-
-<div class="cat">🏥 SAÚDE E CIDADE</div>
-<div class="grid">
-<a class="btn" href="saude/index.html"><span class="ic">🏥</span><b class="btn-amarelo">SAÚDE</b></a>
-<a class="btn" href="onibus/index.html"><span class="ic">🚌</span><b class="btn-amarelo">ÔNIBUS</b></a>
-<a class="btn" href="emergencias/index.html"><span class="ic">🚨</span><b class="btn-amarelo">EMERGÊNCIAS</b></a>
-<a class="btn" href="mapas/index.html"><span class="ic">🗺️</span><b class="btn-amarelo">MAPAS</b></a>
-<a class="btn" href="orgaos-publicos/index.html"><span class="ic">🏛️</span><b class="btn-amarelo">ÓRGÃOS PÚBLICOS</b></a>
-<a class="btn" href="estacionamento/index.html"><span class="ic">🅿️</span><b class="btn-amarelo">ESTACIONAMENTO P1-4</b></a>
-</div>
-
-<div class="cat">🏠 CASA E DINHEIRO</div>
-<div class="grid">
-<a class="btn" href="caixa/index.html"><span class="ic">💰</span><b class="btn-amarelo">CAIXA</b></a>
-<a class="btn" href="estoque/index.html"><span class="ic">📦</span><b class="btn-amarelo">ESTOQUE</b></a>
-<a class="btn" href="gastos/index.html"><span class="ic">💸</span><b class="btn-amarelo">GASTOS</b></a>
-<a class="btn" href="dividas/index.html"><span class="ic">📋</span><b class="btn-amarelo">DÍVIDAS</b></a>
-<a class="btn" href="mercado/index.html"><span class="ic">🛒</span><b class="btn-amarelo">MERCADO</b></a>
-<a class="btn" href="bancos/index.html"><span class="ic">🏦</span><b class="btn-amarelo">BANCOS</b></a>
-<a class="btn" href="classificados/index.html"><span class="ic">🛍️</span><b class="btn-amarelo">CLASSIFICADOS</b></a>
-</div>
-
-<div class="cat">✝️ FÉ E CONHECIMENTO</div>
-<div class="grid">
-<a class="btn" href="biblia/index.html"><span class="ic">📖</span><b class="btn-amarelo">BIBLIA</b></a>
-<a class="btn" href="biblia-curiosidades/index.html"><span class="ic">✨</span><b class="btn-amarelo">BIBLIA CURIOSIDADES</b></a>
-<a class="btn" href="harpa-crista/index.html"><span class="ic">🎵</span><b class="btn-amarelo">HARPA CRISTÃ</b></a>
-<a class="btn" href="escalas/index.html"><span class="ic">⚖️</span><b class="btn-amarelo">ESCALAS</b></a>
-</div>
-
-<div class="cat">🎬 LAZER E UTILIDADES</div>
-<div class="grid">
-<a class="btn" href="filmes/index.html"><span class="ic">🎬</span><b class="btn-amarelo">FILMES / GRATIFLIX</b></a>
-<a class="btn" href="musicas/index.html"><span class="ic">🎶</span><b class="btn-amarelo">MUSICAS</b></a>
-<a class="btn" href="video/index.html"><span class="ic">🎥</span><b class="btn-amarelo">VIDEO</b></a>
-<a class="btn" href="viagens-no-tempo/index.html"><span class="ic">⏳</span><b class="btn-amarelo">VIAGENS NO TEMPO</b></a>
-<a class="btn" href="sites-uteis/index.html"><span class="ic">🌐</span><b class="btn-amarelo">SITES ÚTEIS</b></a>
-<a class="btn" href="mensagens/index.html"><span class="ic">💌</span><b class="btn-amarelo">MENSAGENS</b></a>
-</div>
-<!-- ===== CINE GRATIFLIX - CHAMAR PASTA ===== -->
-<style>
-.card-cine{
-background:linear-gradient(135deg,#111 0%,#1a0000 100%);
-border:1px solid #ff0000;
-border-radius:18px;
-padding:14px;
-display:flex;
-align-items:center;
-gap:12px;
-cursor:pointer;
-margin:10px 0;
-}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial}
+.top{background:#000;padding:14px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:20;border-bottom:1px solid #222}
+.cat{background:#111;margin:10px;padding:10px;border-radius:10px;font-weight:900;color:#ffcc00}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}
+.btn{padding:10px;background:#111;border:1px solid #222;border-radius:12px;color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700}
+.btn-amarelo{color:#ffcc00}.btn-green{color:#00ff88}
+.badge{font-size:8px;background:#ff0000;padding:2px 5px;border-radius:4px}
+.fechar{background:#222;padding:8px;text-align:center;border-radius:8px;margin:8px;cursor:pointer}
+/* CINE GRATIFLIX CARD */
+.card-cine{background:linear-gradient(135deg,#111 0%,#1a0000 100%);border:1px solid #ff0000;border-radius:18px;padding:14px;display:flex;align-items:center;gap:12px;cursor:pointer;margin:10px 8px}
 .card-cine img{width:68px;height:68px;border-radius:12px;object-fit:cover;background:#222}
-.card-cine .info{flex:1}
-.card-cine .tit{font-weight:900;font-size:15px;color:#fff}
-.card-cine .sub{font-size:11px;color:#ffcc00;margin-top:2px}
-.card-cine .btn{background:#ff0000;color:#fff;padding:8px 14px;border-radius:20px;font-weight:900;font-size:11px}
-</style>
-
-<div class="card-cine" onclick="location.href='Cine-gratiflix/'">
-<img src="https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg">
-<div class="info">
-<div class="tit">🎬 CINE GRATIFLIX</div>
-<div class="sub">89 FILMES GRÁTIS • Clique e assista</div>
-</div>
-<div class="btn">ABRIR</div>
-</div>
-<!-- ===== FIM CINE GRATIFLIX ===== -->
-<div class="cat">⚙️ SISTEMA</div>
-<div class="grid">
-<a class="btn btn-green" href="backup/index.html"><span class="ic">💾</span><b class="btn-amarelo">BACKUP TOTAL - BAIXAR</b></a>
-<a class="btn btn-blue" href="backup-drive/index.html"><span class="ic">☁️</span><b class="btn-amarelo">BACKUP DRIVE AUTOMÁTICO</b></a>
-<a class="btn" href="sobre/index.html"><span class="ic">ℹ️</span><b class="btn-amarelo">SOBRE</b></a>
-<a class="btn" href="contato/index.html"><span class="ic">📞</span><b class="btn-amarelo">CONTATO</b></a>
-</div>
-
-<div style="padding:20px;text-align:center;color:#444;font-size:10px">Banco Gratidão Oficial - 20 anos de gratidão<br>31 serviços em um só lugar</div>
-
-<!-- AÇÕES EM BAIXO - REPETIDO COMO PEDIU -->
-<div class="acoes-topo">
-<button class="btn-acao" onclick="compartilharPortal()">📤<br>COMPARTILHAR</button>
-<button class="btn-acao" onclick="convidarMembros()">👥<br>CONVIDAR</button>
-<button class="btn-acao" onclick="mostrarComoInstalar()">📲<br>INSTALAR</button>
-</div>
-
-<script>
-function abrirPortal(tipo){
- var id = tipo=='radar' ? 'bloco-radar' : 'bloco-camera';
- var el = document.getElementById(id);
- var outro = document.getElementById(tipo=='radar' ? 'bloco-camera' : 'bloco-radar');
- outro.style.display='none';
- if(el.style.display=='none' || el.style.display==''){el.style.display='block'; el.scrollIntoView({behavior:'smooth'});}
- else{el.style.display='none';}
-}
-let promptInstalacao;
-function compartilharPortal(){
- const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
- if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url),'_blank')}
-}
-function convidarMembros(){
- const msg='Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão! '+location.href;
- window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
-}
-window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();promptInstalacao=e;document.getElementById('btnInstalar').style.display='block';document.getElementById('btnInstalarFake').style.display='none'});
-function instalarApp(){if(promptInstalacao){promptInstalacao.prompt()}}
-function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Adicionar à tela inicial');}
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
-</script>
-</body>
-<!-- ===== BOTÃO FLUTUANTE CINE GRATIFLIX ===== -->
-<style>
-#cineFloatBtn{
-position:fixed;
-bottom:18px;
-left:12px;
-right:12px;
-z-index:9999;
-background:linear-gradient(90deg,#ff0000,#cc0000);
-border:2px solid #ffcc00;
-border-radius:22px;
-padding:12px 16px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-cursor:pointer;
-box-shadow:0 8px 22px rgba(255,0,0,.5);
-animation:pulseCine 1.8s infinite;
-}
+.card-cine .info{flex:1}.card-cine .tit{font-weight:900;font-size:15px;color:#fff}.card-cine .sub{font-size:11px;color:#ffcc00;margin-top:2px}
+.card-cine .btn-cine{background:#ff0000;color:#fff;padding:8px 14px;border-radius:20px;font-weight:900;font-size:11px}
+/* BOTÃO FLUTUANTE */
+#cineFloatBtn{position:fixed;bottom:18px;left:12px;right:12px;z-index:9999;background:linear-gradient(90deg,#ff0000,#cc0000);border:2px solid #ffcc00;border-radius:22px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;box-shadow:0 8px 22px rgba(255,0,0,.5);animation:pulseCine 1.8s infinite}
 @keyframes pulseCine{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 #cineFloatBtn .left{display:flex;align-items:center;gap:10px}
 #cineFloatBtn img{width:42px;height:42px;border-radius:10px;object-fit:cover;border:1px solid #fff}
 #cineFloatBtn .t{font-weight:900;color:#fff;font-size:13px;line-height:1.1}
 #cineFloatBtn .s{font-size:10px;color:#ffcc00;font-weight:700}
 #cineFloatBtn .abrir{background:#ffcc00;color:#000;padding:8px 16px;border-radius:20px;font-weight:900;font-size:12px}
+.acoes-topo{display:flex;gap:6px;padding:8px;overflow-x:auto}
+.btn-acao{background:#111;border:1px solid #333;padding:8px 12px;border-radius:20px;color:#fff;font-size:11px;font-weight:900;white-space:nowrap}
 </style>
+</head>
+<body>
+<div class="top"><div style="font-weight:900">BANCO GRATIDÃO OFICIAL</div><div style="font-size:10px">Portal do Povo</div></div>
 
+<div class="acoes-topo">
+<button class="btn-acao" onclick="compartilharPortal()">↗ COMPARTILHAR</button>
+<button class="btn-acao" onclick="convidarMembros()">+ CONVIDAR</button>
+<button class="btn-acao" onclick="mostrarComoInstalar()">⬇ INSTALAR</button>
+</div>
+
+<div id="bloco-radar" style="display:none;padding:8px"><div style="background:#111;border:1px solid #333;border-radius:12px;padding:10px">
+<div style="font-weight:900;color:#f00">📡 RADAR - CÂMERAS</div>
+<div style="font-size:11px;margin-top:6px">• Contorno Leste - Pinhais - 60km/h<br>• Rod. da Uva, 1500 - Colombo - 60km/h<br>• BR-476 - Araucária - 60km/h</div>
+<div class="fechar" onclick="abrirPortal('radar')">❌ FECHAR</div>
+</div></div>
+
+<div id="bloco-camera" style="display:none;padding:8px"><div style="background:#111;border:1px solid #333;border-radius:12px;padding:10px">
+<div style="font-weight:900">📷 CÂMERAS AO VIVO - 6 CANAIS</div>
+<div class="fechar" onclick="abrirPortal('camera')">❌ FECHAR</div>
+</div></div>
+
+<div class="cat">⭐ GRATIFLUXO PONTOS</div>
+<a href="gratifluxo-pontos/index.html" style="text-decoration:none"><div style="background:linear-gradient(135deg,#001a4d 0%,#0a2a6e 100%);border:1px solid #D4AF37;border-radius:16px;padding:12px;margin:8px;display:flex;align-items:center;gap:10px">
+<img src="gratifluxo-pontos/icon-192.png" style="width:58px;height:58px;border-radius:14px;background:#001a4d">
+<div style="flex:1"><div style="color:#FFD700;font-weight:900">GRATIFLUXO PONTOS</div><div style="color:#abbfff;font-size:11px">Planilha Ponto Dia / Data / Hora</div><div style="color:#25D366;font-size:10px;font-weight:700">● ONLINE - NOVO!</div></div>
+<div style="background:#D4AF37;color:#001a4d;font-weight:900;padding:8px 14px;border-radius:20px;font-size:12px">ABRIR</div>
+</div></a>
+
+<div class="cat">💼 TRABALHO E ESTUDO</div>
+<div class="grid">
+<a class="btn" href="vagas/index.html">💼 <b class="btn-amarelo">VAGAS DE EMPREGO</b></a>
+<a class="btn" href="cursos/index.html">📚 <b class="btn-amarelo">CURSOS GRÁTIS</b></a>
+<a class="btn" href="enem/index.html">📝 <b class="btn-amarelo">ENEM</b></a>
+<a class="btn" href="materias/index.html">📖 <b class="btn-amarelo">MATÉRIAS</b></a>
+</div>
+
+<div class="cat">🏥 SAÚDE E CIDADE</div>
+<div class="grid">
+<a class="btn" href="saude/index.html">🏥 <b class="btn-amarelo">SAÚDE</b></a>
+<a class="btn" href="onibus/index.html">🚌 <b class="btn-amarelo">ÔNIBUS</b></a>
+<a class="btn" href="emergencias/index.html">🚨 <b class="btn-amarelo">EMERGÊNCIAS</b></a>
+<a class="btn" href="mapas/index.html">🗺️ <b class="btn-amarelo">MAPAS</b></a>
+<a class="btn" href="orgaos-publicos/index.html">🏛️ <b class="btn-amarelo">ÓRGÃOS PÚBLICOS</b></a>
+<a class="btn" href="estacionamento/index.html">🅿️ <b class="btn-amarelo">ESTACIONAMENTO</b></a>
+</div>
+
+<div class="cat">🏠 CASA E DINHEIRO</div>
+<div class="grid">
+<a class="btn" href="caixa/index.html">💰 <b class="btn-amarelo">CAIXA</b></a>
+<a class="btn" href="estoque/index.html">📦 <b class="btn-amarelo">ESTOQUE</b></a>
+<a class="btn" href="gastos/index.html">💸 <b class="btn-amarelo">GASTOS</b></a>
+<a class="btn" href="dividas/index.html">📉 <b class="btn-amarelo">DÍVIDAS</b></a>
+<a class="btn" href="mercado/index.html">🛒 <b class="btn-amarelo">MERCADO</b></a>
+<a class="btn" href="bancos/index.html">🏦 <b class="btn-amarelo">BANCOS</b></a>
+<a class="btn" href="classificados/index.html">📢 <b class="btn-amarelo">CLASSIFICADOS</b></a>
+</div>
+<div class="cat">📖 FÉ E CONHECIMENTO</div>
+<div class="grid">
+<a class="btn" href="biblia/index.html">📖 <b class="btn-amarelo">BÍBLIA</b></a>
+<a class="btn" href="biblia-curiosidades/index.html">✨ <b class="btn-amarelo">BÍBLIA CURIOSIDADES</b></a>
+<a class="btn" href="harpa-crista/index.html">🎵 <b class="btn-amarelo">HARPA CRISTÃ</b></a>
+<a class="btn" href="escalas/index.html">🎹 <b class="btn-amarelo">ESCALAS</b></a>
+</div>
+
+<div class="cat">🎮 LAZER E UTILIDADES</div>
+<div class="grid">
+<a class="btn" href="filmes/index.html">🎬 <b class="btn-amarelo">FILMES / GRATIFLIX</b></a>
+<a class="btn" href="musicas/index.html">🎵 <b class="btn-amarelo">MÚSICAS</b></a>
+<a class="btn" href="video/index.html">📹 <b class="btn-amarelo">VÍDEO</b></a>
+<a class="btn" href="viagens-no-tempo/index.html">⏳ <b class="btn-amarelo">VIAGENS NO TEMPO</b></a>
+<a class="btn" href="sites-uteis/index.html">🔗 <b class="btn-amarelo">SITES ÚTEIS</b></a>
+<a class="btn" href="mensagens/index.html">💌 <b class="btn-amarelo">MENSAGENS</b></a>
+</div>
+
+<!-- ===== CINE GRATIFLIX - CHAMAR PASTA - CORRIGIDO ===== -->
+<div class="card-cine" onclick="location.href='Cine-gratiflix/'">
+<img src="https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg">
+<div class="info">
+<div class="tit">🎬 CINE GRATIFLIX</div>
+<div class="sub">89 FILMES GRÁTIS - Clique e assista</div>
+</div>
+<div class="btn-cine">ABRIR</div>
+</div>
+
+<div class="cat">⚙️ SISTEMA</div>
+<div class="grid">
+<a class="btn" href="backup/index.html">💾 <b class="btn-amarelo">BACKUP TOTAL</b></a>
+<a class="btn" href="backup-drive/index.html">☁️ <b class="btn-amarelo">BACKUP DRIVE</b></a>
+<a class="btn" href="sobre/index.html">ℹ️ <b class="btn-amarelo">SOBRE</b></a>
+<a class="btn" href="contato/index.html">📧 <b class="btn-amarelo">CONTATO</b></a>
+</div>
+
+<div style="padding:20px;text-align:center;color:#444;font-size:10px">Banco Gratidão Oficial - 20 anos de gratidão<br>
+<a href="sobre/index.html" style="color:#ffcc00">Saiba mais</a> | <a href="privacidade/index.html" style="color:#ffcc00">Privacidade</a>
+</div>
+
+<!-- ===== BOTÃO FLUTUANTE - AGORA NO LUGAR CERTO, ANTES DO </body> ===== -->
 <div id="cineFloatBtn" onclick="location.href='Cine-gratiflix/'">
 <div class="left">
 <img src="https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg">
@@ -271,5 +135,26 @@ animation:pulseCine 1.8s infinite;
 </div>
 <div class="abrir">ABRIR</div>
 </div>
-<!-- ===== FIM BOTÃO FLUTUANTE ===== -->
+
+<script>
+function abrirPortal(tipo){
+var id = tipo=='radar' ? 'bloco-radar' : 'bloco-camera';
+var el = document.getElementById(id);
+var outro = document.getElementById(tipo=='radar' ? 'bloco-camera' : 'bloco-radar');
+outro.style.display='none';
+if(el.style.display=='none' || el.style.display==''){el.style.display='block';el.scrollIntoView({behavior:'smooth'});}
+else{el.style.display='none';}
+}
+function compartilharPortal(){
+const dados={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em um só lugar',url:location.href};
+if(navigator.share){navigator.share(dados)}else{window.open('https://wa.me/?text='+encodeURIComponent(dados.text+' '+dados.url),'_blank')}
+}
+function convidarMembros(){
+const msg='Entra no Portal do Povo! Tudo em um só lugar: vagas, cursos, saúde, ônibus, mapas e muito mais. 20 anos de gratidão: '+location.href;
+window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Clique em "Instalar app" ou "Adicionar à tela inicial"');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js')}
+</script>
+</body>
 </html>
