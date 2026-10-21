@@ -1,0 +1,12 @@
+{
+  "name": "ÔNIBUS - Portal do Povo - Banco Gratidão",
+  "short_name": "Ônibus",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#FFD700",
+  "icons": [
+    {"src": "../icon.png","sizes":"192x192","type":"image/png"},
+    {"src": "../icon.png","sizes":"512x512","type":"image/png"}
+  ]
+}
