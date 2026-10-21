@@ -148,10 +148,11 @@ let filmes=[
 {"t":"Filme 86","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg","vid":"G9qBZ6NaMfY"},
 {"t":"Filme 87","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg","vid":"ppmUuEv6TBk"}
 ];
-let generosExtras=JSON.parse(localStorage.getItem('cine_generos')||'[]');
+const GENEROS_FIXOS = ['AÇÃO','COMÉDIA','TERROR','FICÇÃO','DRAMAS','DORAMAS','DESENHOS','ANIMAÇÃO','DOCUMENTÁRIO','BIBLICOS','LEGENDADOS','DUBLADOS','LANÇAMENTO'];
+let generosExtras=JSON.parse(localStorage.getItem('cine_generos'))||[];
 let tagAtual='TODOS';let filmeAtual=0;
 function salvar(){localStorage.setItem('cine_generos',JSON.stringify(generosExtras));}
-function getTags(){let base=[...new Set(filmes.map(f=>f.tag)),...generosExtras];return['TODOS',...base];}
+function getTags(){let base=[...new Set(filmes.map(f=>f.tag))];let todos=[...new Set([...GENEROS_FIXOS,...base,...generosExtras])];return ['TODOS',...todos];}
 function renderChips(){document.getElementById('chips').innerHTML=getTags().map(t=>`<div class="chip ${tagAtual===t?'ativo':''}" onclick="filtrar('${t}')">${t}</div>`).join('');let sel=document.getElementById('fGenero');if(sel)sel.innerHTML=getTags().filter(t=>t!=='TODOS').map(t=>`<option>${t}</option>`).join('');}
 function renderGrid(){let lista=tagAtual==='TODOS'?filmes:filmes.filter(f=>f.tag===tagAtual);document.getElementById('grid').innerHTML=lista.map(f=>{let idx=filmes.indexOf(f);return `<div class="card" onclick="playFilme(${idx})"><div class="tag">${f.tag}</div><img src="${f.img}" onerror="this.src='https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg'"><b>${f.t}</b></div>`;}).join('');}
 function filtrar(t){tagAtual=t;renderChips();renderGrid();}
