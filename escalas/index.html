@@ -54,4 +54,17 @@ function rem(i){funcs.splice(i,1);lista();gerar();localStorage.setItem('funcsEsc
 function limparTudo(){if(confirm('Apagar tudo mesmo?')){funcs=[];escalaTravada=null;localStorage.removeItem('funcsEscala');localStorage.removeItem('escalaTravada');lista();gerar();}}
 function gerar(){var mes=parseInt(document.getElementById('mes').value);var ano=parseInt(document.getElementById('ano').value);var dias=new Date(ano,mes,0).getDate();var tab=document.getElementById('tab');if(funcs.length==0){tab.innerHTML='<tr><td>Adicione</td></tr>';return}var dsem=['Dom','Seg','Ter','Qua','Qui','Sex','Sab'];var h='<tr><th>Nome</th><th>Horario</th><th>Tipo</th>';for(var d=1;d<=dias;d++){var dt=new Date(ano,mes-1,d);h+='<th>'+d+'/'+mes+'<br>'+dsem[dt.getDay()]+'</th>';}h+='</tr>';var madrugadaFixo=null;for(var i=0;i<funcs.length;i++){if(funcs[i].nome.toLowerCase().includes('mario')){madrugadaFixo=funcs[i];break;}}for(var i=0;i<funcs.length;i++){var f=funcs[i];h+='<tr><td><b>'+f.nome+'</b></td><td><small>'+f.hor+'</small></td><td><small>'+f.tipo+'</small></td>';for(var d=1;d<=dias;d++){var dt=new Date(ano,mes-1,d);var wd=dt.getDay();if(f.tipo=='encarregado'){if(wd==0||wd==6)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}else if(f.tipo=='fixa'){var mapa=['Domingo','Segunda','Terca','Quarta','Quinta','Sexta','Sabado'];if(mapa[wd]==f.diaSemana)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}else if(f.tipo=='personal'){var ld=f.diasFolga.split(',').map(s=>parseInt(s.trim()));if(ld.includes(d))h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}else if(f.tipo=='folguista'){if(madrugadaFixo){var folgaM=(d+madrugadaFixo.inicio)%6==0;if(folgaM)h+="<td class='FM'>T<br><span style=font-size:8px>COBRE</span></td>";else h+="<td style=background:#eee>-</td>";}else{if((d+f.inicio)%6==0)h+="<td class='FM'>T</td>";else h+="<td style=background:#eee>-</td>";}}else{if((d+f.inicio)%6==0)h+="<td class='F'>F</td>";else h+="<td class='T'>T</td>";}}h+='</tr>';}tab.innerHTML=h;}
 window.onload=function(){var s=localStorage.getItem('funcsEscala');var t=localStorage.getItem('escalaTravada');if(s){funcs=JSON.parse(s);if(t)escalaTravada=JSON.parse(t);lista();gerar();showMsg('📂 Sua escala recuperada! Travada em: '+(escalaTravada?escalaTravada.data:''));}trocaTipo();}
-</script></body></html>
+</script><!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
+<link rel="manifest" href="./manifest.json">
+<style>
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
+@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+</style>
+<button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
+<script>
+let dpMini=null;
+window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
+document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
+</script>
+</body></html>
