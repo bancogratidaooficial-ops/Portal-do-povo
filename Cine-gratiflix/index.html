@@ -4,104 +4,170 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#FFD700">
 <link rel="manifest" href="./manifest.json">
-<title>CINE GRATIFLIX - 89 Filmes Grátis</title>
+<title>CINE GRATIFLIX - 89 Filmes</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}body{background:#050505;color:#fff;font-family:Arial;padding-bottom:80px}
-.top{background:#000;padding:14px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700}
-.hero{padding:14px}.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 0}
-.chip{white-space:nowrap;background:#111;border:1px solid #333;padding:8px 14px;border-radius:20px;font-size:12px;cursor:pointer}
-.chip.ativo{background:#f00;border-color:#f00;font-weight:900}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#050505;color:#fff;font-family:Arial;padding-bottom:90px}
+.top{background:#000;padding:12px;display:flex;justify-content:space-between;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700}
+.btns{display:flex;gap:6px;flex-wrap:wrap;padding:10px 16px;background:#0a0a0a}
+.btns button{padding:8px 12px;border-radius:20px;border:0;font-size:11px;font-weight:800;cursor:pointer}
+.b-amar{background:#FFD700;color:#000}.b-pret{background:#222;color:#fff}.b-verde{background:#25D366;color:#fff}.b-verm{background:#f00;color:#fff}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 16px}
+.chip{white-space:nowrap;background:#111;border:1px solid #333;padding:7px 13px;border-radius:20px;font-size:11px;cursor:pointer}
+.chip.ativo{background:#f00;border-color:#f00}
+.destaque{margin:12px 16px;border-radius:16px;overflow:hidden;position:relative;border:2px solid #FFD700;cursor:pointer}
+.destaque img{width:100%;height:190px;object-fit:cover}
+.destaque .leg{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,#000);padding:12px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
 .card{background:#111;border-radius:15px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative}
 .card img{width:100%;height:210px;object-fit:cover;background:#222}
-.tag{position:absolute;top:0;left:0;margin:8px;background:#ffcc00;color:#000;font-size:9px;padding:5px 8px;border-radius:12px;font-weight:700}
-.card b{display:block;padding:8px;font-size:12px}
-#player{position:fixed;inset:0;background:#000;z-index:999;display:none;flex-direction:column}
-#paywall{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:998;display:none;align-items:flex-end}
-.paybox{background:#121212;width:100%;border-radius:22px 22px 0 0;padding:20px}
-.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:62px;height:62px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.8);cursor:pointer;animation:pulseFab 2s infinite}
+.tag{position:absolute;top:0;left:0;margin:7px;background:#FFD700;color:#000;font-size:9px;padding:4px 8px;border-radius:12px;font-weight:900}
+.card b{display:block;padding:8px;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:none;align-items:center;justify-content:center;padding:16px}
+.modalBox{background:#121212;width:100%;max-width:400px;border-radius:18px;padding:16px;border:1px solid #333}
+.modalBox input,.modalBox select{width:100%;padding:12px;margin:6px 0;border-radius:10px;border:1px solid #333;background:#000;color:#fff}
+#player{position:fixed;inset:0;background:#000;z-index:9998;display:none;flex-direction:column}
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:62px;height:62px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 12px rgba(0,0,0,.8);cursor:pointer;animation:pulseFab 2s infinite}
 @keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
-.destaque{margin:12px 16px;border-radius:16px;overflow:hidden;position:relative;border:2px solid #FFD700}
-.destaque img{width:100%;height:190px;object-fit:cover}
-.destaque .leg{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.9));padding:12px}
 </style>
 </head>
 <body>
-
 <div class="top"><div style="font-weight:900">🎬 CINE <b style="color:#f00">GRATIFLIX</b></div><div onclick="location.href='../index.html'" style="cursor:pointer">⬅️ Voltar</div></div>
-
+<div class="btns">
+<button class="b-amar" onclick="abrirModal('addGenero')">+ GENERO</button>
+<button class="b-amar" onclick="abrirModal('addFilme')">+ FILME</button>
+<button class="b-verde" onclick="compartilhar()">📤 COMPARTILHAR</button>
+<button class="b-verm" onclick="convidar()">👥 CONVIDAR</button>
+</div>
 <div class="destaque" onclick="playFilme(0)">
-<img src="https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg" alt="Vingadores">
-<div class="leg"><b style="color:#FFD700">🔥 DESTAQUE: VINGADORES - ULTIMATO</b><br><small>Clique e assista grátis - Dublado</small></div>
+<img src="https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg">
+<div class="leg"><b style="color:#FFD700">🔥 DESTAQUE: VINGADORES - ULTIMATO</b><br><small>89 Filmes Gratis - Clique pra assistir</small></div>
 </div>
-
-<div class="hero">
 <div id="chips" class="chips"></div>
-<div id="playerTitulo" style="padding:12px;background:#000;display:flex;justify-content:space-between"><b id="playerTitu">Carregando...</b><b onclick="fecharPlayer()" style="cursor:pointer">✕ FECHAR</b></div>
-<div id="paywall"><div class="paybox"><div style="display:flex;justify-content:space-between"><b>🎬 VIP?</b><span onclick="document.getElementById('paywall').style.display='none'" style="cursor:pointer">✕</span></div><p style="font-size:13px;color:#aaa;margin:10px 0">Entre no grupo do WhatsApp para liberar todos os filmes sem limite!</p><a id="btnZap" href="#" target="_blank" style="display:block;background:#25D366;color:#fff;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:900">ENTRAR NO GRUPO VIP 📲</a></div></div>
-</div>
-
 <div id="grid" class="grid"></div>
-
-<a href="../index.html" style="display:block;text-align:center;margin:20px;color:#FFD700;text-decoration:none;font-weight:900">⬅️ VOLTAR PRO PORTAL</a>
-
-<button class="fab-mini" id="fabMini" title="Instalar Cine">⬇️</button>
-
-<div id="player"><iframe id="iframePlayer" style="flex:1;border:0" allowfullscreen></iframe><div style="padding:12px;background:#111;display:flex;gap:10px"><button onclick="fecharPlayer()" style="flex:1;background:#333;color:#fff;padding:12px;border-radius:10px;border:0">FECHAR</button><button onclick="nextFilme()" style="flex:1;background:#FFD700;color:#000;padding:12px;border-radius:10px;border:0;font-weight:900">PRÓXIMO ⏭️</button></div></div>
-
+<div id="modalGenero" class="modal"><div class="modalBox"><h3 style="color:#FFD700">+ GENERO</h3><input id="novoGenero" placeholder="Ex: COMEDIA, TERROR"><div style="display:flex;gap:8px;margin-top:10px"><button class="b-pret" onclick="fecharModal()" style="flex:1;padding:12px">CANCELAR</button><button class="b-amar" onclick="addGenero()" style="flex:1;padding:12px">SALVAR</button></div></div></div>
+<div id="modalFilme" class="modal"><div class="modalBox"><h3 style="color:#FFD700">+ FILME</h3><input id="fTitulo" placeholder="Titulo"><select id="fGenero"></select><input id="fImg" placeholder="Link imagem"><input id="fVid" placeholder="ID YouTube"><div style="display:flex;gap:8px;margin-top:10px"><button class="b-pret" onclick="fecharModal()" style="flex:1;padding:12px">CANCELAR</button><button class="b-amar" onclick="addFilme()" style="flex:1;padding:12px">SALVAR</button></div></div></div>
+<button class="fab-mini" id="fabMini">⬇️</button>
+<div id="player"><iframe id="iframePlayer" style="flex:1;border:0" allowfullscreen></iframe><div style="padding:12px;background:#111;display:flex;gap:10px"><button onclick="fecharPlayer()" style="flex:1;background:#333;color:#fff;padding:12px;border-radius:10px;border:0">FECHAR</button><button onclick="nextFilme()" style="flex:1;background:#FFD700;color:#000;padding:12px;border-radius:10px;border:0;font-weight:900">PROXIMO</button></div></div>
 <script>
-const LINK_GRUPO = "https://chat.whatsapp.com/BtNurXeNf5g2VQZQbTxCs7z";
-document.getElementById('btnZap').href = LINK_GRUPO;
-
-let filmesPadraoDoLink = JSON.parse(localStorage.getItem('cine_filmes_pastas') || 'null') || [
-{"t":"Vingadores - Ultimato","tag":"LANÇAMENTO","img":"https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg","vid":"TcMBFSGVi1c"},
-{"t":"Vingadores - Guerra Infinita","tag":"AÇÃO","img":"https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg","vid":"6ZfuNTqbHE8"},
-{"t":"Homem-Aranha - Um Novo Dia","tag":"AÇÃO","img":"https://image.tmdb.org/t/p/w500/8Gxv8gSFCU0XGDykEGv7OT8oL2oD.jpg","vid":"JfVOs4VSpmA"},
-{"t":"Hitman","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/x5Q5OVQJM2w/hqdefault.jpg","vid":"x5Q5OVQJM2w"},
-{"t":"Davi e Golias","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/bIn2b2gGs/hqdefault.jpg","vid":"bIn2b2gGs"},
-{"t":"Filme 01","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/xZ1qFi2N2Q/hqdefault.jpg","vid":"xZ1qFi2N2Q"},
-{"t":"Titanic - O Retorno de Jack","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/5z4qA4w2IA/hqdefault.jpg","vid":"5z4qA4w2IA"},
-{"t":"Superman - Entre Eras","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/KymrMQEZZI/hqdefault.jpg","vid":"KymrMQEZZI"},
-{"t":"Minions - Desejo","tag":"DESENHO","img":"https://img.youtube.com/vi/AJqrp5I1Q/hqdefault.jpg","vid":"AJqrp5I1Q"}
+const LINK_GRUPO="https://chat.whatsapp.com/BtNurXeNf5g2VQZQbTxCs7z";
+let filmes=[
+{"t":"Vingadores - Ultimato","tag":"ACAO","img":"https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg","vid":"TcMBFSGVi1c"},
+{"t":"Hitimam","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg","vid":"x5QSOVQJM2w"},
+{"t":"Davi e Golias","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/8Iw8z2bZg6s/hqdefault.jpg","vid":"8Iw8z2bZg6s"},
+{"t":"Filme 01","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/Xz1YqiFiNZQ/hqdefault.jpg","vid":"Xz1YqiFiNZQ"},
+{"t":"Filme 02","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/32zwH-IvzAs/hqdefault.jpg","vid":"32zwH-IvzAs"},
+{"t":"Filme 03","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ouC258B1jKo/hqdefault.jpg","vid":"ouC258B1jKo"},
+{"t":"Filme 04","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ZKXBcPbFTMs/hqdefault.jpg","vid":"ZKXBcPbFTMs"},
+{"t":"Filme 05","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/qKRyqXnwbNI/hqdefault.jpg","vid":"qKRyqXnwbNI"},
+{"t":"Jovens mestres do cokufu","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/_NbcZQqktPQ/hqdefault.jpg","vid":"_NbcZQqktPQ"},
+{"t":"Filme 06","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/MUZ4FpGzsqU/hqdefault.jpg","vid":"MUZ4FpGzsqU"},
+{"t":"Titanic - O Retorno de Jack","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/5yzAq4W2y1A/hqdefault.jpg","vid":"5yzAq4W2y1A"},
+{"t":"Superman - Entre Eras","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/KymrMQKEZ2I/hqdefault.jpg","vid":"KymrMQKEZ2I"},
+{"t":"Minions","tag":"DESENHO","img":"https://img.youtube.com/vi/_Ajqzp5iIQ/hqdefault.jpg","vid":"_Ajqzp5iIQ"},
+{"t":"Vingadores - Ultimato 2","tag":"ACAO","img":"https://img.youtube.com/vi/spJoZReeIeQ/hqdefault.jpg","vid":"spJoZReeIeQ"},
+{"t":"Homem Aranha - Um Novo Dia","tag":"ACAO","img":"https://img.youtube.com/vi/PlulyWs1kS4/hqdefault.jpg","vid":"PlulyWs1kS4"},
+{"t":"Filme 07","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/tMGWE_qqxkE/hqdefault.jpg","vid":"tMGWE_qqxkE"},
+{"t":"Filme 08","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/bSKIBqSHrNI/hqdefault.jpg","vid":"bSKIBqSHrNI"},
+{"t":"Filme 09","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/0hNT_vhdCcc/hqdefault.jpg","vid":"0hNT_vhdCcc"},
+{"t":"Filme 10","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/Gnv_rD6sJgM/hqdefault.jpg","vid":"Gnv_rD6sJgM"},
+{"t":"Filme 11","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/kDBSwSeSd8o/hqdefault.jpg","vid":"kDBSwSeSd8o"},
+{"t":"Filme 12","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/t89cAmA3oec/hqdefault.jpg","vid":"t89cAmA3oec"},
+{"t":"Filme 13","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/PuVuB9iKZGg/hqdefault.jpg","vid":"PuVuB9iKZGg"},
+{"t":"Filme 14","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/eBNd-V4duWY/hqdefault.jpg","vid":"eBNd-V4duWY"},
+{"t":"Filme 15","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/RJdueseYras/hqdefault.jpg","vid":"RJdueseYras"},
+{"t":"Filme 16","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/VPT0gE8Ve3I/hqdefault.jpg","vid":"VPT0gE8Ve3I"},
+{"t":"Filme 17","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/t5nv9FneoZs/hqdefault.jpg","vid":"t5nv9FneoZs"},
+{"t":"Filme 18","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/SxVNIJlcM7o/hqdefault.jpg","vid":"SxVNIJlcM7o"},
+{"t":"Filme 19","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/-6r0nt0gmWY/hqdefault.jpg","vid":"-6r0nt0gmWY"},
+{"t":"Filme 20","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/cZYOWew11MM/hqdefault.jpg","vid":"cZYOWew11MM"},
+{"t":"Filme 21","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/KSA8LJBcuBw/hqdefault.jpg","vid":"KSA8LJBcuBw"},
+{"t":"Filme 22","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ifEyKWNjSHQ/hqdefault.jpg","vid":"ifEyKWNjSHQ"},
+{"t":"Filme 23","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/6vyGebfwe94/hqdefault.jpg","vid":"6vyGebfwe94"},
+{"t":"Filme 24","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/XUW0012sA7o/hqdefault.jpg","vid":"XUW0012sA7o"},
+{"t":"Filme 25","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/tOpNproAsa4/hqdefault.jpg","vid":"tOpNproAsa4"},
+{"t":"Filme 26","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/QOcbqIMBGEo/hqdefault.jpg","vid":"QOcbqIMBGEo"},
+{"t":"Filme 27","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/oBt9z6Qpb1w/hqdefault.jpg","vid":"oBt9z6Qpb1w"},
+{"t":"Filme 28","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/GwzaCpHKSco/hqdefault.jpg","vid":"GwzaCpHKSco"},
+{"t":"Filme 29","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/LniTsQUUaIY/hqdefault.jpg","vid":"LniTsQUUaIY"},
+{"t":"Filme 30","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/g20SBcNiqvI/hqdefault.jpg","vid":"g20SBcNiqvI"},
+{"t":"Filme 31","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/16iMqoXFdwA/hqdefault.jpg","vid":"16iMqoXFdwA"},
+{"t":"Filme 32","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/fZTEVgeYmd4/hqdefault.jpg","vid":"fZTEVgeYmd4"},
+{"t":"Filme 33","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/t5-es5PlQUs/hqdefault.jpg","vid":"t5-es5PlQUs"},
+{"t":"Filme 34","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/vZj0X0Qzstg/hqdefault.jpg","vid":"vZj0X0Qzstg"},
+{"t":"Filme 35","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ajMd9c8QHMI/hqdefault.jpg","vid":"ajMd9c8QHMI"},
+{"t":"Filme 36","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/HPIQ3-eJmwY/hqdefault.jpg","vid":"HPIQ3-eJmwY"},
+{"t":"Filme 37","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/JkwFWFbir1E/hqdefault.jpg","vid":"JkwFWFbir1E"},
+{"t":"Filme 38","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/zsdQFZnDfoA/hqdefault.jpg","vid":"zsdQFZnDfoA"},
+{"t":"Filme 39","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/PNRXZx3Bz-Q/hqdefault.jpg","vid":"PNRXZx3Bz-Q"},
+{"t":"Filme 40","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/kU-7uPQZBWM/hqdefault.jpg","vid":"kU-7uPQZBWM"},
+{"t":"Filme 41","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/QEvlM0VxIt4/hqdefault.jpg","vid":"QEvlM0VxIt4"},
+{"t":"Filme 42","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/cYxgBL9X-4Q/hqdefault.jpg","vid":"cYxgBL9X-4Q"},
+{"t":"Filme 43","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/kNl7YVgvAXk/hqdefault.jpg","vid":"kNl7YVgvAXk"},
+{"t":"Filme 44","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/fUyp2e3R1i8/hqdefault.jpg","vid":"fUyp2e3R1i8"},
+{"t":"Filme 45","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/8jshmm8ev74/hqdefault.jpg","vid":"8jshmm8ev74"},
+{"t":"Filme 46","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/xdvl0KfI3dk/hqdefault.jpg","vid":"xdvl0KfI3dk"},
+{"t":"Filme 47","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ERdCY4rgdIc/hqdefault.jpg","vid":"ERdCY4rgdIc"},
+{"t":"Filme 48","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/CSe_rCyNGzs/hqdefault.jpg","vid":"CSe_rCyNGzs"},
+{"t":"Filme 49","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/bQQ0PGVAGaQ/hqdefault.jpg","vid":"bQQ0PGVAGaQ"},
+{"t":"Filme 50","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/68WyOt9egTU/hqdefault.jpg","vid":"68WyOt9egTU"},
+{"t":"Filme 51","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/nqxCRAzakE8/hqdefault.jpg","vid":"nqxCRAzakE8"},
+{"t":"Filme 52","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/dKZMRnTu61E/hqdefault.jpg","vid":"dKZMRnTu61E"},
+{"t":"Filme 53","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/R6Iq8aSt0Zg/hqdefault.jpg","vid":"R6Iq8aSt0Zg"},
+{"t":"Filme 54","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/53yDYHibm04/hqdefault.jpg","vid":"53yDYHibm04"},
+{"t":"Filme 55","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/yysbH_A8sXM/hqdefault.jpg","vid":"yysbH_A8sXM"},
+{"t":"Filme 56","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/jYBruJX9RHw/hqdefault.jpg","vid":"jYBruJX9RHw"},
+{"t":"Filme 57","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/qw1bSUmXpUY/hqdefault.jpg","vid":"qw1bSUmXpUY"},
+{"t":"Filme 58","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/O_PlC4DZaiw/hqdefault.jpg","vid":"O_PlC4DZaiw"},
+{"t":"Filme 59","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/TiSz_xUkoIY/hqdefault.jpg","vid":"TiSz_xUkoIY"},
+{"t":"Filme 60","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/UVk6EDSCKMc/hqdefault.jpg","vid":"UVk6EDSCKMc"},
+{"t":"Filme 61","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/s-GgY7QiYSE/hqdefault.jpg","vid":"s-GgY7QiYSE"},
+{"t":"Filme 62","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/qzy5S3LQ0Nw/hqdefault.jpg","vid":"qzy5S3LQ0Nw"},
+{"t":"Filme 63","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/IFSUcW4Spag/hqdefault.jpg","vid":"IFSUcW4Spag"},
+{"t":"Filme 64","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/iBZukP-9XdA/hqdefault.jpg","vid":"iBZukP-9XdA"},
+{"t":"Filme 65","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/FD4CeWNIQdk/hqdefault.jpg","vid":"FD4CeWNIQdk"},
+{"t":"Filme 66","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/3cAaosl9FoY/hqdefault.jpg","vid":"3cAaosl9FoY"},
+{"t":"Filme 67","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/tWZxrVwUyN8/hqdefault.jpg","vid":"tWZxrVwUyN8"},
+{"t":"Filme 68","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/9CjByZriDkA/hqdefault.jpg","vid":"9CjByZriDkA"},
+{"t":"Filme 69","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/8h54C7tIj-M/hqdefault.jpg","vid":"8h54C7tIj-M"},
+{"t":"Filme 70","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/IkUCBicGnk0/hqdefault.jpg","vid":"IkUCBicGnk0"},
+{"t":"Filme 71","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/MbgjeF9QAVE/hqdefault.jpg","vid":"MbgjeF9QAVE"},
+{"t":"Filme 72","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/fwLrlXZTdK0/hqdefault.jpg","vid":"fwLrlXZTdK0"},
+{"t":"Filme 73","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/KKJ5e_ksjO4/hqdefault.jpg","vid":"KKJ5e_ksjO4"},
+{"t":"Filme 74","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/qIN82R8MLrQ/hqdefault.jpg","vid":"qIN82R8MLrQ"},
+{"t":"Filme 75","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ZXc-hKDDGRA/hqdefault.jpg","vid":"ZXc-hKDDGRA"},
+{"t":"Filme 76","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/i_QMcbI61yo/hqdefault.jpg","vid":"i_QMcbI61yo"},
+{"t":"Filme 77","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/Br9PbQBuQtg/hqdefault.jpg","vid":"Br9PbQBuQtg"},
+{"t":"Filme 78","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/3f5TlLMocHs/hqdefault.jpg","vid":"3f5TlLMocHs"},
+{"t":"Filme 79","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/RZ4p-VyShMU/hqdefault.jpg","vid":"RZ4p-VyShMU"},
+{"t":"Filme 80","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/3k35crCBBB4/hqdefault.jpg","vid":"3k35crCBBB4"},
+{"t":"Filme 81","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/nIHU2SVLNQ0/hqdefault.jpg","vid":"nIHU2SVLNQ0"},
+{"t":"Filme 82","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/poGy3eNjO3A/hqdefault.jpg","vid":"poGy3eNjO3A"},
+{"t":"Filme 83","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/zGgrvHKKHuA/hqdefault.jpg","vid":"zGgrvHKKHuA"},
+{"t":"Filme 84","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/8Uufoi9xv7Q/hqdefault.jpg","vid":"8Uufoi9xv7Q"},
+{"t":"Filme 85","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/TaDQWHlC8YY/hqdefault.jpg","vid":"TaDQWHlC8YY"},
+{"t":"Filme 86","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg","vid":"G9qBZ6NaMfY"},
+{"t":"Filme 87","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg","vid":"ppmUuEv6TBk"}
 ];
-
-let tagAtual = 'TODOS';
-let filmeAtual = 0;
-
-function getTags(){
-  let tags = ['TODOS',...new Set(filmesPadraoDoLink.map(f=>f.tag))];
-  return tags;
-}
-function renderChips(){
-  let c = document.getElementById('chips');
-  c.innerHTML = getTags().map(t=>`<div class="chip ${tagAtual===t?'ativo':''}" onclick="filtrar('${t}')">${t}</div>`).join('');
-}
-function renderGrid(){
-  let g = document.getElementById('grid');
-  let lista = tagAtual==='TODOS' ? filmesPadraoDoLink : filmesPadraoDoLink.filter(f=>f.tag===tagAtual);
-  g.innerHTML = lista.map((f,i)=>{
-    let idx = filmesPadraoDoLink.indexOf(f);
-    return `<div class="card" onclick="playFilme(${idx})"><div class="tag">${f.tag}</div><img src="${f.img}" loading="lazy" onerror="this.src='https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg'"><b>${f.t}</b></div>`;
-  }).join('');
-}
-function filtrar(t){ tagAtual=t; renderChips(); renderGrid(); }
-function playFilme(i){
-  filmeAtual=i;
-  let f = filmesPadraoDoLink[i];
-  document.getElementById('playerTitu').innerText = f.t;
-  document.getElementById('iframePlayer').src = `https://www.youtube.com/embed/${f.vid}?autoplay=1`;
-  document.getElementById('player').style.display='flex';
-}
-function fecharPlayer(){ document.getElementById('player').style.display='none'; document.getElementById('iframePlayer').src=''; }
-function nextFilme(){ let n = (filmeAtual+1)%filmesPadraoDoLink.length; playFilme(n); }
-
-renderChips(); renderGrid();
-
-// BOTÃO FLUTUANTE DOURADO INSTALAÇÃO
-let dpMini=null;
-window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
-document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
+let generosExtras=JSON.parse(localStorage.getItem('cine_generos')||'[]');
+let tagAtual='TODOS';let filmeAtual=0;
+function salvar(){localStorage.setItem('cine_generos',JSON.stringify(generosExtras));}
+function getTags(){let base=[...new Set(filmes.map(f=>f.tag)),...generosExtras];return['TODOS',...base];}
+function renderChips(){document.getElementById('chips').innerHTML=getTags().map(t=>`<div class="chip ${tagAtual===t?'ativo':''}" onclick="filtrar('${t}')">${t}</div>`).join('');let sel=document.getElementById('fGenero');if(sel)sel.innerHTML=getTags().filter(t=>t!=='TODOS').map(t=>`<option>${t}</option>`).join('');}
+function renderGrid(){let lista=tagAtual==='TODOS'?filmes:filmes.filter(f=>f.tag===tagAtual);document.getElementById('grid').innerHTML=lista.map(f=>{let idx=filmes.indexOf(f);return `<div class="card" onclick="playFilme(${idx})"><div class="tag">${f.tag}</div><img src="${f.img}" onerror="this.src='https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg'"><b>${f.t}</b></div>`;}).join('');}
+function filtrar(t){tagAtual=t;renderChips();renderGrid();}
+function playFilme(i){filmeAtual=i;let f=filmes[i];document.getElementById('iframePlayer').src=`https://www.youtube.com/embed/${f.vid}?autoplay=1`;document.getElementById('player').style.display='flex';}
+function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}
+function nextFilme(){playFilme((filmeAtual+1)%filmes.length);}
+function abrirModal(t){document.getElementById(t==='addGenero'?'modalGenero':'modalFilme').style.display='flex';}
+function fecharModal(){document.querySelectorAll('.modal').forEach(m=>m.style.display='none');}
+function addGenero(){let g=document.getElementById('novoGenero').value.trim().toUpperCase();if(!g)return alert('Digite o genero');generosExtras.push(g);salvar();renderChips();fecharModal();document.getElementById('novoGenero').value='';}
+function addFilme(){let t=document.getElementById('fTitulo').value.trim();let tag=document.getElementById('fGenero').value;let img=document.getElementById('fImg').value.trim();let vid=document.getElementById('fVid').value.trim();if(!t||!vid)return alert('Titulo e ID obrigatorios');if(vid.includes('v='))vid=vid.split('v=')[1].split('&')[0];if(!img)img=`https://img.youtube.com/vi/${vid}/hqdefault.jpg`;filmes.unshift({t:t,tag:tag,img:img,vid:vid});renderChips();renderGrid();fecharModal();document.getElementById('fTitulo').value='';document.getElementById('fImg').value='';document.getElementById('fVid').value='';}
+function compartilhar(){let texto=`CINE GRATIFLIX - 89 FILMES GRATIS! https://bancograti-ooficial-ops.github.io/Portal-do-povo/Cine-gratiflix/ Grupo VIP: ${LINK_GRUPO}`;window.open(`https://wa.me/?text=${encodeURIComponent(texto)}`,'_blank');}
+function convidar(){let texto=`Voce foi convidado para o CINE GRATIFLIX! 89 filmes gratis: https://bancograti-ooficial-ops.github.io/Portal-do-povo/Cine-gratiflix/ Grupo VIP: ${LINK_GRUPO}`;window.open(`https://wa.me/?text=${encodeURIComponent(texto)}`,'_blank');}
+renderChips();renderGrid();
+let dp=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;document.getElementById('fabMini').style.display='flex';});
+document.getElementById('fabMini').addEventListener('click',async()=>{if(!dp)return;dp.prompt();const o=await dp.userChoice;if(o.outcome==='accepted')document.getElementById('fabMini').style.display='none';dp=null;});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('../sw.js');}
 </script>
 </body>
 </html>
