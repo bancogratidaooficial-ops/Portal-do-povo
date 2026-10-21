@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e50914">
+<link rel="apple-touch-icon" href="logo-martelo.png">GERADOR CINE GRATIFLIX - MARTELO</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:Arial}
+.top{background:#0a0a0a;border-bottom:2px solid #e50914;padding:14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.logo{width:95px;height:95px;border-radius:50%;border:3px solid #e50914;object-fit:cover;background:#fff}
+.card{margin:12px;background:#121212;border:1px solid #222;border-radius:14px;padding:14px}
+label{font-size:11px;color:#999;margin:10px 0 3px;display:block;text-transform:uppercase}
+input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #333;background:#0a0a0a;color:#fff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{width:100%;padding:14px;border-radius:10px;border:none;font-weight:900;font-size:15px;margin-top:10px}
+.btn-red{background:#e50914;color:#fff}.btn-green{background:#22c55e;color:#000}
+.list-item{background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:8px;display:flex;gap:8px;margin-bottom:8px;align-items:center}
+.list-item img{width:60px;height:40px;object-fit:cover;border-radius:6px}
+textarea{width:100%;height:220px;background:#000;color:#0f0;border:1px solid #333;border-radius:10px;padding:10px;font-family:monospace;font-size:11px}
+</style>
+</head>
+<body>
+<div class="top">
+<img class="logo" src="logo-martelo.png" alt="logo">
+<b style="font-size:20px">CINE <span style="color:#e50914">GRATIFLIX TV</span></b>
+<small style="color:#888">GERADOR DE LINKS</small>
+</div>
+<div class="card">
+<label>TITULO DO FILME</label>
+<input id="t" placeholder="Ex: Titanic Retorno de Jack">
+<div class="row">
+<div><label>TAG</label><select id="tag"><option>LANCAMENTO</option><option>ACAO</option><option>COMEDIA</option><option>TERROR</option><option>ROMANCE</option><option>DRAMA</option><option>DESENHO</option><option>ANIME</option><option>SERIE</option><option>MARVEL</option><option>DC</option></select></div>
+<div><label>ID YOUTUBE</label><input id="vid" placeholder="5yzAq4W2y1A"></div>
+</div>
+<label>LINK DRIVE (OPCIONAL)</label>
+<input id="drive" placeholder="https://drive.google.com/...">
+<button class="btn btn-red" onclick="addFilme()">+ ADICIONAR</button>
+</div>
+<div class="card">
+<b>LISTA (<span id="count">0</span>)</b>
+<div id="lista" style="margin-top:10px"><small style="color:#666">Nenhum filme ainda.</small></div>
+<label>CODIGO PRONTO - COLE NO index.html LINHA 32</label>
+<textarea id="saida" readonly></textarea>
+<button class="btn btn-green" onclick="copiar()">COPIAR TUDO</button>
+<button class="btn btn-red" style="background:#222;color:#fff" onclick="preencher5()">COLOCAR OS 5 FILMES QUE PEDIU</button>
+</div>
+<script>
+let filmes=JSON.parse(localStorage.getItem('gratiflix_martelo')||'[]');render();
+function extractId(v){let m=v.match(/(?:v=|be\/|embed\/)([a-zA-Z0-9_-]{5,})/);if(m)return m[1];if(!v.includes('http')&&v.length>=5)return v;return v;}
+function addFilme(){let tit=document.getElementById('t').value.trim();let tag=document.getElementById('tag').value.trim();let vidRaw=document.getElementById('vid').value.trim();let drive=document.getElementById('drive').value.trim();if(!tit||!vidRaw){alert('Preencha titulo e ID');return;}let vidId=extractId(vidRaw);let img=`https://img.youtube.com/vi/${vidId}/hqdefault.jpg`;let vidFinal=drive?drive:vidId;if(drive&&!vidId){img=`https://via.placeholder.com/480x360?text=${encodeURIComponent(tit)}`;vidFinal=drive;}filmes.unshift({t:tit,tag:tag,img:img,vid:vidFinal});localStorage.setItem('gratiflix_martelo',JSON.stringify(filmes));document.getElementById('t').value='';document.getElementById('vid').value='';document.getElementById('drive').value='';render();}
+function render(){document.getElementById('count').innerText=filmes.length;let lista=document.getElementById('lista');let saida=document.getElementById('saida');if(filmes.length==0){lista.innerHTML='<small style=color:#666>Nenhum filme ainda.</small>';saida.value='';return;}lista.innerHTML='';let texto='';filmes.forEach((f,i)=>{texto+=`{"t":"${f.t}","tag":"${f.tag}","img":"${f.img}","vid":"${f.vid}"},\n`;lista.innerHTML+=`<div class=list-item><img src="${f.img}"><div><b style=font-size:12px>${f.t}</b><br><small>${f.tag}</small></div><div onclick="remover(${i})" style=color:#e50914;padding:8px>X</div></div>`;});saida.value=texto;}
+function remover(i){filmes.splice(i,1);localStorage.setItem('gratiflix_martelo',JSON.stringify(filmes));render();}
+function copiar(){let a=document.getElementById('saida');a.select();document.execCommand('copy');alert('COPIADO!');}
+function preencher5(){filmes=[{"t":"Titanic - O Retorno de Jack","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/5yzAq4W2y1A/hqdefault.jpg","vid":"5yzAq4W2y1A"},{"t":"Superman - Entre Eras","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/KymrMQKEZ2I/hqdefault.jpg","vid":"KymrMQKEZ2I"},{"t":"Minions","tag":"DESENHO","img":"https://img.youtube.com/vi/_Ajqzp5iIQ/hqdefault.jpg","vid":"_Ajqzp5iIQ"},{"t":"Vingadores - Ultimato","tag":"ACAO","img":"https://img.youtube.com/vi/spJoZReeIeQ/hqdefault.jpg","vid":"spJoZReeIeQ"},{"t":"Homem Aranha - Um Novo Dia","tag":"ACAO","img":"https://img.youtube.com/vi/PlulyWs1kS4/hqdefault.jpg","vid":"PlulyWs1kS4"}].concat(filmes);localStorage.setItem('gratiflix_martelo',JSON.stringify(filmes));render();}
+</script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+</script>
+</body>
+</html>
