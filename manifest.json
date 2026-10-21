@@ -1,0 +1,25 @@
+{
+  "name": "BANCO GRATIDÃO OFICIAL - Portal do Povo",
+  "short_name": "Banco Gratidão",
+  "description": "Banco Gratidão Oficial - Portal do Povo, Gratfluxo Pontos, Cine Gratiflix",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FFD700",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
