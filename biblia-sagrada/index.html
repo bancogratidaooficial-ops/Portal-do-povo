@@ -65,4 +65,17 @@ Próximo: Livro de Êxodo - A Saída do Egito<br>
 <a href="../../sobre.html" style="color:#ffcc00">Sobre</a> | <a href="../../privacidade.html" style="color:#ffcc00">Privacidade</a>
 </div>
 </body>
+<!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
+<link rel="manifest" href="./manifest.json">
+<style>
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
+@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+</style>
+<button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
+<script>
+let dpMini=null;
+window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
+document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
+</script>
 </html>
