@@ -1,122 +1,122 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#FFD700"><title>💡 PROJETOS E IDEIAS - Portal do Povo</title><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}.top{background:#000;padding:14px;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700;display:flex;justify-content:space-between;align-items:center}.top b{color:#FFD700}.chips{display:flex;gap:8px;padding:10px;overflow-x:auto;background:#0a0a0a;position:sticky;top:52px;z-index:10}.chip{padding:8px 14px;border-radius:20px;background:#1a1a1a;border:1px solid #333;color:#fff;font-size:12px;white-space:nowrap;cursor:pointer;font-weight:700}.chip.ativo{background:#FFD700;color:#000;border-color:#FFD700}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative}.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#222;display:block}.card .info{padding:8px}.card .t{font-size:11px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card .tag{position:absolute;top:6px;left:6px;font-size:9px;color:#000;background:#FFD700;padding:3px 8px;border-radius:12px;font-weight:900}#player{position:fixed;inset:0;background:#000;z-index:99999;display:none;flex-direction:column}#player iframe{flex:1;border:0;width:100%}</style></head><body><div class="top"><div><b>💡 PROJETOS E IDEIAS</b><div style="font-size:11px;color:#aaa">Portal do Povo - YouTube</div></div><div onclick="location.href='../'" style="color:#FFD700;font-weight:900;cursor:pointer">⬅ VOLTAR</div></div><div id="chips" class="chips"></div><div id="conteudo"></div><div id="player"><div style="padding:10px;background:#000;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222"><div id="playerTitulo" style="font-weight:900;font-size:13px"></div><button onclick="fecharPlayer()" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:20px">❌ FECHAR</button></div><iframe id="iframePlayer" allowfullscreen></iframe></div><script>let filmes=[
   {
-    "t": "PROJETOS 1",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/XEc_-q3vvj8/hqdefault.jpg",
-    "vid": "XEc_-q3vvj8"
-  },
-  {
-    "t": "PROJETOS 2",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/i__f6Qu73EY/hqdefault.jpg",
-    "vid": "i__f6Qu73EY"
-  },
-  {
-    "t": "PROJETOS 3",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/m2fXB_aYizw/hqdefault.jpg",
-    "vid": "m2fXB_aYizw"
-  },
-  {
-    "t": "PROJETOS 4",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/LJeZCPBnKDY/hqdefault.jpg",
-    "vid": "LJeZCPBnKDY"
-  },
-  {
-    "t": "PROJETOS 5",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/sX1bX9OiTFY/hqdefault.jpg",
-    "vid": "sX1bX9OiTFY"
-  },
-  {
-    "t": "PROJETOS 6",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/09omWmZ6JzY/hqdefault.jpg",
-    "vid": "09omWmZ6JzY"
-  },
-  {
-    "t": "PROJETOS 7",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/qXqk1JeBPyg/hqdefault.jpg",
-    "vid": "qXqk1JeBPyg"
-  },
-  {
-    "t": "PROJETOS 8",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/-GBYq6_EUbs/hqdefault.jpg",
-    "vid": "-GBYq6_EUbs"
-  },
-  {
-    "t": "PROJETOS 9",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/pyyOL6Frueg/hqdefault.jpg",
-    "vid": "pyyOL6Frueg"
-  },
-  {
-    "t": "PROJETOS 10",
-    "tag": "PROJETOS",
-    "img": "https://img.youtube.com/vi/aP79mwfpoL8/hqdefault.jpg",
-    "vid": "aP79mwfpoL8"
-  },
-  {
-    "t": "PROJETOS 11",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 1",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/2SDeAgaPH1E/hqdefault.jpg",
     "vid": "2SDeAgaPH1E"
   },
   {
-    "t": "PROJETOS 12",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 2",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/bSNGENyPiII/hqdefault.jpg",
     "vid": "bSNGENyPiII"
   },
   {
-    "t": "PROJETOS 13",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 3",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/0VccxRpqeqQ/hqdefault.jpg",
     "vid": "0VccxRpqeqQ"
   },
   {
-    "t": "PROJETOS 14",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 4",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/xNUn497w8YE/hqdefault.jpg",
     "vid": "xNUn497w8YE"
   },
   {
-    "t": "PROJETOS 15",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 5",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/bvzNl82hdkM/hqdefault.jpg",
     "vid": "bvzNl82hdkM"
   },
   {
-    "t": "PROJETOS 16",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 6",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/rRBdChU-Wbc/hqdefault.jpg",
     "vid": "rRBdChU-Wbc"
   },
   {
-    "t": "PROJETOS 17",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 7",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/jyQpy7Nehz0/hqdefault.jpg",
     "vid": "jyQpy7Nehz0"
   },
   {
-    "t": "PROJETOS 18",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 8",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/dWNwHJMqcvs/hqdefault.jpg",
     "vid": "dWNwHJMqcvs"
   },
   {
-    "t": "PROJETOS 19",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 9",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/fPOn7l3aeCw/hqdefault.jpg",
     "vid": "fPOn7l3aeCw"
   },
   {
-    "t": "PROJETOS 20",
-    "tag": "PROJETOS",
+    "t": "CONSTRUÇÃO DE CASAS 10",
+    "tag": "CONSTRUÇÃO DE CASAS",
     "img": "https://img.youtube.com/vi/z3OlgCnrpnM/hqdefault.jpg",
     "vid": "z3OlgCnrpnM"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 11",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/XEc_-q3vvj8/hqdefault.jpg",
+    "vid": "XEc_-q3vvj8"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 12",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/i__f6Qu73EY/hqdefault.jpg",
+    "vid": "i__f6Qu73EY"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 13",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/m2fXB_aYizw/hqdefault.jpg",
+    "vid": "m2fXB_aYizw"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 14",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/LJeZCPBnKDY/hqdefault.jpg",
+    "vid": "LJeZCPBnKDY"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 15",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/sX1bX9OiTFY/hqdefault.jpg",
+    "vid": "sX1bX9OiTFY"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 16",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/09omWmZ6JzY/hqdefault.jpg",
+    "vid": "09omWmZ6JzY"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 17",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/qXqk1JeBPyg/hqdefault.jpg",
+    "vid": "qXqk1JeBPyg"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 18",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/-GBYq6_EUbs/hqdefault.jpg",
+    "vid": "-GBYq6_EUbs"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 19",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/pyyOL6Frueg/hqdefault.jpg",
+    "vid": "pyyOL6Frueg"
+  },
+  {
+    "t": "PROJETOS DE ESCADAS 20",
+    "tag": "PROJETOS DE ESCADAS",
+    "img": "https://img.youtube.com/vi/aP79mwfpoL8/hqdefault.jpg",
+    "vid": "aP79mwfpoL8"
   }
-];let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS"];function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}let filtro='TODOS';function renderChips(){let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});document.getElementById('chips').innerHTML=h;}function setFiltro(g){filtro=g;renderChips();renderGrid();}function renderGrid(){let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));window.listaAtual=lista;let html='<div class="grid">'+lista.map((f,i)=>'<div class="card" onclick="abrirPlayer('+i+')"><span class="tag">'+f.tag+'</span><img src="'+f.img+'" loading="lazy"><div class="info"><div class="t">'+f.t+'</div></div></div>').join('')+'</div>';if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';document.getElementById('conteudo').innerHTML=html;}function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}renderChips();renderGrid();</script></body></html>
+];let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS","PROJETOS DE ESCADAS","CONSTRUÇÃO DE CASAS"];function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}let filtro='TODOS';function renderChips(){let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});document.getElementById('chips').innerHTML=h;}function setFiltro(g){filtro=g;renderChips();renderGrid();}function renderGrid(){let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));window.listaAtual=lista;let html='<div class="grid">'+lista.map((f,i)=>'<div class="card" onclick="abrirPlayer('+i+')"><span class="tag">'+f.tag+'</span><img src="'+f.img+'" loading="lazy"><div class="info"><div class="t">'+f.t+'</div></div></div>').join('')+'</div>';if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';document.getElementById('conteudo').innerHTML=html;}function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}renderChips();renderGrid();</script></body></html>
