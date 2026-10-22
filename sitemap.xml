@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://bancogratidao.com.br/</loc></url>
-<url><loc>https://bancogratidao.com.br/sobre/</loc></url>
-<url><loc>https://bancogratidao.com.br/privacidade/</loc></url>
-<url><loc>https://bancogratidao.com.br/contato/</loc></url>
-<url><loc>https://bancogratidao.com.br/termos/</loc></url>
-<url><loc>https://bancogratidao.com.br/vagas/</loc></url>
-<url><loc>https://bancogratidao.com.br/cursos/</loc></url>
-<url><loc>https://bancogratidao.com.br/saude/</loc></url>
-<url><loc>https://bancogratidao.com.br/banco/</loc></url>
-<url><loc>https://bancogratidao.com.br/caixa/</loc></url>
-<url><loc>https://bancogratidao.com.br/biblia/</loc></url>
-<url><loc>https://bancogratidao.com.br/filmes/</loc></url>
-<url><loc>https://bancogratidao.com.br/musicas/</loc></url>
-<url><loc>https://bancogratidao.com.br/gratiflix/</loc></url>
-<url><loc>https://bancogratidao.com.br/mapas/</loc></url>
-<url><loc>https://bancogratidao.com.br/onibus/</loc></url>
-<url><loc>https://bancogratidao.com.br/mercado/</loc></url>
-<url><loc>https://bancogratidao.com.br/gastos/</loc></url>
-<url><loc>https://bancogratidao.com.br/ajuda/</loc></url>
-<url><loc>https://bancogratidao.com.br/backup/</loc></url>
+  <url><loc>https://bancogratidao.com.br/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  
+  <!-- SOS 24H - 8 PORTAIS PRINCIPAIS -->
+  <url><loc>https://bancogratidao.com.br/farmacias-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/veterinarios-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/dentistas-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/gas-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/chaveiros-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/eletricista-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/advogados-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/oficinas-24h/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  
+  <!-- SAÚDE -->
+  <url><loc>https://bancogratidao.com.br/hospitais/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bancogratidao.com.br/animais-ong-hospitais/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- TRABALHO E ESTUDO -->
+  <url><loc>https://bancogratidao.com.br/vagas/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bancogratidao.com.br/cursos/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bancogratidao.com.br/enem/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bancogratidao.com.br/materias/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <!-- CASA E CIDADE -->
+  <url><loc>https://bancogratidao.com.br/saude/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bancogratidao.com.br/onibus/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bancogratidao.com.br/mapas/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bancogratidao.com.br/orgaos-publicos/</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- GRATIFLUXO -->
+  <url><loc>https://bancogratidao.com.br/gratifluxo-pontos/</loc><lastmod>2026-05-13</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bancogratidao.com.br/Cine-gratiflix/</loc><lastmod>2026-05-13</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- SISTEMA -->
+  <url><loc>https://bancogratidao.com.br/sobre/</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://bancogratidao.com.br/contato/</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://bancogratidao.com.br/privacidade/</loc><lastmod>2026-05-13</lastmod><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>
