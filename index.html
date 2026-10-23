@@ -128,7 +128,6 @@ if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js')}
 let deferredPromptPortal;
 window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPromptPortal=e;document.getElementById('fabPortal').style.display='flex';document.getElementById('fabLabel').style.display='block'});
 document.getElementById('fabPortal')?.addEventListener('click',async()=>{if(!deferredPromptPortal)return;deferredPromptPortal.prompt();const{outcome}=await deferredPromptPortal.userChoice;if(outcome==='accepted'){document.getElementById('fabPortal').style.display='none';document.getElementById('fabLabel').style.display='none'}deferredPromptPortal=null});
-</script>
   <style>
 /* BOTÕES FLUTUANTES CORRIGIDOS - COLA NO FINAL DO STYLE */
 #cineFloatBtn{position:fixed;bottom:18px;left:12px;right:12px;z-index:9998;background:linear-gradient(90deg,#ff0000,#cc0000);border:2px solid #ffcc00;border-radius:14px;padding:8px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 18px rgba(0,0,0,.7)}
@@ -151,8 +150,6 @@ document.getElementById('fabPortal')?.addEventListener('click',async()=>{if(!def
 <div style="flex:1"><div class="t">🎬 CINE GRATIFLIX</div><div class="s">89 FILMES GRÁTIS - TOQUE AQUI</div></div>
 <div class="abrir">ABRIR</div>
 </div>
-
-<script>
 function compartilharPortal(){const d={title:'BANCO GRATIDÃO OFICIAL',text:'Portal do Povo - Tudo em cards - 10 serviços 24h',url:location.href};if(navigator.share){navigator.share(d)}else{window.open('https://wa.me/?text='+encodeURIComponent(d.text+' - '+d.url),'_blank')}}
 function convidarMembros(){const m="Entra no Portal do Povo! Tudo em cards - 10 serviços 24h! "+location.href;window.open('https://wa.me/?text='+encodeURIComponent(m),'_blank')}
 function mostrarComoInstalar(){alert('Para INSTALAR no celular:\n\n1. Clique nos 3 pontinhos lá em cima no Chrome\n2. Clique em Instalar App ou Adicionar à tela inicial\n3. Pronto! Ícone dourado na tela!\n\nOu toque no botão AMARELO ⬇️ que tá piscando!')}
