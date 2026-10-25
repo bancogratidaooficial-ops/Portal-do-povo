@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🏥 HOSPITAIS - Gratuitos SUS Curitiba | Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hospitais e UPAs Curitiba - Portal do Povo - Endereço, Mapa, Telefone</title>
+<meta name="theme-color" content="#FFD700">
+<link rel="icon" href="../icon.png">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#050505;color:#fff;padding-bottom:80px}
-header{position:sticky;top:0;z-index:99;background:#0f0f0f;border-bottom:2px solid #00ff88;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.tag{font-size:9px;font-weight:900;background:#00ff88;color:#000;padding:3px 8px;border-radius:12px}
-.grid{padding:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px}
-.card{background:#151515;border:1px solid #222;border-radius:14px;overflow:hidden}
-.card.gold{border-color:#00ff88}
-.card-head{padding:12px;display:flex;justify-content:space-between;gap:8px}
-.card-head b{font-size:13px}
-.card-head span{font-size:9px;font-weight:900;padding:3px 7px;border-radius:10px;white-space:nowrap}
-.s-sus{background:#00ff88;color:#000}.s-upa{background:#ffae00;color:#000}.s-emerg{background:#ff0000;color:#fff}.s-mater{background:#ff69b4;color:#000}
-.card-body{padding:0 12px 12px;font-size:11px;color:#ccc;line-height:1.5}
-.card-body a{color:#00ff88;font-weight:700;text-decoration:none}
-.btns{padding:0 12px 12px;display:flex;gap:6px;flex-wrap:wrap}
-.btn{flex:1;min-width:110px;text-align:center;padding:9px;border-radius:10px;font-size:11px;font-weight:900;text-decoration:none;display:block}
-.btn-call{background:#00ff88;color:#000}.btn-map{background:#fff;color:#000}.btn-site{background:#222;color:#00ff88;border:1px solid #00ff88}
-.filters{position:sticky;top:56px;z-index:98;background:#050505;padding:8px 10px;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;border-bottom:1px solid #222}
-.filters button{background:#1a1a1a;border:1px solid #333;color:#aaa;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800}
-.filters button.active{background:#00ff88;color:#000}
-h2.sec{grid-column:1/-1;padding:18px 4px 2px;font-size:14px;color:#00ff88;font-weight:900}
-.alert{background:#001a0f;border:1px solid #00ff88;border-radius:12px;padding:10px;margin:10px;font-size:11px;color:#a0ffd8}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}
+.top{padding:14px;background:#000;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700;display:flex;align-items:center;gap:10px}
+.top a{color:#FFD700;text-decoration:none;font-size:22px}
+.cat{background:#111;margin:16px 10px 8px;padding:10px 14px;border-radius:10px;font-weight:900;color:#ffcc00;border-left:4px solid #FFD700;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;padding:8px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{border:2px solid #222;border-radius:16px;overflow:hidden;background:#151515;position:relative}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#222}
+.card-body{padding:12px;background:linear-gradient(180deg,#1a1a1a,#0a0a0a)}
+.card-body h3{margin:0;font-size:13px;color:#FFD700;font-weight:900;line-height:1.2}
+.card-body .desc{font-size:10px;color:#aaa;margin-top:5px;line-height:1.3}
+.card-body .end{font-size:10px;color:#fff;margin-top:9px;background:#111;padding:9px;border-radius:10px;border-left:3px solid #FFD700;line-height:1.5}
+.badge{position:absolute;top:8px;left:8px;padding:5px 11px;border-radius:12px;font-size:7px;font-weight:900;z-index:2}
+.bg-blue{background:#0094ff;color:#fff}.bg-green{background:#00d800;color:#fff}.bg-red{background:#ff0000;color:#fff}.bg-gold{background:#FFD700;color:#000}.bg-orange{background:#ff6a00;color:#fff}.bg-cyan{background:#00bfff;color:#fff}
+.acoes{display:flex;gap:6px;margin-top:11px}
+.btn{flex:1;padding:11px 6px;border-radius:20px;font-weight:900;font-size:10px;text-align:center;text-decoration:none;display:block}
+.btn-ligar{background:#FFD700;color:#000}
+.btn-mapa{background:#111;color:#fff;border:1px solid #333}
+.btn-site{background:#0094ff;color:#fff}
 </style>
 </head>
 <body>
-<header>
-<h1>🏥 HOSPITAIS GRATUITOS - SUS CURITIBA<br><span style="font-size:10px;color:#aaa">Portal do Povo - UPA, UP, Hospital, SAMU</span></h1>
-<div style="display:flex;gap:6px"><span class="tag">35 LOCAIS</span><a href="../" style="background:#222;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a></div>
-</header>
-<div class="filters">
-<button class="active" onclick="filtrar('todos')">TODOS (35)</button>
-<button onclick="filtrar('emergencia')">EMERGÊNCIA 24H</button>
-<button onclick="filtrar('upa')">UPAS (9)</button>
-<button onclick="filtrar('hospital')">HOSPITAIS SUS</button>
-<button onclick="filtrar('crianca')">CRIANÇA</button>
-<button onclick="filtrar('maternidade')">MATERNIDADE</button>
+<div class="top"><a href="../index.html">←</a><div><div style="font-weight:900;color:#FFD700">🏥 HOSPITAIS E UPAs</div><div style="font-size:10px">Curitiba - 18 unidades - Endereço, Horário, Telefone, Site</div></div></div>
+
+<div class="cat">🚨 UPAs 24H - EMERGÊNCIA GRATUITA - 9 UPAs</div>
+<div class="grid">
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - BOQUEIRÃO</span><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"><div class="card-body"><h3>🚨 UPA 24H BOQUEIRÃO</h3><div class="desc">Emergência 24h gratuita, clínico geral, pediatria, ortopedia, exames, raio-x.</div><div class="end">📍 Av. Mal. Floriano Peixoto, 8480 - Boqueirão, 81670-001<br>🕒 24 HORAS - Todos os dias | ☎️ 156 / (41) 3242-9000<br>💻 Site: saude.curitiba.pr.gov.br - UPAs</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Boqueirao+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - CAJURU</span><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600"><div class="card-body"><h3>🚨 UPA 24H CAJURU</h3><div class="desc">Emergência 24h, pediatria e adulto, maior UPA de Curitiba.</div><div class="end">📍 R. Eng. Benedito Mário da Silva, 310 - Cajuru, 82900-260<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Cajuru+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - PINHEIRINHO</span><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600"><div class="card-body"><h3>🚨 UPA 24H PINHEIRINHO</h3><div class="desc">Emergência 24h, referência região sul.</div><div class="end">📍 R. Winston Churchill, 2372 - Pinheirinho, 81150-050<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Pinheirinho+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - CIDADE INDUSTRIAL</span><img src="https://images.unsplash.com/photo-1586776802477-368eac5e3f9d?w=600"><div class="card-body"><h3>🚨 UPA 24H CIC - CIDADE INDUSTRIAL</h3><div class="desc">Emergência 24h, adulto e infantil, região CIC.</div><div class="end">📍 R. Sen. Accioly Filho, 3371 - CIC, 81210-000<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+CIC+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - TATUQUARA</span><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"><div class="card-body"><h3>🚨 UPA 24H TATUQUARA</h3><div class="desc">Emergência 24h, mais nova de Curitiba.</div><div class="end">📍 R. Esperança da Vila, 120 - Tatuquara<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Tatuquara+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - FAZENDINHA</span><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600"><div class="card-body"><h3>🚨 UPA 24H FAZENDINHA</h3><div class="desc">Emergência 24h, Portão/Fazendinha.</div><div class="end">📍 R. Carlos Klemtz, 250 - Fazendinha, 81320-330<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Fazendinha+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - SITIO CERCADO</span><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600"><div class="card-body"><h3>🚨 UPA 24H SÍTIO CERCADO</h3><div class="desc">Emergência 24h, Sítio Cercado/Bairro Novo.</div><div class="end">📍 R. Levi Buquera, 100 - Sítio Cercado, 81910-420<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Sitio+Cercado+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">UPA 24H - CAMPO COMPRIDO</span><img src="https://images.unsplash.com/photo-1586776802477-368eac5e3f9d?w=600"><div class="card-body"><h3>🚨 UPA 24H CAMPO COMPRIDO</h3><div class="desc">Emergência 24h, Santa Felicidade.</div><div class="end">📍 R. Monsenhor Nivaldo, 150 - Campo Comprido<br>🕒 24 HORAS | ☎️ 156</div><div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/UPA+Campo+Comprido+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
 </div>
-<div class="alert">🚨 SAMU 192 | BOMBEIROS 193 | Toque no telefone pra ligar direto. Leve RG, CPF, Cartão SUS e comprovante endereço. Gratuito pelo SUS.</div>
-<div class="grid" id="grid">
-<h2 class="sec">🚨 EMERGÊNCIA - SAMU E CENTRAL</h2>
-<div class="card gold" data-cat="emergencia">
-<div class="card-head"><b>🚑 SAMU 192 - Curitiba</b><span class="s-emerg">24 HORAS</span></div>
-<div class="card-body"><p><b>📞 Tel:</b> <a href="tel:192">192</a> - Emergência médica gratuita<br><b>📍 Cobertura:</b> Toda Curitiba e Região Metropolitana</p></div>
-<div class="btns"><a class="btn btn-call" href="tel:192">📞 LIGAR 192</a></div>
+
+<div class="cat">🏥 HOSPITAIS SUS E REFERÊNCIA - 8 HOSPITAIS</div>
+<div class="grid">
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">HOSPITAL DO TRABALHADOR - SUS</span><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"><div class="card-body"><h3>🏥 HOSPITAL DO TRABALHADOR - HT</h3><div class="desc">Trauma, emergência SUS, referência Paraná, 100% SUS.</div><div class="end">📍 Av. Rep. Argentina, 4406 - Portão, 80610-260<br>🕒 24H Emergência | ☎️ (41) 3212-5700<br>💻 Site: htw.pr.gov.br</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132125700">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+do+Trabalhador+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.htw.pr.gov.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">HOSPITAL EVANGÉLICO MACKENZIE</span><img src="https://images.unsplash.com/photo-1586776802477-368eac5e3f9d?w=600"><div class="card-body"><h3>🏥 HOSPITAL EVANGÉLICO MACKENZIE</h3><div class="desc">Alta complexidade, SUS e particular, transplantes.</div><div class="end">📍 R. Augusto Stellfeld, 1908 - Bigorrilho, 80730-150<br>🕒 24H | ☎️ (41) 3240-5000<br>💻 Site: fepar.edu.br/evangelico</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132405000">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+Evangelico+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.mackenzie.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff6a00"><span class="badge bg-orange">HOSPITAL PEQUENO PRÍNCIPE</span><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=600"><div class="card-body"><h3>👶 HOSPITAL PEQUENO PRÍNCIPE - INFANTIL</h3><div class="desc">Maior hospital infantil do Brasil, referência, SUS e particular.</div><div class="end">📍 R. Des. Motta, 1070 - Água Verde, 80250-060<br>🕒 24H Emergência Infantil | ☎️ (41) 2108-1000<br>💻 Site: hpp.org.br</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554121081000">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+Pequeno+Principe+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.hpp.org.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#00d800"><span class="badge bg-green">HOSPITAL DE CLÍNICAS - UFPR</span><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"><div class="card-body"><h3>🏥 HOSPITAL DE CLÍNICAS - UFPR</h3><div class="desc">Hospital universitário, alta complexidade, 100% SUS, referência.</div><div class="end">📍 R. Gal. Carneiro, 181 - Alto da Glória, 80060-900<br>🕒 24H | ☎️ (41) 3360-1800<br>💻 Site: hc.ufpr.br</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554133601800">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+de+Clinicas+UFPR+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.hc.ufpr.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">HOSPITAL CAJURU - PUC</span><img src="https://images.unsplash.com/photo-1586776802477-368eac5e3f9d?w=600"><div class="card-body"><h3>🏥 HOSPITAL CAJURU - PUCPR - TRAUMA</h3><div class="desc">Trauma e emergência, referência, SUS.</div><div class="end">📍 Av. São José, 300 - Cristo Rei, 80050-350<br>🕒 24H | ☎️ (41) 3271-3000<br>💻 Site: hospitalcajuru.com.br</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132713000">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+Cajuru+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.hospitalcajuru.com.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#ff0000"><span class="badge bg-red">HOSPITAL ERasto GAERTNER - CÂNCER</span><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600"><div class="card-body"><h3>🎗️ HOSPITAL ERASTO GAERTNER - CÂNCER</h3><div class="desc">Referência câncer, quimio, radioterapia, SUS e particular.</div><div class="end">📍 R. Dr. Ovande do Amaral, 201 - Jardim das Américas, 81520-060<br>🕒 Seg-Sex 7h-19h | ☎️ (41) 3361-5000<br>💻 Site: erastogaertner.com.br</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554133615000">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Hospital+Erasto+Gaertner+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.erastogaertner.com.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#FFD700"><span class="badge bg-gold">SAMU 192 - EMERGÊNCIA 24H</span><img src="https://images.unsplash.com/photo-1587749086946-2eef19aaf5a6?w=600"><div class="card-body"><h3>🚑 SAMU 192 - EMERGÊNCIA 24H</h3><div class="desc">Ambulância emergência, infarto, AVC, acidente, queda - LIGUE 192 GRÁTIS.</div><div class="end">📍 Central SAMU Curitiba<br>🕒 24H GRÁTIS | ☎️ 192 / 193 Bombeiros<br>💻 Quando chamar: risco de vida</div><div class="acoes"><a class="btn btn-ligar" href="tel:192">LIGAR 192</a><a class="btn btn-ligar" href="tel:193" style="background:#ff0000;color:#fff">BOMBEIROS 193</a><a class="btn btn-site" href="https://saude.curitiba.pr.gov.br" target="_blank">INFO SAMU</a></div></div></div>
+
 </div>
-<h2 class="sec">🏥 UPAS 24H - CURITIBA</h2>
-<div class="card" data-cat="upa emergencia"><div class="card-head"><b>🏥 UPA Boqueirão</b><span class="s-upa">UPA 24H</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Profª Maria de Assunção, 2590 - Boqueirão<br><b>📞 Tel:</b> <a href="tel:+554133213800">(41) 3321-3800</a><br><b>⏰ 24 horas</b></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133213800">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=UPA+Boqueirão+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="upa emergencia"><div class="card-head"><b>🏥 UPA Cajuru</b><span class="s-upa">UPA 24H</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Lothar Steinkeller, 940 - Cajuru<br><b>📞 Tel:</b> <a href="tel:+554132620700">(41) 3262-0700</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132620700">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=UPA+Cajuru+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="upa emergencia"><div class="card-head"><b>🏥 UPA Fazendinha</b><span class="s-upa">UPA 24H</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Carlos Klemtz, 1833 - Fazendinha<br><b>📞 Tel:</b> <a href="tel:+554332493000">(41) 3249-3000</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554332493000">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=UPA+Fazendinha+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="upa emergencia"><div class="card-head"><b>🏥 UPA Sítio Cercado</b><span class="s-upa">UPA 24H</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Izaac Ferreira da Cruz, 3545 - Sítio Cercado<br><b>📞 Tel:</b> <a href="tel:+554133750500">(41) 3375-0500</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133750500">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=UPA+Sitio+Cercado+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="upa emergencia"><div class="card-head"><b>🏥 UPA Tatuquara</b><span class="s-upa">UPA 24H</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Pero Vaz de Caminha, 1015 - Tatuquara<br><b>📞 Tel:</b> <a href="tel:+554133752500">(41) 3375-2500</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133752500">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=UPA+Tatuquara+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<h2 class="sec">🏥 HOSPITAIS SUS - CURITIBA</h2>
-<div class="card gold" data-cat="hospital emergencia"><div class="card-head"><b>🏥 Hospital do Trabalhador - SUS</b><span class="s-sus">SUS 100%</span></div><div class="card-body"><p><b>📍 Endereço:</b> Av. República Argentina, 4406 - Portão<br><b>📞 Tel:</b> <a href="tel:+554132141000">(41) 3214-1000</a><br><b>✅ Especialidade:</b> Trauma, emergência, queimados</p></div><div class="btns"><a class="btn btn-call" href="tel:+554132141000">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Hospital+do+Trabalhador+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="hospital"><div class="card-head"><b>🏥 Hospital Cajuru - PUC</b><span class="s-sus">SUS</span></div><div class="card-body"><p><b>📍 Endereço:</b> Av. São José, 300 - Cristo Rei<br><b>📞 Tel:</b> <a href="tel:+554132713000">(41) 3271-3000</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132713000">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Hospital+Cajuru+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="hospital"><div class="card-head"><b>🏥 Hospital de Clínicas UFPR</b><span class="s-sus">SUS FEDERAL</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua General Carneiro, 181 - Centro<br><b>📞 Tel:</b> <a href="tel:+554133625000">(41) 3362-5000</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133625000">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Hospital+de+Clinicas+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="crianca hospital"><div class="card-head"><b>👶 Hospital Pequeno Príncipe</b><span class="s-sus">CRIANÇA SUS</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Desembargador Motta, 1070 - Água Verde<br><b>📞 Tel:</b> <a href="tel:+554133101010">(41) 3310-1010</a><br><b>✅ Maior hospital pediátrico do Brasil</b></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133101010">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Hospital+Pequeno+Principe+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="maternidade"><div class="card-head"><b>🤰 Maternidade Bairro Novo - SUS</b><span class="s-mater">MATERNIDADE SUS</span></div><div class="card-body"><p><b>📍 Endereço:</b> Rua Ludovico Kaminski, 1252 - Sítio Cercado<br><b>📞 Tel:</b> <a href="tel:+554133702900">(41) 3370-2900</a><br><b>✅ Parto SUS gratuito 24h</b></p></div><div class="btns"><a class="btn btn-call" href="tel:+554133702900">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Maternidade+Bairro+Novo+Curitiba" target="_blank">📍 MAPA</a></div></div>
-</div>
-<script>
-function filtrar(cat){
- document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
- event.target.classList.add('active');
- document.querySelectorAll('.card').forEach(c=>{
-   if(cat==='todos'){c.style.display='block';return}
-   c.style.display=c.dataset.cat.includes(cat)?'block':'none';
- });
- document.querySelectorAll('h2.sec').forEach(h=>h.style.display=cat==='todos'?'block':'none');
-}
-</script>
+
+<div style="padding:24px;text-align:center;color:#555;font-size:10px;line-height:1.6">Banco Gratidão Oficial - Hospitais e UPAs Curitiba<br>16 unidades com endereço completo, telefone e site oficial - Atualizado 2026<br><a href="../index.html" style="color:#FFD700;font-weight:900">← Voltar ao Portal do Povo</a></div>
 </body>
 </html>
