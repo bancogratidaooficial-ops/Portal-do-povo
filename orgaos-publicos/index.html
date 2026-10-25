@@ -1,69 +1,134 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Órgãos Públicos - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Órgãos Públicos Curitiba - Portal do Povo</title>
+<meta name="theme-color" content="#FFD700">
+<link rel="icon" href="../icon.png">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#080808;color:#fff;font-family:Arial;padding-bottom:40px}
-header{padding:14px 16px;background:#000;border-bottom:1px solid #222;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:10}
-header b{color:#ffcc00;font-size:20px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px}
-@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr}}
-.card{background:#111;border:1px solid #222;border-radius:14px;padding:14px;text-align:center}
-.card .icon{font-size:32px;margin-bottom:8px}
-.card b{font-size:26px;color:#ffcc00;display:block;margin:6px 0}
-.card span{font-size:11px;color:#aaa;display:block;line-height:1.3}
-.btn{display:block;margin-top:10px;background:#ffcc00;color:#000;padding:8px;border-radius:20px;font-weight:800;font-size:12px;text-decoration:none}
-.btn2{background:#222;color:#fff;margin-top:6px;border:1px solid #333}
-.titulo{padding:16px 16px 0 16px;color:#ffcc00;font-size:14px;letter-spacing:1px}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}
+.top{padding:14px;background:#000;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700;display:flex;align-items:center;gap:10px}
+.top a{color:#FFD700;text-decoration:none;font-size:20px}
+.cat{background:#111;margin:14px 10px 6px;padding:10px 14px;border-radius:10px;font-weight:900;color:#ffcc00;border-left:4px solid #FFD700;font-size:13px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px;padding:8px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{border:2px solid #222;border-radius:16px;overflow:hidden;background:#151515;position:relative}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;filter:brightness(0.7);background:#111}
+.card-body{padding:12px;background:linear-gradient(180deg,#1a1a1a,#000)}
+.card-body h3{margin:0;font-size:14px;color:#FFD700;font-weight:900}
+.card-body .desc{font-size:10px;color:#aaa;margin-top:4px;line-height:1.3}
+.card-body .end{font-size:11px;color:#fff;margin-top:8px;background:#111;padding:8px;border-radius:8px;border-left:3px solid #FFD700}
+.badge{position:absolute;top:8px;left:8px;padding:4px 10px;border-radius:12px;font-size:8px;font-weight:900;z-index:2;color:#fff}
+.bg-blue{background:#0094ff}.bg-green{background:#00d800}.bg-red{background:#ff0000}.bg-gold{background:#FFD700;color:#000}.bg-orange{background:#ff6a00}
+.acoes{display:flex;gap:6px;margin-top:10px}
+.btn{flex:1;padding:10px;border-radius:20px;font-weight:900;font-size:11px;text-align:center;text-decoration:none;display:block}
+.btn-ligar{background:#FFD700;color:#000}
+.btn-mapa{background:#111;color:#fff;border:1px solid #333}
+.btn-site{background:#0094ff;color:#fff}
 </style>
 </head>
 <body>
+<div class="top"><a href="../index.html">←</a><div><div style="font-weight:900;color:#FFD700">🏛️ ÓRGÃOS PÚBLICOS</div><div style="font-size:10px">Curitiba - Endereços, Mapa, Telefone, Horário</div></div></div>
 
-<header>
-<a href="../index.html" style="text-decoration:none;color:#fff;font-size:20px">←</a>
-<b>🏛️ ÓRGÃOS PÚBLICOS</b>
-</header>
-
-<div class="titulo">PREFEITURA E SERVIÇOS</div>
+<div class="cat">🏛️ PREFEITURA E SERVIÇOS MUNICIPAIS</div>
 <div class="grid">
-  <div class="card"><div class="icon">🏙️</div><span>PREFEITURA CURITIBA - CENTRAL 156</span><b>156</b><a class="btn" href="tel:156">LIGAR 156</a><a class="btn btn2" href="https://www.curitiba.pr.gov.br" target="_blank">SITE</a></div>
-  <div class="card"><div class="icon">⚖️</div><span>CÂMARA MUNICIPAL</span><b>3350-4800</b><a class="btn" href="tel:4133504800">LIGAR</a></div>
-  <div class="card"><div class="icon">🚗</div><span>DETRAN-PR</span><b>0800 643 7373</b><a class="btn" href="tel:08006437373">LIGAR</a></div>
-  <div class="card"><div class="icon">📋</div><span>PROCON-PR</span><b>151</b><a class="btn" href="tel:151">LIGAR</a></div>
+
+<div class="card" style="border-color:#FFD700">
+<span class="badge bg-gold">PREFEITURA - CENTRAL 156</span>
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600">
+<div class="card-body">
+<h3>🏙️ PREFEITURA DE CURITIBA - CENTRAL 156</h3>
+<div class="desc">Informações, reclamações, iluminação, buraco na rua, poda, coleta. Atende 24h pelo 156.</div>
+<div class="end">📍 Av. Cândido de Abreu, 817 - Centro Cívico, Curitiba - PR, 80530-908<br>🕒 Seg a Sex 8h às 18h | ☎️ 156 / (41) 3350-8484<br>💻 site: curitiba.pr.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Av+Candido+de+Abreu+817+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.curitiba.pr.gov.br" target="_blank">SITE</a></div>
+</div>
 </div>
 
-<div class="titulo">FEDERAL</div>
-<div class="grid">
-  <div class="card"><div class="icon">🇧🇷</div><span>INSS</span><b>135</b><a class="btn" href="tel:135">LIGAR 135</a></div>
-  <div class="card"><div class="icon">💰</div><span>RECEITA FEDERAL</span><b>146</b><a class="btn" href="tel:146">LIGAR 146</a></div>
-  <div class="card"><div class="icon">📦</div><span>CORREIOS</span><b>3003-0100</b><a class="btn" href="tel:30030100">LIGAR</a></div>
-  <div class="card"><div class="icon">🗳️</div><span>TRE-PR / TÍTULO</span><b>0800 640 8400</b><a class="btn" href="tel:08006408400">LIGAR</a></div>
-  <div class="card"><div class="icon">💡</div><span>COPEL</span><b>0800 51 00116</b><a class="btn" href="tel:08005100116">LIGAR</a></div>
-  <div class="card"><div class="icon">💧</div><span>SANEPAR</span><b>0800 200 0115</b><a class="btn" href="tel:08002000115">LIGAR</a></div>
+<div class="card" style="border-color:#0094ff">
+<span class="badge bg-blue">CÂMARA MUNICIPAL</span>
+<img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600">
+<div class="card-body">
+<h3>⚖️ CÂMARA MUNICIPAL DE CURITIBA</h3>
+<div class="desc">Vereadores, sessões, projetos de lei, leis municipais, transparência.</div>
+<div class="end">📍 R. Barão do Rio Branco, 720 - Centro, Curitiba - PR, 80010-902<br>🕒 Seg a Sex 8h às 18h | ☎️ (41) 3350-4800<br>💻 site: cmc.pr.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:+554133504800">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Camara+Municipal+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.cmc.pr.gov.br" target="_blank">SITE</a></div>
+</div>
 </div>
 
-<div class="titulo">JUSTIÇA E DEFESA</div>
-<div class="grid">
-  <div class="card"><div class="icon">⚖️</div><span>DEFENSORIA PÚBLICA-PR</span><b>0800 200 3721</b><a class="btn" href="tel:08002003721">LIGAR</a></div>
-  <div class="card"><div class="icon">🏛️</div><span>MINISTÉRIO PÚBLICO-PR</span><b>0800 41 4313</b><a class="btn" href="tel:0800414313">LIGAR</a></div>
-  <div class="card"><div class="icon">👷</div><span>MINISTÉRIO DO TRABALHO</span><b>158</b><a class="btn" href="tel:158">LIGAR</a></div>
-  <div class="card"><div class="icon">🧾</div><span>RECEITA ESTADUAL</span><b>0800 41 1528</b><a class="btn" href="tel:0800411528">LIGAR</a></div>
+<div class="card" style="border-color:#00d800">
+<span class="badge bg-green">DETRAN-PR - CURITIBA</span>
+<img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=600">
+<div class="card-body">
+<h3>🚗 DETRAN-PR - DEPARTAMENTO DE TRÂNSITO</h3>
+<div class="desc">CNH, IPVA, licenciamento, multas, vistoria, placa. Agendamento online.</div>
+<div class="end">📍 Av. Victor Ferreira do Amaral, 2940 - Capão da Imbuia - 82800-900<br>🕒 Seg a Sex 8h às 14h (agendado) | ☎️ 0800 643 7373<br>💻 site: detran.pr.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:08006437373">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/DETRAN+PR+Victor+Ferreira+do+Amaral+2940" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.detran.pr.gov.br" target="_blank">SITE</a></div>
 </div>
-<!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
-<link rel="manifest" href="./manifest.json">
-<style>
-.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
-@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-</style>
-<button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
-<script>
-let dpMini=null;
-window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
-document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
-</script>
+</div>
+
+<div class="card" style="border-color:#ff6a00">
+<span class="badge bg-orange">PROCON-PR</span>
+<img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600">
+<div class="card-body">
+<h3>🛡️ PROCON-PR - DEFESA DO CONSUMIDOR</h3>
+<div class="desc">Reclamações de compras, loja, internet, golpe, cobrança indevida.</div>
+<div class="end">📍 R. Emiliano Perneta, 47 - Centro, Curitiba - PR, 80010-080<br>🕒 Seg a Sex 9h às 17h | ☎️ 151 / (41) 3219-8000<br>💻 site: procon.pr.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:151">LIGAR 151</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Procon+PR+Emiliano+Perneta+47" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.procon.pr.gov.br" target="_blank">SITE</a></div>
+</div>
+</div>
+
+</div>
+
+<div class="cat">🇧🇷 ÓRGÃOS FEDERAIS</div>
+<div class="grid">
+
+<div class="card" style="border-color:#0094ff">
+<span class="badge bg-blue">INSS CURITIBA</span>
+<img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600">
+<div class="card-body">
+<h3>🇧🇷 INSS - PREVIDÊNCIA SOCIAL</h3>
+<div class="desc">Aposentadoria, auxílio, BPC, perícia, Meu INSS. Agendamento pelo 135.</div>
+<div class="end">📍 R. José Loureiro, 720 - Centro, Curitiba - PR, 80010-150<br>🕒 Seg a Sex 7h às 14h (agendado) | ☎️ 135<br>💻 site: meu.inss.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:135">LIGAR 135</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/INSS+Jose+Loureiro+720+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://meu.inss.gov.br" target="_blank">MEU INSS</a></div>
+</div>
+</div>
+
+<div class="card" style="border-color:#00d800">
+<span class="badge bg-green">RECEITA FEDERAL</span>
+<img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600">
+<div class="card-body">
+<h3>💰 RECEITA FEDERAL - CURITIBA</h3>
+<div class="desc">CPF, Imposto de Renda, CNPJ, restituição, certidão negativa.</div>
+<div class="end">📍 R. Marechal Deodoro, 555 - Centro, Curitiba - PR, 80010-010<br>🕒 Seg a Sex 8h às 18h | ☎️ 146<br>💻 site: receita.fazenda.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:146">LIGAR 146</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Receita+Federal+Marechal+Deodoro+555+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.gov.br/receitafederal" target="_blank">SITE</a></div>
+</div>
+</div>
+
+<div class="card" style="border-color:#ff0000">
+<span class="badge bg-red">JUSTIÇA ELEITORAL - TRE-PR</span>
+<img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600">
+<div class="card-body">
+<h3>🗳️ TRE-PR - TRIBUNAL ELEITORAL</h3>
+<div class="desc">Título de eleitor, local de votação, biometria, certidão.</div>
+<div class="end">📍 R. João Parolin, 55 - Prado Velho, Curitiba - PR, 80220-290<br>🕒 Seg a Sex 12h às 18h | ☎️ (41) 3330-8500<br>💻 site: tre-pr.jus.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:+554133308500">LIGAR</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/TRE+PR+Joao+Parolin+55" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.tre-pr.jus.br" target="_blank">SITE</a></div>
+</div>
+</div>
+
+<div class="card" style="border-color:#ff6a00">
+<span class="badge bg-orange">POUPATEMPO / FACIL</span>
+<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600">
+<div class="card-body">
+<h3>⚡ FAZ FÁCIL - TUDO EM UM LUGAR</h3>
+<div class="desc">RG, CPF, carteira de trabalho, Detran, Sanepar, Copel - tudo junto.</div>
+<div class="end">📍 R. Nestor de Castro, 99 - Centro, Curitiba - PR (Rua da Cidadania Matriz)<br>🕒 Seg a Sex 8h às 17h | ☎️ 156<br>💻 site: fazfacil.pr.gov.br</div>
+<div class="acoes"><a class="btn btn-ligar" href="tel:156">LIGAR 156</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Faz+Facil+Centro+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.fazfacil.pr.gov.br" target="_blank">SITE</a></div>
+</div>
+</div>
+
+</div>
+
+<div style="padding:20px;text-align:center;color:#555;font-size:10px">Banco Gratidão Oficial - Órgãos Públicos Curitiba - Atualizado 2026<br><a href="../index.html" style="color:#FFD700">← Voltar ao Portal do Povo</a></div>
 </body>
 </html>
