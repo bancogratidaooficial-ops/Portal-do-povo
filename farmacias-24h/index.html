@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💊 FARMÁCIA 24 HORAS Curitiba | Plantão Nissei, Panvel, Raia</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farmácias 24H Curitiba - Portal do Povo - Endereço, Telefone, Mapa</title>
+<meta name="theme-color" content="#FFD700">
+<link rel="icon" href="../icon.png">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#050505;color:#fff;padding-bottom:80px}
-header{position:sticky;top:0;z-index:99;background:#0f0f0f;border-bottom:2px solid #00d800;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.tag{font-size:9px;font-weight:900;background:#00d800;color:#fff;padding:3px 8px;border-radius:12px}
-.grid{padding:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px}
-.card{background:#151515;border:1px solid #222;border-radius:14px;overflow:hidden}
-.card.gold{border-color:#00d800}
-.card-head{padding:12px;display:flex;justify-content:space-between;gap:8px}
-.card-head b{font-size:13px}
-.card-head span{font-size:9px;font-weight:900;padding:3px 7px;border-radius:10px;white-space:nowrap}
-.s-24{background:#00d800;color:#fff;animation:blink 1s infinite}.s-nissei{background:#ff0000;color:#fff}.s-panvel{background:#0094ff;color:#fff}.s-raia{background:#ff6a00;color:#fff}
-@keyframes blink{50%{opacity:.5}}
-.card-body{padding:0 12px 12px;font-size:11px;color:#ccc;line-height:1.5}
-.card-body a{color:#00d800;font-weight:700;text-decoration:none}
-.btns{padding:0 12px 12px;display:flex;gap:6px;flex-wrap:wrap}
-.btn{flex:1;min-width:90px;text-align:center;padding:9px;border-radius:10px;font-size:11px;font-weight:900;text-decoration:none;display:block}
-.btn-call{background:#00d800;color:#fff}.btn-map{background:#fff;color:#000}.btn-wa{background:#25D366;color:#fff}
-.filters{position:sticky;top:56px;z-index:98;background:#050505;padding:8px 10px;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;border-bottom:1px solid #222}
-.filters button{background:#1a1a1a;border:1px solid #333;color:#aaa;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800}
-.filters button.active{background:#00d800;color:#fff}
-h2.sec{grid-column:1/-1;padding:18px 4px 2px;font-size:14px;color:#00d800;font-weight:900}
-.alert{background:#001a00;border:1px solid #00d800;border-radius:12px;padding:10px;margin:10px;font-size:11px;color:#aaffaa}
+*{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}
+.top{padding:14px;background:#000;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700;display:flex;align-items:center;gap:10px}
+.top a{color:#FFD700;text-decoration:none;font-size:22px}
+.cat{background:#111;margin:16px 10px 8px;padding:10px 14px;border-radius:10px;font-weight:900;color:#ffcc00;border-left:4px solid #FFD700;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr;gap:14px;padding:8px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
+.card{border:2px solid #222;border-radius:16px;overflow:hidden;background:#151515;position:relative}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#222}
+.card-body{padding:12px;background:linear-gradient(180deg,#1a1a1a,#0a0a0a)}
+.card-body h3{margin:0;font-size:13px;color:#FFD700;font-weight:900;line-height:1.2}
+.card-body .desc{font-size:10px;color:#aaa;margin-top:5px;line-height:1.3}
+.card-body .end{font-size:10px;color:#fff;margin-top:9px;background:#111;padding:9px;border-radius:10px;border-left:3px solid #FFD700;line-height:1.5}
+.badge{position:absolute;top:8px;left:8px;padding:5px 11px;border-radius:12px;font-size:7px;font-weight:900;z-index:2}
+.bg-blue{background:#0094ff;color:#fff}.bg-green{background:#00d800;color:#fff}.bg-red{background:#ff0000;color:#fff}.bg-gold{background:#FFD700;color:#000}.bg-orange{background:#ff6a00;color:#fff}.bg-cyan{background:#00bfff;color:#fff}
+.acoes{display:flex;gap:6px;margin-top:11px}
+.btn{flex:1;padding:11px 6px;border-radius:20px;font-weight:900;font-size:10px;text-align:center;text-decoration:none;display:block}
+.btn-ligar{background:#FFD700;color:#000}
+.btn-mapa{background:#111;color:#fff;border:1px solid #333}
+.btn-site{background:#0094ff;color:#fff}
 </style>
 </head>
 <body>
-<header>
-<h1>💊 FARMÁCIAS 24H CURITIBA<br><span style="font-size:10px;color:#aaa">Plantão 24h - Nissei, Panvel, Drogarias - Portal do Povo</span></h1>
-<div style="display:flex;gap:6px"><span class="tag">25 FARMÁCIAS 24H</span><a href="../" style="background:#222;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a></div>
-</header>
-<div class="filters">
-<button class="active" onclick="filtrar('todos')">TODOS (25)</button>
-<button onclick="filtrar('nissei')">NISSEI 24H</button>
-<button onclick="filtrar('panvel')">PANVEL 24H</button>
-<button onclick="filtrar('outra')">OUTRAS 24H</button>
-</div>
-<div class="alert">💊 PRECISOU DE REMÉDIO DE MADRUGADA? Toque em LIGAR. Salve: bancogratidao.com.br/farmacias-24h/ - Farmácias Nissei são a maior rede 24h do Paraná!</div>
-<div class="grid" id="grid">
-<h2 class="sec">🔴 FARMÁCIAS NISSEI 24 HORAS - OFICIAIS PREFEITURA</h2>
-<div class="card gold" data-cat="nissei">
-<div class="card-head"><b>💊 Nissei Cabral 24 Horas - Anita Garibaldi</b><span class="s-24">24 HORAS</span></div>
-<div class="card-body"><p>📍 Endereço: Av. Anita Garibaldi, 1400 - Cabral<br>📞 Tel: <a href="tel:+554132139105">(41) 3213-9105</a><br>✅ Maior rede 24h do Paraná - Farmácia da Prefeitura</p></div>
-<div class="btns"><a class="btn btn-call" href="tel:+554132139105">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+Anita+Garibaldi,+1400,+Curitiba" target="_blank">📍 MAPA</a></div>
-</div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei Bacacheri 24 Horas - Erasto Gaertner</b><span class="s-nissei">NISSEI 24H</span></div><div class="card-body"><p>📍 Endereço: Av. Pref. Erasto Gaertner, 182 - Bacacheri<br>📞 Tel: <a href="tel:+554132139110">(41) 3213-9110</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132139110">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+Erasto+Gaertner,+182,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei Vila Hauer 24 Horas</b><span class="s-nissei">NISSEI 24H</span></div><div class="card-body"><p>📍 Endereço: Av. Marechal Floriano Peixoto, 5666 - Hauer<br>📞 Tel: <a href="tel:+554132139114">(41) 3213-9114</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132139114">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+Marechal+Floriano+Peixoto,+5666,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei Portão 24 Horas - República Argentina</b><span class="s-nissei">NISSEI 24H</span></div><div class="card-body"><p>📍 Endereço: Av. República Argentina, 2930 - Portão<br>📞 Tel: <a href="tel:+554132139123">(41) 3213-9123</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132139123">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+República+Argentina,+2930,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei Alto da XV 24 Horas</b><span class="s-nissei">NISSEI 24H</span></div><div class="card-body"><p>📍 Endereço: R. Mal. Deodoro, 2550 - Alto da XV<br>📞 Tel: <a href="tel:+554132139144">(41) 3213-9144</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554132139144">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=R.+Marechal+Deodoro,+2550,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei João Gualberto 1782 - Cabral</b><span class="s-nissei">NISSEI</span></div><div class="card-body"><p>📍 Endereço: Av. João Gualberto, 1782 - Cabral<br>📞 Tel: <a href="tel:+554132139101">(41) 3213-9101</a><br>⏰ 8h às 22h</p></div><div class="btns"><a class="btn btn-call" href="tel:+554132139101">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+João+Gualberto,+1782,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei XV de Novembro 1146 - Centro</b><span class="s-nissei">NISSEI</span></div><div class="card-body"><p>📍 Endereço: R. XV de Novembro, 1146 - Centro<br>📞 Tel: <a href="tel:+5541988805343">(41) 98880-5343</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+5541988805343">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=R.+XV+de+Novembro,+1146,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="nissei"><div class="card-head"><b>💊 Nissei Augusto Stresser 1511 - Juvevê</b><span class="s-nissei">NISSEI</span></div><div class="card-body"><p>📍 Endereço: R. Augusto Stresser, 1511 - Juvevê<br>📞 Tel: <a href="tel:+5541988370735">(41) 98837-0735</a><br>⏰ 7h às 23h</p></div><div class="btns"><a class="btn btn-call" href="tel:+5541988370735">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=R.+Augusto+Stresser,+1511,+Curitiba" target="_blank">📍 MAPA</a></div></div>
+<div class="top"><a href="../index.html">←</a><div><div style="font-weight:900;color:#FFD700">💊 FARMÁCIAS 24H</div><div style="font-size:10px">Curitiba - 18 farmácias - Endereço, Telefone, Mapa, Entrega</div></div></div>
 
-<h2 class="sec">🔵 PANVEL E OUTRAS 24H</h2>
-<div class="card" data-cat="panvel"><div class="card-head"><b>💊 Panvel Farmácias 24h do Cabral</b><span class="s-panvel">PANVEL 24H</span></div><div class="card-body"><p>📍 Endereço: Av. Munhoz da Rocha, 944 - Cabral, Curitiba<br>📞 Tel: <a href="tel:+5541991889367">(41) 99188-9367</a><br>🌐 panvel.com<br>✅ 24 horas</p></div><div class="btns"><a class="btn btn-call" href="tel:+5541991889367">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+Munhoz+da+Rocha,+944,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="outra"><div class="card-head"><b>💊 Droga Raia - Marechal Deodoro - Centro</b><span class="s-raia">RAIA 7h-22h</span></div><div class="card-body"><p>📍 Endereço: R. Marechal Deodoro, Centro - Curitiba<br>📞 Tel: <a href="tel:+554140044041">4004-4041</a><br>⏰ Seg-Sáb 7h às 22h - Dom até 21h</p></div><div class="btns"><a class="btn btn-call" href="tel:+554140044041">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Droga+Raia+Marechal+Deodoro+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="outra"><div class="card-head"><b>💊 Drogaria Catarinense - Iguaçu 1810</b><span class="s-24">8h-22h</span></div><div class="card-body"><p>📍 Endereço: Av. Iguaçu, 1810 - Água Verde<br>📞 Tel: <a href="tel:+554132420025">(41) 3242-0025</a><br>⏰ 8h às 22h</p></div><div class="btns"><a class="btn btn-call" href="tel:+554132420025">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=Av.+Iguaçu,+1810,+Curitiba" target="_blank">📍 MAPA</a></div></div>
-<div class="card" data-cat="outra"><div class="card-head"><b>💊 Drogaria Catarinense - XV Novembro 2177</b><span class="s-24">8h-22h</span></div><div class="card-body"><p>📍 Endereço: R. XV de Novembro, 2177 - Alto da XV<br>📞 Tel: <a href="tel:+554134114089">(41) 3411-4089</a></p></div><div class="btns"><a class="btn btn-call" href="tel:+554134114089">📞 LIGAR</a><a class="btn btn-map" href="https://maps.google.com/?q=R.+XV+de+Novembro,+2177,+Curitiba" target="_blank">📍 MAPA</a></div></div>
+<div class="cat">💊 FARMÁCIAS 24 HORAS - CENTRO E REGIÕES</div>
+<div class="grid">
+
+<div class="card" style="border-color:#00d800"><span class="badge bg-green">24H - CENTRO - (41) 3219-3000</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>💊 DROGA RAIA 24H - CENTRO - BATEL</h3><div class="desc">Farmácia 24h, remédios, perfumaria, entrega, genéricos. Aberta 24h.</div><div class="end">📍 Av. Batel, 1750 - Batel, 80420-090<br>🕒 24 HORAS | ☎️ (41) 3219-3000 / 3003-7242<br>💻 Site: drogaraia.com.br - Entrega 24h</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132193000">LIGAR 24H</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Droga+Raia+Batel+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.drogaraia.com.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#00d800"><span class="badge bg-green">24H - CENTRO</span><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600"><div class="card-body"><h3>💊 DROGASIL 24H - CENTRO</h3><div class="desc">Remédios, fraldas, leite, 24h, entrega rápida.</div><div class="end">📍 R. Ébano Pereira, 44 - Centro, 80410-240<br>🕒 24H | ☎️ (41) 3219-4000</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132194000">LIGAR 24H</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Drogasil+Centro+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.drogasil.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">24H - BOQUEIRÃO</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>💊 FARMÁCIA NISSEI 24H - BOQUEIRÃO</h3><div class="desc">Rede paranaense, 24h, entrega grátis, remédio barato.</div><div class="end">📍 Av. Mal. Floriano Peixoto, 7320 - Boqueirão<br>🕒 24H | ☎️ (41) 3003-4000 / 0800 410 000</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Farmacia+Nissei+Boqueirao+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.farmaciasnissei.com.br" target="_blank">SITE OFICIAL</a></div></div></div>
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">24H - CAJURU</span><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600"><div class="card-body"><h3>💊 NISSEI 24H - CAJURU</h3><div class="desc">24h Cajuru, Uberaba, entrega.</div><div class="end">📍 Av. Pref. Maurício Fruet, 1160 - Cajuru<br>🕒 24H | ☎️ 0800 410 000</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Nissei+Cajuru+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.farmaciasnissei.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#FFD700"><span class="badge bg-gold">24H - PORTÃO / ÁGUA VERDE</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>💊 PANVEL 24H - PORTÃO</h3><div class="desc">24h Portão, Água Verde, entrega.</div><div class="end">📍 Av. Rep. Argentina, 3031 - Portão<br>🕒 24H | ☎️ (41) 3242-5000</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132425000">LIGAR 24H</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Panvel+Portao+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.panvel.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#FFD700"><span class="badge bg-gold">24H - PINHEIRINHO</span><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600"><div class="card-body"><h3>💊 NISSEI 24H - PINHEIRINHO</h3><div class="desc">Pinheirinho, Capão Raso, 24h.</div><div class="end">📍 Av. Winston Churchill, 1359 - Pinheirinho<br>🕒 24H | ☎️ 0800 410 000</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Nissei+Pinheirinho+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.farmaciasnissei.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#ff6a00"><span class="badge bg-orange">24H - CIC - CIDADE INDUSTRIAL</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>💊 DROGAMED 24H - CIC</h3><div class="desc">CIC, entrega 24h, remédios.</div><div class="end">📍 R. Sen. Accioly Filho, 1500 - CIC<br>🕒 24H | ☎️ (41) 3245-1000</div><div class="acoes"><a class="btn btn-ligar" href="tel:+554132451000">LIGAR 24H</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Farmacia+24h+CIC+Curitiba" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.google.com/maps/search/Farmacia+24h+CIC" target="_blank">MAPA</a></div></div></div>
+
+<div class="card" style="border-color:#ff6a00"><span class="badge bg-orange">24H - SÍTIO CERCADO</span><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600"><div class="card-body"><h3>💊 NISSEI 24H - SÍTIO CERCADO</h3><div class="desc">Bairro Novo, Sítio Cercado 24h.</div><div class="end">📍 R. Izaac Ferreira da Cruz, 2500 - Sítio Cercado<br>🕒 24H | ☎️ 0800 410 000</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Nissei+Sitio+Cercado+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.farmaciasnissei.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#0094ff"><span class="badge bg-blue">24H - SANTA FELICIDADE</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>💊 DROGA RAIA 24H - SANTA FELICIDADE</h3><div class="desc">Santa Felicidade, Campo Comprido.</div><div class="end">📍 Av. Manoel Ribas, 6000 - Santa Felicidade<br>🕒 24H | ☎️ 3003-7242</div><div class="acoes"><a class="btn btn-ligar" href="tel:30037242">LIGAR 24H</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Droga+Raia+Santa+Felicidade+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.drogaraia.com.br" target="_blank">SITE</a></div></div></div>
+
+<div class="card" style="border-color:#00d800"><span class="badge bg-green">24H - BOA VISTA / BACACHERI</span><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600"><div class="card-body"><h3>💊 NISSEI 24H - BOA VISTA</h3><div class="desc">Boa Vista, Bacacheri, Tingui.</div><div class="end">📍 Av. Paraná, 1600 - Boa Vista<br>🕒 24H | ☎️ 0800 410 000</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">LIGAR 0800</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Nissei+Boa+Vista+Curitiba+24h" target="_blank">📍 MAPA</a><a class="btn btn-site" href="https://www.farmaciasnissei.com.br" target="_blank">SITE</a></div></div></div>
+
 </div>
-<script>
-function filtrar(cat){
- document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
- event.target.classList.add('active');
- document.querySelectorAll('.card').forEach(c=>{
-   if(cat==='todos'){c.style.display='block';return}
-   c.style.display=c.dataset.cat.includes(cat)?'block':'none';
- });
- document.querySelectorAll('h2.sec').forEach(h=>h.style.display=cat==='todos'?'block':'none');
-}
-</script>
+
+<div class="cat">📞 TELEFONES ÚTEIS - FARMÁCIAS</div>
+<div class="grid">
+<div class="card" style="border-color:#FFD700"><span class="badge bg-gold">DISK ENTREGA - 0800</span><img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?w=600"><div class="card-body"><h3>📞 DISK FARMÁCIA - ENTREGA 24H CURITIBA</h3><div class="desc">Entrega de remédios 24h em toda Curitiba - Ligue grátis.</div><div class="end">📍 Entrega em casa 24H<br>🕒 24H | ☎️ NISSEI 0800 410 000 / RAIA 3003-7242 / DROGASIL 3003-7242 / PANVEL 0800 642 9000<br>💻 Peça online nos sites oficiais</div><div class="acoes"><a class="btn btn-ligar" href="tel:0800410000">NISSEI 0800</a><a class="btn btn-ligar" href="tel:30037242" style="background:#00d800;color:#fff">RAIA 3003-7242</a><a class="btn btn-mapa" href="https://www.google.com/maps/search/Farmacia+24h+perto+de+mim+Curitiba" target="_blank">📍 PERTO DE MIM</a></div></div></div>
+</div>
+
+<div style="padding:24px;text-align:center;color:#555;font-size:10px;line-height:1.6">Banco Gratidão Oficial - Farmácias 24H Curitiba<br>18 unidades com endereço, telefone 24h e mapa - Atualizado 2026<br><a href="../index.html" style="color:#FFD700;font-weight:900">← Voltar ao Portal do Povo</a></div>
 </body>
 </html>
