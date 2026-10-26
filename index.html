@@ -4,15 +4,23 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-<title>BANCO GRATIDÃO OFICIAL - Portal do Povo - Curitiba - Tudo em Cards</title>
-<meta name="theme-color" content="#FFD700">
-<link rel="icon" href="icon.png">
-<style><div class="cat">🎬 PORTAL DO POVO - O MODÃO DE CURITIBA - TOCANDO AGORA</div>
+<title><div class="cat">🎬 PORTAL DO POVO - O MODÃO DE CURITIBA - TOCANDO AGORA</div>
 <div style="margin:0 8px 14px;border:2px solid #FFD700;border-radius:14px;overflow:hidden;background:#000">
 <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000">
-<iframe src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=1&loop=1&playlist=DRmuNprF76Y" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe id="playerPovo" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=1&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<div style="padding:10px;background:#111;text-align:center">
+<b style="color:#FFD700;font-size:12px;display:block">JOSE - PORTAL DO POVO - O MODÃO DE CURITIBA</b>
+<span style="color:#aaa;font-size:9px">26 de outubro - José Marcos Oliveira - Clique para ativar o som</span>
+<div style="margin-top:8px"><button onclick="ativarSom()" style="background:#FFD700;color:#000;padding:10px 22px;border-radius:20px;font-weight:900;font-size:12px;border:0;cursor:pointer">🔊 ATIVAR SOM AGORA</button></div>
 </div>
 </div>
+<script>
+function ativarSom(){
+  var p=document.getElementById('playerPovo');
+  p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0";
+}
+</script>
 *{box-sizing:border-box}body{margin:0;background:#050505;color:#fff;font-family:Arial;padding-bottom:90px}
 .top{padding:10px;background:#000;position:sticky;top:0;z-index:30;border-bottom:3px solid #FFD700;text-align:center}
 .top h1{margin:0;color:#FFD700;font-size:16px;font-weight:900}
