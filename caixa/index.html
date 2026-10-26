@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Caixa</title>
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<title>Caixa</title>
 <style>body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px}header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-radius:12px;border:1px solid #ffcc00;margin-bottom:10px}a{color:#ffcc00;text-decoration:none;font-weight:bold}.box{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin-bottom:10px}input{width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#000;color:#fff;margin:5px 0}.item{display:flex;justify-content:space-between;background:#1e1e1e;padding:10px;border-radius:8px;margin:5px 0;align-items:center}.total{text-align:center;font-size:26px;color:#00ff88;font-weight:bold}</style></head><body>
 <header><a href="index.html">⬅️ Voltar</a><h3>💰 Caixa</h3><button onclick="if(confirm('Zerar tudo?')){vendas=[];localStorage.setItem('caixa_v5',JSON.stringify(vendas));render()}" style="background:#ff4444;color:#fff;border:none;padding:6px 10px;border-radius:8px">🗑️ Zerar</button></header>
 <div class="box"><div class="total">R$ <span id="total">0.00</span> <small style="font-size:12px" id="qtd">0 vendas</small></div><input id="desc" placeholder="O que vendeu?"><input id="valor" type="number" inputmode="decimal" placeholder="Valor R$"><button onclick="add()" style="width:100%;padding:12px;border-radius:10px;border:none;background:#00ff88;font-weight:bold;margin-top:6px">+ Adicionar</button></div><div class="box" id="lista"></div>
@@ -9,7 +11,6 @@ function del(id){if(confirm('Apagar?')){vendas=vendas.filter(x=>x.id!=id);localS
 function render(){let t=0,h='';vendas.forEach(v=>{t+=v.valor;h+=`<div class="item"><div><b>${v.desc}</b><br><small>${v.hora} - R$ ${v.valor.toFixed(2)}</small></div><button onclick="del(${v.id})" style="background:#ff4444;color:#fff;border:none;padding:8px 12px;border-radius:8px">🗑️</button></div>`});lista.innerHTML=h||'<center style="opacity:.4">Nenhuma venda</center>';total.innerText=t.toFixed(2);qtd.innerText=`${vendas.length} vendas`;}
 render();
 </script>
-<!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
 <link rel="manifest" href="./manifest.json">
 <style>
 .fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
@@ -23,5 +24,4 @@ document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMi
 if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
 </script>
 </body>
-
 </html>
