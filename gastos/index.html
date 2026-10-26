@@ -6,6 +6,7 @@
 <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2331/2331941.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <title>Gastos v3</title>
 <style>
 body{margin:0;background:#111;color:#fff;font-family:Arial;padding:10px;padding-bottom:150px}
@@ -95,7 +96,6 @@ function salvar(){
  if(isNaN(valor)){alert('Digite valor ex: 995');document.getElementById('val').focus();return;}
  dados.push({desc:d,valor:valor,tipo:tipo,gato:cat,data:new Date().toLocaleDateString()});
  localStorage.setItem(KEY,JSON.stringify(dados));
- // salva em mais 3 lugares pra nunca sumir
  localStorage.setItem("plugtv_GASTOS_GATOS_FINAL",JSON.stringify(dados));
  localStorage.setItem("plugtv_GASTOS_v3_FINAL_UNICO",JSON.stringify(dados));
  document.getElementById('desc').value='';document.getElementById('val').value='';
@@ -121,8 +121,9 @@ function recup(){let todos=[];for(let i=0;i<localStorage.length;i++){let k=local
 
 troca();atualizar();
 </script>
+<script>
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
-<!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
+</script>
 <link rel="manifest" href="./manifest.json">
 <style>
 .fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
