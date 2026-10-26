@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <title>BANCO GRATIDÃO - Portal do Povo - Radares</title>
 <link rel="manifest" href="./manifest.json">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -36,7 +37,6 @@ body{margin:0;font-family:Arial;background:#000;color:#fff}
 <input id="busca" class="search" placeholder="🔍 Buscar rua... ex: Linha Verde, BR-376" onkeyup="filtrar()">
 <div id="map"></div>
 
-<!-- CURITIBA -->
 <div class="cidade" id="curitiba">📍 CURITIBA - 14 RADARES</div>
 <div class="card"><span class="badge novo">NOVO 30/09</span> <b>Rua Padre Agostinho x Visconde de Nácar - Centro - 40 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Victor Ferreira do Amaral, 1000 - Tarumã - 60 km/h - Linha Verde</b></div>
@@ -53,7 +53,6 @@ body{margin:0;font-family:Arial;background:#000;color:#fff}
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Toaldo Túlio, 1500 - São Braz - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>BR-277 km 2 - Jardim Botânico - 70 km/h</b></div>
 
-<!-- SJP -->
 <div class="cidade" id="sjp">📍 SÃO JOSÉ DOS PINHAIS - 6 RADARES (4 NOVOS HOJE)</div>
 <div class="card"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 14.980 - Antiga PUC (Bairro-Centro) - 70 km/h - 3 faixas</b></div>
 <div class="card"><span class="badge novo">NOVO HOJE 14/10</span> <b>BR-376 km 15.101 - Antiga PUC (Centro-Bairro) - 70 km/h - 3 faixas</b></div>
@@ -62,19 +61,16 @@ body{margin:0;font-family:Arial;background:#000;color:#fff}
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Rui Barbosa, 8000 - Centro - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>BR-376 Guatupê - 60 km/h</b></div>
 
-<!-- PINHAIS -->
 <div class="cidade" id="pinhais">📍 PINHAIS / PIRAQUARA / SÃO JOSÉ - 3 RADARES</div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Contorno Leste BR-116 - Pinhais - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Iraí, 500 - Pinhais - 50 km/h Lombada</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Rod. Dep. João Leopoldo Jacomel - Piraquara - 60 km/h</b></div>
 
-<!-- ARAUCÁRIA -->
 <div class="cidade" id="araucaria">📍 ARAUCÁRIA / FAZENDA RIO GRANDE - 3 RADARES</div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Juscelino Kubitschek - Araucária - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>BR-476 Contorno Sul - Araucária - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. Brasil - Fazenda Rio Grande - 60 km/h</b></div>
 
-<!-- COLOMBO -->
 <div class="cidade" id="colombo">📍 COLOMBO / ALMIRANTE TAMANDARÉ - 2 RADARES</div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Rod. da Uva, 1500 - Colombo - 60 km/h</b></div>
 <div class="card"><span class="badge fixo">FIXO</span> <b>Av. São Gabriel - Almirante Tamandaré - 50 km/h Lombada</b></div>
@@ -93,8 +89,6 @@ L.marker([-25.436,-49.235]).addTo(map).bindPopup("Linha Verde 70km/h");
 L.marker([-25.428,-49.288]).addTo(map).bindPopup("Centro 40km/h");
 function filtrar(){let t=document.getElementById('busca').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(t)?'':'none'})}
 </script>
-  <!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
-<link rel="manifest" href="./manifest.json">
 <style>
 .fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
 @keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
