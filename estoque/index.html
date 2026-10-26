@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <title>Controle de Estoque</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ffcc00">
@@ -17,8 +18,6 @@ body{
   padding:10px;
   padding-top: 115px;
 }
-
-/* Chave fixa — NÃO SOME */
 .barra-fixa{
   position:fixed;
   top:0;
@@ -56,7 +55,6 @@ body{
 .btn-restaurar{background:#00ff88; color:#000;}
 .btn-compartilhar{background:#0088ff; color:#fff;}
 .btn-convidar{background:#ffcc00; color:#000;}
-
 header{
   background:#111;
   padding:12px;
@@ -69,7 +67,6 @@ header{
   gap:10px;
 }
 header a{color:#ffcc00; text-decoration:none; font-weight:bold;}
-
 .box{
   background:#111;
   border:1px solid #222;
@@ -85,7 +82,6 @@ header a{color:#ffcc00; text-decoration:none; font-weight:bold;}
   color:#ffcc00;
   font-weight:bold;
 }
-
 input{
   width:100%;
   padding:12px;
@@ -146,7 +142,6 @@ input{
 </head>
 <body>
 
-<!-- CHAVE FIXA + TODOS OS BOTÕES -->
 <div class="barra-fixa">
   <div class="chave-fixa">🔑 Chave: ESTOQUE-2026-PR</div>
   <div class="area-botoes-topo">
@@ -186,14 +181,12 @@ input{
 
 <div class="box" id="lista"></div>
 
-<!-- Input oculto para restaurar -->
 <input type="file" id="inputRestaurar" accept=".json" style="display:none" onchange="processarRestaurar(event)">
 
 <script>
 const CHAVE_STORAGE = 'estoque_v2_dados';
 let estoque = [];
 
-// Registrar Service Worker — vira app!
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
@@ -250,7 +243,6 @@ function carregar(){
   renderizar();
 }
 
-// 💾 BAIXAR BACKUP
 function fazerBackup(){
   const dados = {
     data: new Date().toLocaleString('pt-BR'),
@@ -267,7 +259,6 @@ function fazerBackup(){
   alert('✅ Backup salvo! Guarde o arquivo.');
 }
 
-// ♻️ RESTAURAR DO ARQUIVO
 function restaurarArquivo(){
   document.getElementById('inputRestaurar').click();
 }
@@ -350,20 +341,8 @@ function renderizar(){
       </div>
     </div>
   `).join('');
-}<!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
-<link rel="manifest" href="./manifest.json">
-<style>
-.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
-@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-</style>
-<button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
-<script>
-let dpMini=null;
-window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
-document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
+}
 </script>
-</script><!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
 <link rel="manifest" href="./manifest.json">
 <style>
 .fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
