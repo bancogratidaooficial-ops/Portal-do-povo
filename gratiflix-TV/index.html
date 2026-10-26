@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <title>GRATIFLIX</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{background:#141414;color:#fff;font-family:Arial}
@@ -86,7 +87,6 @@ h+=`<div class="card"><img src="${f.i}" onclick="play(${idx})"><div class="titul
 function play(i){document.getElementById('player').style.display='block';document.getElementById('frame').src=filmes[i].l;}
 function fechar(){document.getElementById('player').style.display='none';document.getElementById('frame').src='';document.querySelector('header').style.display='flex';document.querySelector('.search').style.display='flex';document.getElementById('lista').style.display='block';}
 
-// AQUI ESTÃO AS DUAS OPÇÕES JUNTAS
 function modoTV(){
 const f=document.getElementById('frame');if(!f.src)return alert('Abra um filme primeiro!');
 let escolha = confirm('📺 COMO QUER VER?\n\nOK = TV SMART (Samsung/LG)\nCANCELAR = TV BOX');
@@ -115,7 +115,6 @@ function fecharModal(){document.getElementById('modal').style.display='none';}
 function salvarFixo(){let txt='let filmesBase=[\n';filmes.forEach(f=>{txt+=`{t:"${f.t}",i:"${f.i}",l:"${f.l}",pasta:"${f.pasta}"},\n`;});txt+='];';document.getElementById('modal').style.display='flex';document.getElementById('boxConteudo').innerHTML=`<h2>💾 SALVAR FIXO</h2><textarea style="height:300px;background:#000;color:#0f0;font-size:10px">${txt}</textarea><button style="width:100%;padding:11px;background:#e50914;color:#fff;border:none;border-radius:6px;margin-top:8px" onclick="fecharModal()">Fechar</button>`;}
 render();
 </script>
-  <!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
 <link rel="manifest" href="./manifest.json">
 <style>
 .fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
