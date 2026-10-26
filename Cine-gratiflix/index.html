@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
 <meta name="theme-color" content="#FFD700">
 <link rel="manifest" href="./manifest.json">
 <title>CINE GRATIFLIX - 89 Filmes</title>
@@ -158,80 +159,15 @@ let filmes=[
 {"t":"Filme 86","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg","vid":"G9qBZ6NaMfY"},
 {"t":"Filme 87","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg","vid":"ppmUuEv6TBk"}
 ];
-// ===== GENEROS FIXOS - UNIFICADO SEM DUPLICAR =====
 const GENEROS_FIXOS = ['AÇÃO','COMÉDIA','TERROR','FICÇÃO','DRAMAS','DORAMAS','DESENHOS','ANIMAÇÃO','DOCUMENTÁRIO','BIBLICOS','LEGENDADOS','DUBLADOS','LANÇAMENTO','ANIME','DRAMA'];
-
 let generosExtras=JSON.parse(localStorage.getItem('cine_generos'))||[];
 let tagAtual='TODOS';let filmeAtual=0;
-
-function normalizar(t){
-  return t.toUpperCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-}
-
-function salvar(){
-  // Limpa duplicados com e sem acento
-  let unicos = [];
-  let vistos = new Set();
-  generosExtras.forEach(g=>{
-    let n = normalizar(g);
-    if(!vistos.has(n)){ vistos.add(n); unicos.push(g.toUpperCase()); }
-  });
-  generosExtras = unicos;
-  localStorage.setItem('cine_generos',JSON.stringify(generosExtras));
-}
-
-function getTags(){
-  let todasTags = [...filmes.map(f=>f.tag), ...GENEROS_FIXOS, ...generosExtras];
-  
-  // MAPA pra unificar COMEDIA = COMÉDIA, ACAO = AÇÃO, etc
-  let mapa = new Map();
-  
-  todasTags.forEach(tag=>{
-    if(!tag) return;
-    let chave = normalizar(tag); // ACAO
-    // Mantém a versão com acento bonito
-    if(!mapa.has(chave)){
-      mapa.set(chave, tag.toUpperCase());
-    } else {
-      // Se já tem ACAO, prefere AÇÃO com acento
-      let atual = mapa.get(chave);
-      if(tag.includes('É') || tag.includes('Ã') || tag.includes('Ç') || tag.includes('Á')){
-        mapa.set(chave, tag.toUpperCase());
-      }
-    }
-  });
-
-  // Converte de volta pro bonito
-  let listaFinal = Array.from(mapa.values());
-  
-  // Ordena
-  listaFinal.sort();
-  
-  return ['TODOS', ...listaFinal];
-}
-
-function renderChips(){
-  const chips=document.getElementById('chips');
-  const tags=getTags();
-  chips.innerHTML=tags.map(t=>`<div class="chip ${normalizar(tagAtual)===normalizar(t)?'active':''}" onclick="filtrar('${t}')">${t}</div>`).join('');
-}
-
-function renderGrid(){
-  const grid=document.getElementById('grid');
-  let lista=tagAtual==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(tagAtual));
-  grid.innerHTML=lista.map((f,i)=>`
-    <div class="card" onclick="playFilme(${filmes.indexOf(f)})">
-      <img src="${f.img}" loading="lazy">
-      <div class="info"><div class="t">${f.t}</div><div class="tag">${f.tag}</div></div>
-    </div>
-  `).join('');
-}
-
+function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function salvar(){let unicos=[];let vistos=new Set();generosExtras.forEach(g=>{let n=normalizar(g);if(!vistos.has(n)){vistos.add(n);unicos.push(g.toUpperCase());}});generosExtras=unicos;localStorage.setItem('cine_generos',JSON.stringify(generosExtras));}
+function getTags(){let todasTags=[...filmes.map(f=>f.tag),...GENEROS_FIXOS,...generosExtras];let mapa=new Map();todasTags.forEach(tag=>{if(!tag)return;let chave=normalizar(tag);if(!mapa.has(chave)){mapa.set(chave,tag.toUpperCase());}else{let atual=mapa.get(chave);if(tag.includes('É')||tag.includes('Ã')||tag.includes('Ç')||tag.includes('Á')){mapa.set(chave,tag.toUpperCase());}}});let listaFinal=Array.from(mapa.values());listaFinal.sort();return ['TODOS',...listaFinal];}
 function filtrar(tag){tagAtual=tag;renderChips();renderGrid();}
-function getTags(){let base=[...new Set(filmes.map(f=>f.tag))];let todos=[...new Set([...GENEROS_FIXOS,...base,...generosExtras])];return ['TODOS',...todos];}
 function renderChips(){document.getElementById('chips').innerHTML=getTags().map(t=>`<div class="chip ${tagAtual===t?'ativo':''}" onclick="filtrar('${t}')">${t}</div>`).join('');let sel=document.getElementById('fGenero');if(sel)sel.innerHTML=getTags().filter(t=>t!=='TODOS').map(t=>`<option>${t}</option>`).join('');}
-function renderGrid(){let lista=tagAtual==='TODOS'?filmes:filmes.filter(f=>f.tag===tagAtual);document.getElementById('grid').innerHTML=lista.map(f=>{let idx=filmes.indexOf(f);return `<div class="card" onclick="playFilme(${idx})"><div class="tag">${f.tag}</div><img src="${f.img}" onerror="this.src='https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg'"><b>${f.t}</b></div>`;}).join('');}
-function filtrar(t){tagAtual=t;renderChips();renderGrid();}
+function renderGrid(){let lista=tagAtual==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(tagAtual));document.getElementById('grid').innerHTML=lista.map(f=>{let idx=filmes.indexOf(f);return `<div class="card" onclick="playFilme(${idx})"><div class="tag">${f.tag}</div><img src="${f.img}" onerror="this.src='https://image.tmdb.org/t/p/w500/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg'"><b>${f.t}</b></div>`;}).join('');}
 function playFilme(i){filmeAtual=i;let f=filmes[i];document.getElementById('iframePlayer').src=`https://www.youtube.com/embed/${f.vid}?autoplay=1`;document.getElementById('player').style.display='flex';}
 function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}
 function nextFilme(){playFilme((filmeAtual+1)%filmes.length);}
