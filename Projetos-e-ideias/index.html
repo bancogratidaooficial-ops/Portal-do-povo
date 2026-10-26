@@ -44,4 +44,50 @@
   {"t":"CONSTRUÇÃO COM ISOPOR 38","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/cP7SFBicNWo/hqdefault.jpg","vid":"cP7SFBicNWo"},
   {"t":"CONSTRUÇÃO COM ISOPOR 39","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/sWfGr4ep1WQ/hqdefault.jpg","vid":"sWfGr4ep1WQ"},
   {"t":"CONSTRUÇÃO COM ISOPOR 40","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/TJTKR5MfK_Q/hqdefault.jpg","vid":"TJTKR5MfK_Q"}
-];let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS","PROJETOS DE ESCADAS","CONSTRUÇÃO DE CASAS","CONSTRUÇÃO COM ISOPOR"];function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}let filtro='TODOS';function renderChips(){let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});document.getElementById('chips').innerHTML=h;}function setFiltro(g){filtro=g;renderChips();renderGrid();}function renderGrid(){let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));window.listaAtual=lista;let html='<div class="grid">'+lista.map((f,i)=>'<div class="card" onclick="abrirPlayer('+i+')"><span class="tag">'+f.tag+'</span><img src="'+f.img+'" loading="lazy"><div class="info"><div class="t">'+f.t+'</div></div></div>').join('')+'</div>';if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';document.getElementById('conteudo').innerHTML=html;}function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}renderChips();renderGrid();</script></body></html>
+];let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS","PROJETOS DE ESCADAS","CONSTRUÇÃO DE CASAS","CONSTRUÇÃO COM ISOPOR"];function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}let filtro='TODOS';function renderChips(){let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});document.getElementById('chips').innerHTML=h;}function setFiltro(g){filtro=g;renderChips();renderGrid();}function renderGrid(){let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));window.listaAtual=lista;let html='<div class="grid">'+lista.map((f,i)=>'<div class="card" onclick="abrirPlayer('+i+')"><span class="tag">'+f.tag+'</span><img src="'+f.img+'" loading="lazy"><div class="info"><div class="t">'+f.t+'</div></div></div>').join('')+'</div>';if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';document.getElementById('conteudo').innerHTML=html;}function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}renderChips();renderGrid();</script></body>
+<!-- BOTÃO FLUTUANTE PARA CHAMAR O PORTAL DO POVO -->
+<style>
+#btnChamarPortal{
+  position:fixed;
+  bottom:15px;
+  left:10px;
+  right:10px;
+  z-index:9999;
+  background:linear-gradient(90deg,#ff0000,#b30000);
+  border:2px solid #FFD700;
+  border-radius:16px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 4px 15px rgba(0,0,0,0.7);
+  cursor:pointer;
+}
+#btnChamarPortal b{color:#fff;font-size:13px}
+#btnChamarPortal span{color:#FFD700;font-size:10px;display:block}
+#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:8px 18px;border-radius:20px;font-weight:900;font-size:12px}
+</style>
+
+<div id="btnChamarPortal" onclick="chamarPortal()">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="IMG-20261026-WA5175.jpg" style="width:50px;height:50px;border-radius:10px;object-fit:cover;border:1px solid #FFD700">
+    <div>
+      <b>🔴 PORTAL DO POVO AO VIVO</b>
+      <span>Toque para chamar o Modão de Curitiba</span>
+    </div>
+  </div>
+  <div class="abrir">CHAMAR</div>
+</div>
+
+<script>
+function chamarPortal(){
+  document.getElementById('playerPovo')?.scrollIntoView({behavior:'smooth'});
+  // ativa o som automaticamente
+  var p=document.getElementById('playerPovo');
+  if(p){ p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1"; }
+  // vibra no Android
+  if(navigator.vibrate) navigator.vibrate(200);
+}
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+</script>
+</html>
