@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gratizuca Community Repo - Banco Gratidão Oficial</title>
+<meta name="theme-color" content="#FFD700">
+<link rel="icon" href="https://i.imgur.com/BfFiAAy.png" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/jquery.mb.ytplayer@3.4.6/dist/css/jquery.mb.YTPlayer.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/jquery.mb.ytplayer@3.4.6/dist/jquery.mb.YTPlayer.min.js"></script>
+<style>
+:root{--bg:#0b0f14;--card:#141a22;--text:#e6edf3;--muted:#9aa7b2;--primary:#FFD700;--accent:#ff0000;--border:#1f2937;--shadow:0 8px 24px rgba(0,0,0,0.25);--radius:14px}
+body{margin:0;font-family:Inter,Arial;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(20,24,30,0.9);border-bottom:3px solid var(--primary)}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:10px 20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand img{height:36px;border-radius:8px}
+.brand h1{margin:0;font-size:16px;font-weight:900;color:var(--primary)}
+.btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;text-decoration:none;display:inline-flex;gap:6px;font-size:13px;font-weight:700}
+.btn-primary{background:linear-gradient(135deg,#FFD700,#ff6a00);color:#000;border:0}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-top:20px;box-shadow:var(--shadow)}
+.update-card{border-left:6px solid var(--primary);background:linear-gradient(180deg,rgba(255,215,0,0.15),rgba(20,20,30,0.9))}
+.repo-box{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.repo-box input{flex:1;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.news-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px}
+.footer{margin-top:28px;padding:24px;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:11px}
+#bgndVideo{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:0}
+.mb_YTPBar,#controlBar_bgndVideo{display:none!important}
+</style>
+</head>
+<body>
+<div id="bgndVideo"></div><div class="overlay"></div>
+
+<header>
+<div class="nav container">
+<div class="brand">
+<img src="https://i.imgur.com/kjtlfSP.png" alt="Logo Gratizuca">
+<h1>GRATIZUCA COMMUNITY REPO<br><small style="font-size:9px;color:#aaa">Banco Gratidão Oficial - 20 anos - 62 Portais</small></h1>
+</div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+<a class="btn" href="repository.Gratizuca.zip" download>📥 Baixar Repositório Gratizuca</a>
+<a class="btn btn-primary" href="../Cine-gratiflix/index.html">🎬 CINE GRATIFLIX - 89 FILMES</a>
+</div>
+</div>
+</header>
+
+<main class="container">
+<section class="card update-card">
+<h3 style="color:#FFD700;margin:0">🔴 PORTAL DO POVO - TOCANDO AGORA</h3>
+<p>Vídeo oficial do Portal do Povo - O Modão de Curitiba tocando no fundo. Toque para ativar o som.</p>
+<button class="btn btn-primary" onclick="jQuery('#bgndVideo').YTPUnmute();jQuery('#bgndVideo').YTPPlay()">🔊 ATIVAR SOM DO REPO</button>
+</section>
+
+<section class="card">
+<h2>Central de Atualizações Gratizuca</h2>
+<p>Repositório oficial do Banco Gratidão - 62 pastas - Curitiba. Fique por dentro das novidades do Portal do Povo e Cine Gratiflix.</p>
+<div class="ad-box" style="background:#0a0a0a;border:1px dashed #FFD700;border-radius:12px;padding:10px;text-align:center;margin-top:12px">
+<small style="color:#555;font-size:8px;display:block;margin-bottom:4px">PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</section>
+
+<section class="card">
+<h3>Como adicionar o Repositório Gratizuca</h3>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<img src="https://imgur.com/8U1bKJf.png" alt="Como adicionar" style="flex:1;max-width:480px;border-radius:12px">
+<div style="flex:1;min-width:280px">
+<p>Copie e cole este link no seu gerenciador:</p>
+<div class="repo-box">
+<input id="repoLink" type="text" readonly value="https://bancogratidaooficial-ops.github.io/Portal-do-povo/Gratizuca-Repo/">
+<button class="btn btn-primary" onclick="copyRepoLink()">📋 Copiar</button>
+</div>
+<div id="copyStatus" style="margin-top:8px;color:#FFD700;opacity:0;transition:.3s">Link copiado!</div>
+<p style="font-size:12px;color:#9aa7b2">📲 62 Portais - Farmácia 24H - Hospital - Advogado - Cine Gratiflix 89 filmes</p>
+</div>
+</div>
+</section>
+
+<section class="card">
+<h3>Atribuições e Licenças - Gratizuca Repo</h3>
+<div class="news-grid">
+<div class="news-card">
+<h4>📜 Código Aberto</h4>
+<small>MIT License</small>
+<p style="font-size:11px"><b>jQuery 3.7.1</b> - jquery.org - MIT<br><b>YTPlayer 3.4.6</b> - pupunzi - MIT<br><b>Inter Font</b> - Google Fonts - OFL</p>
+</div>
+<div class="news-card">
+<h4>🎬 Mídias</h4>
+<small>Youtube / Unsplash</small>
+<p style="font-size:11px">Vídeo de fundo: <b>spF_YCNC0Kc</b> e <b>DRmuNprF76Y</b> - Autor: José - Portal do Povo - Banco Gratidão<br>Imagens: Unsplash.com - Licença gratuita comercial</p>
+</div>
+<div class="news-card">
+<h4>🏦 Banco Gratidão</h4>
+<small>20 anos - 2026</small>
+<p style="font-size:11px">62 Pastas - Portal do Povo - Curitiba<br>AdSense: ca-pub-2263470788888608<br>Contato: sobre/index.html</p>
+</div>
+</div>
+<div style="margin-top:16px;padding:10px;background:#000;border-radius:8px;font-size:9px;color:#666">
+ATRIBUIÇÕES: Este projeto utiliza código sob licença MIT. jQuery © OpenJS Foundation. YTPlayer © Pupunzi. Fonte Inter © Rasmus Andersson - SIL OFL 1.1. Vídeos de propriedade do Banco Gratidão Oficial. Imagens de Unsplash sob licença Unsplash License. Google AdSense operado conforme políticas do Google.
+</div>
+</section>
+
+<footer class="footer">
+<p><strong>Gratizuca Community - Banco Gratidão Oficial</strong> — Projeto comunitário 20 anos, sem anúncios abusivos e com comunicação transparente.</p>
+<p><a href="../sobre/index.html" style="color:#FFD700">Sobre</a> | <a href="../privacidade/index.html" style="color:#FFD700">Privacidade</a> | <a href="../contato/index.html" style="color:#FFD700">Contato</a> | <a href="../Cine-gratiflix/index.html" style="color:#FFD700">Cine Gratiflix 89 Filmes</a></p>
+<p style="margin-top:10px">© 2026 Banco Gratidão Oficial - 62 Pastas - Curitiba - Gratizuca Repo v1.0</p>
+</footer>
+</main>
+
+<script>
+$(function(){
+$("#bgndVideo").YTPlayer({
+videoURL:"spF_YCNC0Kc",
+containment:"body",
+vol:20,startAt:0,stopAt:60,opacity:1,addRaster:true,quality:'hd720',
+stopMovieOnBlur:false,optimizeDisplay:true,showControls:false,
+autoPlay:true,mute:true,loop:true
+});
+});
+function copyRepoLink(){
+const input=document.getElementById('repoLink');
+navigator.clipboard.writeText(input.value).then(()=>{
+const s=document.getElementById('copyStatus');
+s.style.opacity=1;setTimeout(()=>s.style.opacity=0,2000);
+});
+}
+</script>
+</body>
+</html>
