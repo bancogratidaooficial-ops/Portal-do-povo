@@ -29,36 +29,32 @@
 </style>
 </head>
 <body>
-<!-- SÓ VIDEO DEBAIXO - YOUTUBE PORTAL DO POVO -->
-<div style="margin:8px;border:2px solid #FFD700;border-radius:14px;overflow:hidden;background:#000">
-<div style="position:relative;width:100%;aspect-ratio:16/9;background:#000">
-<iframe id="playerPovo" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" 
-src="https://www.youtube.com/embed/spF_YCNC0Kc?autoplay=1&mute=1&loop=1&playlist=spF_YCNC0Kc&controls=1&rel=0&modestbranding=1&playsinline=1" 
-allow="autoplay; encrypted-media; fullscreen" 
-allowfullscreen>
-</iframe>
-</div>
-<div style="padding:10px;background:#111;text-align:center">
-<b style="color:#FFD700;font-size:11px;display:block">PORTAL DO POVO - BANCO GRATIDÃO OFICIAL</b>
-<span style="color:#aaa;font-size:9px">Curitiba 24H - Toque para ativar o som</span><br>
-<button onclick="document.getElementById('playerPovo').src='https://www.youtube.com/embed/spF_YCNC0Kc?autoplay=1&mute=0&loop=1&playlist=spF_YCNC0Kc&controls=1&rel=0&modestbranding=1&playsinline=1'" style="margin-top:8px;background:#FFD700;color:#000;border:0;padding:10px 22px;border-radius:20px;font-weight:900;font-size:11px;cursor:pointer">🔊 ATIVAR SOM</button>
-</div>
-</div>
-<!-- FIM VIDEO -->
-  
 <amp-auto-ads type="adsense" data-ad-client="ca-pub-2263470788888608"></amp-auto-ads>
 <div class="top"><h1>BANCO GRATIDÃO OFICIAL</h1><p>Portal do Povo - 62 Portais - Curitiba - Tudo em Cards</p></div>
 
-<!-- PORTAL DO POVO - VIDEO AUTOMATICO -->
-<div class="cat">🎬 PORTAL DO POVO - O MODÃO DE CURITIBA - TOCANDO AGORA</div>
-<div style="margin:0 8px 14px;border:2px solid #FFD700;border-radius:14px;overflow:hidden;background:#000">
+<!-- 2 VIDEOS CORRIGIDOS - AUDIO UM APÓS O OUTRO -->
+<div style="margin:8px;border:2px solid #FFD700;border-radius:14px;overflow:hidden;background:#000">
+<div style="padding:8px;background:#000;text-align:center;border-bottom:1px solid #222">
+<b style="color:#FFD700;font-size:11px">🎬 PORTAL DO POVO - 2 VÍDEOS COM SOM SEQUENCIAL</b>
+</div>
+
+<!-- VIDEO 1 - spF_YCNC0Kc -->
+<div style="position:relative;width:100%;aspect-ratio:16/9;background:#000;border-bottom:2px solid #FFD700">
+<div id="yt1"></div>
+</div>
+<div style="padding:6px;background:#111;text-align:center;border-bottom:2px solid #333">
+<b style="color:#FFD700;font-size:9px">VIDEO 1 - SEU VIDEO NOVO</b> <span id="status1" style="color:#00d800;font-size:9px">● Tocando sem som</span>
+</div>
+
+<!-- VIDEO 2 - DRmuNprF76Y -->
 <div style="position:relative;width:100%;aspect-ratio:16/9;background:#000">
-<iframe id="playerPovo" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=1&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div id="yt2"></div>
 </div>
 <div style="padding:10px;background:#111;text-align:center">
-<b style="color:#FFD700;font-size:12px;display:block">JOSE - PORTAL DO POVO - O MODÃO DE CURITIBA</b>
-<span style="color:#aaa;font-size:9px">Tocando automático - Toque na tela para ativar o som</span>
-<div style="margin-top:8px"><button onclick="ativarSom()" style="background:#FFD700;color:#000;padding:10px 22px;border-radius:20px;font-weight:900;font-size:12px;border:0;cursor:pointer">🔊 ATIVAR SOM AGORA</button></div>
+<b style="color:#ff4444;font-size:11px;display:block">TOQUE AQUI PARA ATIVAR O SOM DOS 2 VÍDEOS</b>
+<span style="color:#aaa;font-size:8px">1º toca com áudio, quando acabar o 2º começa automático com áudio</span><br>
+<button id="btnSom" style="margin-top:8px;background:#FFD700;color:#000;border:0;padding:12px 26px;border-radius:20px;font-weight:900;font-size:12px;cursor:pointer">🔊 ATIVAR SOM DOS 2 AGORA</button>
+<div id="agoraTocando" style="margin-top:8px;color:#FFD700;font-size:10px;font-weight:900"></div>
 </div>
 </div>
 
@@ -178,17 +174,43 @@ allowfullscreen>
 
 <div id="cineFloatBtn" onclick="location.href='Cine-gratiflix/index.html'"><img src="https://image.tmdb.org/t/p/w92/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg" style="width:48px;height:48px;border-radius:8px"><div style="flex:1"><div style="font-weight:900;font-size:11px;color:#fff">🎬 CINE GRATIFLIX</div><div style="font-size:9px;color:#FFD700">89 FILMES GRÁTIS - TOQUE AQUI</div></div><div style="background:#FFD700;color:#000;padding:8px 12px;border-radius:20px;font-weight:900;font-size:10px">ABRIR</div></div>
 
+<!-- YOUTUBE API - FAZ OS 2 TOCAREM AUDIO UM APOS O OUTRO -->
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-let somAtivado = false;
-function ativarSom(){
-  if(somAtivado) return;
-  var p=document.getElementById('playerPovo');
-  p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1";
-  somAtivado = true;
+var player1, player2, somLiberado=false;
+function onYouTubeIframeAPIReady(){
+  player1 = new YT.Player('yt1', {
+    height: '100%', width: '100%',
+    videoId: 'spF_YCNC0Kc',
+    playerVars: { autoplay: 1, mute: 1, loop: 0, controls: 1, rel: 0, playsinline: 1, modestbranding: 1 },
+    events: { 'onStateChange': onState1 }
+  });
+  player2 = new YT.Player('yt2', {
+    height: '100%', width: '100%',
+    videoId: 'DRmuNprF76Y',
+    playerVars: { autoplay: 0, mute: 1, controls: 1, rel: 0, playsinline: 1, modestbranding: 1 },
+    events: { 'onReady': function(e){ e.target.mute(); } }
+  });
 }
-document.addEventListener('click', ativarSom, {once: true});
-document.addEventListener('touchstart', ativarSom, {once: true});
-document.addEventListener('scroll', ativarSom, {once: true});
+function onState1(e){
+  if(e.data == YT.PlayerState.ENDED && somLiberado){
+    // VIDEO 1 ACABOU - TOCA O 2 COM SOM
+    document.getElementById('agoraTocando').innerText = '▶️ AGORA TOCANDO: VIDEO 2 - MODÃO DE CURITIBA';
+    document.getElementById('status1').innerText = '● Finalizado';
+    player2.unMute(); player2.setVolume(100); player2.playVideo();
+    player2.seekTo(0);
+  }
+}
+document.getElementById('btnSom').addEventListener('click', function(){
+  somLiberado=true;
+  this.innerText='🔊 SOM ATIVADO - TOCANDO VIDEO 1';
+  this.style.background='#00d800';
+  document.getElementById('agoraTocando').innerText='▶️ AGORA TOCANDO: VIDEO 1 - spF_YCNC0Kc';
+  document.getElementById('status1').innerText='● Tocando COM SOM';
+  player1.unMute(); player1.setVolume(100); player1.playVideo();
+  player2.mute();
+  if(navigator.vibrate) navigator.vibrate([200,100,200]);
+});
 if('serviceWorker' in navigator){navigator.serviceWorker.register('Sw.js')}
 </script>
 </body>
