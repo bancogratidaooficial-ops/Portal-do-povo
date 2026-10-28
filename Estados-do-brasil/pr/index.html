@@ -1,42 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paraná - Portal do Povo</title>
-<style>
-body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;text-align:center;padding:20px}
-h1{color:#009739}
-.card{background:#1e1e1e;border:2px solid #009739;border-radius:15px;padding:20px;max-width:300px;margin:30px auto;display:block;text-decoration:none;color:#fff}
-.card b{font-size:18px;display:block}
-.card span{font-size:13px;color:#999}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff;cursor:pointer}
-</style>
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Paraná - Cidades</title><style>body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}.top{background:linear-gradient(90deg,#009739,#002776);padding:20px;text-align:center}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;max-width:1000px;margin:auto;padding:12px}.card{background:#1f1f1f;border:1px solid #333;border-left:4px solid #009739;border-radius:14px;padding:16px 8px;text-decoration:none;color:#fff;text-align:center;display:block}.card b{font-size:14px}#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden}#floatVideo iframe{width:100%;height:320px;border:0}.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px}.btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}</style></head>
 <body>
-
-<h1>🌲 ESTADO DO PARANÁ</h1>
-<p>Escolha a cidade:</p>
-
-<a class="card" href="curitiba/index.html">
-<b>CURITIBA</b>
-<span>Capital - Clique para entrar</span>
-</a>
-
-<p style="font-size:11px;color:#555;margin-top:40px">Depois vamos adicionar Londrina, Maringá, etc.</p>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#009739'}">🔊 ATIVAR SOM</button>
+<div class="top"><h1>🌲 PARANÁ - TODAS AS CIDADES</h1><a href="../index.html" style="color:#fff;background:#002776;padding:8px 14px;border-radius:20px;text-decoration:none">⬅️ Estados</a></div>
+<div class="grid">
+<a class="card" href="curitiba/index.html"><b>Curitiba</b><span>Capital - 1.9M</span></a>
+<a class="card" href="londrina/index.html"><b>Londrina</b><span>Norte</span></a>
+<a class="card" href="maringa/index.html"><b>Maringá</b><span>Verde</span></a>
+<a class="card" href="ponta-grossa/index.html"><b>Ponta Grossa</b></a>
+<a class="card" href="cascavel/index.html"><b>Cascavel</b></a>
+<a class="card" href="foz-do-iguacu/index.html"><b>Foz do Iguaçu</b></a>
+<a class="card" href="sao-jose-dos-pinhais/index.html"><b>São José dos Pinhais</b></a>
+<a class="card" href="colombo/index.html"><b>Colombo</b></a>
+<a class="card" href="guarapuava/index.html"><b>Guarapuava</b></a>
+<a class="card" href="paranagua/index.html"><b>Paranaguá</b></a>
 </div>
-</div>
-
-</body>
-</html>
+<div id="floatVideo"><button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button><iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1" allow="autoplay; encrypted-media" allowfullscreen></iframe><div class="floatCtrl"><span style="font-size:10px;color:#aaa">🎵 Vídeo</span><button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#009739'}">🔊 SOM</button></div></div>
+</body></html>
