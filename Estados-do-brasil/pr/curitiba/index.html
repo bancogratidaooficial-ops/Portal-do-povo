@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curitiba - Portal do Povo - PR</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
+.top{background:linear-gradient(90deg,#009739,#002776);padding:22px 15px;text-align:center;position:sticky;top:0;z-index:100}
+.btn{padding:9px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:4px;font-size:12px;border:1px solid rgba(255,255,255,.3)}
+.btn-blue{background:#002776} .btn-green{background:#009739} .btn-red{background:#e50914}
+.box{max-width:1000px;margin:12px auto;background:#151515;border:1px solid #222;border-radius:12px;padding:12px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;max-width:1000px;margin:0 auto;padding:10px}
+.card{
+background:linear-gradient(135deg,#1e1e1e,#121212);border:1px solid #333;border-left:4px solid #009739;
+border-radius:12px;padding:14px 6px;text-decoration:none;color:#fff;text-align:center;
+transition:0.2s;position:relative;overflow:hidden
+}
+.card:before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,#009739,#ffcc00,#002776)}
+.card:hover{transform:translateY(-3px);border-color:#009739;box-shadow:0 6px 15px rgba(0,151,57,.3)}
+.card b{font-size:13px;display:block} .card span{font-size:10px;color:#999}
+.emoji{font-size:20px;display:block;margin-bottom:3px}
+#floatVideo{position:fixed;bottom:12px;right:12px;width:340px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.9)}
+#floatVideo iframe{width:100%;height:320px;border:0;display:block}
+.floatCtrl{background:#111;display:flex;justify-content:space-between;align-items:center;padding:6px 8px}
+.btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
+.btnFechar{background:#e50914;color:#fff;width:28px;height:28px;border-radius:50%;position:absolute;top:-10px;right:-10px;z-index:10001;border:2px solid #fff;font-weight:bold;cursor:pointer}
+@media(max-width:600px){#floatVideo{width:220px;height:310px} #floatVideo iframe{height:270px}}
+</style>
+</head>
+<body>
+<div class="top">
+<h1 style="margin:0">🌲 CURITIBA - PR - PORTAL DO POVO</h1>
+<p style="margin:6px 0;font-size:13px">Capital do Paraná - 1.9M habitantes - Banco Gratidão</p>
+<a class="btn btn-blue" href="../">⬅️ Cidades PR</a>
+<a class="btn btn-green" href="../../">🏠 Estados</a>
+<a class="btn" style="background:#111" href="../../../">🌎 Portal Nacional</a>
+</div>
+
+<div class="box">
+<h2 style="color:#009739;margin:4px">🏙️ Serviços 24h de Curitiba - Clique</h2>
+<p style="color:#888;font-size:11px">Todos os serviços que você criou nas pastas</p>
+</div>
+
+<div class="grid">
+<a class="card" href="./advogados-24h/"><span class="emoji">⚖️</span><b>Advogados 24h</b><span>Jurídico</span></a>
+<a class="card" href="./Cursos/"><span class="emoji">📚</span><b>Cursos</b><span>Com certificado</span></a>
+<a class="card" href="./saude/"><span class="emoji">🏥</span><b>Saúde</b><span>Postos e UPAs</span></a>
+<a class="card" href="./hospitais/"><span class="emoji">🚑</span><b>Hospitais</b><span>Emergência</span></a>
+<a class="card" href="./farmacias-24h/"><span class="emoji">💊</span><b>Farmácias 24h</b><span>Plantão</span></a>
+<a class="card" href="./dentistas-24h/"><span class="emoji">🦷</span><b>Dentistas 24h</b><span>Urgência</span></a>
+<a class="card" href="./veterinarios-24h/"><span class="emoji">🐶</span><b>Veterinários 24h</b><span>Pet</span></a>
+<a class="card" href="./animais-ong-hospitais/"><span class="emoji">🐾</span><b>ONGs Animais</b><span>Abrigos</span></a>
+<a class="card" href="./emergencias/"><span class="emoji">🚨</span><b>Emergências</b><span>190, 192, 193</span></a>
+<a class="card" href="./delegacias-curitiba/"><span class="emoji">👮</span><b>Delegacias</b><span>Segurança</span></a>
+<a class="card" href="./orgaos-publicos/"><span class="emoji">🏛️</span><b>Órgãos Públicos</b><span>Prefeitura</span></a>
+<a class="card" href="./cras-creas/"><span class="emoji">🤝</span><b>CRAS / CREAS</b><span>Social</span></a>
+<a class="card" href="./vagas/"><span class="emoji">💼</span><b>Vagas</b><span>SINE - Empregos</span></a>
+<a class="card" href="./classificados/"><span class="emoji">📢</span><b>Classificados</b><span>Anúncios</span></a>
+<a class="card" href="./onibus/"><span class="emoji">🚌</span><b>Ônibus</b><span>Transporte</span></a>
+<a class="card" href="./seasa/"><span class="emoji">🥦</span><b>CEASA / SEASA</b><span>Hortifruti</span></a>
+<a class="card" href="./chaveiro-24h/"><span class="emoji">🔑</span><b>Chaveiro 24h</b><span>Emergência</span></a>
+<a class="card" href="./eletricista-24h/"><span class="emoji">💡</span><b>Eletricista 24h</b><span>Elétrica</span></a>
+<a class="card" href="./oficinas-24h/"><span class="emoji">🔧</span><b>Oficinas 24h</b><span>Mecânico</span></a>
+<a class="card" href="./clinicas-reabilitacao/"><span class="emoji">🧠</span><b>Clínicas Reabilitação</b><span>Apoio</span></a>
+</div>
+
+<div class="box" style="font-size:11px;color:#555">
+Jardim Botânico - Museu Oscar Niemeyer - Ópera de Arame - Parque Barigui - Rua 24h<br>
+Banco Gratidão - jQuery MIT | YTPlayer MIT
+</div>
+
+<!-- VÍDEO FLUTUANTE NOVO - SHORTS Ce9ToDM2ZfY - COM SOM DENTRO -->
+<div id="floatVideo">
+<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
+<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="floatCtrl">
+<span style="font-size:10px;color:#aaa">🎵 Vídeo Portal</span>
+<button class="btnSom" id="btnSom" onclick="ativarSom()">🔊 ATIVAR SOM</button>
+</div>
+</div>
+
+<script>
+let somAtivo=false;
+function ativarSom(){
+let p=document.getElementById('player');
+let btn=document.getElementById('btnSom');
+if(!somAtivo){
+p.src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1";
+btn.innerText="🔇 MUTAR";btn.style.background="#e50914";somAtivo=true;
+}else{
+p.src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1";
+btn.innerText="🔊 ATIVAR SOM";btn.style.background="#009739";somAtivo=false;
+}
+}
+</script>
+</body>
+</html>
