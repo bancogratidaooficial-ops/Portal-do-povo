@@ -3,61 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal do Povo - Paraná - Banco Gratidão</title>
+<title>Paraná - Todas as Cidades - Portal do Povo - Banco Gratidão</title>
 <style>
-body{font-family:Arial;background:#0a0a0a;color:#fff;margin:0;padding:0}
-.header{background:linear-gradient(#009739,#002776);padding:25px;text-align:center}
-.btn{display:inline-block;margin:6px;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold;color:#fff}
-.btn-red{background:#e50914} .btn-blue{background:#002776;border:1px solid #fff} .btn-green{background:#009739}
-.box{max-width:800px;margin:15px auto;background:#1a1a1a;border:1px solid #333;border-radius:10px;padding:15px}
-h2{color:#009739;border-left:4px solid #009739;padding-left:10px}
-a.link{color:#4da6ff;text-decoration:none}
+*{box-sizing:border-box}
+body{font-family:Arial, sans-serif;background:#0f0f0f;color:#fff;margin:0;padding:0}
+.top{background:linear-gradient(90deg,#009739 0%,#002776 100%);padding:25px 15px;text-align:center;position:sticky;top:0;z-index:100}
+.top h1{margin:0;font-size:26px}
+.btn{padding:10px 18px;background:#002776;color:#fff;border-radius:8px;text-decoration:none;display:inline-block;margin:5px;font-weight:bold;border:1px solid #fff;font-size:14px}
+.btn-green{background:#009739}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:10px;max-width:1000px;margin:15px auto;padding:10px}
+.card{background:linear-gradient(145deg,#1e1e1e,#121212);border:1px solid #333;padding:16px 8px;border-radius:12px;text-decoration:none;color:#fff;text-align:center;transition:0.2s;box-shadow:0 3px 8px rgba(0,0,0,.5)}
+.card:hover{transform:translateY(-3px);border-color:#009739;box-shadow:0 6px 15px rgba(0,151,57,.3)}
+.card b{display:block;color:#fff;font-size:16px;margin-bottom:3px}
+.card span{font-size:11px;color:#aaa}
+.box{max-width:1000px;margin:10px auto;background:#1a1a1a;border-radius:12px;padding:15px;border:1px solid #333;text-align:center}
+#floatVideo{position:fixed;bottom:15px;right:15px;width:340px;height:200px;background:#000;border:2px solid #009739;border-radius:12px;z-index:9999;overflow:hidden;box-shadow:0 0 25px rgba(0,151,57,.7)}
+#floatVideo iframe{width:100%;height:150px;border:0}
+.floatBar{background:#009739;color:#fff;padding:6px;text-align:center;font-size:12px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.floatBar a{color:#fff;text-decoration:none;background:#e50914;padding:4px 8px;border-radius:4px}
+#closeBtn{background:#e50914;color:#fff;border:none;width:26px;height:26px;border-radius:50%;cursor:pointer;font-weight:bold;position:absolute;top:-8px;right:-8px;z-index:10001}
+@media(max-width:600px){#floatVideo{width:260px;height:170px;bottom:10px;right:10px} #floatVideo iframe{height:120px} .grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>🌲 PARANÁ - PR</h1>
-<p>Portal do Povo - Banco Gratidão Oficial - Curitiba e Interior</p>
-<a class="btn btn-blue" href="../">⬅️ Todos os Estados</a>
-<a class="btn btn-red" href="../../gratizuca/">📺 Gratizuca Kodi</a>
-<a class="btn btn-green" href="../../Portal/">🏠 Portal Nacional</a>
+
+<div class="top">
+<h1>🌲 PARANÁ - TODAS AS CIDADES</h1>
+<p style="margin:8px 0">Portal do Povo - Banco Gratidão Oficial - 20 Anos</p>
+<a class="btn" href="../">⬅️ Todos os Estados</a>
+<a class="btn btn-green" href="../../">🏠 Portal Nacional</a>
+<a class="btn" style="background:#e50914" href="../../advogados-24h/">⚖️ Advogados PR</a>
 </div>
 
 <div class="box">
-<h2>📺 Canais e IPTV Paranaense</h2>
-<p>• RPC Curitiba / Londrina / Maringá<br>
-• Band Paraná, Massa, CNT<br>
-• Rádios: 98FM, Caiobá, CBN Curitiba</p>
-<a class="btn btn-red" href="../../gratizuca/repository.gratizuca.zip">⬇️ Instalar Repositório Gratizuca</a>
+<h2 style="color:#009739;margin:5px">🏙️ Clique na sua cidade - 399 cidades do Paraná</h2>
+<p style="font-size:13px;color:#aaa">Cada cidade tem as mesmas informações de Curitiba: pontos turísticos, prefeitura, SINE, empregos, notícias</p>
 </div>
 
-<div class="box">
-<h2>📰 Notícias e Serviços do Paraná</h2>
-<p>• <a class="link" href="#">Empregos no Paraná - SINE</a><br>
-• <a class="link" href="#">Previsão do Tempo - SIMEPAR</a><br>
-• <a class="link" href="#">Detran PR - Licenciamento</a><br>
-• <a class="link" href="#">Prefeitura de Curitiba</a></p>
-</div>
-
-<div class="box">
-<h2>🎭 Cultura e Turismo PR</h2>
-<p>• Cataratas do Iguaçu - Foz do Iguaçu<br>
-• Ilha do Mel, Vila Velha, Museu Oscar Niemeyer<br>
-• Festival de Teatro de Curitiba<br>
-• Barreado, Pinhão, Carne de Onça</p>
-</div>
-
-<div class="box">
-<h2>🆘 Ajuda - Advogados 24h Paraná</h2>
-<p>Atendimento no estado do Paraná via Portal do Povo<br>
-<a class="btn btn-blue" href="../../advogados-24h/">⚖️ FALAR COM ADVOGADO PR</a></p>
-</div>
-
-<div class="box" style="text-align:center;font-size:12px;color:#888">
-Banco Gratidão Oficial - 20 Anos<br>
-Curitiba - Paraná - Brasil<br>
-Atribuições: jQuery MIT | YTPlayer MIT
-</div>
-
-</body>
-</html>
+<div class="grid">
+<a class="card" href="./curitiba/"><b>Curitiba</b><span>Capital - 1.9M</span></a>
+<a class="card" href="./londrina/"><b>Londrina</b><span>Norte</span></a>
+<a class="card" href="./maringa/"><b>Maringá</b><span>Norte</span></a>
+<a class="card" href="./ponta-grossa/"><b>Ponta Grossa</b><span>Campos Gerais</span></a>
+<a class="card" href="./cascavel/"><b>Cascavel</b><span>Oeste</span></a>
+<a class="card" href="./foz-do-iguacu/"><b>Foz do Iguaçu</b><span>Oeste - Cataratas</span></a>
+<a class="card" href="./sao-jose-dos-pinhais/"><b>S. J. Pinhais</b><span>RMC</span></a>
+<a class="card" href="./colombo/"><b>Colombo</b><span>RMC</span></a>
+<a class="card" href="./guarapuava/"><b>Guarapuava</b><span>Centro-Sul</span></a>
+<a class="card" href="./paranagua/"><b>Paranaguá</b><span>Litoral</span></a>
+<a class="card" href="./araucaria/"><b>Araucária</b><span>RMC</span></a>
+<a class="card" href="./toledo/"><b>Toledo</b><span>Oeste</span></a>
+<a class="card" href="./apucarana/"><b>Apucarana</b><span>Norte</span></a>
+<a class="card" href="./pinhais/"><b>Pinhais</b><span>RMC</span></a>
+<a class="card" href="./campo-largo/"><b>Campo Largo</b><span>RMC</span></a>
+<a class="card" href="./alvorada-do-sul/"><b>Almirante Tamandaré</b><span>RMC</span></a>
+<a class="card" href="./umuarama/"><b>Umuarama</b><span>Noroeste</span></a>
+<a class="card" href="./sao-jose/"><b>Paranavaí</b><span>Noroeste</span></a>
+<a class="card" href="./sao-mateus-do-sul/"><b>S. Mateus do Sul</b><span>Sul</span></a>
+<a class="card" href="./cianorte/"><b>Cianorte</b><span>Noroeste</span></a>
+<a class="card" href="./francisco-beltrao/"><b>Francisco Beltrão</b><span>Sudoeste</span></a>
+<a class="card" href="./pato-branco/"><b>Pato Branco</b><span>Sudoeste</span></a>
+<a class="card" href="./irati/"><b>Irati</b><span>Sudeste</span></a>
+<a class="card" href="./arapongas/"><b>Arapongas</b><span>Norte</span></a>
+<a class="card" href="./cambe
