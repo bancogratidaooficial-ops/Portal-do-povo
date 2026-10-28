@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informática Araucária PR - Portal do Povo</title>
+<style>
+body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
+.top{background:linear-gradient(90deg,#0d47a1,#29b6f6);padding:20px;text-align:center}
+.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
+.cat{background:#151515;border-left:4px solid #29b6f6;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
+.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #29b6f6;border-radius:12px;padding:14px;text-align:left}
+.card b{font-size:13px;color:#81d4fa;display:block}
+.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
+.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
+.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
+#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #29b6f6;border-radius:14px;z-index:9999;overflow:hidden}
+#floatVideo iframe{width:100%;height:320px;border:0}
+.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
+.btnSom{background:#29b6f6;color:#000;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
+.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+</style>
+</head>
+<body>
+<div class="top">
+<h1>💻 ARAUCÁRIA - INFORMÁTICA</h1>
+<p style="font-size:12px;color:#ddd">PC, Notebook, Impressora, Formatação - Portal do Povo</p>
+<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
+<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
+<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+</div>
+
+<div class="cat">💻 INFORMÁTICA - ARAUCÁRIA</div>
+<div class="grid">
+
+<div class="card">
+<b>💻 ASSISTÊNCIA TÉCNICA PC NOTEBOOK ARAUCÁRIA CENTRO</b>
+<span>📍 Rua Dr. Faivre, 1355 - Centro - Formatação, limpeza, SSD, memória</span>
+<span>🕐 Seg a Sex: 09h às 18h - Sáb: 09h às 13h - Orçamento grátis</span>
+<div class="tel">📞 (41) 3641-6000 - Informática Centro</div>
+</div>
+
+<div class="card">
+<b>🖨️ RECARGA CARTUCHO TONER ARAUCÁRIA - IMPRESSORA</b>
+<span>📍 Tindiquera, Capela Velha, Centro - Recarga, toner, cartucho HP, Epson</span>
+<span>🕐 Seg a Sex: 08h às 18h - Entrega - Toner compatível e original</span>
+<div class="tel">📞 (41) 3641-6100 - Recarga Toner Araucária</div>
+</div>
+
+<div class="card">
+<b>💻 LOJA INFORMÁTICA ARAUCÁRIA - PC GAMER - NOTEBOOK - COSTEIRA</b>
+<span>📍 Costeira, Boqueirão - Venda PC, notebook, gamer, acessórios</span>
+<span>🕐 Seg a Sáb: 09h às 19h - Monte seu PC - Pix parcelado</span>
+<div class="tel">📞 (41) 9 9999-8888 - Loja Informática Costeira</div>
+</div>
+
+<div class="card">
+<b>🌐 INTERNET / WIFI / LAN HOUSE ARAUCÁRIA - INSTALAÇÃO</b>
+<span>📍 Araucária toda - Instalação wifi, roteador, cabeamento, lan house</span>
+<span>🕐 24H - Configura roteador, repetidor, rede empresa</span>
+<div class="tel">📞 (41) 9 9999-9999 - Internet Araucária</div>
+</div>
+
+</div>
+
+<div class="ad-box"><small>PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div id="floatVideo">
+<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
+<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="floatCtrl">
+<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
+<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#29b6f6';this.style.color='#000'}">🔊 SOM</button>
+</div>
+</div>
+
+</body>
+</html>
