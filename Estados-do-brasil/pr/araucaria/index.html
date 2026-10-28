@@ -1,121 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Araucária PR - Portal do Povo - 50+ Serviços</title>
-<meta name="description" content="Portal do Povo Araucária PR - Todos os serviços: emergência 24h, saúde, empregos, imóveis, pet shop 24h, farmácia 24h, chaveiro, gás e água e muito mais.">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Araucária PR - Portal do Povo - Oficial</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#002776,#009739);padding:20px;text-align:center;position:sticky;top:0;z-index:99}
-.top h1{margin:0;font-size:22px}
-.top p{font-size:12px;color:#ddd;margin:6px 0 0}
-.busca{max-width:600px;margin:14px auto 0;display:flex;gap:8px}
-.busca input{flex:1;padding:12px 16px;border-radius:25px;border:0;outline:none;font-size:14px}
-.busca button{padding:12px 20px;border-radius:25px;border:0;background:#ffcc00;color:#000;font-weight:bold;cursor:pointer}
-.btn{padding:7px 12px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:11px;border:1px solid #fff3;background:#111}
-.cat{max-width:1220px;margin:20px auto 0;padding:10px 14px;background:#151515;border-left:4px solid #009739;border-radius:6px;font-weight:bold;font-size:14px;display:flex;justify-content:space-between}
-.cat small{font-size:11px;color:#888;font-weight:normal}
-.grid{max-width:1220px;margin:10px auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-radius:12px;padding:12px;text-align:center;text-decoration:none;color:#fff;transition:.2s;display:block}
-.card:hover{transform:translateY(-3px);border-color:#009739;background:#222}
-.card i{font-size:26px;display:block;margin-bottom:6px}
-.card b{font-size:11px;line-height:13px;display:block;min-height:28px}
-.card small{font-size:9px;color:#aaa;display:block;margin-top:4px}
-.emerg{background:linear-gradient(90deg,#b71c1c,#e50914);border-left-color:#ff0000}
-.grid-emerg .card{border-left:4px solid #e50914}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1220px;padding:10px;text-align:center;border-radius:8px}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
+.top{background:#000;padding:14px;position:sticky;top:0;z-index:20;border-bottom:3px solid #ffcc00;display:flex;justify-content:space-between;align-items:center}
+.top h1{font-size:16px;margin:0;color:#ffcc00}
+.btn{padding:7px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none;display:inline-block}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:16px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;font-size:14px}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:#151515;border-radius:14px;overflow:hidden;border:1px solid #222;position:relative;text-decoration:none;color:#fff}
+.card img{width:100%;height:110px;object-fit:cover}
+.badge{position:absolute;top:8px;left:8px;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;color:#fff}
+.b-blue{background:#0d8bf2}.b-red{background:#e50914}.b-green{background:#00a859}.b-orange{background:#ff6d00}.b-yellow{background:#ffcc00;color:#000}
+.card-body{padding:8px 10px}
+.card-body b{font-size:11px;display:block}.card-body small{font-size:10px;color:#aaa}
+.search{max-width:900px;margin:10px auto;padding:0 10px;display:flex;gap:8px}
+.search input{flex:1;padding:12px;border-radius:25px;border:0}
+.search button{padding:12px 18px;border-radius:25px;border:0;background:#ffcc00;font-weight:bold}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🌲 ARAUCÁRIA - PR | PORTAL DO POVO</h1>
-<p>47 Categorias Ativas - Atualizado Agora - Tudo em um lugar</p>
-<div class="busca">
-<input id="busca" type="text" placeholder="Buscar: farmácia, pet shop, chaveiro..." onkeyup="filtrar()">
-<button onclick="filtrar()">🔍 BUSCAR</button>
-</div>
-<div style="margin-top:12px">
-<a class="btn" href="../../index.html">🇧🇷 Todos Estados</a>
-<a class="btn" href="../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#ffcc00;color:#000" href="#todas">📋 Ver Todas</a>
+<h1>🚨 PORTAL DO POVO - ARAUCÁRIA</h1>
+<div>
+<a href="../../index.html" class="btn" style="background:#222;color:#fff">🇧🇷 Estados</a>
+<a href="../index.html" class="btn" style="background:#009739;color:#fff">🌲 Cidades PR</a>
 </div>
 </div>
 
-<div class="cat emerg">🚨 EMERGÊNCIA 24 HORAS</div>
-<div class="grid grid-emerg">
-<a class="card" href="emergencias/index.html"><i>🚨</i><b>Emergências</b><small>SAMU, Bombeiros, Polícia</small></a>
-<a class="card" href="farmacias-24h/index.html"><i>💊</i><b>Farmácias 24H</b><small>Entrega remédio</small></a>
-<a class="card" href="chaveiro-24h/index.html"><i>🔑</i><b>Chaveiro 24H</b><small>Abertura casa e carro</small></a>
-<a class="card" href="eletricista-24h/index.html"><i>⚡</i><b>Eletricista 24H</b><small>Curto, apagão</small></a>
-<a class="card" href="pet-shop-24h/index.html"><i>🐾</i><b>Pet Shop 24H</b><small>Vet, banho tosa</small></a>
-<a class="card" href="oficinas-24h/index.html"><i>🔧</i><b>Oficinas 24H</b><small>Guincho 24h</small></a>
+<div class="search">
+<input id="busca" type="text" placeholder="Buscar em Araucária... farmácia, guincho, pet" onkeyup="filtrar()">
+<button onclick="filtrar()">🔍</button>
 </div>
 
-<div class="ad-box"><small>PUBLICIDADE</small><br>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="cat">🚨 PORTAL DO POVO - MAIS PROCURADOS</div>
+<div class="grid" id="grid">
+
+<a class="card" href="orgaos-publicos/index.html">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600">
+<div class="badge b-blue">18 ÓRGÃOS</div>
+<div class="card-body"><b>🏛️ ÓRGÃOS PÚBLICOS</b><small>156</small></div>
+</a>
+
+<a class="card" href="emergencias/index.html">
+<img src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=600">
+<div class="badge b-red">10 DPs + 180</div>
+<div class="card-body"><b style="color:#ff6b6b">🚓 DELEGACIAS</b><small>Mulher 180</small></div>
+</a>
+
+<a class="card" href="hospitais/index.html">
+<img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600">
+<div class="badge b-red">16 HOSPITAIS</div>
+<div class="card-body"><b style="color:#ff6b6b">🏥 HOSPITAIS 24H</b><small>SAMU 192</small></div>
+</a>
+
+<a class="card" href="farmacias-24h/index.html">
+<img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?q=80&w=600">
+<div class="badge b-green">10 FARMÁCIAS</div>
+<div class="card-body"><b style="color:#00ff88">💊 FARMÁCIAS 24H</b><small>Plantão</small></div>
+</a>
+
+<a class="card" href="cras-creas/index.html">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600">
+<div class="badge b-blue">10 CRAS</div>
+<div class="card-body"><b style="color:#ff8c00">🏠 CRAS / CREAS</b><small>Bolsa Família</small></div>
+</a>
+
+<a class="card" href="clinicas-reabilitacao/index.html">
+<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600">
+<div class="badge b-red">AA NA CAPS 188</div>
+<div class="card-body"><b style="color:#ff8c8c">🤝 CLÍNICAS REABILITAÇÃO</b><small>24H - 188</small></div>
+</a>
+
+<a class="card" href="postos-saude/index.html">
+<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600">
+<div class="badge b-blue">10 UBS</div>
+<div class="card-body"><b style="color:#4da6ff">🏥 POSTOS SAÚDE</b><small>SUS</small></div>
+</a>
+
+<a class="card" href="oficinas-24h/index.html">
+<img src="https://images.unsplash.com/photo-1485575301924-6891f5dcd710?q=80&w=600">
+<div class="badge b-yellow">24H</div>
+<div class="card-body"><b>🔧 OFICINAS 24H</b><small>Guincho</small></div>
+</a>
+
 </div>
 
-<div class="cat" id="todas">📋 TODAS AS PASTAS DE ARAUCÁRIA - 47 CATEGORIAS <small id="contador">mostrando 47</small></div>
-<div class="grid" id="gridTodas">
-
-<a class="card" href="Animais-ong-hospital/index.html"><i>🐶</i><b>ONG Animais</b><small>Animais-ong-hospital</small></a>
-<a class="card" href="acougues/index.html"><i>🥩</i><b>Açougues</b><small>acougues</small></a>
-<a class="card" href="agua-gaz/index.html"><i>🔥</i><b>Água e Gás</b><small>agua-gaz / gaz-agua</small></a>
-<a class="card" href="auto-escolas/index.html"><i>🚗</i><b>Auto Escolas</b><small>auto-escolas</small></a>
-<a class="card" href="cartorios/index.html"><i>📜</i><b>Cartórios</b><small>cartorios</small></a>
-<a class="card" href="casa-festas/index.html"><i>🎈</i><b>Casa de Festas</b><small>casa-festas</small></a>
-<a class="card" href="ceasa/index.html"><i>🥦</i><b>Ceasa</b><small>ceasa</small></a>
-<a class="card" href="celulares/index.html"><i>📱</i><b>Celulares</b><small>celulares</small></a>
-<a class="card" href="classificados/index.html"><i>📢</i><b>Classificados</b><small>classificados</small></a>
-<a class="card" href="clinicas-reabilitacao/index.html"><i>🧠</i><b>Clínicas Reabilitação</b><small>clinicas-reabilitacao</small></a>
-<a class="card" href="construcao/index.html"><i>🏗️</i><b>Construção</b><small>construcao</small></a>
-<a class="card" href="contabilidades/index.html"><i>📊</i><b>Contabilidades</b><small>contabilidades</small></a>
-<a class="card" href="contadores/index.html"><i>🧮</i><b>Contadores</b><small>contadores</small></a>
-<a class="card" href="cras-creas/index.html"><i>🏛️</i><b>CRAS / CREAS</b><small>cras-creas</small></a>
-<a class="card" href="cursos/index.html"><i>📚</i><b>Cursos</b><small>cursos</small></a>
-<a class="card" href="eletricas/index.html"><i>💡</i><b>Elétricas</b><small>eletricas</small></a>
-<a class="card" href="empregos/index.html"><i>💼</i><b>Empregos</b><small>empregos</small></a>
-<a class="card" href="encanador/index.html"><i>🚿</i><b>Encanador</b><small>encanador</small></a>
-<a class="card" href="esteticas/index.html"><i>💅</i><b>Estéticas</b><small>esteticas</small></a>
-<a class="card" href="floriculturas/index.html"><i>🌹</i><b>Floriculturas</b><small>floriculturas</small></a>
-<a class="card" href="funerarias/index.html"><i>🕊️</i><b>Funerárias</b><small>funerarias</small></a>
-<a class="card" href="graficas/index.html"><i>🖨️</i><b>Gráficas / Ótica</b><small>graficas</small></a>
-<a class="card" href="hospital/index.html"><i>🏥</i><b>Hospital</b><small>hospital</small></a>
-<a class="card" href="hospitais/index.html"><i>🏥</i><b>Hospitais</b><small>hospitais</small></a>
-<a class="card" href="hoteis-moteis/index.html"><i>🏨</i><b>Hotéis e Motéis</b><small>hoteis-moteis</small></a>
-<a class="card" href="imobiliarias/index.html"><i>🏠</i><b>Imobiliárias</b><small>imobiliarias</small></a>
-<a class="card" href="imoveis/index.html"><i>🏡</i><b>Imóveis</b><small>imoveis</small></a>
-<a class="card" href="informatica/index.html"><i>💻</i><b>Informática</b><small>informatica</small></a>
-<a class="card" href="lotericas/index.html"><i>🎰</i><b>Lotéricas</b><small>lotericas</small></a>
-<a class="card" href="moto-taxi/index.html"><i>🏍️</i><b>Moto Táxi</b><small>moto-taxi</small></a>
-<a class="card" href="onibus/index.html"><i>🚌</i><b>Ônibus</b><small>onibus</small></a>
-<a class="card" href="orgaos-publicos/index.html"><i>🏛️</i><b>Órgãos Públicos</b><small>orgaos-publicos</small></a>
-<a class="card" href="padarias/index.html"><i>🥖</i><b>Padarias</b><small>padarias</small></a>
-<a class="card" href="postos-saude/index.html"><i>💉</i><b>Postos Saúde</b><small>postos-saude</small></a>
-<a class="card" href="saude/index.html"><i>❤️</i><b>Saúde</b><small>saude</small></a>
-<a class="card" href="tatuagens/index.html"><i>🖤</i><b>Tatuagens</b><small>tatuagens</small></a>
-<a class="card" href="taxi/index.html"><i>🚕</i><b>Táxi</b><small>taxi</small></a>
-<a class="card" href="variedades/index.html"><i>🎉</i><b>Variedades</b><small>variedades 1,99</small></a>
-<a class="card" href="veterinarios/index.html"><i>🐾</i><b>Veterinários</b><small>veterinarios</small></a>
-<a class="card" href="vidracarias/index.html"><i>🪟</i><b>Vidraçarias</b><small>vidracarias</small></a>
-
+<div class="cat">🌙 SERVIÇOS 24H - ARAUCÁRIA</div>
+<div class="grid">
+<a class="card" href="chaveiro-24h/index.html"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🔑 CHAVEIRO 24H</b><small>Abre casa/carro</small></div></a>
+<a class="card" href="pet-shop-24h/index.html"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🐾 PET SHOP 24H</b><small>Veterinário</small></div></a>
+<a class="card" href="eletricista-24h/index.html"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>⚡ ELETRICISTA 24H</b><small>Curto, luz</small></div></a>
+<a class="card" href="agua-gaz/index.html"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🔥 GÁS E ÁGUA 24H</b><small>Disk entrega</small></div></a>
 </div>
 
 <script>
 function filtrar(){
 let v=document.getElementById('busca').value.toLowerCase();
-let cards=document.querySelectorAll('#gridTodas .card');
-let vis=0;
-cards.forEach(c=>{
-let t=c.innerText.toLowerCase();
-let show=t.includes(v);
-c.style.display=show?'block':'none';
-if(show)vis++;
+document.querySelectorAll('#grid .card').forEach(c=>{
+c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
 });
-document.getElementById('contador').innerText='mostrando '+vis;
 }
 </script>
 </body>
