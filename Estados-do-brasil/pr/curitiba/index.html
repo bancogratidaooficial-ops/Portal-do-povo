@@ -3,83 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curitiba PR - Portal do Povo - Banco Gratidão</title>
+<title>Curitiba PR - Portal do Povo</title>
 <style>
 body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
 .top{background:linear-gradient(90deg,#009739,#002776);padding:20px;text-align:center}
-.top h1{margin:0;font-size:22px}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid rgba(255,255,255,.3)}
-.btn-blue{background:#002776} .btn-green{background:#009739}
+.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;max-width:1000px;margin:15px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #009739;border-radius:12px;padding:14px 5px;text-align:center;color:#fff;text-decoration:none;transition:.2s}
-.card:hover{transform:translateY(-3px);border-color:#009739;box-shadow:0 6px 15px rgba(0,151,57,.3)}
-.card b{font-size:12px;display:block;margin-top:4px}
-.card span{font-size:10px;color:#999}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.8)}
-#floatVideo iframe{width:100%;height:320px;border:0;display:block}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;align-items:center;padding:6px 8px}
+.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #009739;border-radius:12px;padding:14px 5px;text-align:center;color:#fff;text-decoration:none;display:block}
+.card b{font-size:12px} .card span{font-size:10px;color:#999}
+#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden}
+#floatVideo iframe{width:100%;height:320px;border:0}
+.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
 .btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff;cursor:pointer;font-weight:bold}
+.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff;cursor:pointer}
 </style>
 </head>
 <body>
 
 <div class="top">
 <h1>🌲 CURITIBA - PR - PORTAL DO POVO</h1>
-<p style="font-size:12px;margin:8px 0;color:#ddd">Capital do Paraná - Banco Gratidão 20 Anos</p>
-<a class="btn btn-blue" href="../">⬅️ Cidades do PR</a>
-<a class="btn btn-green" href="../../">🏠 Todos os Estados</a>
+<p style="font-size:12px;color:#ddd">Capital do Paraná - Banco Gratidão 20 Anos</p>
+<a class="btn" style="background:#002776" href="../index.html">⬅️ Cidades do PR</a>
+<a class="btn" style="background:#009739" href="../../index.html">🏠 Todos os Estados</a>
 </div>
 
 <div class="grid">
-<a class="card" href="./advogados-24h/">⚖️<br><b>Advogados 24h</b><span>jurídico</span></a>
-<a class="card" href="./cursos/">📚<br><b>Cursos</b><span>grátis</span></a>
-<a class="card" href="./saude/">🏥<br><b>Saúde</b><span>postos</span></a>
-<a class="card" href="./hospitais/">🚑<br><b>Hospitais</b><span>emergência</span></a>
-<a class="card" href="./farmacias-24h/">💊<br><b>Farmácias 24h</b><span>plantão</span></a>
-<a class="card" href="./dentistas-24h/">🦷<br><b>Dentistas 24h</b><span>urgência</span></a>
-<a class="card" href="./veterinarios-24h/">🐶<br><b>Veterinários 24h</b><span>pet</span></a>
-<a class="card" href="./animais-ong-hospitais/">🐾<br><b>ONGs Animais</b><span>abrigos</span></a>
-<a class="card" href="./emergencias/">🚨<br><b>Emergências</b><span>190 192 193</span></a>
-<a class="card" href="./delegacias-curitiba/">👮<br><b>Delegacias</b><span>segurança</span></a>
-<a class="card" href="./orgaos-publicos/">🏛️<br><b>Órgãos Públicos</b><span>prefeitura</span></a>
-<a class="card" href="./cras-creas/">🤝<br><b>CRAS CREAS</b><span>social</span></a>
-<a class="card" href="./vagas/">💼<br><b>Vagas SINE</b><span>empregos</span></a>
-<a class="card" href="./classificados/">📢<br><b>Classificados</b><span>anúncios</span></a>
-<a class="card" href="./onibus/">🚌<br><b>Ônibus</b><span>transporte</span></a>
-<a class="card" href="./seasa/">🥦<br><b>CEASA</b><span>hortifruti</span></a>
-<a class="card" href="./chaveiro-24h/">🔑<br><b>Chaveiro 24h</b><span>emergência</span></a>
-<a class="card" href="./eletricista-24h/">💡<br><b>Eletricista 24h</b><span>elétrica</span></a>
-<a class="card" href="./oficinas-24h/">🔧<br><b>Oficinas 24h</b><span>mecânico</span></a>
-<a class="card" href="./clinicas-reabilitacao/">🧠<br><b>Clínicas</b><span>reabilitação</span></a>
-<a class="card" href="./postos-saude/">🏥<br><b>Postos Saúde</b><span>UBS</span></a>
+<a class="card" href="./advogados-24h/index.html">⚖️<br><b>Advogados 24h</b></a>
+<a class="card" href="./cursos/index.html">📚<br><b>Cursos</b></a>
+<a class="card" href="./saude/index.html">🏥<br><b>Saúde</b></a>
+<a class="card" href="./hospitais/index.html">🚑<br><b>Hospitais</b></a>
+<a class="card" href="./farmacias-24h/index.html">💊<br><b>Farmácias 24h</b></a>
+<a class="card" href="./dentistas-24h/index.html">🦷<br><b>Dentistas 24h</b></a>
+<a class="card" href="./veterinarios-24h/index.html">🐶<br><b>Veterinários 24h</b></a>
+<a class="card" href="./animais-ong-hospitais/index.html">🐾<br><b>ONGs Animais</b></a>
+<a class="card" href="./emergencias/index.html">🚨<br><b>Emergências</b></a>
+<a class="card" href="./delegacias-curitiba/index.html">👮<br><b>Delegacias</b></a>
+<a class="card" href="./orgaos-publicos/index.html">🏛️<br><b>Órgãos Públicos</b></a>
+<a class="card" href="./cras-creas/index.html">🤝<br><b>CRAS CREAS</b></a>
+<a class="card" href="./vagas/index.html">💼<br><b>Vagas SINE</b></a>
+<a class="card" href="./classificados/index.html">📢<br><b>Classificados</b></a>
+<a class="card" href="./onibus/index.html">🚌<br><b>Ônibus</b></a>
+<a class="card" href="./seasa/index.html">🥦<br><b>CEASA</b></a>
+<a class="card" href="./chaveiro-24h/index.html">🔑<br><b>Chaveiro 24h</b></a>
+<a class="card" href="./eletricista-24h/index.html">💡<br><b>Eletricista 24h</b></a>
+<a class="card" href="./oficinas-24h/index.html">🔧<br><b>Oficinas 24h</b></a>
+<a class="card" href="./clinicas-reabilitacao/index.html">🧠<br><b>Clínicas</b></a>
+<a class="card" href="./postos-saude/index.html">🏥<br><b>Postos Saúde</b></a>
 </div>
 
-<!-- VÍDEO FLUTUANTE COM SOM DENTRO DO PORTAL -->
 <div id="floatVideo">
 <button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
 <iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 <div class="floatCtrl">
 <span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" id="btnSom" onclick="ativarSom()">🔊 ATIVAR SOM</button>
+<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#009739'}">🔊 ATIVAR SOM</button>
 </div>
 </div>
-
-<script>
-function ativarSom(){
-  var p = document.getElementById('player');
-  var b = document.getElementById('btnSom');
-  if(p.src.includes('mute=1')){
-    p.src = 'https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0';
-    b.innerText = '🔇 MUTAR';
-    b.style.background = '#e50914';
-  } else {
-    p.src = 'https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0';
-    b.innerText = '🔊 ATIVAR SOM';
-    b.style.background = '#009739';
-  }
-}
-</script>
 
 </body>
 </html>
