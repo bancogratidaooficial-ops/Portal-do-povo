@@ -1,89 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cursos Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos Araucária PR - Profissionalizante, Técnico - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#1565c0,#00bcd4);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #00bcd4;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #00bcd4;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#4fc3f7;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #1565c0;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#1565c0;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffcc00}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #222;border-radius:16px;overflow:hidden;transition:.2s}
+.card:hover{border-color:#ffcc00;transform:translateY(-2px)}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-red{background:#e50914;color:#fff}.b-blue{background:#0d8bf2;color:#fff}.b-green{background:#00a859;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffcc00;display:block;margin-bottom:6px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #555}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#1a1a00;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>📚 ARAUCÁRIA - CURSOS E ESCOLAS</h1>
-<p style="font-size:12px;color:#ddd">Gratuitos, Técnicos, Profissionalizantes - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">📚 CURSOS GRATUITOS - ARAUCÁRIA</div>
+<div class="alert">🎓 <b>CURSO PROFISSIONALIZANTE ARAUCÁRIA - COM CERTIFICADO - EMPREGO RÁPIDO</b> - SENAI, SENAC, gratuito, bolsa, estágio garantido - Matrícula aberta hoje!</div>
+
+<div class="cat">🎓 CURSOS - ARAUCÁRIA - 4 TIPOS - PROFISSIONALIZANTE, TÉCNICO, GRATUITO</div>
 <div class="grid">
 
 <div class="card">
-<b>📚 SENAI ARAUCÁRIA - CURSOS TÉCNICOS - GRATUITO</b>
-<span>📍 Rua Archelau de Almeida Torres, 1250 - Boqueirão - Araucária</span>
-<span>🕐 Seg a Sex: 08h às 22h - Mecânica, Eletrotécnica, Solda REPAR</span>
-<div class="tel">📞 (41) 3641-3000 / 0800-648-0088 - SENAI Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800">
+<div class="badge b-yellow">SENAI / SENAC - ARAUCÁRIA - CURSO GRATUITO - BOLSA - ESTÁGIO</div>
+</div>
+<div class="card-body">
+<b>🏭 SENAI / SENAC / IFPR ARAUCÁRIA - CURSO TÉCNICO GRATUITO - BOLSA - ESTÁGIO</b>
+<span>Mecânica, elétrica, soldador, operador empilhadeira, NR10, NR35, logística, administração, gratuito, certificado, estágio.</span>
+<span>📍 Centro, Cidade Industrial - SENAI Araucária - Curso gratuito - Bolsa estudo - Certificado</span>
+<span>🕐 Seg a Sex: 08h às 22h - Curso gratuito - Inscrição hoje - Certificado - Emprego rápido</span>
+<span class="tel">📞 (41) 3643-6000 - SENAI / SENAC Araucária - Curso Gratuito - Bolsa</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436000">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=SENAI+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436000">WHATS BOLSA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>💻 SENAC ARAUCÁRIA - CURSOS PROFISSIONALIZANTES</b>
-<span>📍 Rua Dr. Faivre, 412 - Casa da Cidadania - Centro</span>
-<span>🕐 Cursos: Informática, Administração, Beleza, Gastronomia</span>
-<div class="tel">📞 (41) 3614-1444 / 0800-643-6346 - SENAC</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800">
+<div class="badge b-blue">CURSO INFORMÁTICA - INGLÊS - ARAUCÁRIA - EMPREGO</div>
+</div>
+<div class="card-body">
+<b>💻 CURSO INFORMÁTICA, INGLÊS, EXCEL, ADMINISTRAÇÃO - ARAUCÁRIA - R$ 59,90</b>
+<span>Informática básica, avançada, Excel, Word, inglês, espanhol, administração, RH, marketing, jovem aprendiz, certificado.</span>
+<span>📍 Centro - Tindiquera - Curso barato - R$ 59,90/mês - Certificado - Araucária</span>
+<span>🕐 Seg a Sáb: 08h às 20h - R$ 59,90/mês - Certificado - Estágio - Primeiro emprego</span>
+<span class="tel">📞 (41) 3643-6001 - Informática, Inglês - Araucária - R$ 59,90</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Curso+Informática+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436001">WHATS CURSO</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏫 ESCOLA TÉCNICA - COLÉGIO ESTADUAL ARAUCÁRIA - GRATUITO</b>
-<span>📍 Centro, Costeira, Capela Velha - Ensino Médio + Técnico</span>
-<span>🕐 Cursos: Administração, Informática, Logística - Gratuito</span>
-<div class="tel">📞 (41) 3641-4000 - Seed PR - Colégios Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800">
+<div class="badge b-green">CURSO BELEZA - CABELEIREIRO - BARBEIRO - MANICURE - ARAUCÁRIA</div>
+</div>
+<div class="card-body">
+<b>💇 CURSO BELEZA - CABELEIREIRO, BARBEIRO, MANICURE, ESTÉTICA - ARAUCÁRIA</b>
+<span>Cabeleireiro, barbeiro, manicure, pedicure, estética, maquiagem, sobrancelha, alongamento, certificado, kit grátis.</span>
+<span>📍 Centro - Curso beleza - Kit grátis - Certificado - Araucária - PR - Emprego rápido</span>
+<span>🕐 Seg a Sáb: 08h às 20h - Kit grátis - Certificado - R$ 79,90 - Emprego garantido - Salão</span>
+<span class="tel">📞 (41) 3643-6002 - Curso Beleza - Cabeleireiro - Araucária - Kit Grátis</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Curso+Cabeleireiro+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436002">WHATS BELEZA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🎓 FACULDADE UNIFACEAR - ARAUCÁRIA - GRADUAÇÃO</b>
-<span>📍 Avenida das Araucárias, 3803 - Thomaz Coelho - Araucária</span>
-<span>🕐 Graduação, Pós, EAD - Engenharia, Direito, Saúde</span>
-<div class="tel">📞 (41) 3643-4000 - UNIFACEAR Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800">
+<div class="badge b-red">CNH - AUTO ESCOLA - MOTO - CARRO - ARAUCÁRIA - 10X SEM JUROS</div>
 </div>
-
-<div class="card">
-<b>💼 QUALIFICA ARAUCÁRIA - PREFEITURA - CURSO GRÁTIS</b>
-<span>📍 Rua Dr. Faivre, 412 - Casa da Cidadania - SM Trabalho</span>
-<span>🕐 Cursos gratuitos Prefeitura - Levar RG e CPF</span>
-<div class="tel">📞 (41) 3614-1444 - Qualifica Araucária - 156</div>
+<div class="card-body">
+<b>🚗 AUTO ESCOLA / CFC - CNH A, B, C, D, E - ARAUCÁRIA - 10X SEM JUROS</b>
+<span>CNH carro, moto, primeira habilitação, adição, renovação, reciclagem, aula extra, prova, 10x sem juros, parcela R$ 80.</span>
+<span>📍 Centro, Tindiquera - Auto escola Araucária - CNH - Primeira habilitação - 10x</span>
+<span>🕐 Seg a Sáb: 07h às 20h - CNH 10x sem juros - Parcela R$ 80 - Aprovação garantida - Aula grátis</span>
+<span class="tel">📞 (41) 3643-6003 - Auto Escola - CNH - Araucária - 10X Sem Juros</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Auto+Escola+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436003">WHATS CNH</a>
 </div>
-
-</div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#1565c0'}">🔊 SOM</button>
 </div>
 </div>
 
+</div>
 </body>
 </html>
