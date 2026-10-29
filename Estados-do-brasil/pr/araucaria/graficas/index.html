@@ -1,82 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gráfica Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gráficas Araucária PR - Impressão, Banner, Cartão, Rápida - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#311b92,#7c4dff);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #7c4dff;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #7c4dff;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#b39ddb;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #7c4dff;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#7c4dff;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffeb3b}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #ffcc00;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-blue{background:#0d8bf2;color:#fff}.b-green{background:#00a859;color:#fff}.b-red{background:#e50914;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffeb3b;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#1a1500;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🖨️ ARAUCÁRIA - GRÁFICA / XEROX</h1>
-<p style="font-size:12px;color:#ddd">Impressão, Banner, Cartão, Carimbo - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🖨️ GRÁFICA RÁPIDA - ARAUCÁRIA</div>
+<div class="alert">🖨️ <b>GRÁFICAS ARAUCÁRIA - IMPRESSÃO, BANNER, CARTÃO, ADESIVO - R$ 30 - RÁPIDA - 1H</b> | Centro, Tindiquera, Costeira - Impressão, banner, cartão visita, adesivo, panfleto - R$ 30 - Rápida 1H</div>
+
+<div class="cat">🖨️ GRÁFICAS - ARAUCÁRIA - 4 GRÁFICAS - IMPRESSÃO, BANNER, CARTÃO - R$ 30 - RÁPIDA 1H</div>
 <div class="grid">
 
 <div class="card">
-<b>🖨️ GRÁFICA ARAUCÁRIA CENTRO - XEROX - IMPRESSÃO - BANNER</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Xerox, impressão, banner, cartão, carimbo</span>
-<span>🕐 Seg a Sex: 08h às 18h - Sáb: 08h às 13h - Gráfica rápida - 1h</span>
-<div class="tel">📞 (41) 3641-9920 - Gráfica Centro - Araucária - Xerox</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800">
+<div class="badge b-yellow">GRÁFICA RÁPIDA / IMPRESSÃO - CENTRO - IMPRESSÃO R$ 30 - 1H - CARTÃO, BANNER</div>
+</div>
+<div class="card-body">
+<b>🖨️ GRÁFICA RÁPIDA / IMPRESSÃO CENTRO ARAUCÁRIA - IMPRESSÃO R$ 30 - 1H - CARTÃO, BANNER</b>
+<span>Gráfica rápida Centro, impressão R$ 30, cartão visita, banner, panfleto, adesivo, Centro, Araucária toda, 1H, rápida, barata.</span>
+<span>📍 Centro - Gráfica rápida Araucária - Impressão R$ 30 - Cartão visita - Banner - Panfleto - Adesivo - 1H - Rápida - Barata</span>
+<span>🕐 Seg a Sex: 08h às 18h | Sáb: 08h às 12h - Impressão R$ 30 - Cartão, banner - Panfleto, adesivo - 1H - Rápida - Centro - Gráfica</span>
+<span class="tel">📞 (41) 3643-6300 - Gráfica Rápida - Centro - Impressão R$ 30 - Cartão, Banner - 1H - Araucária - Rápida - Barata</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436300">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Gráfica+Rápida+Centro+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436300">WHATS IMPRESSÃO R$30 1H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🖨️ XEROX TINDIQUERA / CAPELA VELHA - ARAUCÁRIA - PLASTIFICAÇÃO</b>
-<span>📍 Tindiquera, Capela Velha - Xerox, impressão colorida, plastificação, encadernação</span>
-<span>🕐 Seg a Sáb: 08h às 19h - Xerox R$0,15 - Impressão, currículo</span>
-<div class="tel">📞 (41) 3641-9921 - Xerox Tindiquera - Impressão</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=800">
+<div class="badge b-blue">BANNER / FAIXA / LONA - TINDIQUERA - BANNER R$ 40 M² - 1H - LONA, FAIXA</div>
+</div>
+<div class="card-body">
+<b>🎯 BANNER / FAIXA / LONA TINDIQUERA / CAPELA VELHA - BANNER R$ 40 M² - 1H - LONA</b>
+<span>Banner R$ 40 m², faixa, lona, outdoor, Tindiquera, Capela Velha, 1H, impressão grande, Araucária, banner, loja, evento.</span>
+<span>📍 Tindiquera, Capela Velha - Banner Araucária - R$ 40 m² - Faixa, lona, outdoor - 1H - Impressão grande - Loja, evento</span>
+<span>🕐 Seg a Sex: 08h às 18h - Banner R$ 40 m² - Faixa, lona - Outdoor - 1H - Impressão grande - Loja, evento - Tindiquera - Banner</span>
+<span class="tel">📞 (41) 3643-6301 - Banner - Tindiquera - R$ 40 m² - Faixa, Lona - 1H - Impressão Grande - Araucária - Loja</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Banner+Faixa+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436001">WHATS BANNER R$40 1H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🖼️ BANNER ARAUCÁRIA - FACHADA, LONA, ADESIVO - COSTEIRA</b>
-<span>📍 Costeira, Boqueirão - Banner, fachada, lona, adesivo, letra caixa</span>
-<span>🕐 Seg a Sex: 08h às 18h - Sáb: 08h às 12h - Banner a partir R$30</span>
-<div class="tel">📞 (41) 3641-9922 - Banner Costeira - Fachada</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1626785774573-6dd65b279390?q=80&w=800">
+<div class="badge b-green">CARTÃO VISITA / PANFLETO / ADESIVO - COSTEIRA - 1000 CARTÕES R$ 60 - 24H</div>
+</div>
+<div class="card-body">
+<b>💳 CARTÃO VISITA / PANFLETO / ADESIVO COSTEIRA / BOQUEIRÃO - 1000 CARTÕES R$ 60 - 24H</b>
+<span>Cartão visita 1000 R$ 60, panfleto, adesivo, folder, Costeira, Boqueirão, 24H, 1000 cartões R$ 60, Araucária, empresa, barato.</span>
+<span>📍 Costeira, Boqueirão - Cartão visita Araucária - 1000 R$ 60 - Panfleto, adesivo, folder - 24H - Empresa - Barato - Costeira</span>
+<span>🕐 Seg a Sex: 08h às 18h - 1000 Cartões R$ 60 - Panfleto, adesivo, folder - 24H - Empresa - Barato - Costeira - Cartão visita</span>
+<span class="tel">📞 (41) 3643-6302 - Cartão Visita - Costeira - 1000 R$ 60 - Panfleto, Adesivo - 24H - Empresa - Araucária - Barato</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Gráfica+Cartão+Visita+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436002">WHATS 1000 CARTÕES R$60</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🖨️ CARIMBO ARAUCÁRIA - CARTÃO DE VISITA - WHATS - TODA</b>
-<span>📍 Araucária toda - Carimbo, cartão visita, panfleto, adesivo, 1000 unid</span>
-<span>🕐 Seg a Sáb: 08h às 18h - Arte grátis - Entrega - Pix - Whats</span>
-<div class="tel">📞 (41) 9 0000-2222 - Gráfica Rápida Araucária - Whats</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1523726491678-bf852e8b26c1?q=80&w=800">
+<div class="badge b-red">CARIMBO / XEROX / PLOTAGEM / ENCARDENAÇÃO - ARAUCÁRIA - CARIMBO R$ 25 - 1H</div>
+</div>
+<div class="card-body">
+<b>📄 CARIMBO / XEROX / PLOTAGEM / ENCARDENAÇÃO ARAUCÁRIA - CARIMBO R$ 25 - 1H - RÁPIDA</b>
+<span>Carimbo R$ 25, xerox, plotagem, encardenação, plastificação, Araucária toda, R$ 25, 1H, rápida, documentos, empresa.</span>
+<span>📍 Centro - Carimbo, xerox, plotagem Araucária - R$ 25 - Encardenação, plastificação - 1H - Rápida - Documentos, empresa</span>
+<span>🕐 Seg a Sex: 08h às 18h | Sáb: 08h às 12h - Carimbo R$ 25 - Xerox - Plotagem - Encardenação - 1H - Rápida - Documentos - Araucária</span>
+<span class="tel">📞 (41) 3643-6303 - Carimbo - Xerox - Plotagem - R$ 25 - Encardenação - 1H - Rápida - Araucária - Documentos</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Carimbo+Xerox+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436003">WHATS CARIMBO R$25 1H</a>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#7c4dff'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
