@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ônibus Araucária PR - Horários - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ônibus Araucária PR - Horário, Passagem, Rodoviária, Urbano - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#0d47a1,#42a5f5);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #42a5f5;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #42a5f5;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#90caf9;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #0d47a1;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#0d47a1;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffeb3b}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #ffcc00;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-blue{background:#0d8bf2;color:#fff}.b-green{background:#00a859;color:#fff}.b-red{background:#e50914;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffeb3b;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#1a1500;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🚌 ARAUCÁRIA - ÔNIBUS E TRANSPORTE</h1>
-<p style="font-size:12px;color:#ddd">Horários, Linhas, TRIAR - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🚌 TRANSPORTE PÚBLICO - ARAUCÁRIA</div>
+<div class="alert">🚌 <b>ÔNIBUS ARAUCÁRIA - HORÁRIO, PASSAGEM, RODOVIÁRIA, URBANO - R$ 5,50 - CURITIBA</b> | Centro, Tindiquera, Costeira - Horário ônibus, passagem, rodoviária, urbano, Curitiba - R$ 5,50 - Horário</div>
+
+<div class="cat">🚌 ÔNIBUS - ARAUCÁRIA - 4 ÔNIBUS - HORÁRIO, PASSAGEM, RODOVIÁRIA - R$ 5,50 - CURITIBA</div>
 <div class="grid">
 
 <div class="card">
-<b>🚌 TRIAR - TRANSPORTE ARAUCÁRIA - HORÁRIOS E LINHAS</b>
-<span>📍 Rua Dr. Faivre, 412 - Terminal Central Araucária - Centro</span>
-<span>🕐 Seg a Dom: 04h30 às 00h00 - Todas linhas Araucária</span>
-<div class="tel">📞 (41) 3641-5000 / 156 - TRIAR Araucária - Horários</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800">
+<div class="badge b-yellow">ÔNIBUS URBANO / CIRCULAR / HORÁRIO - CENTRO - R$ 5,50 - HORÁRIO - 05H ÀS 23H</div>
+</div>
+<div class="card-body">
+<b>🚌 ÔNIBUS URBANO / CIRCULAR / HORÁRIO CENTRO ARAUCÁRIA - R$ 5,50 - HORÁRIO - 05H ÀS 23H</b>
+<span>Ônibus urbano, circular, horário, Centro, Araucária toda, R$ 5,50 passagem, 05h às 23h, horário, ponto, Araucária, urbano.</span>
+<span>📍 Centro - Ônibus urbano Araucária - R$ 5,50 passagem - Horário 05h às 23h - Circular - Ponto - Centro - Urbano - Horário</span>
+<span>🕐 Seg a Dom: 05h às 23h - R$ 5,50 passagem - Urbano, circular - Horário 05h às 23h - Ponto - Centro - Urbano - Horário - R$ 5,50</span>
+<span class="tel">📞 (41) 3643-6500 - Ônibus Urbano - Centro - R$ 5,50 - Horário 05h às 23h - Circular - Araucária - Ponto - Horário</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436500">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Ponto+Ônibus+Centro+Araucária" target="_blank">📍 MAPA PONTOS</a>
+<a class="btn-site" href="https://wa.me/554136436500">WHATS HORÁRIO R$5,50</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🚌 LINHA ARAUCÁRIA x CURITIBA - METROPOLITANO - RÁPIDO</b>
-<span>📍 Terminal Central Araucária → Terminal Capão Raso Curitiba</span>
-<span>🕐 Seg a Sex: 04h40 às 23h40 - 15 min intervalo - Sáb/Dom 30 min</span>
-<div class="tel">📞 (41) 3641-5000 - Linha Araucária-Curitiba - COMEC</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=800">
+<div class="badge b-blue">RODOVIÁRIA / PASSAGEM / CURITIBA - TINDIQUERA - R$ 8 CURITIBA - RODOVIÁRIA - PASSAGEM</div>
+</div>
+<div class="card-body">
+<b>🏢 RODOVIÁRIA / PASSAGEM / CURITIBA TINDIQUERA / CAPELA VELHA - R$ 8 CURITIBA - RODOVIÁRIA</b>
+<span>Rodoviária, passagem, Curitiba, Tindiquera, Capela Velha, R$ 8 Curitiba, rodoviária, passagem, horário, Araucária, Curitiba.</span>
+<span>📍 Tindiquera, Capela Velha - Rodoviária, passagem Araucária - R$ 8 Curitiba - Horário - Rodoviária - Passagem - Curitiba - R$ 8</span>
+<span>🕐 Seg a Dom: 05h às 22h - R$ 8 Curitiba - Rodoviária - Passagem - Horário - Tindiquera - Curitiba - R$ 8 - Rodoviária - Passagem</span>
+<span class="tel">📞 (41) 3643-6501 - Rodoviária - Tindiquera - R$ 8 Curitiba - Passagem - Horário - Araucária - Curitiba - Rodoviária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436501">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Rodoviária+Araucária" target="_blank">📍 MAPA RODOVIÁRIA</a>
+<a class="btn-site" href="https://wa.me/554136436501">WHATS PASSAGEM R$8 CURITIBA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🚌 LINHAS BAIRROS - ARAUCÁRIA - TINDIQUERA / CAPELA VELHA</b>
-<span>📍 Costeira, Tindiquera, Capela Velha, Boqueirão, Fazenda Velha</span>
-<span>🕐 Seg a Sáb: 05h às 23h - Dom: 06h às 22h</span>
-<div class="tel">📞 (41) 3641-5000 - Linhas bairros Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=800">
+<div class="badge b-green">FRETAMENTO / VAN / EXCURSÃO - COSTEIRA - FRETAMENTO R$ 300 - VAN - EXCURSÃO</div>
+</div>
+<div class="card-body">
+<b>🚐 FRETAMENTO / VAN / EXCURSÃO COSTEIRA / BOQUEIRÃO - FRETAMENTO R$ 300 - VAN - EXCURSÃO</b>
+<span>Fretamento R$ 300, van, excursão, Costeira, Boqueirão, R$ 300 fretamento, van 15 lugares, excursão, Araucária, viagem.</span>
+<span>📍 Costeira, Boqueirão - Fretamento, van, excursão Araucária - R$ 300 fretamento - Van 15 lugares - Excursão - Viagem - Costeira</span>
+<span>🕐 Seg a Dom: 06h às 22h - Fretamento R$ 300 - Van 15 lugares - Excursão - Viagem - Costeira - Van - Fretamento - R$ 300</span>
+<span class="tel">📞 (41) 3643-6502 - Fretamento - Van - Excursão - Costeira - R$ 300 - Van 15 Lugares - Araucária - Viagem - Fretamento</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Fretamento+Van+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436002">WHATS FRETAMENTO R$300 VAN</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🎫 CARTÃO TRIAR / METROCARD - ARAUCÁRIA - RECARGA</b>
-<span>📍 Terminal Central - Casa da Cidadania - Centro</span>
-<span>🕐 Seg a Sex: 08h às 17h - Cadastro, recarga, 2ª via</span>
-<div class="tel">📞 (41) 3614-1444 - Cartão Transporte Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1513312807426-8d4b8b9b7f0d?q=80&w=800">
+<div class="badge b-red">ESCOLAR / UNIVERSITÁRIO / EMPRESA - ARAUCÁRIA - ESCOLAR R$ 150 MÊS - UNIVERSITÁRIO</div>
 </div>
-
-<div class="card">
-<b>🚌 RODOVIÁRIA ARAUCÁRIA - INTERMUNICIPAL - VIAÇÃO</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Próximo Prefeitura</span>
-<span>🕐 Ônibus para Curitiba, Contenda, Lapa, Campo Largo</span>
-<div class="tel">📞 (41) 3641-5100 - Rodoviária Araucária</div>
+<div class="card-body">
+<b>🎓 ESCOLAR / UNIVERSITÁRIO / EMPRESA ARAUCÁRIA - ESCOLAR R$ 150 MÊS - UNIVERSITÁRIO - EMPRESA</b>
+<span>Escolar R$ 150 mês, universitário, empresa, Araucária toda, R$ 150 mês escolar, universitário, Curitiba, empresa, ônibus.</span>
+<span>📍 Araucária toda - Escolar, universitário, empresa Araucária - R$ 150 mês escolar - Universitário Curitiba - Empresa - Ônibus</span>
+<span>🕐 Seg a Sex: 06h às 20h - Escolar R$ 150 mês - Universitário - Empresa - Curitiba - Araucária toda - Ônibus - Escolar - R$ 150</span>
+<span class="tel">📞 (41) 3643-6503 - Escolar - Universitário - Empresa - R$ 150 Mês Escolar - Curitiba - Araucária - Ônibus - Escolar</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Ônibus+Escolar+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436003">WHATS ESCOLAR R$150 MÊS</a>
 </div>
-
-</div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#0d47a1'}">🔊 SOM</button>
 </div>
 </div>
 
+</div>
 </body>
 </html>
