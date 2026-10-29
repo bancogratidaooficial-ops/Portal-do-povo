@@ -1,82 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Padarias Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padarias Araucária PR - Pão Quente, 24H, Café da Manhã - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#4e342e,#d7ccc8);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #d7ccc8;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #d7ccc8;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#efebe9;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #d7ccc8;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#8d6e63;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffeb3b}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #ffcc00;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-orange{background:#ff8c00;color:#fff}.b-brown{background:#8b4513;color:#fff}.b-red{background:#e50914;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffeb3b;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#ff8c00;color:#fff}
+.alert{background:#1a1500;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🥖 ARAUCÁRIA - PADARIAS E CONFEITARIAS</h1>
-<p style="font-size:12px;color:#ddd">Pão Quente, Bolo, Doces, Café - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🥖 PADARIAS - ARAUCÁRIA</div>
+<div class="alert">🥖 <b>PADARIAS ARAUCÁRIA - PÃO QUENTE, 24H, CAFÉ DA MANHÃ - R$ 1 PÃO - PÃO QUENTE</b> | Centro, Tindiquera, Costeira - Pão quente R$ 1, padaria 24H, café da manhã, pão francês, bolo - R$ 1 - Quente</div>
+
+<div class="cat">🥖 PADARIAS - ARAUCÁRIA - 4 PADARIAS - PÃO QUENTE, 24H, CAFÉ - R$ 1 - PÃO QUENTE - 24H</div>
 <div class="grid">
 
 <div class="card">
-<b>🥖 PADARIA ARAUCÁRIA CENTRO - PÃO QUENTE 05H - 24H</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Pão francês, pão doce, integral</span>
-<span>🕐 Seg a Dom: 05h às 22h - Pão quente toda hora - Café da manhã</span>
-<div class="tel">📞 (41) 3641-6000 - Padaria Centro Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800">
+<div class="badge b-yellow">PADARIA 24H / PÃO QUENTE - CENTRO - PÃO R$ 1 - 24H - PÃO QUENTE - CAFÉ</div>
+</div>
+<div class="card-body">
+<b>🥖 PADARIA 24H / PÃO QUENTE CENTRO ARAUCÁRIA - PÃO R$ 1 - 24H - PÃO QUENTE - CAFÉ</b>
+<span>Padaria 24H Centro, pão quente R$ 1, pão francês, pão quente toda hora, Centro, Araucária toda, 24H, pão quente, R$ 1 pão.</span>
+<span>📍 Centro - Padaria 24H Araucária - Pão quente R$ 1 - Pão francês - 24H - Pão quente toda hora - Café - Centro - Pão quente - R$ 1</span>
+<span>🕐 24 HORAS - Pão R$ 1 - Pão quente toda hora - Pão francês - 24H - Café - Centro - Pão quente - R$ 1 - 24H - Padaria</span>
+<span class="tel">📞 (41) 3643-6800 - Padaria 24H - Centro - Pão R$ 1 - Pão Quente Toda Hora - 24H - Araucária - Café - Pão Quente</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436800">LIGAR 24H AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Padaria+24H+Centro+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436800">WHATS PÃO R$1 QUENTE 24H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🎂 CONFEITARIA TINDIQUERA / CAPELA - BOLO E TORTA</b>
-<span>📍 Tindiquera, Capela Velha, Boqueirão - Bolo aniversário, torta, doces</span>
-<span>🕐 Seg a Sáb: 06h às 20h - Dom: 06h às 12h - Encomenda bolo</span>
-<div class="tel">📞 (41) 3641-7000 - Confeitaria Tindiquera</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1495147466023-4124d54ddddd?q=80&w=800">
+<div class="badge b-orange">CAFÉ DA MANHÃ / CONFEITARIA / BOLO - TINDIQUERA - CAFÉ R$ 15 - BOLO - CONFEITARIA</div>
+</div>
+<div class="card-body">
+<b>☕ CAFÉ DA MANHÃ / CONFEITARIA / BOLO TINDIQUERA / CAPELA VELHA - CAFÉ R$ 15 - BOLO - CONFEITARIA</b>
+<span>Café da manhã R$ 15, confeitaria, bolo, Tindiquera, Capela Velha, R$ 15 café da manhã, bolo, confeitaria, Araucária, café.</span>
+<span>📍 Tindiquera, Capela Velha - Café da manhã, confeitaria Araucária - R$ 15 café - Bolo - Confeitaria - Café da manhã - Tindiquera</span>
+<span>🕐 Seg a Dom: 06h às 20h - Café R$ 15 - Confeitaria - Bolo - Café da manhã - Tindiquera - Café - Confeitaria - R$ 15 - Bolo</span>
+<span class="tel">📞 (41) 3643-6801 - Café da Manhã - Confeitaria - Bolo - Tindiquera - R$ 15 Café - Bolo - Araucária - Confeitaria - Café</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Café+da+Manhã+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436001">WHATS CAFÉ R$15 BOLO</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🥐 PADARIA COSTEIRA / BOQUEIRÃO - ARAUCÁRIA - LANCHES</b>
-<span>📍 Costeira, Boqueirão - Pão, frios, lanche, suco, café colonial</span>
-<span>🕐 Seg a Dom: 05h30 às 21h - Lanche natural, coxinha, pastel</span>
-<div class="tel">📞 (41) 3641-8000 - Padaria Costeira</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=800">
+<div class="badge b-brown">PÃO FRANCÊS / PÃO DOCE / SALGADO - COSTEIRA - PÃO FRANCÊS - PÃO DOCE - SALGADO</div>
+</div>
+<div class="card-body">
+<b>🍞 PÃO FRANCÊS / PÃO DOCE / SALGADO COSTEIRA / BOQUEIRÃO - PÃO FRANCÊS - PÃO DOCE - SALGADO</b>
+<span>Pão francês, pão doce, salgado, Costeira, Boqueirão, pão francês, pão doce, salgado, Araucária, padaria, pão, salgado.</span>
+<span>📍 Costeira, Boqueirão - Pão francês, pão doce, salgado Araucária - Pão francês - Pão doce - Salgado - Padaria - Costeira</span>
+<span>🕐 Seg a Dom: 05h às 21h - Pão francês - Pão doce - Salgado - Padaria - Costeira - Pão - Salgado - Costeira - Padaria - Pão</span>
+<span class="tel">📞 (41) 3643-6802 - Pão Francês - Pão Doce - Salgado - Costeira - Padaria - Pão - Salgado - Araucária - Pão Francês</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Padaria+Costeira+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436002">WHATS PÃO FRANCÊS SALGADO</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🍞 DISK PÃO ARAUCÁRIA - ENTREGA - PÃO QUENTE EM CASA</b>
-<span>📍 Entrega toda Araucária - Pão, leite, frios, bolo</span>
-<span>🕐 Seg a Dom: 06h às 19h - Entrega rápida manhã</span>
-<div class="tel">📞 (41) 9 9999-0000 - Disk Pão Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=800">
+<div class="badge b-red">LANCHE / PASTEL / COXINHA / REFRIGERANTE - ARAUCÁRIA - LANCHE R$ 8 - PASTEL - COXINHA</div>
+</div>
+<div class="card-body">
+<b>🥟 LANCHE / PASTEL / COXINHA / REFRIGERANTE ARAUCÁRIA - LANCHE R$ 8 - PASTEL - COXINHA - REFRIGERANTE</b>
+<span>Lanche R$ 8, pastel, coxinha, refrigerante, Araucária toda, R$ 8 lanche, pastel, coxinha, refrigerante, Araucária, lanche.</span>
+<span>📍 Araucária toda - Lanche, pastel, coxinha Araucária - R$ 8 lanche - Pastel - Coxinha - Refrigerante - Lanche - Araucária toda</span>
+<span>🕐 Seg a Dom: 06h às 22h - Lanche R$ 8 - Pastel - Coxinha - Refrigerante - Araucária toda - Lanche - R$ 8 - Pastel - Coxinha</span>
+<span class="tel">📞 (41) 3643-6803 - Lanche - Pastel - Coxinha - R$ 8 Lanche - Refrigerante - Araucária - Lanche - Pastel - Coxinha</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Lanche+Pastel+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436003">WHATS LANCHE R$8 PASTEL COXINHA</a>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#8d6e63'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
