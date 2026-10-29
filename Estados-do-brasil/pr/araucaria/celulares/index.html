@@ -1,83 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conserto Celular Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Araucária - Conserto Celular - Tela, Película - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#000000,#616161);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #00e676;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #00e676;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#69f0ae;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.urgente{background:#00e676;color:#000;padding:2px 6px;border-radius:4px;font-size:10px;display:inline-block;margin-bottom:4px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #00e676;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#00e676;color:#000;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff}
+.hero{background:linear-gradient(135deg,#00c853,#002776);padding:24px 14px;text-align:center}
+.hero h1{margin:0;font-size:23px;font-weight:900;line-height:25px}
+.hero span{display:block;margin-top:8px;color:#c8ffce;font-size:12px}
+.hero-btns{margin-top:14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.btn{padding:10px 16px;border-radius:25px;font-weight:900;font-size:11px;text-decoration:none}
+.btn-b{background:#fff;color:#000}.btn-g{background:#00c853;color:#fff}.btn-y{background:#ffcc00;color:#000}
+
+.alert{max-width:980px;margin:12px auto;background:linear-gradient(90deg,#00c853,#009739);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;border:1px solid #00ff88}
+.alert .ico{font-size:28px}.alert b{font-size:14px;display:block}.alert span{font-size:11px;color:#d0ffd0}
+
+.cat{background:#111;border-left:5px solid #00ff88;margin:18px auto 0;max-width:980px;padding:12px 14px;font-weight:900;border-radius:0 8px 8px 0;font-size:13px;color:#00ff88}
+.grid{max-width:980px;margin:12px auto;padding:0 12px;display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+
+.card{background:#151515;border-radius:18px;overflow:hidden;border:1.5px solid #222;position:relative}
+.card:before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:#00ff88;z-index:2}
+.card-top{height:125px;position:relative;overflow:hidden;background:#222}
+.card-top img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:14px;padding:6px 10px;border-radius:20px;font-size:9px;font-weight:900;color:#fff}
+.b-green{background:#00c853}.b-blue{background:#0d8bf2}.b-yellow{background:#ffcc00;color:#000}.b-orange{background:#ff6a00}
+.pulse{position:absolute;top:10px;right:10px;background:#00ff88;color:#000;padding:5px 10px;border-radius:20px;font-size:9px;font-weight:900}
+.card-body{padding:14px}
+.card-body h3{margin:0;font-size:13px;color:#00ff88;line-height:15px;text-transform:uppercase}
+.card-body .addr{font-size:11px;color:#aaa;margin-top:6px}
+.card-body .hours{font-size:11px;color:#ddd;margin-top:5px;background:#111;padding:6px 8px;border-radius:8px}
+.tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.tags span{background:#222;border:1px solid #333;padding:4px 8px;border-radius:20px;font-size:9px;color:#ccc}
+.phone{margin-top:10px;display:flex;gap:8px}
+.phone a{flex:1;text-align:center;padding:12px 6px;border-radius:12px;font-weight:900;font-size:12px;text-decoration:none}
+.call{background:#00c853;color:#fff}.whats{background:#fff;color:#000}
 </style>
 </head>
 <body>
-<div class="top">
-<h1>📱 ARAUCÁRIA - CONSERTO CELULAR</h1>
-<p style="font-size:12px;color:#ddd">Tela, Película, Capinha, Desbloqueio - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+
+<div class="hero">
+<h1>📱 ARAUCÁRIA -<br>CONSERTO CELULAR</h1>
+<span>Tela, Película, Capinha, Desbloqueio - Portal do Povo</span>
+<div class="hero-btns">
+<a href="../index.html" class="btn btn-b">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-g">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-y">🇧🇷 Estados</a>
+</div>
 </div>
 
-<div class="cat">📱 CONSERTO CELULAR - ARAUCÁRIA</div>
+<div class="alert">
+<div class="ico">⚡</div>
+<div><b>CONSERTO EM 1 HORA - ARAUCÁRIA CENTRO</b><span>Tela quebrada? Troca na hora - iPhone, Samsung, Xiaomi</span></div>
+</div>
+
+<div class="cat">📱 CONSERTO CELULAR - ARAUCÁRIA - TELA QUEBRADA</div>
 <div class="grid">
 
 <div class="card">
-<span class="urgente">📱 CENTRO - 1 HORA</span>
-<b>📱 ASSISTÊNCIA CELULAR ARAUCÁRIA CENTRO - TELA QUEBRADA - TROCA</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - iPhone, Samsung, Xiaomi, Motorola</span>
-<span>🕐 Seg a Sáb: 09h às 19h - Tela, bateria, conector, película 3D</span>
-<div class="tel">📞 (41) 3641-5000 - Conserto Celular Centro</div>
+<div class="card-top"><img src="https://images.unsplash.com/photo-1592899677977-9bb10ba128a5?q=80&w=600"><div class="badge b-green">CENTRO - 1 HORA</div><div class="pulse">● ABERTO</div></div>
+<div class="card-body">
+<h3>📱 ASSISTÊNCIA CELULAR ARAUCÁRIA CENTRO - TELA QUEBRADA</h3>
+<div class="addr">📍 Rua Dr. Faivre, 1355 - Centro - iPhone, Samsung, Xiaomi, Motorola</div>
+<div class="hours">🕐 Seg a Sáb: 09h às 19h - Tela, bateria, conector, película 3D</div>
+<div class="tags"><span>iPhone</span><span>Samsung</span><span>Xiaomi</span><span>Tela Original</span></div>
+<div class="phone">
+<a href="tel:4136415000" class="call">📞 (41) 3641-5000</a>
+<a href="https://wa.me/554136415000" class="whats">💬 WHATSAPP</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>📱 LOJA CELULAR TINDIQUERA / CAPELA VELHA - ARAUCÁRIA</b>
-<span>📍 Tindiquera, Capela Velha - Capinha, película, carregador, fone</span>
-<span>🕐 Seg a Sáb: 09h às 20h - Dom: 10h às 16h - Acessórios</span>
-<div class="tel">📞 (41) 9 9999-5555 - Loja Celular Tindiquera</div>
+<div class="card-top"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=600"><div class="badge b-blue">TINDIQUERA - CAPELA VELHA</div><div class="pulse">● ABERTO</div></div>
+<div class="card-body">
+<h3>📱 LOJA CELULAR TINDIQUERA - CAPAS E PELÍCULAS ARAUCÁRIA</h3>
+<div class="addr">📍 Tindiquera, Capela Velha - Capinhas, película, fone, carregador</div>
+<div class="hours">🕐 Seg a Sáb: 09h às 20h - Dom: 09h às 13h - Acessórios</div>
+<div class="tags"><span>Capinha R$ 15</span><span>Película R$ 10</span><span>Fone</span></div>
+<div class="phone">
+<a href="tel:41999995555" class="call">📞 (41) 9 9999-5555</a>
+<a href="https://wa.me/5541999995555" class="whats">💬 WHATSAPP</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🔓 DESBLOQUEIO CELULAR ARAUCÁRIA - CONTA GOOGLE - IPHONE</b>
-<span>📍 Araucária toda - Desbloqueio, formatação, conta Google, iCloud</span>
-<span>🕐 Seg a Sáb: 09h às 19h - Software, atualização, backup</span>
-<div class="tel">📞 (41) 9 9999-6666 - Desbloqueio Araucária</div>
+<div class="card-top"><img src="https://images.unsplash.com/photo-1556656793-08538906a9f8?q=80&w=600"><div class="badge b-yellow">DESBLOQUEIO</div><div class="pulse">● GOOGLE - IPHONE</div></div>
+<div class="card-body">
+<h3>🔓 DESBLOQUEIO CELULAR - CONTA GOOGLE - IPHONE ARAUCÁRIA</h3>
+<div class="addr">📍 Araucária toda - Desbloqueio Google, Mi Cloud, iCloud</div>
+<div class="hours">🕐 Seg a Sáb: 09h às 19h - Serviço rápido - Senha esquecida</div>
+<div class="tags"><span>Google</span><span>iCloud</span><span>Mi Cloud</span><span>Senha</span></div>
+<div class="phone">
+<a href="tel:41999996666" class="call">📞 (41) 9 9999-6666</a>
+<a href="https://wa.me/5541999996666" class="whats">💬 WHATSAPP</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>📱 CELULAR USADO ARAUCÁRIA - COMPRA VENDA TROCA - COSTEIRA</b>
-<span>📍 Costeira, Boqueirão - Compra, vende, troca celular usado</span>
-<span>🕐 Seg a Sáb: 09h às 19h - Melhor preço Araucária - Pix</span>
-<div class="tel">📞 (41) 9 9999-7777 - Celular Usado Costeira</div>
+<div class="card-top"><img src="https://images.unsplash.com/photo-1592899677977-9bb10ba128a5?q=80&w=600"><div class="badge b-orange">USADO - TROCA</div><div class="pulse">● COSTEIRA</div></div>
+<div class="card-body">
+<h3>📱 CELULAR USADO ARAUCÁRIA - COMPRA E TROCA - COSTEIRA</h3>
+<div class="addr">📍 Costeira, Boqueirão - Compra, vende, troca celular usado - Melhor preço</div>
+<div class="hours">🕐 Seg a Sáb: 09h às 18h - Avaliação na hora - Pago à vista</div>
+<div class="tags"><span>Compra</span><span>Venda</span><span>Troca</span><span>Usado</span></div>
+<div class="phone">
+<a href="tel:41999997777" class="call">📞 (41) 9 9999-7777</a>
+<a href="https://wa.me/5541999997777" class="whats">💬 WHATSAPP</a>
+</div>
+</div>
 </div>
 
 </div>
 
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#00e676';this.style.color='#000'}">🔊 SOM</button>
-</div>
+<div style="max-width:980px;margin:20px auto;padding:0 12px;text-align:center">
+<a href="../index.html" style="background:#222;color:#fff;padding:12px 20px;border-radius:25px;text-decoration:none;font-weight:900;font-size:12px;display:inline-block">⬅️ VOLTAR PARA ARAUCÁRIA</a>
 </div>
 
 </body>
