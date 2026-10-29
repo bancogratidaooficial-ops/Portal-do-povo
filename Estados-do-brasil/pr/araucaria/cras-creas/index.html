@@ -1,103 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CRAS CREAS Bolsa Família Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAS CREAS Araucária PR - Bolsa Família, Cadastro Único - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#ff8c00,#002776);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #ff8c00;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #ff8c00;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#ffb347;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffcc00}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #ffcc00;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-green{background:#00a859;color:#fff}.b-blue{background:#0d8bf2;color:#fff}.b-red{background:#e50914;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffcc00;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#00a859;color:#fff}
+.alert{background:#1a1500;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>👨‍👩‍👧‍👦 ARAUCÁRIA - CRAS CREAS BOLSA FAMÍLIA</h1>
-<p style="font-size:12px;color:#ddd">CadÚnico, Auxílio, Conselho Tutelar - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">👨‍👩‍👧‍👦 CRAS / BOLSA FAMÍLIA - ARAUCÁRIA</div>
+<div class="alert">🏠 <b>CRAS CREAS ARAUCÁRIA - BOLSA FAMÍLIA, CADASTRO ÚNICO, AUXÍLIO - GRÁTIS</b> | Centro, Tindiquera, Costeira - Cadastro, atualização, benefício, cesta básica</div>
+
+<div class="cat">🏠 CRAS CREAS - ARAUCÁRIA - 4 UNIDADES - BOLSA FAMÍLIA, CADASTRO ÚNICO, CREAS</div>
 <div class="grid">
 
 <div class="card">
-<b>👨‍👩‍👧‍👦 CRAS CENTRO - ARAUCÁRIA - BOLSA FAMÍLIA</b>
-<span>📍 Rua São Vicente de Paulo, 1180 - Costeira</span>
-<span>🕐 Seg a Sex: 08h às 17h - CadÚnico, Bolsa Família</span>
-<div class="tel">📞 (41) 3614-7600 - CRAS Centro - Cadastro Único</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800">
+<div class="badge b-yellow">CRAS CENTRO - BOLSA FAMÍLIA, CADASTRO ÚNICO - CENTRO - GRÁTIS</div>
+</div>
+<div class="card-body">
+<b>🏠 CRAS CENTRO ARAUCÁRIA - BOLSA FAMÍLIA, CADASTRO ÚNICO, AUXÍLIO BRASIL - GRÁTIS</b>
+<span>Bolsa Família, Cadastro Único, Auxílio Brasil, cesta básica, benefício, atualização, cadastro, CRAS centro, grátis.</span>
+<span>📍 Centro - CRAS Centro Araucária - Bolsa Família - Cadastro Único - Grátis - Auxílio</span>
+<span>🕐 Seg a Sex: 08h às 17h - CRAS - Bolsa Família - Cadastro Único - Grátis - Atualização - Cesta básica</span>
+<span class="tel">📞 (41) 3643-6000 - CRAS Centro - Bolsa Família - Cadastro Único - Araucária - Grátis</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436000">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=CRAS+Centro+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436000">WHATS BOLSA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏠 CRAS CAPELA VELHA - ARAUCÁRIA</b>
-<span>📍 Rua Jorge Lacerda, 250 - Capela Velha</span>
-<span>🕐 Seg a Sex: 08h às 17h - Assistência Social</span>
-<div class="tel">📞 (41) 3614-7601 - CRAS Capela</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=800">
+<div class="badge b-green">CRAS TINDIQUERA / CAPELA VELHA - BOLSA FAMÍLIA - CADASTRO</div>
+</div>
+<div class="card-body">
+<b>🏡 CRAS TINDIQUERA / CAPELA VELHA - BOLSA FAMÍLIA, CADASTRO ÚNICO - GRÁTIS</b>
+<span>CRAS Tindiquera, Capela Velha, Bolsa Família, Cadastro Único, benefício, cesta básica, cadastro, atualização, grátis.</span>
+<span>📍 Tindiquera, Capela Velha - CRAS - Bolsa Família - Cadastro Único - Araucária - Grátis</span>
+<span>🕐 Seg a Sex: 08h às 17h - CRAS Tindiquera - Bolsa Família - Cadastro - Grátis - Cesta básica - Auxílio</span>
+<span class="tel">📞 (41) 3643-6001 - CRAS Tindiquera - Bolsa Família - Araucária - Grátis - Capela Velha</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=CRAS+Tindiquera+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136436001">WHATS CRAS</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏠 CRAS BOQUEIRÃO - TINDIQUERA - ARAUCÁRIA</b>
-<span>📍 Rua Archelau de Almeida Torres, 1251 - Boqueirão</span>
-<span>🕐 Seg a Sex: 08h às 17h</span>
-<div class="tel">📞 (41) 3614-7602 - CRAS Boqueirão</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1582213782179-19f0dcdd48c8?q=80&w=800">
+<div class="badge b-blue">CREAS - COSTEIRA / BOQUEIRÃO - CONSELHO TUTELAR - VIOLÊNCIA - 24H</div>
+</div>
+<div class="card-body">
+<b>🛡️ CREAS COSTEIRA / BOQUEIRÃO - CONSELHO TUTELAR, VIOLÊNCIA, ABUSO - 24H</b>
+<span>CREAS, Conselho Tutelar, violência, abuso, criança, adolescente, mulher, denúncia, proteção, assistência social, 24H.</span>
+<span>📍 Costeira, Boqueirão - CREAS Araucária - Conselho Tutelar - Violência - Proteção - 24H</span>
+<span>🕐 Seg a Sex: 08h às 17h | Emergência 24H - CREAS - Conselho Tutelar - Violência - Denúncia - Proteção - Sigiloso</span>
+<span class="tel">📞 (41) 3643-6002 - CREAS - Conselho Tutelar - Costeira - Araucária - 100 / 180 - Denúncia</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136436002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=CREAS+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="tel:100">DISQUE 100</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🛡️ CREAS - ARAUCÁRIA - CENTRO ESPECIALIZADO</b>
-<span>📍 Rua Dr. Faivre, 412 - Centro - Casa da Cidadania</span>
-<span>🕐 Seg a Sex: 08h às 17h - Violência, Abandono, Rua</span>
-<div class="tel">📞 (41) 3614-7650 / 100 - Disque Direitos Humanos</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800">
+<div class="badge b-red">CADASTRO ÚNICO / BOLSA FAMÍLIA ONLINE - ATUALIZAÇÃO - ARAUCÁRIA</div>
 </div>
-
-<div class="card">
-<b>👶 CONSELHO TUTELAR - ARAUCÁRIA - 24H</b>
-<span>📍 Rua Pedro Druszcz, 111 - Prefeitura - Centro</span>
-<span>🕐 Seg a Sex: 08h às 18h - Plantão 24H</span>
-<div class="tel">📞 🚨 (41) 3614-7660 / 9 9999-9999 Plantão - 136</div>
+<div class="card-body">
+<b>💻 CADASTRO ÚNICO / BOLSA FAMÍLIA ONLINE - ARAUCÁRIA - ATUALIZAÇÃO, CONSULTA - APP</b>
+<span>Cadastro Único online, Bolsa Família app, consulta benefício, atualização, Cadastro Único site, Meu CadÚnico, Caixa Tem.</span>
+<span>📍 Online - Araucária - Cadastro Único online - App Bolsa Família - Caixa Tem - Consulta - Atualização</span>
+<span>🕐 24H online - App - Bolsa Família - Cadastro Único - Consulta - Atualização - Grátis - Caixa Tem</span>
+<span class="tel">📞 App Cadastro Único / Bolsa Família / Caixa Tem - Online - Araucária - Grátis - Consulta</span>
+<div class="actions">
+<a class="btn-ligar" href="https://cadunico.dataprev.gov.br" target="_blank">SITE CADÚNICO</a>
+<a class="btn-mapa" href="https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico" target="_blank">GOV.BR</a>
+<a class="btn-site" href="tel:111">CAIXA 111</a>
 </div>
-
-<div class="card">
-<b>💰 BOLSA FAMÍLIA / CADÚNICO - ARAUCÁRIA - SEDE</b>
-<span>📍 Rua Pedro Druszcz, 111 - Prefeitura - SMAS - Centro</span>
-<span>🕐 Seg a Sex: 08h às 16h - Levar RG, CPF, Comprovante</span>
-<div class="tel">📞 121 MDS / (41) 3614-7600 - Bolsa Família</div>
 </div>
-
-<div class="card">
-<b>🏠 CASA DA CIDADANIA - ARAUCÁRIA</b>
-<span>📍 Rua Dr. Faivre, 412 - Centro - Todos os serviços</span>
-<span>🕐 Seg a Sex: 08h às 16h - RG, Carteira Trabalho, SINE</span>
-<div class="tel">📞 (41) 3614-1444 - Casa da Cidadania</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#009739'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
