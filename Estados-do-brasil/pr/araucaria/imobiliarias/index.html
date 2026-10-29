@@ -1,96 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Imobiliárias Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imobiliárias Araucária PR - Aluguel, Venda, Casa, Apartamento - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#002776,#009739);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #009739;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #009739;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#4da6ff;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #009739;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#009739;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #002776}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #002776;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#4d8eff}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #002776;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#fff}
+.b-blue{background:#002776}.b-green{background:#00a859}.b-yellow{background:#ffcc00;color:#000}.b-red{background:#e50914}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#4d8eff;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#002776;color:#fff}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#00a859;color:#fff}
+.alert{background:#000a1a;border:1px solid #002776;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🏠 ARAUCÁRIA - IMOBILIÁRIAS E IMÓVEIS</h1>
-<p style="font-size:12px;color:#ddd">Aluguel, Venda, Casa, Apartamento - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🏠 IMOBILIÁRIAS - ARAUCÁRIA</div>
+<div class="alert">🏠 <b>IMOBILIÁRIAS ARAUCÁRIA - ALUGUEL, VENDA, CASA, APARTAMENTO - SEM FIADOR</b> | Centro, Tindiquera, Costeira, Capela Velha - Casa, apto, kitnet, terreno - R$ 500</div>
+
+<div class="cat">🏠 IMOBILIÁRIAS - ARAUCÁRIA - 4 IMOBILIÁRIAS - ALUGUEL, VENDA, CASA, APTO - R$ 500</div>
 <div class="grid">
 
 <div class="card">
-<b>🏠 IMOBILIÁRIA ARAUCÁRIA IMÓVEIS - CENTRO</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Araucária</span>
-<span>🕐 Seg a Sex: 08h às 18h - Sáb: 08h às 12h - Venda e Aluguel</span>
-<div class="tel">📞 (41) 3641-7000 - Araucária Imóveis</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800">
+<div class="badge b-blue">ALUGUEL CENTRO - CASA, APTO, KITNET - R$ 500 - SEM FIADOR - CENTRO</div>
+</div>
+<div class="card-body">
+<b>🏠 ALUGUEL CENTRO ARAUCÁRIA - CASA, APTO, KITNET - R$ 500 - SEM FIADOR - CENTRO</b>
+<span>Aluguel centro, casa, apartamento, kitnet, R$ 500, sem fiador, direto proprietário, 1 quarto, 2 quartos, mobiliado.</span>
+<span>📍 Centro - Aluguel Centro Araucária - Casa, apto, kitnet - R$ 500 - Sem fiador - Mobiliado - Direto</span>
+<span>🕐 Seg a Sáb: 08h às 18h - Aluguel R$ 500 - Sem fiador - Casa, apto, kitnet - Centro - Mobiliado - 1, 2 quartos</span>
+<span class="tel">📞 (41) 3643-9000 - Aluguel Centro - R$ 500 - Sem Fiador - Casa, Apto - Araucária - Kitnet</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136439000">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Imobiliária+Centro+Araucária+Aluguel" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136439000">WHATS ALUGUEL R$500</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏠 CASAS PARA ALUGAR - ARAUCÁRIA - DIRETO PROPRIETÁRIO</b>
-<span>📍 Tindiquera, Costeira, Capela Velha, Boqueirão, Centro</span>
-<span>🕐 Aluguel sem fiador - Caução / Seguro fiança</span>
-<div class="tel">📞 (41) 9 9999-0000 - Aluguel Direto - Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800">
+<div class="badge b-green">VENDA CASA / TERRENO - TINDIQUERA / CAPELA VELHA - FINANCIAMENTO</div>
+</div>
+<div class="card-body">
+<b>🏡 VENDA CASA / TERRENO TINDIQUERA / CAPELA VELHA - CASA R$ 150 MIL - FINANCIAMENTO - CAIXA</b>
+<span>Venda casa, terreno, Tindiquera, Capela Velha, R$ 150 mil, financiamento Caixa, Minha Casa Minha Vida, FGTS, entrada facilitada.</span>
+<span>📍 Tindiquera, Capela Velha - Venda casa Araucária - R$ 150 mil - Financiamento Caixa - Minha Casa Minha Vida - FGTS</span>
+<span>🕐 Seg a Sáb: 08h às 18h - Venda R$ 150 mil - Financiamento Caixa - FGTS - Entrada facilitada - Casa, terreno - Tindiquera</span>
+<span class="tel">📞 (41) 3643-9001 - Venda Casa - Tindiquera - R$ 150 Mil - Financiamento Caixa - Araucária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136439001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Venda+Casa+Tindiquera+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136439001">WHATS VENDA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏠 APARTAMENTOS - ARAUCÁRIA - PLANTA E PRONTO</b>
-<span>📍 Centro, Costeira, Iguaçu, Fazenda Velha - Minha Casa Minha Vida</span>
-<span>🕐 Financiamento Caixa - Entrada facilitada</span>
-<div class="tel">📞 (41) 3641-7100 - Apartamentos Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=800">
+<div class="badge b-yellow">APARTAMENTO / KITNET - COSTEIRA / BOQUEIRÃO - R$ 600 - MOBILIADO</div>
+</div>
+<div class="card-body">
+<b>🏢 APARTAMENTO / KITNET COSTEIRA / BOQUEIRÃO - R$ 600 - MOBILIADO - SEM FIADOR - VAGA</b>
+<span>Apartamento, kitnet, Costeira, Boqueirão, R$ 600, mobiliado, sem fiador, vaga garagem, internet, água inclusa, 1 quarto.</span>
+<span>📍 Costeira, Boqueirão - Apto, kitnet Araucária - R$ 600 - Mobiliado - Sem fiador - Vaga - Internet - Água inclusa</span>
+<span>🕐 Seg a Sáb: 08h às 18h - Kitnet R$ 600 - Mobiliado - Sem fiador - Vaga - Internet - Água - Costeira - 1 quarto</span>
+<span class="tel">📞 (41) 3643-9002 - Apto Kitnet - Costeira - R$ 600 - Mobiliado - Araucária - Sem Fiador</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136439002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Kitnet+Costeira+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136439002">WHATS KITNET R$600</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏢 LOTEAMENTOS - ARAUCÁRIA - TERRENOS</b>
-<span>📍 Tindiquera, Campina da Barra, Capela Velha - Lotes 125m² a 500m²</span>
-<span>🕐 Parcelamento direto - Sem burocracia</span>
-<div class="tel">📞 (41) 3641-7200 - Lotes Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800">
+<div class="badge b-red">IMOBILIÁRIA / CORRETOR - ARAUCÁRIA - AVALIAÇÃO GRÁTIS - CRECI</div>
 </div>
-
-<div class="card">
-<b>🏠 COHAB ARAUCÁRIA - HABITAÇÃO POPULAR - PREFEITURA</b>
-<span>📍 Rua Pedro Druszcz, 111 - Prefeitura - SM Habitação - Centro</span>
-<span>🕐 Seg a Sex: 08h às 16h - Inscrição casa popular</span>
-<div class="tel">📞 (41) 3614-7600 - COHAB Araucária - Habitação</div>
+<div class="card-body">
+<b>🏘️ IMOBILIÁRIA / CORRETOR ARAUCÁRIA - AVALIAÇÃO GRÁTIS - VENDA RÁPIDA - CRECI - ALUGUEL</b>
+<span>Imobiliária Araucária, corretor, avaliação grátis, venda rápida, aluguel, administração, Creci, contrato, vistoria, seguro.</span>
+<span>📍 Centro - Imobiliária Araucária - Corretor - Avaliação grátis - Venda rápida - Creci - Aluguel - Administração</span>
+<span>🕐 Seg a Sex: 08h às 18h | Sáb: 08h às 12h - Avaliação grátis - Venda rápida - Aluguel - Creci - Administração - Contrato</span>
+<span class="tel">📞 (41) 3643-9003 - Imobiliária - Corretor - Avaliação Grátis - Araucária - Creci - Venda Rápida</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136439003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Imobiliária+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136439003">WHATS AVALIAÇÃO</a>
 </div>
-
-<div class="card">
-<b>🏠 CAIXA ECONÔMICA - ARAUCÁRIA - FINANCIAMENTO</b>
-<span>📍 Rua Dr. Faivre, 1350 - Centro - Araucária</span>
-<span>🕐 Seg a Sex: 10h às 16h - Financiamento Imóvel Caixa</span>
-<div class="tel">📞 (41) 3641-7300 / 0800-726-0101 - Caixa Habitação</div>
-</div>
-
-</div>
-
-<div class="ad-box"><small>PUBLICIDADE - IMOBILIÁRIAS PARCEIRAS</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#009739'}">🔊 SOM</button>
 </div>
 </div>
 
+</div>
 </body>
 </html>
