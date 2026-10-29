@@ -2,107 +2,135 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Araucária PR - Portal do Povo - Oficial</title>
+<title>Araucária PR - Portal do Povo - Tudo de Araucária em um lugar</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:#000;padding:14px;position:sticky;top:0;z-index:20;border-bottom:3px solid #ffcc00;display:flex;justify-content:space-between;align-items:center}
-.top h1{font-size:16px;margin:0;color:#ffcc00}
-.btn{padding:7px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none;display:inline-block}
-.cat{background:#111;border-left:4px solid #ffcc00;margin:16px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;font-size:14px}
-.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:600px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:#151515;border-radius:14px;overflow:hidden;border:1px solid #222;position:relative;text-decoration:none;color:#fff}
-.card img{width:100%;height:110px;object-fit:cover}
-.badge{position:absolute;top:8px;left:8px;padding:4px 8px;border-radius:12px;font-size:10px;font-weight:bold;color:#fff}
-.b-blue{background:#0d8bf2}.b-red{background:#e50914}.b-green{background:#00a859}.b-orange{background:#ff6d00}.b-yellow{background:#ffcc00;color:#000}
-.card-body{padding:8px 10px}
-.card-body b{font-size:11px;display:block}.card-body small{font-size:10px;color:#aaa}
-.search{max-width:900px;margin:10px auto;padding:0 10px;display:flex;gap:8px}
-.search input{flex:1;padding:12px;border-radius:25px;border:0}
-.search button{padding:12px 18px;border-radius:25px;border:0;background:#ffcc00;font-weight:bold}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff;padding-bottom:90px}
+.top{background:#111;padding:10px;display:flex;gap:8px;position:sticky;top:0;z-index:20;border-bottom:2px solid #009739;align-items:center;justify-content:space-between}
+.logo{font-weight:bold;color:#ffcc00;font-size:14px}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-green{background:#009739;color:#fff}.btn-blue{background:#002776;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.search{max-width:900px;margin:12px auto;padding:0 12px}
+.search input{width:100%;padding:14px;border-radius:25px;border:2px solid #009739;background:#111;color:#fff;font-size:14px}
+.count{background:#009739;color:#fff;padding:8px 14px;border-radius:20px;font-weight:bold;font-size:12px;text-align:center;max-width:900px;margin:10px auto}
+.grid{max-width:950px;margin:10px auto;padding:10px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.card{background:#151515;border:1px solid #333;border-radius:12px;padding:12px;text-align:center;text-decoration:none;color:#fff;display:block;transition:.2s}
+.card:hover{border-color:#ffcc00;transform:scale(1.02);background:#1a1a1a}
+.card b{display:block;font-size:12px;margin-top:6px;color:#ffeb3b;line-height:13px}
+.card span{font-size:18px}
+.card.new{border-color:#00ff88;background:#001a10}
+.badge-new{background:#00ff88;color:#000;font-size:8px;padding:2px 5px;border-radius:10px;font-weight:bold}
+.cat-title{background:#111;border-left:4px solid #009739;margin:16px auto 0;max-width:950px;padding:10px 12px;font-weight:bold;border-radius:4px;color:#00ff88;font-size:13px}
+/* VIDEO MINI PLAYER */
+.video-mini{position:fixed;bottom:12px;right:12px;width:200px;z-index:99;background:#000;border:2px solid #ff0000;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.8)}
+.video-mini-header{background:#ff0000;color:#fff;padding:4px 8px;font-size:10px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.video-mini-header button{background:#000;color:#fff;border:0;border-radius:50%;width:18px;height:18px;cursor:pointer;font-weight:bold}
+.video-mini iframe{width:100%;height:112px;display:block}
+.video-mini.collapsed iframe{display:none}
+.video-mini.collapsed{width:140px}
+#videoToggle{position:fixed;bottom:12px;right:12px;z-index:98;background:#ff0000;color:#fff;border:0;padding:10px 14px;border-radius:25px;font-weight:bold;font-size:11px;display:none;cursor:pointer}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🚨 PORTAL DO POVO - ARAUCÁRIA</h1>
-<div>
-<a href="../../index.html" class="btn" style="background:#222;color:#fff">🇧🇷 Estados</a>
-<a href="../index.html" class="btn" style="background:#009739;color:#fff">🌲 Cidades PR</a>
+<div class="logo">🌲 ARAUCÁRIA PR - PORTAL DO POVO</div>
+<div style="display:flex;gap:6px">
+<a href="../index.html" class="btn btn-green">CIDADES PR</a>
+<a href="../../index.html" class="btn btn-blue">ESTADOS</a>
 </div>
 </div>
+
+<div class="count">✅ 63 SERVIÇOS - TUDO DE ARAUCÁRIA - ATUALIZADO AGORA - 32 NOVOS PREMIUM</div>
 
 <div class="search">
-<input id="busca" type="text" placeholder="Buscar em Araucária... farmácia, guincho, pet" onkeyup="filtrar()">
-<button onclick="filtrar()">🔍</button>
+<input type="text" id="busca" placeholder="🔍 Buscar em Araucária... ex: farmácia 24h, táxi, padaria, ônibus..." onkeyup="filtrar()">
 </div>
 
-<div class="cat">🚨 PORTAL DO POVO - MAIS PROCURADOS</div>
-<div class="grid" id="grid">
-
-<a class="card" href="orgaos-publicos/index.html">
-<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600">
-<div class="badge b-blue">18 ÓRGÃOS</div>
-<div class="card-body"><b>🏛️ ÓRGÃOS PÚBLICOS</b><small>156</small></div>
-</a>
-
-<a class="card" href="emergencias/index.html">
-<img src="https://images.unsplash.com/photo-1589578228447-e1a4e481c6c8?q=80&w=600">
-<div class="badge b-red">10 DPs + 180</div>
-<div class="card-body"><b style="color:#ff6b6b">🚓 DELEGACIAS</b><small>Mulher 180</small></div>
-</a>
-
-<a class="card" href="hospitais/index.html">
-<img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600">
-<div class="badge b-red">16 HOSPITAIS</div>
-<div class="card-body"><b style="color:#ff6b6b">🏥 HOSPITAIS 24H</b><small>SAMU 192</small></div>
-</a>
-
-<a class="card" href="farmacias-24h/index.html">
-<img src="https://images.unsplash.com/photo-1587370560942-ad2a04eabb6d?q=80&w=600">
-<div class="badge b-green">10 FARMÁCIAS</div>
-<div class="card-body"><b style="color:#00ff88">💊 FARMÁCIAS 24H</b><small>Plantão</small></div>
-</a>
-
-<a class="card" href="cras-creas/index.html">
-<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600">
-<div class="badge b-blue">10 CRAS</div>
-<div class="card-body"><b style="color:#ff8c00">🏠 CRAS / CREAS</b><small>Bolsa Família</small></div>
-</a>
-
-<a class="card" href="clinicas-reabilitacao/index.html">
-<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600">
-<div class="badge b-red">AA NA CAPS 188</div>
-<div class="card-body"><b style="color:#ff8c8c">🤝 CLÍNICAS REABILITAÇÃO</b><small>24H - 188</small></div>
-</a>
-
-<a class="card" href="postos-saude/index.html">
-<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600">
-<div class="badge b-blue">10 UBS</div>
-<div class="card-body"><b style="color:#4da6ff">🏥 POSTOS SAÚDE</b><small>SUS</small></div>
-</a>
-
-<a class="card" href="oficinas-24h/index.html">
-<img src="https://images.unsplash.com/photo-1485575301924-6891f5dcd710?q=80&w=600">
-<div class="badge b-yellow">24H</div>
-<div class="card-body"><b>🔧 OFICINAS 24H</b><small>Guincho</small></div>
-</a>
-
+<div class="cat-title">🚨 URGENTE 24H - MAIS BUSCADOS</div>
+<div class="grid" id="grid24h">
+<a href="farmacias-24h/index.html" class="card new"><span>💊</span><b>FARMÁCIAS 24H</b><div class="badge-new">24H</div></a>
+<a href="oficinas-24h/index.html" class="card new"><span>🔧</span><b>OFICINAS 24H</b><div class="badge-new">24H</div></a>
+<a href="chaveiro-24h/index.html" class="card"><span>🔑</span><b>CHAVEIRO 24H</b></a>
+<a href="eletricista-24h/index.html" class="card new"><span>⚡</span><b>ELETRICISTA 24H</b></a>
+<a href="veterinarios-24h/index.html" class="card new"><span>🐾</span><b>VETERINÁRIOS 24H</b><div class="badge-new">NOVO</div></a>
+<a href="pet-shop24h/index.html" class="card"><span>🐶</span><b>PET SHOP 24H</b></a>
+<a href="moto-taxi/index.html" class="card new"><span>🏍️</span><b>MOTO TÁXI 24H</b><div class="badge-new">NOVO</div></a>
+<a href="taxi/index.html" class="card new"><span>🚕</span><b>TÁXI 24H</b><div class="badge-new">NOVO</div></a>
+<a href="onibus/index.html" class="card new"><span>🚌</span><b>ÔNIBUS HORÁRIO</b><div class="badge-new">NOVO</div></a>
+<a href="emergencias/index.html" class="card"><span>🚨</span><b>EMERGÊNCIAS</b></a>
+<a href="hospitais/index.html" class="card"><span>🏥</span><b>HOSPITAIS</b></a>
+<a href="postos-saude/index.html" class="card"><span>🏥</span><b>POSTOS SAÚDE</b></a>
 </div>
 
-<div class="cat">🌙 SERVIÇOS 24H - ARAUCÁRIA</div>
-<div class="grid">
-<a class="card" href="chaveiro-24h/index.html"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🔑 CHAVEIRO 24H</b><small>Abre casa/carro</small></div></a>
-<a class="card" href="pet-shop-24h/index.html"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🐾 PET SHOP 24H</b><small>Veterinário</small></div></a>
-<a class="card" href="eletricista-24h/index.html"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>⚡ ELETRICISTA 24H</b><small>Curto, luz</small></div></a>
-<a class="card" href="agua-gaz/index.html"><img src="https://images.unsplash.com/photo-1605745341112-85968b19335b?q=80&w=600"><div class="badge b-yellow">24H</div><div class="card-body"><b>🔥 GÁS E ÁGUA 24H</b><small>Disk entrega</small></div></a>
+<div class="cat-title">🏠 CASA, COMIDA E SERVIÇOS - NOVOS</div>
+<div class="grid" id="gridCasa">
+<a href="padarias/index.html" class="card new"><span>🥖</span><b>PADARIAS 24H</b><div class="badge-new">NOVO</div></a>
+<a href="variedades/index.html" class="card new"><span>🛍️</span><b>VARIEDADES 1,99</b><div class="badge-new">NOVO</div></a>
+<a href="vidracarias/index.html" class="card new"><span>🪟</span><b>VIDRAÇARIAS</b><div class="badge-new">NOVO</div></a>
+<a href="encanador/index.html" class="card new"><span>🚿</span><b>ENCANADOR</b></a>
+<a href="construcao/index.html" class="card new"><span>🏗️</span><b>CONSTRUÇÃO</b></a>
+<a href="eletricas/index.html" class="card"><span>💡</span><b>ELÉTRICAS</b></a>
+<a href="imobiliarias/index.html" class="card"><span>🏠</span><b>IMOBILIÁRIAS</b></a>
+<a href="imoveis/index.html" class="card"><span>🏡</span><b>IMÓVEIS</b></a>
+<a href="floriculturas/index.html" class="card new"><span>🌸</span><b>FLORICULTURAS</b></a>
+<a href="casa-festas/index.html" class="card"><span>🎉</span><b>CASA DE FESTAS</b></a>
+<a href="ceasa/index.html" class="card"><span>🥬</span><b>CEASA</b></a>
+<a href="gaz-agua/index.html" class="card"><span>🔥</span><b>GÁS E ÁGUA</b></a>
 </div>
+
+<div class="cat-title">💼 TRABALHO, SAÚDE E BELEZA</div>
+<div class="grid" id="gridTrab">
+<a href="empregos/index.html" class="card new"><span>💼</span><b>EMPREGOS</b></a>
+<a href="contabilidades/index.html" class="card new"><span>📊</span><b>CONTABILIDADES</b></a>
+<a href="contadores/index.html" class="card"><span>🧮</span><b>CONTADORES</b></a>
+<a href="informatica/index.html" class="card new"><span>💻</span><b>INFORMÁTICA</b><div class="badge-new">NOVO</div></a>
+<a href="celulares/index.html" class="card"><span>📱</span><b>CELULARES</b></a>
+<a href="graficas/index.html" class="card new"><span>🖨️</span><b>GRÁFICAS</b></a>
+<a href="tatuagens/index.html" class="card new"><span>🎨</span><b>TATUAGENS</b><div class="badge-new">NOVO</div></a>
+<a href="esteticas/index.html" class="card new"><span>💅</span><b>ESTÉTICAS</b></a>
+<a href="saude/index.html" class="card"><span>❤️</span><b>SAÚDE</b></a>
+<a href="clinicas-reabilitacao/index.html" class="card"><span>🏥</span><b>CLÍNICAS REAB</b></a>
+<a href="cras-creas/index.html" class="card new"><span>🤝</span><b>CRAS CREAS</b></a>
+<a href="veterinarios/index.html" class="card"><span>🐾</span><b>VETERINÁRIOS</b></a>
+</div>
+
+<div class="cat-title">🎓 EDUCAÇÃO, SEGURANÇA E OUTROS</div>
+<div class="grid" id="gridOutros">
+<a href="escolas/index.html" class="card"><span>🏫</span><b>ESCOLAS</b></a>
+<a href="faculdades/index.html" class="card"><span>🎓</span><b>FACULDADES</b></a>
+<a href="cursos/index.html" class="card"><span>📚</span><b>CURSOS</b></a>
+<a href="delegacias/index.html" class="card"><span>🚔</span><b>DELEGACIAS</b></a>
+<a href="orgaos-publicos/index.html" class="card"><span>🏛️</span><b>ÓRGÃOS PÚBLICOS</b></a>
+<a href="hoteis-moteis/index.html" class="card"><span>🏨</span><b>HOTÉIS MOTÉIS</b></a>
+<a href="funerarias/index.html" class="card new"><span>⚰️</span><b>FUNERÁRIAS</b></a>
+<a href="lotericas/index.html" class="card new"><span>🎰</span><b>LOTÉRICAS</b><div class="badge-new">NOVO</div></a>
+<a href="classificados/index.html" class="card"><span>📢</span><b>CLASSIFICADOS</b></a>
+<a href="saude/index.html" class="card"><span>💊</span><b>SAÚDE GERAL</b></a>
+</div>
+
+<!-- VIDEO YOUTUBE MINI - NÃO ATRAPALHA -->
+<div class="video-mini" id="videoMini">
+<div class="video-mini-header">
+<span>▶️ ARAUCÁRIA NO YOUTUBE</span>
+<button onclick="minimizar()">X</button>
+</div>
+<iframe src="https://www.youtube.com/embed/?listType=search&list=Araucária+PR+cidade&autoplay=0&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<button id="videoToggle" onclick="abrirVideo()">▶️ VÍDEO ARAUCÁRIA</button>
 
 <script>
 function filtrar(){
 let v=document.getElementById('busca').value.toLowerCase();
-document.querySelectorAll('#grid .card').forEach(c=>{
+document.querySelectorAll('.card').forEach(c=>{
 c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
 });
+}
+function minimizar(){
+document.getElementById('videoMini').style.display='none';
+document.getElementById('videoToggle').style.display='block';
+}
+function abrirVideo(){
+document.getElementById('videoMini').style.display='block';
+document.getElementById('videoToggle').style.display='none';
 }
 </script>
 </body>
