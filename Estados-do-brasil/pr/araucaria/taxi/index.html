@@ -1,84 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Táxi Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Táxi Araucária PR - 24H, Corrida, Aeroporto, Rodoviária - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#212121,#fdd835);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #fdd835;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #fdd835;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#fff59d;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.urgente{background:#fdd835;color:#000;padding:2px 6px;border-radius:4px;font-size:10px;display:inline-block;margin-bottom:4px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #fdd835;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#fdd835;color:#000;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffeb3b}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #ffcc00;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#000}
+.b-yellow{background:#ffcc00}.b-blue{background:#0d8bf2;color:#fff}.b-green{background:#00a859;color:#fff}.b-red{background:#e50914;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffeb3b;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#1a1500;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🚕 ARAUCÁRIA - TÁXI 24 HORAS</h1>
-<p style="font-size:12px;color:#ddd">Ponto Táxi, Corrida, Aeroporto, Rodoviária - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🚕 TÁXI 24H - ARAUCÁRIA</div>
+<div class="alert">🚕 <b>TÁXI ARAUCÁRIA - 24H, CORRIDA R$ 15, AEROPORTO R$ 80 - 5 MIN - 24H - RÁPIDO</b> | Centro, Tindiquera, Costeira - Táxi 24H, corrida R$ 15, aeroporto R$ 80, rodoviária, 5 min, rápido</div>
+
+<div class="cat">🚕 TÁXI - ARAUCÁRIA - 4 TÁXI - 24H, CORRIDA R$ 15, AEROPORTO R$ 80 - 5 MIN - 24H</div>
 <div class="grid">
 
 <div class="card">
-<span class="urgente">🚕 24 HORAS - CENTRO</span>
-<b>🚕 PONTO TÁXI ARAUCÁRIA CENTRO - 24H - RODOVIÁRIA</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Rodoviária, Centro, HMA</span>
-<span>🕐 24 HORAS - Corrida cidade, Curitiba, Aeroporto Afonso Pena</span>
-<div class="tel">📞 (41) 3641-0000 - Táxi Centro Araucária 24H</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=800">
+<div class="badge b-yellow">TÁXI 24H / PONTO / CORRIDA - CENTRO - R$ 15 CORRIDA - 5 MIN - 24H - RÁPIDO</div>
+</div>
+<div class="card-body">
+<b>🚕 TÁXI 24H / PONTO / CORRIDA CENTRO ARAUCÁRIA - R$ 15 CORRIDA - 5 MIN - 24H - RÁPIDO</b>
+<span>Táxi 24H Centro, corrida R$ 15, ponto táxi, 5 min chega, Centro, Araucária toda, 24H, rápido, R$ 15 corrida, 5 min.</span>
+<span>📍 Centro - Táxi 24H Araucária - R$ 15 corrida - Ponto táxi - 5 min chega - 24H - Rápido - Centro - Táxi - 5 min - R$ 15</span>
+<span>🕐 24 HORAS - R$ 15 corrida - Ponto táxi - 5 min chega - 24H - Rápido - Centro - Táxi - 24H - 5 min - R$ 15 - Corrida</span>
+<span class="tel">📞 (41) 3643-7000 - Táxi 24H - Centro - R$ 15 Corrida - Ponto Táxi - 5 Min Chega - 24H - Rápido - Araucária - Táxi</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437000">LIGAR 24H - 5 MIN</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Ponto+Táxi+Centro+Araucária+24H" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437000">WHATS TÁXI R$15 5MIN 24H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🚕 TÁXI TINDIQUERA / CAPELA VELHA - ARAUCÁRIA - 24H</b>
-<span>📍 Tindiquera, Capela Velha, Fazenda Velha - Ponto bairro</span>
-<span>🕐 24H - Corrida rápida, levar buscar, viagem</span>
-<div class="tel">📞 (41) 9 9999-1111 - Táxi Tindiquera 24H</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1501786223405-6d024d7f3d32?q=80&w=800">
+<div class="badge b-blue">AEROPORTO / RODOVIÁRIA / VIAGEM - TINDIQUERA - AEROPORTO R$ 80 - RODOVIÁRIA R$ 30</div>
+</div>
+<div class="card-body">
+<b>✈️ AEROPORTO / RODOVIÁRIA / VIAGEM TINDIQUERA / CAPELA VELHA - AEROPORTO R$ 80 - RODOVIÁRIA R$ 30</b>
+<span>Aeroporto Afonso Pena R$ 80, rodoviária R$ 30, viagem, Tindiquera, Capela Velha, aeroporto, rodoviária, Araucária, viagem.</span>
+<span>📍 Tindiquera, Capela Velha - Aeroporto, rodoviária Araucária - Aeroporto R$ 80 - Rodoviária R$ 30 - Viagem - Aeroporto - R$ 80</span>
+<span>🕐 24 HORAS - Aeroporto R$ 80 - Rodoviária R$ 30 - Viagem - Tindiquera - Aeroporto, rodoviária - 24H - Viagem - R$ 80 - Aeroporto</span>
+<span class="tel">📞 (41) 3643-7001 - Aeroporto - Rodoviária - Viagem - Tindiquera - Aeroporto R$ 80 - Rodoviária R$ 30 - Araucária - Viagem</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437001">LIGAR 24H AEROPORTO</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Táxi+Aeroporto+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437001">WHATS AEROPORTO R$80 24H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🚕 TÁXI COSTEIRA / BOQUEIRÃO - REPAR - ARAUCÁRIA</b>
-<span>📍 Costeira, Boqueirão, Iguaçu - REPAR, indústrias, HMA</span>
-<span>🕐 24H - Corrida empresa, REPAR, hospital</span>
-<div class="tel">📞 (41) 9 9999-2222 - Táxi Costeira 24H</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1519003722824-194243633534?q=80&w=800">
+<div class="badge b-green">TÁXI LOTACÃO / COMPARTILHADO / CURITIBA - COSTEIRA - R$ 10 CURITIBA - LOTAÇÃO - COMPARTILHADO</div>
+</div>
+<div class="card-body">
+<b>👥 TÁXI LOTAÇÃO / COMPARTILHADO / CURITIBA COSTEIRA / BOQUEIRÃO - R$ 10 CURITIBA - LOTAÇÃO - COMPARTILHADO</b>
+<span>Táxi lotação R$ 10, compartilhado, Curitiba, Costeira, Boqueirão, R$ 10 Curitiba, lotação, compartilhado, Araucária, Curitiba.</span>
+<span>📍 Costeira, Boqueirão - Táxi lotação, compartilhado Araucária - R$ 10 Curitiba - Lotação - Compartilhado - Curitiba - R$ 10</span>
+<span>🕐 Seg a Sáb: 06h às 20h - R$ 10 Curitiba - Lotação - Compartilhado - Costeira - Curitiba - Lotação - R$ 10 - Compartilhado</span>
+<span class="tel">📞 (41) 3643-7002 - Táxi Lotação - Compartilhado - Costeira - R$ 10 Curitiba - Lotação - Compartilhado - Araucária - Curitiba</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Táxi+Lotação+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437002">WHATS LOTAÇÃO R$10 CURITIBA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>✈️ TÁXI AEROPORTO AFONSO PENA - ARAUCÁRIA - VIAGEM</b>
-<span>📍 Araucária x Aeroporto Afonso Pena - São José Pinhais - Ida e volta</span>
-<span>🕐 24H - Aeroporto, Curitiba, viagens, preço fixo</span>
-<div class="tel">📞 (41) 9 9999-3333 - Táxi Aeroporto Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=800">
+<div class="badge b-red">TÁXI EMPRESA / CONTRATO / MENSAL / EXECUTIVO - ARAUCÁRIA - CONTRATO R$ 500 MÊS - EXECUTIVO</div>
+</div>
+<div class="card-body">
+<b>🏢 TÁXI EMPRESA / CONTRATO / MENSAL / EXECUTIVO ARAUCÁRIA - CONTRATO R$ 500 MÊS - EXECUTIVO - EMPRESA</b>
+<span>Táxi empresa, contrato R$ 500 mês, mensal, executivo, Araucária toda, R$ 500 mês contrato, empresa, executivo, mensal, Araucária.</span>
+<span>📍 Araucária toda - Táxi empresa, contrato, executivo Araucária - R$ 500 mês contrato - Empresa - Mensal - Executivo - Empresa</span>
+<span>🕐 Seg a Sáb: 06h às 22h - Contrato R$ 500 mês - Empresa - Mensal - Executivo - Araucária toda - Táxi - Empresa - R$ 500 mês</span>
+<span class="tel">📞 (41) 3643-7003 - Táxi Empresa - Contrato - Mensal - Executivo - R$ 500 Mês Contrato - Empresa - Araucária - Executivo</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437003">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Táxi+Empresa+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437003">WHATS CONTRATO R$500 MÊS EXECUTIVO</a>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#fdd835';this.style.color='#000'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
