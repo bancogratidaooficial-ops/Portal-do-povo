@@ -1,89 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empregos Araucária PR - Vagas - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#0d47a1,#1976d2);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #1976d2;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #1976d2;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#64b5f6;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #1976d2;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#1976d2;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #0d8bf2}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #0d8bf2;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#4da6ff}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #0d8bf2;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#fff}
+.b-blue{background:#0d8bf2}.b-green{background:#00a859}.b-yellow{background:#ffcc00;color:#000}.b-red{background:#e50914}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#4da6ff;display:block;margin-bottom:6px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#0d8bf2;color:#fff}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#00a859;color:#fff}
+.alert{background:#001a33;border:1px solid #0d8bf2;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>💼 ARAUCÁRIA - VAGAS DE EMPREGO</h1>
-<p style="font-size:12px;color:#ddd">SINE, REPAR, CIEE, Indústrias - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">💼 VAGAS DE EMPREGO - ARAUCÁRIA</div>
+<div class="alert">💼 <b>VAGAS ARAUCÁRIA HOJE - 28/10/2026</b> - SINE, agências, indústrias, comércio - Leve currículo, RG, carteira trabalho - Atualizado hoje!</div>
+
+<div class="cat">💼 EMPREGOS - VAGAS - ARAUCÁRIA - 4 LOCAIS</div>
 <div class="grid">
 
 <div class="card">
-<b>💼 SINE ARAUCÁRIA - AGÊNCIA DO TRABALHADOR - VAGAS GRÁTIS</b>
-<span>📍 Rua Dr. Faivre, 412 - Casa da Cidadania - Centro</span>
-<span>🕐 Seg a Sex: 08h às 16h - Vagas: REPAR, indústrias, comércio - Levar RG, CPF, Carteira Trabalho</span>
-<div class="tel">📞 (41) 3614-1444 / 156 - SINE Araucária - Vagas</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800">
+<div class="badge b-blue">SINE ARAUCÁRIA - VAGAS HOJE - GRATUITO - GOVERNO</div>
+</div>
+<div class="card-body">
+<b>🏛️ SINE / AGÊNCIA DO TRABALHADOR ARAUCÁRIA - VAGAS GRÁTIS - EMPREGO HOJE</b>
+<span>Vagas: auxiliar produção, operador máquina, soldador, motorista, vendedor, ajudante, porteiro, limpeza, jovem aprendiz.</span>
+<span>📍 Centro - Rua Pedro de Alcântara Meira, 200 - Próximo Prefeitura - Araucária - PR</span>
+<span>🕐 Seg a Sex: 08h às 16h - Leve RG, CPF, carteira trabalho, currículo - Atendimento gratuito</span>
+<span class="tel">📞 (41) 3614-7400 - SINE Araucária - Vagas Hoje - 156</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:156">LIGAR 156</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=SINE+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://araucaria.pr.gov.br/trabalho" target="_blank">VAGAS ONLINE</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏭 REPAR PETROBRAS ARAUCÁRIA - VAGAS E TERCEIRIZADAS</b>
-<span>📍 Rua Barão do Rio Branco, 3701 - Refinaria - Araucária</span>
-<span>🕐 Vagas: Soldador, mecânico, eletricista, segurança - Cadastro site Petrobras</span>
-<div class="tel">📞 0800-728-9001 Petrobras / (41) 3641-3000 - REPAR</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800">
+<div class="badge b-green">INDÚSTRIA - REFINARIA - PETROBRAS - ARAUCÁRIA - VAGAS</div>
+</div>
+<div class="card-body">
+<b>🏭 INDÚSTRIAS ARAUCÁRIA - REFINARIA PETROBRAS, CSN, COCELPA, IMEP - VAGAS</b>
+<span>Indústria contrata: operador produção, mecânico, eletricista, caldeireiro, soldador, técnico segurança, engenheiro.</span>
+<span>📍 Distrito Industrial - BR 476 - Refinaria REPAR - Araucária - Cidade Industrial</span>
+<span>🕐 Vagas diretas na fábrica - Envie currículo no site - RH indústria</span>
+<span class="tel">📞 (41) 3643-8000 - Indústrias Araucária - RH - Vagas</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136438000">LIGAR RH</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Distrito+Industrial+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://www.grupocurrículo.com.br" target="_blank">ENVIAR CURRÍCULO</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🏭 DISTRITO INDUSTRIAL ARAUCÁRIA - CIAR - VAGAS INDÚSTRIA</b>
-<span>📍 Avenida Archelau de Almeida Torres - Boqueirão - CIAR</span>
-<span>🕐 Vagas: Operador, auxiliar produção, logística - Indústrias Araucária</span>
-<div class="tel">📞 (41) 3641-8000 - CIAR Araucária - Indústrias</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800">
+<div class="badge b-yellow">COMÉRCIO - LOJA - SUPERMERCADO - ARAUCÁRIA - VAGA URGENTE</div>
+</div>
+<div class="card-body">
+<b>🛒 COMÉRCIO ARAUCÁRIA - SUPERMERCADO, LOJA, FARMÁCIA, SHOPPING - CONTRATA</b>
+<span>Vagas comércio: vendedor, caixa, repositor, balconista farmácia, atendente, promotor, açougueiro, padeiro.</span>
+<span>📍 Centro, Tindiquera, Capela Velha, Costeira - Lojas Araucária - Contrata na hora</span>
+<span>🕐 Leve currículo na loja - Entrevista na hora - Vaga urgente - Primeiro emprego</span>
+<span class="tel">📞 (41) 3643-8001 - Comércio Araucária - Vagas - Contrata Hoje</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136438001">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Vagas+Comércio+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136438001">WHATS VAGA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🎓 CIEE / JOVEM APRENDIZ ARAUCÁRIA - ESTÁGIO - 14 A 24 ANOS</b>
-<span>📍 Rua Dr. Faivre, 412 - Casa da Cidadania - CIEE Araucária</span>
-<span>🕐 Seg a Sex: 08h às 17h - Estágio e Jovem Aprendiz - REPAR e comércio</span>
-<div class="tel">📞 3003-2433 CIEE / (41) 3614-1444 - CIEE Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800">
+<div class="badge b-red">AGÊNCIA EMPREGO - CIEE - JOVEM APRENDIZ - ESTÁGIO</div>
 </div>
-
-<div class="card">
-<b>🛒 COMÉRCIO ARAUCÁRIA - VAGAS - CENTRO E SHOPPING</b>
-<span>📍 Centro, Tindiquera, Costeira - Vendedor, caixa, repositor</span>
-<span>🕐 Vagas comércio Araucária - Lojas, mercados, farmácias</span>
-<div class="tel">📞 (41) 3641-5000 - Comércio Araucária - ACIA</div>
+<div class="card-body">
+<b>🎓 AGÊNCIAS EMPREGO + CIEE + JOVEM APRENDIZ - ARAUCÁRIA - ESTÁGIO</b>
+<span>Agência RH, CIEE, IEL, jovem aprendiz, estágio, menor aprendiz, PCD, temporário, efetivo.</span>
+<span>📍 Centro - Agências Araucária - Cadastre currículo grátis - Encaminhamento</span>
+<span>🕐 Seg a Sex: 08h às 18h - Cadastro grátis - Leve documentos - Jovem aprendiz 14 anos</span>
+<span class="tel">📞 (41) 3643-8002 - Agência Emprego - Jovem Aprendiz - Araucária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136438002">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Agência+Emprego+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://www.ciee.org.br" target="_blank">CIEE SITE</a>
 </div>
-
-</div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#1976d2'}">🔊 SOM</button>
 </div>
 </div>
 
+</div>
 </body>
 </html>
