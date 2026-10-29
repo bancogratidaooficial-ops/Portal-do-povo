@@ -1,84 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oficinas 24H Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oficinas 24H Araucária PR - Portal do Povo - Guincho, Mecânica, Borracharia</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#212121,#616161);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #9e9e9e;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #9e9e9e;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#e0e0e0;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.urgente{background:#e50914;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px;display:inline-block;margin-bottom:4px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #616161;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#616161;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #ffcc00}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #ffcc00;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#ffcc00}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #222;border-radius:16px;overflow:hidden;transition:.2s}
+.card:hover{border-color:#ffcc00;transform:translateY(-2px)}
+.card-img{height:210px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:bold;color:#000;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.b-yellow{background:#ffcc00}.b-red{background:#e50914;color:#fff}.b-blue{background:#0d8bf2;color:#fff}.b-green{background:#00a859;color:#fff}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#ffcc00;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-ligar{background:#ffcc00;color:#000}.btn-mapa{background:#111;color:#fff;border:1px solid #555}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#1a1a00;border:1px solid #ffcc00;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🔧 ARAUCÁRIA - OFICINAS E GUINCHO 24H</h1>
-<p style="font-size:12px;color:#ddd">Mecânica, Borracharia, Guincho - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🔧 OFICINAS 24H - ARAUCÁRIA</div>
+<div class="alert">🚨 <b>CARRO QUEBROU? PNEU FUROU? BATERIA ARRIOU?</b> Guincho 24H Araucária chega em 15 min - Mecânico, borracheiro, auto elétrica - Ligue agora!</div>
+
+<div class="cat">🔧 OFICINAS 24H - ARAUCÁRIA - 4 SERVIÇOS - GUINCHO, MECÂNICA, BORRACHARIA, ELÉTRICA</div>
 <div class="grid">
 
 <div class="card">
-<span class="urgente">🚨 24 HORAS - GUINCHO</span>
-<b>🚨 GUINCHO 24H ARAUCÁRIA - CENTRO - REBOQUE</b>
-<span>📍 Avenida Archelau de Almeida Torres - Boqueirão - Centro</span>
-<span>🕐 24 HORAS - Guincho leve e pesado, pane, acidente</span>
-<div class="tel">📞 (41) 9 9999-7777 - Guincho 24H Araucária - 15 min</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1485575301924-6891f5dcd710?q=80&w=800">
+<div class="badge b-red">🚨 GUINCHO 24H - 15 MIN - CENTRO - LEVE E PESADO</div>
+</div>
+<div class="card-body">
+<b>🚨 GUINCHO 24H ARAUCÁRIA - CENTRO - REBOQUE LEVE E PESADO - PLATAFORMA</b>
+<span>Guincho plataforma, guincho pesado, reboque carro, moto, caminhão, ônibus, máquina. Pane, acidente, apreensão.</span>
+<span>📍 Avenida Archelau de Almeida Torres - Centro - Atende Araucária toda - 15 min</span>
+<span>🕐 24 HORAS - Madrugada, domingo, feriado - Chega em 15 min - Preço justo - Pix</span>
+<span class="tel">📞 (41) 9 9999-7777 - Guincho 24H Araucária - 15 min - (41) 3643-7777</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+5541999997777">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Guincho+24H+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/5541999997777">WHATS 24H</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🔧 OFICINA MECÂNICA 24H - ARAUCÁRIA - TINDIQUERA</b>
-<span>📍 Tindiquera, Boqueirão, Costeira - Motor, freio, suspensão</span>
-<span>🕐 Seg a Sáb: 08h às 18h - Plantão 24H telefone</span>
-<div class="tel">📞 (41) 3643-5000 - Mecânica Tindiquera</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800">
+<div class="badge b-yellow">🔧 OFICINA MECÂNICA - TINDIQUERA - MOTOR, FREIO, SUSPENSÃO</div>
+</div>
+<div class="card-body">
+<b>🔧 OFICINA MECÂNICA TINDIQUERA / CAPELA VELHA - MOTOR, FREIO, SUSPENSÃO, INJEÇÃO</b>
+<span>Motor fundido, freio, suspensão, embreagem, correia dentada, injeção eletrônica, scanner, troca óleo.</span>
+<span>📍 Tindiquera, Capela Velha - Rua Principal, 1500 - Oficina completa - Garantia</span>
+<span>🕐 Seg a Sáb: 08h às 18h | Plantão 24h no telefone - Orçamento grátis - Parcelo cartão</span>
+<span class="tel">📞 (41) 3643-5000 - Oficina Mecânica - Scanner - Injeção - Araucária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136435000">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Oficina+Mecânica+Tindiquera+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136435000">WHATS ORÇAMENTO</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🛞 BORRACHARIA 24H - ARAUCÁRIA - CAPELA VELHA</b>
-<span>📍 Capela Velha, Fazenda Velha - Pneu furado, troca</span>
-<span>🕐 24 HORAS - Atende no local - Socorro pneu</span>
-<div class="tel">📞 (41) 9 9999-8888 - Borracharia 24H Capela Velha</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800">
+<div class="badge b-blue">🛞 BORRACHARIA 24H - CAPELA VELHA - PNEU FURADO - VULCANIZAÇÃO</div>
+</div>
+<div class="card-body">
+<b>🛞 BORRACHARIA 24H CAPELA VELHA / FAZENDA VELHA - PNEU FURADO, VULCANIZAÇÃO</b>
+<span>Pneu furado, rasgado, vulcanização, troca pneu, conserto no local, socorro pneu, pneu novo.</span>
+<span>📍 Capela Velha, Fazenda Velha - Avenida das Araucárias, 2000 - Atende no local</span>
+<span>🕐 24 HORAS - Atende no local - Socorro pneu - Chega em 15 min - Moto socorro</span>
+<span class="tel">📞 (41) 9 9999-8888 - Borracharia 24H - Pneu Furado - Araucária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+5541999998888">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Borracharia+24H+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/5541999998888">WHATS PNEU</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🔋 AUTO ELÉTRICA 24H - ARAUCÁRIA - BATERIA - GUINCHO</b>
-<span>📍 Centro, Iguaçu, Costeira - Bateria, alternador, arranque</span>
-<span>🕐 24H - Socorro bateria, carga, troca no local</span>
-<div class="tel">📞 (41) 9 9999-9999 - Auto Elétrica 24H Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=800">
+<div class="badge b-green">🔋 AUTO ELÉTRICA 24H - BATERIA - ALTERNADOR - ARRANQUE - COSTEIRA</div>
+</div>
+<div class="card-body">
+<b>🔋 AUTO ELÉTRICA 24H COSTEIRA / BOQUEIRÃO - BATERIA, ALTERNADOR, ARRANQUE</b>
+<span>Bateria arriada, alternador, arranque, pane elétrica, farol, seta, vidro elétrico, trava, alarme.</span>
+<span>📍 Costeira, Boqueirão, Iguaçu - Socorro bateria - Troca no local - Carga bateria</span>
+<span>🕐 24H - Socorro bateria - Carga no local - Troca bateria - Chega em 15 min</span>
+<span class="tel">📞 (41) 9 9999-9999 - Auto Elétrica 24H - Bateria - Araucária</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+5541999999999">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Auto+Elétrica+24H+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/5541999999999">WHATS BATERIA</a>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#616161'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
