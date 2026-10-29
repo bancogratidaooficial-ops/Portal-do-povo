@@ -1,84 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Veterinária Araucária PR - Portal do Povo</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veterinários 24H Araucária PR - Clínica, Emergência, Pet - Portal do Povo</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff}
-.top{background:linear-gradient(90deg,#4a148c,#ce93d8);padding:20px;text-align:center}
-.btn{padding:8px 14px;border-radius:20px;text-decoration:none;color:#fff;font-weight:bold;display:inline-block;margin:3px;font-size:12px;border:1px solid #fff3}
-.cat{background:#151515;border-left:4px solid #ce93d8;padding:10px 14px;margin:15px auto 0;max-width:1000px;font-weight:bold;border-radius:4px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;max-width:1000px;margin:10px auto;padding:10px}
-.card{background:#1e1e1e;border:1px solid #333;border-left:4px solid #ce93d8;border-radius:12px;padding:14px;text-align:left}
-.card b{font-size:13px;color:#e1bee7;display:block}
-.card span{font-size:11px;color:#ccc;display:block;margin-top:4px;line-height:14px}
-.card .tel{color:#00ff88;font-weight:bold;margin-top:6px;font-size:12px}
-.urgente{background:#e50914;color:#fff;padding:2px 6px;border-radius:4px;font-size:10px;display:inline-block;margin-bottom:4px}
-.ad-box{background:#111;border:1px dashed #333;margin:15px auto;max-width:1000px;padding:10px;text-align:center;border-radius:8px}
-#floatVideo{position:fixed;bottom:12px;right:12px;width:200px;height:360px;background:#000;border:2px solid #ce93d8;border-radius:14px;z-index:9999;overflow:hidden}
-#floatVideo iframe{width:100%;height:320px;border:0}
-.floatCtrl{background:#111;display:flex;justify-content:space-between;padding:6px 8px;align-items:center}
-.btnSom{background:#ce93d8;color:#000;border:none;padding:5px 10px;border-radius:6px;font-weight:bold;cursor:pointer;font-size:11px}
-.btnFechar{background:#e50914;color:#fff;width:26px;height:26px;border-radius:50%;position:absolute;top:-8px;right:-8px;z-index:10001;border:2px solid #fff}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#000;color:#fff}
+.top{background:#111;padding:12px;display:flex;gap:8px;position:sticky;top:0;z-index:10;border-bottom:2px solid #00a859}
+.btn{padding:8px 12px;border-radius:20px;font-weight:bold;font-size:11px;text-decoration:none}
+.btn-blue{background:#002776;color:#fff}.btn-green{background:#009739;color:#fff}.btn-dark{background:#222;color:#fff;border:1px solid #444}
+.cat{background:#111;border-left:4px solid #00a859;margin:14px 10px 0;padding:10px 12px;font-weight:bold;border-radius:4px;color:#00ff88}
+.grid{max-width:900px;margin:10px auto;padding:10px;display:grid;gap:16px}
+.card{background:#151515;border:2px solid #00a859;border-radius:16px;overflow:hidden}
+.card-img{height:200px;position:relative;background:#222}.card-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;top:10px;left:10px;padding:6px 10px;border-radius:20px;font-size:11px;font-weight:bold;color:#fff}
+.b-green{background:#00a859}.b-blue{background:#0d8bf2}.b-orange{background:#ff8c00}.b-red{background:#e50914}
+.card-body{padding:14px}.card-body b{font-size:14px;color:#00ff88;display:block;margin-bottom:6px;line-height:18px}
+.card-body span{font-size:12px;color:#ccc;display:block;line-height:16px;margin-top:4px}
+.tel{color:#00ff88!important;font-weight:bold!important;font-size:13px!important}
+.actions{display:flex;gap:8px;margin-top:12px}.actions a{flex:1;text-align:center;padding:11px 6px;border-radius:25px;font-weight:bold;font-size:12px;text-decoration:none}
+.btn-ligar{background:#00a859;color:#fff}.btn-mapa{background:#111;color:#fff;border:1px solid #444}.btn-site{background:#0d8bf2;color:#fff}
+.alert{background:#001a10;border:1px solid #00a859;margin:10px auto;max-width:900px;padding:12px;border-radius:8px;text-align:center;font-size:12px}
 </style>
 </head>
 <body>
 <div class="top">
-<h1>🐾 ARAUCÁRIA - VETERINÁRIA 24H</h1>
-<p style="font-size:12px;color:#ddd">Pet Shop, Banho e Tosa, Ração - Portal do Povo</p>
-<a class="btn" style="background:#002776" href="../index.html">⬅️ Araucária</a>
-<a class="btn" style="background:#009739" href="../../index.html">🌲 Cidades PR</a>
-<a class="btn" style="background:#333" href="../../../index.html">🇧🇷 Estados</a>
+<a href="../index.html" class="btn btn-blue">⬅️ Araucária</a>
+<a href="../../index.html" class="btn btn-green">🌲 Cidades PR</a>
+<a href="../../../index.html" class="btn btn-dark">🇧🇷 Estados</a>
 </div>
 
-<div class="cat">🐾 VETERINÁRIA 24H - ARAUCÁRIA</div>
+<div class="alert">🐾 <b>VETERINÁRIOS 24H ARAUCÁRIA - CLÍNICA, EMERGÊNCIA, PET - 24H - CONSULTA R$ 80 - EMERGÊNCIA</b> | Centro, Tindiquera, Costeira - Veterinário 24H, clínica, emergência, pet, consulta R$ 80, 24H</div>
+
+<div class="cat">🐾 VETERINÁRIOS 24H - ARAUCÁRIA - 4 VETERINÁRIOS 24H - CLÍNICA, EMERGÊNCIA - 24H - CONSULTA R$ 80</div>
 <div class="grid">
 
 <div class="card">
-<span class="urgente">🐾 24H - EMERGÊNCIA</span>
-<b>🐾 CLÍNICA VETERINÁRIA ARAUCÁRIA CENTRO - 24H - PET</b>
-<span>📍 Rua Dr. Faivre, 1355 - Centro - Consulta, vacina, cirurgia, internamento</span>
-<span>🕐 24 HORAS - Emergência pet - Cão, gato - Raio X, ultrassom</span>
-<div class="tel">📞 (41) 3641-9800 - Veterinária Centro 24H - Araucária</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800">
+<div class="badge b-green">CLÍNICA VETERINÁRIA 24H - CENTRO - 24H - CONSULTA R$ 80 - EMERGÊNCIA - PET - 24H</div>
+</div>
+<div class="card-body">
+<b>🐶 CLÍNICA VETERINÁRIA 24H CENTRO ARAUCÁRIA - 24H - CONSULTA R$ 80 - EMERGÊNCIA - PET - 24H</b>
+<span>Clínica veterinária 24H Centro, consulta R$ 80, emergência pet 24H, Centro, Araucária toda, 24H, pet, emergência, R$ 80 consulta.</span>
+<span>📍 Centro - Clínica veterinária 24H Araucária - Consulta R$ 80 - Emergência pet - 24H - Clínica - Centro - Pet - 24H - R$ 80</span>
+<span>🕐 24 HORAS - Consulta R$ 80 - Emergência pet - 24H - Clínica - Centro - Pet - 24H - Emergência - R$ 80 - Consulta - 24H</span>
+<span class="tel">📞 (41) 3643-7200 - Clínica Veterinária 24H - Centro - Consulta R$ 80 - Emergência Pet - 24H - Araucária - Pet - 24H</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437200">LIGAR 24H AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Clínica+Veterinária+24H+Centro+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437200">WHATS VET 24H R$80 CONSULTA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🐶 PET SHOP ARAUCÁRIA - BANHO E TOSA - TINDIQUERA - RAÇÃO</b>
-<span>📍 Tindiquera, Capela Velha, Fazenda Velha - Pet shop, banho e tosa, ração</span>
-<span>🕐 Seg a Sáb: 08h às 19h - Dom: 09h às 13h - Banho, tosa, vacina</span>
-<div class="tel">📞 (41) 3641-9801 - Pet Shop Tindiquera - Banho e Tosa</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1581888227599-779811939961?q=80&w=800">
+<div class="badge b-blue">HOSPITAL VETERINÁRIO / INTERNAÇÃO / CIRURGIA - TINDIQUERA - HOSPITAL - INTERNAÇÃO - CIRURGIA</div>
+</div>
+<div class="card-body">
+<b>🏥 HOSPITAL VETERINÁRIO / INTERNAÇÃO / CIRURGIA TINDIQUERA / CAPELA VELHA - HOSPITAL - INTERNAÇÃO - CIRURGIA - PET</b>
+<span>Hospital veterinário, internação, cirurgia, Tindiquera, Capela Velha, hospital pet, internação, cirurgia, Araucária, hospital, pet.</span>
+<span>📍 Tindiquera, Capela Velha - Hospital veterinário Araucária - Internação - Cirurgia - Hospital pet - Internação - Cirurgia - Pet</span>
+<span>🕐 24 HORAS - Hospital - Internação - Cirurgia - Hospital pet - Tindiquera - Hospital, internação - Cirurgia - 24H - Hospital - Pet</span>
+<span class="tel">📞 (41) 3643-7201 - Hospital Veterinário - Internação - Cirurgia - Tindiquera - Hospital Pet - Internação - Araucária - Pet</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437201">LIGAR 24H HOSPITAL</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Hospital+Veterinário+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437201">WHATS HOSPITAL VET INTERNAÇÃO CIRURGIA</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🐾 RÇÃO ARAUCÁRIA - CASA DE RAÇÃO - COSTEIRA - ENTREGA</b>
-<span>📍 Costeira, Boqueirão - Casa ração, ração cão, gato, remédio pet</span>
-<span>🕐 Seg a Sáb: 08h às 19h - Entrega ração - Golden, Premier, Pedigree</span>
-<div class="tel">📞 (41) 3641-9802 - Casa de Ração Costeira - Entrega</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800">
+<div class="badge b-orange">BANHO E TOSA / PET SHOP / RAÇÃO - COSTEIRA - BANHO R$ 30 - TOSA - RAÇÃO - PET SHOP</div>
+</div>
+<div class="card-body">
+<b>🛁 BANHO E TOSA / PET SHOP / RAÇÃO COSTEIRA / BOQUEIRÃO - BANHO R$ 30 - TOSA - RAÇÃO - PET SHOP</b>
+<span>Banho R$ 30, tosa, pet shop, ração, Costeira, Boqueirão, banho R$ 30, tosa, pet shop, ração, Araucária, banho e tosa, pet shop.</span>
+<span>📍 Costeira, Boqueirão - Banho e tosa, pet shop Araucária - Banho R$ 30 - Tosa - Ração - Pet shop - Costeira - Banho, tosa - Pet</span>
+<span>🕐 Seg a Sáb: 08h às 18h - Banho R$ 30 - Tosa - Pet shop - Ração - Costeira - Banho e tosa - Pet shop - R$ 30 - Banho - Tosa</span>
+<span class="tel">📞 (41) 3643-7202 - Banho e Tosa - Pet Shop - Ração - Costeira - Banho R$ 30 - Tosa - Pet Shop - Araucária - Ração - Pet</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437202">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Banho+e+Tosa+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437202">WHATS BANHO R$30 TOSA PET SHOP</a>
+</div>
+</div>
 </div>
 
 <div class="card">
-<b>🐾 VETERINÁRIO DOMICÍLIO ARAUCÁRIA - ATENDE EM CASA - WHATS</b>
-<span>📍 Araucária toda - Veterinário domicílio, vacina em casa, consulta</span>
-<span>🕐 24H - Atendimento em casa - Cão, gato - Pix - Whats</span>
-<div class="tel">📞 (41) 9 2222-0000 - Vet Domicílio - Whats 24H</div>
+<div class="card-img">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=800">
+<div class="badge b-red">VACINA / CASTRAÇÃO / EXAMES - ARAUCÁRIA - VACINA R$ 50 - CASTRAÇÃO R$ 150 - EXAMES - PET</div>
+</div>
+<div class="card-body">
+<b>💉 VACINA / CASTRAÇÃO / EXAMES ARAUCÁRIA - VACINA R$ 50 - CASTRAÇÃO R$ 150 - EXAMES - PET - VACINA</b>
+<span>Vacina R$ 50, castração R$ 150, exames, Araucária toda, R$ 50 vacina, R$ 150 castração, exames, Araucária, pet, vacina, castração.</span>
+<span>📍 Araucária toda - Vacina, castração, exames Araucária - Vacina R$ 50 - Castração R$ 150 - Exames - Pet - Vacina, castração - Pet</span>
+<span>🕐 Seg a Sáb: 08h às 18h - Vacina R$ 50 - Castração R$ 150 - Exames - Araucária toda - Pet - Vacina - Castração - R$ 50 - Exames</span>
+<span class="tel">📞 (41) 3643-7203 - Vacina - Castração - Exames - Araucária - Vacina R$ 50 - Castração R$ 150 - Exames - Pet - Vacina - Pet</span>
+<div class="actions">
+<a class="btn-ligar" href="tel:+554136437203">LIGAR AGORA</a>
+<a class="btn-mapa" href="https://maps.google.com/?q=Veterinário+Vacina+Araucária" target="_blank">📍 MAPA</a>
+<a class="btn-site" href="https://wa.me/554136437203">WHATS VACINA R$50 CASTRAÇÃO R$150</a>
+</div>
+</div>
 </div>
 
 </div>
-
-<div class="ad-box"><small>PUBLICIDADE</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-
-<div id="floatVideo">
-<button class="btnFechar" onclick="document.getElementById('floatVideo').style.display='none'">X</button>
-<iframe id="player" src="https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-<div class="floatCtrl">
-<span style="font-size:10px;color:#aaa">🎵 Vídeo</span>
-<button class="btnSom" onclick="let p=document.getElementById('player');if(p.src.includes('mute=1')){p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=0&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔇 MUTAR';this.style.background='#e50914'}else{p.src='https://www.youtube.com/embed/Ce9ToDM2ZfY?autoplay=1&mute=1&loop=1&playlist=Ce9ToDM2ZfY&controls=1';this.innerText='🔊 SOM';this.style.background='#ce93d8';this.style.color='#000'}">🔊 SOM</button>
-</div>
-</div>
-
 </body>
 </html>
