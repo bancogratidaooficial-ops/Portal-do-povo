@@ -2,37 +2,71 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gratifluxo Pontos</title>
-<link rel="manifest" href="./manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<title>📊 Gratifluxo Pontos - Controle de Ponto Dia, Data, Hora - Excel Grátis</title>
+<meta name="description" content="Gratifluxo pontos grátis: bata ponto entrada, saída, almoço saída e volta. Calcula total de horas automático, baixa Excel CSV, envia no WhatsApp, backup JSON.">
+<link rel="canonical" href="https://bancogratidao.com.br/gratifluxo/">
+<meta name="theme-color" content="#001a4d">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#eef2ff;font-family:Arial}
-.top{background:#001a4d;color:#fff;padding:14px;text-align:center}
-.controles{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#fff}
-.controles button{padding:16px;border:0;border-radius:12px;font-weight:900}
-.be{background:#001a4d;color:#fff}.bs{background:#ffcc00;color:#000}
+*{box-sizing:border-box;font-family:system-ui}body{margin:0;background:#050505;color:#fff;padding-bottom:90px;padding-top:10px}
+.barra-fixa{position:sticky;top:0;z-index:999;background:#000;padding:10px 12px;border-bottom:3px solid #FFD700;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{font-size:9px;font-weight:900;background:#FFD700;color:#000;padding:5px 10px;border-radius:20px}
+.conteudo-editor{background:#111;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px}
+.conteudo-editor h2{font-size:13px;color:#FFD700;margin:0 0 6px}
+.conteudo-editor p{font-size:11px;line-height:16px;color:#ccc;margin:0 0 6px}
+.alert{background:#1a1500;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px;font-size:11px;color:#ffeeaa}
+.ad-box{background:#0a0a0a;border:1px dashed #FFD700;border-radius:12px;padding:10px;text-align:center;margin:12px 10px}
+.top{background:#001a4d;color:#fff;padding:14px;text-align:center;border-radius:12px;margin:10px}
+.controles{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;background:#111;border-radius:12px;margin:10px;border:1px solid #222}
+.controles button{padding:16px;border:0;border-radius:12px;font-weight:900;cursor:pointer}
+.be{background:#00c853;color:#fff}.bs{background:#ff2222;color:#fff}
 .ba{background:#e9efff;color:#001a4d;border:1px solid #c5d2ff!important}
-.tabela{margin:10px;background:#fff;border-radius:12px;border:1px solid #d0d8f0;overflow:hidden}
-table{width:100%;border-collapse:collapse;font-size:12px}
+.tabela{margin:10px;background:#111;border-radius:12px;border:1px solid #222;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:11px}
 th{background:#001a4d;color:#fff;padding:8px 4px;font-size:10px}
-td{padding:10px 4px;border-bottom:1px solid #eee;text-align:center}
-.total{background:#ffcc00!important;font-weight:900}
+td{padding:10px 4px;border-bottom:1px solid #222;text-align:center;color:#fff}
+.total{background:#FFD700!important;font-weight:900;color:#000!important}
 .foot{padding:10px;display:grid;gap:8px}
-.btn{padding:14px;border-radius:12px;border:0;font-weight:900}
+.btn{padding:14px;border-radius:12px;border:0;font-weight:900;cursor:pointer;font-size:13px}
+.footer{max-width:1000px;margin:20px auto;text-align:center;border-top:2px solid #FFD700;padding:14px}
+.footer a{color:#FFD700;text-decoration:none;font-size:11px;margin:0 6px;font-weight:800}
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer}
 </style>
 </head>
 <body>
+
+<div class="barra-fixa">
+<div style="display:flex;align-items:center;gap:8px"><div style="font-weight:900;color:#FFD700;font-size:12px">📊 GRATIFLUXO</div><span class="tag" id="relogio">--:--:--</span></div>
+<div style="display:flex;gap:6px">
+<span class="tag" style="background:#001a4d;color:#7ab8ff">PONTO GRÁTIS</span>
+<a href="/" style="background:#222;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a>
+</div>
+</div>
+
+<div class="conteudo-editor">
+<h2>Gratifluxo Pontos - Planilha de Ponto Dia, Data e Hora com Cálculo Automático</h2>
+<p>Precisa controlar entrada, almoço e saída do trabalho? O Gratifluxo Pontos do Banco Gratidão é grátis: bata ponto com 1 clique, ele grava dia da semana, data e hora automática, desconta almoço e calcula total de horas trabalhadas no dia.</p>
+<p>Como usar: toque em ENTRADA quando chegar, ALM. SAÍDA e VOLTA no almoço, SAÍDA ao ir embora. Tabela mostra tudo, baixe Excel CSV, envie pro WhatsApp, faça backup JSON e restaure. Nunca perca suas horas. Salve: bancogratidao.com.br/gratifluxo/</p>
+</div>
+
+<div class="alert">📊 PONTO INTELIGENTE: Bate ponto automático com data e hora, calcula total descontando almoço. Ex: 08:00 às 18:00 menos 1h almoço = 09:00 trabalhadas.</div>
+
+<div class="ad-box"><small>PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 <div class="top">
-<b>📊 GRATIFLUXO PONTOS</b><br>
-<small style="color:#7ab8ff">Planilha Ponto - Dia / Data / Hora</small><br>
-<small id="relogio" style="color:#ffcc00"></small>
+<b style="color:#FFD700">📊 GRATIFLUXO PONTOS</b><br>
+<small style="color:#7ab8ff">Planilha Ponto - Dia / Data / Hora / Total</small>
 </div>
 
 <div class="controles">
 <button class="be" onclick="bater('entrada')">🟢 ENTRADA</button>
 <button class="bs" onclick="bater('saida')">🔴 SAÍDA</button>
 <button class="ba" onclick="bater('almoco_ida')">🍽️ ALM. SAÍDA</button>
-<button class="ba" onclick="bater('almoco_volta')">↩️ VOLTA</button>
+<button class="ba" onclick="bater('almoco_volta')">↩️ VOLTA ALMOÇO</button>
 </div>
 
 <div class="tabela">
@@ -42,20 +76,34 @@ td{padding:10px 4px;border-bottom:1px solid #eee;text-align:center}
 </table>
 </div>
 
+<div class="ad-box"><small>PUBLICIDADE - MEIO</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 <div class="foot">
-<button class="btn" style="background:#25D366;color:#fff" onclick="exportarZap()">📲 ENVIAR NO WHATSAPP</button>
-<button class="btn" style="background:#001a4d;color:#fff" onclick="exportarCSV()">📥 BAIXAR EXCEL GRATIFLUXO</button>
+<button class="btn" style="background:#25D366;color:#fff" onclick="exportarZap()">📲 ENVIAR PONTO NO WHATSAPP</button>
+<button class="btn" style="background:#001a4d;color:#fff;border:1px solid #FFD700" onclick="exportarCSV()">📥 BAIXAR EXCEL GRATIFLUXO (CSV)</button>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-<button class="btn" style="background:#001a4d;color:#00ff88;border:1px solid #00ff88" onclick="fazerBackup()">💾 BACKUP</button>
-<button class="btn" style="background:#001a4d;color:#ffcc00;border:1px solid #ffcc00" onclick="document.getElementById('f').click()">♻️ RESTAURAR</button>
+<button class="btn" style="background:#001a4d;color:#00ff88;border:1px solid #00ff88" onclick="fazerBackup()">💾 BACKUP JSON</button>
+<button class="btn" style="background:#001a4d;color:#FFD700;border:1px solid #FFD700" onclick="document.getElementById('f').click()">♻️ RESTAURAR BACKUP</button>
 <input type="file" id="f" style="display:none" accept=".json" onchange="restaurar(this)">
 </div>
-<button class="btn" style="background:#fff;color:#c00;border:1px solid #fcc" onclick="limpar()">🗑️ Zerar mês</button>
-
-<!-- BOTÃO CORRIGIDO - VOLTA PRO PORTAL DO POVO -->
-<a href="https://bancogratidaooficial-ops.github.io/Portal-do-povo/" style="text-align:center;color:#001a4d;font-size:12px;text-decoration:none;background:#fff;padding:12px;border-radius:10px;border:1px solid #d0d8f0;display:block;margin-top:8px;font-weight:900">⬅️ VOLTAR AO PORTAL DO POVO</a>
-
+<button class="btn" style="background:#111;color:#ff5555;border:1px solid #ff2222" onclick="limpar()">🗑️ ZERAR MÊS (FAÇA BACKUP ANTES)</button>
+<a href="/" style="text-align:center;color:#FFD700;font-size:12px;text-decoration:none;background:#111;padding:14px;border-radius:12px;border:1px solid #FFD700;display:block;margin-top:8px;font-weight:900">⬅️ VOLTAR AO PORTAL DO POVO</a>
 </div>
+
+<div class="ad-box"><small>PUBLICIDADE - RODAPÉ</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer class="footer">
+<a href="/">🏠 PORTAL</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<p style="color:#888;font-size:10px;margin-top:8px">Ponto salvo no celular - Calcula horas automático - Excel CSV - WhatsApp - 100% grátis</p>
+</footer>
 
 <script>
 function bater(tipo){
@@ -64,7 +112,7 @@ function bater(tipo){
  if(!dados[data]) dados[data]={dia,data,entrada:'',almoco_ida:'',almoco_volta:'',saida:''};
  dados[data][tipo==='almoco_ida'?'almoco_ida':tipo==='almoco_volta'?'almoco_volta':tipo]=hora;
  localStorage.setItem('gratifluxo_pontos_v1',JSON.stringify(dados));render();
- alert(tipo.toUpperCase()+' '+hora+' ok!');
+ alert('✅ '+tipo.toUpperCase()+' '+hora+' registrado!');
 }
 function calc(r){
  if(!r.entrada) return '--:--';
@@ -77,26 +125,24 @@ function render(){
  let dados=JSON.parse(localStorage.getItem('gratifluxo_pontos_v1')||'{}');
  let tb=document.getElementById('tbody');
  let lista=Object.values(dados).sort((a,b)=>{let [da,ma,aa]=a.data.split('/');let [db,mb,ab]=b.data.split('/');return new Date(aa,ma-1,da)-new Date(ab,mb-1,db)});
- tb.innerHTML=lista.length?lista.map(r=>`<tr><td><b>${r.dia}</b></td><td>${r.data}</td><td>${r.entrada||'-'}</td><td>${r.almoco_ida||'-'}</td><td>${r.almoco_volta||'-'}</td><td>${r.saida||'-'}</td><td class="total">${calc(r)}</td></tr>`).join(''):'<tr><td colspan=7 style="padding:20px;color:#888">Nenhum ponto ainda</td></tr>';
+ tb.innerHTML=lista.length?lista.map(r=>`<tr><td><b>${r.dia}</b></td><td>${r.data}</td><td>${r.entrada||'-'}</td><td>${r.almoco_ida||'-'}</td><td>${r.almoco_volta||'-'}</td><td>${r.saida||'-'}</td><td class="total">${calc(r)}</td></tr>`).join(''):'<tr><td colspan=7 style="padding:20px;color:#888">Nenhum ponto ainda - Bata ENTRADA acima</td></tr>';
 }
 function exportarCSV(){
- let dados=JSON.parse(localStorage.getItem('gratifluxo_pontos_v1')||'{}');let lista=Object.values(dados);if(!lista.length){alert('Sem dados');return}
- let csv='DIA;DATA;ENTRADA;ALMOCO SAIDA;ALMOCO VOLTA;SAIDA;TOTAL\n';lista.forEach(r=>csv+=`${r.dia};${r.data};${r.entrada};${r.almoco_ida};${r.almoco_volta};${r.saida};${calc(r)}\n`);
- let blob=new Blob([csv],{type:'text/csv'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`gratifluxo-pontos-${new Date().toISOString().slice(0,10)}.csv`;a.click();
+ let dados=JSON.parse(localStorage.getItem('gratifluxo_pontos_v1')||'{}');let lista=Object.values(dados);if(!lista.length){alert('Sem dados pra exportar');return}
+ let csv='DIA;DATA;ENTRADA;ALMOCO SAIDA;ALMOCO VOLTA;SAIDA;TOTAL HORAS\n';lista.forEach(r=>csv+=`${r.dia};${r.data};${r.entrada};${r.almoco_ida};${r.almoco_volta};${r.saida};${calc(r)}\n`);
+ let blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`gratifluxo-pontos-${new Date().toISOString().slice(0,10)}.csv`;a.click();
 }
-function exportarZap(){let dados=JSON.parse(localStorage.getItem('gratifluxo_pontos_v1')||'{}');let lista=Object.values(dados);if(!lista.length){alert('Sem dados');return}let txt=`*GRATIFLUXO PONTOS*%0A%0A`;lista.forEach(r=>txt+=`${r.data} ${r.dia} - Ent ${r.entrada} / Alm ${r.almoco_ida}-${r.almoco_volta} / Sai ${r.saida} = ${calc(r)}%0A`);window.open('https://wa.me/?text='+txt,'_blank');}
-function fazerBackup(){let d=localStorage.getItem('gratifluxo_pontos_v1');if(!d){alert('Sem dados');return}let b=new Blob([d],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`gratifluxo-pontos-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();}
-function restaurar(i){let f=i.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{localStorage.setItem('gratifluxo_pontos_v1',e.target.result);render();alert('Restaurado Gratifluxo!')};r.readAsText(f);}
-function limpar(){if(confirm('Zerar Gratifluxo? Faça backup!')){localStorage.removeItem('gratifluxo_pontos_v1');render();}}
-setInterval(()=>document.getElementById('relogio').textContent=new Date().toLocaleString('pt-BR'),1000);render();
+function exportarZap(){let dados=JSON.parse(localStorage.getItem('gratifluxo_pontos_v1')||'{}');let lista=Object.values(dados);if(!lista.length){alert('Sem dados');return}let txt=`*GRATIFLUXO PONTOS - BANCO GRATIDÃO*%0A%0A`;lista.forEach(r=>txt+=`${r.data} ${r.dia} - Ent ${r.entrada} / Alm ${r.almoco_ida}-${r.almoco_volta} / Sai ${r.saida} = ${calc(r)}%0A`);window.open('https://wa.me/?text='+txt,'_blank');}
+function fazerBackup(){let d=localStorage.getItem('gratifluxo_pontos_v1');if(!d){alert('Sem dados pra backup');return}let b=new Blob([d],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`gratifluxo-pontos-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();}
+function restaurar(i){let f=i.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{try{JSON.parse(e.target.result);localStorage.setItem('gratifluxo_pontos_v1',e.target.result);render();alert('✅ Gratifluxo restaurado!')}catch(err){alert('Arquivo inválido')}};r.readAsText(f);i.value='';}
+function limpar(){if(confirm('⚠️ Zerar mês? Faça backup antes!') && confirm('Confirma apagar tudo?')){localStorage.removeItem('gratifluxo_pontos_v1');render();}}
+setInterval(()=>{let el=document.getElementById('relogio');if(el)el.textContent=new Date().toLocaleTimeString('pt-BR')},1000);render();
 </script>
- <!-- BOTÃO FLUTUANTE DOURADO - INSTALAÇÃO DIRETA -->
+
 <link rel="manifest" href="./manifest.json">
-<style>
-.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
-@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-</style>
 <button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
+<style>#btnChamarPortal{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:999;background:#111;border:2px solid #FFD700;border-radius:24px;padding:8px 14px;display:flex;align-items:center;gap:10px}#btnChamarPortal b{color:#fff;font-size:11px}#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:6px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}#btnChamarPortal .fechar{color:#666;cursor:pointer}</style>
+<div id="btnChamarPortal"><div><b>🔴 PORTAL DO POVO</b></div><a class="abrir" href="/">ABRIR</a><span class="fechar" onclick="this.parentElement.style.display='none'">✕</span></div>
 <script>
 let dpMini=null;
 window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
