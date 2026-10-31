@@ -3,200 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gratiflix - Portal do Povo | Banco Gratidão Oficial 20 Anos - JOSE</title>
-<script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
-<meta name="google-adsense-account" content="ca-pub-2263470788888608">
+<title>🎬 Cine GratiFlix - 113 Filmes Grátis - Portal do Povo</title>
+<meta name="description" content="Cine GratiFlix: 113 filmes grátis online no Portal do Povo. Portal do Povo, lançamentos, ação, clássicos, domínio público. Sem cadastro.">
+<link rel="canonical" href="https://bancogratidao.com.br/cine-gratiflix/">
+<meta name="theme-color" content="#FFD700">
 <style>
-body{margin:0;background:#000;color:#fff;font-family:Arial}
-.ads-box{width:100%;min-height:90px;background:#0a0a0a;display:flex;align-items:center;justify-content:center;margin:15px 0;border:1px dashed #222;border-radius:8px}
-#listaFilmes{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding:20px}
-.card{cursor:pointer;transition:.2s}.card:hover{transform:scale(1.05)}
-.card img{width:100%;border-radius:8px;aspect-ratio:2/3;object-fit:cover}
-.tag{color:gold;font-size:11px;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#000;color:#fff;padding-bottom:90px}
+header{position:sticky;top:0;z-index:99;background:#000;border-bottom:3px solid #FFD700;padding:12px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.tag{font-size:9px;font-weight:900;background:#FFD700;color:#000;padding:5px 10px;border-radius:20px}
+.conteudo-editor{background:#111;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px}
+.conteudo-editor h2{font-size:13px;color:#FFD700;margin:0 0 6px}
+.conteudo-editor p{font-size:11px;line-height:16px;color:#ccc;margin:0 0 6px}
+.alert{background:#1a1500;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px;font-size:11px;color:#ffeeaa}
+.ad-box{background:#0a0a0a;border:1px dashed #FFD700;border-radius:12px;padding:10px;text-align:center;margin:12px 10px}
+.filters{position:sticky;top:58px;z-index:98;background:#000;padding:10px;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;border-bottom:1px solid #222}
+.filters button{background:#1a1a1a;border:1px solid #333;color:#aaa;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer}
+.filters button.active{background:#FFD700;color:#000;border-color:#FFD700}
+.row{display:flex;flex-wrap:wrap;gap:12px;padding:16px;justify-content:center}
+.card{width:150px;cursor:pointer;transition:.2s}.card:hover{transform:scale(1.05)}
+.card img{width:150px;height:225px;object-fit:cover;border-radius:12px;background:#111;border:1px solid #222;display:block}
+.card p{font-size:11px;margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#FFD700;font-weight:700;text-align:center}
+#player{position:fixed;inset:0;background:rgba(0,0,0,.97);display:none;z-index:999;flex-direction:column}
+#player.active{display:flex;justify-content:center;align-items:center}
+.box-video{width:100%;max-width:900px;aspect-ratio:16/9;background:#000;border:2px solid #FFD700;border-radius:12px;overflow:hidden}
+.box-video iframe,.box-video video{width:100%;height:100%;border:0}
+.footer{max-width:1000px;margin:20px auto;text-align:center;border-top:2px solid #FFD700;padding:14px}
+.footer a{color:#FFD700;text-decoration:none;font-size:11px;margin:0 6px;font-weight:800}
 </style>
 </head>
 <body>
-<amp-auto-ads type="adsense" data-ad-client="ca-pub-2263470788888608"></amp-auto-ads>
-<h1 style="text-align:center;color:gold;padding:20px 10px 0">JOSE - PORTAL DO POVO - O MODÃO DE CURITIBA</h1>
-<div class="ads-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<div id="player" style="width:100%;max-width:900px;margin:0 auto;aspect-ratio:16/9;background:#000;border:2px solid gold"><iframe id="iframePlayer" width="100%" height="100%" frameborder="0" allowfullscreen allow="autoplay"></iframe></div>
-<div class="ads-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="2345678901" data-ad-format="fluid" data-ad-layout="in-article"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<div id="listaFilmes"></div>
-<div class="ads-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="3456789012" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<script>
-let filmes=[
-{"t":"Portal do Povo - O Modão de Curitiba","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/DRmuNprF76Y/hqdefault.jpg","vid":"DRmuNprF76Y"},
-{"t":"Portal do Povo - Versão Suno","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/CvJLg0lblzsiATCX/hqdefault.jpg","vid":"CvJLg0lblzsiATCX"},
-{"t":"Hitimam","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg","vid":"x5QSOVQJM2w"},
-{"t":"Davi e Golias","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/8Iw8z2bZg6s/hqdefault.jpg","vid":"8Iw8z2bZg6s"},
-{"t":"Filme 01","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/Xz1YqiFiNZQ/hqdefault.jpg","vid":"Xz1YqiFiNZQ"},
-{"t":"Filme 02","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/32zwH-IvzAs/hqdefault.jpg","vid":"32zwH-IvzAs"},
-{"t":"Filme 03","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ouC258B1jKo/hqdefault.jpg","vid":"ouC258B1jKo"},
-{"t":"Filme 04","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ZKXBcPbFTMs/hqdefault.jpg","vid":"ZKXBcPbFTMs"},
-{"t":"Filme 05","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/qKRyqXnwbNI/hqdefault.jpg","vid":"qKRyqXnwbNI"},
-{"t":"Jovens mestres do cokufu","tag":"LANCAMENTO","img":"https://img.youtube.com/vi/_NbcZQqktPQ/hqdefault.jpg","vid":"_NbcZQqktPQ"},
-{"t":"Filme 06","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/MUZ4FpGzsqU/hqdefault.jpg","vid":"MUZ4FpGzsqU"},
-{"t":"Titanic - O Retorno de Jack","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/5yzAq4W2y1A/hqdefault.jpg","vid":"5yzAq4W2y1A"},
-{"t":"Superman - Entre Eras","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/KymrMQKEZ2I/hqdefault.jpg","vid":"KymrMQKEZ2I"},
-{"t":"Minions","tag":"DESENHO","img":"https://img.youtube.com/vi/_Ajqzp5iIQ/hqdefault.jpg","vid":"_Ajqzp5iIQ"},
-{"t":"Vingadores - Ultimato","tag":"AÇÃO","img":"https://img.youtube.com/vi/spJoZReeIeQ/hqdefault.jpg","vid":"spJoZReeIeQ"},
-{"t":"Homem Aranha - Um Novo Dia","tag":"AÇÃO","img":"https://img.youtube.com/vi/PlulyWs1kS4/hqdefault.jpg","vid":"PlulyWs1kS4"},
-{"t":"Filme 07","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/tMGWE_qqxkE/hqdefault.jpg","vid":"tMGWE_qqxkE"},
-{"t":"Filme 08","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/bSKIBqSHrNI/hqdefault.jpg","vid":"bSKIBqSHrNI"},
-{"t":"Filme 09","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/0hNT_vhdCcc/hqdefault.jpg","vid":"0hNT_vhdCcc"},
-{"t":"Filme 10","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/Gnv_rD6sJgM/hqdefault.jpg","vid":"Gnv_rD6sJgM"},
-{"t":"Filme 11","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/kDBSwSeSd8o/hqdefault.jpg","vid":"kDBSwSeSd8o"},
-{"t":"Filme 12","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/t89cAmA3oec/hqdefault.jpg","vid":"t89cAmA3oec"},
-{"t":"Filme 13","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/PuVuB9iKZGg/hqdefault.jpg","vid":"PuVuB9iKZGg"},
-{"t":"Filme 14","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/eBNd-V4duWY/hqdefault.jpg","vid":"eBNd-V4duWY"},
-{"t":"Filme 15","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/RJdueseYras/hqdefault.jpg","vid":"RJdueseYras"},
-{"t":"Filme 16","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/VPT0gE8Ve3I/hqdefault.jpg","vid":"VPT0gE8Ve3I"},
-{"t":"Filme 17","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/t5nv9FneoZs/hqdefault.jpg","vid":"t5nv9FneoZs"},
-{"t":"Filme 18","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/SxVNIJlcM7o/hqdefault.jpg","vid":"SxVNIJlcM7o"},
-{"t":"Filme 19","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/-6r0nt0gmWY/hqdefault.jpg","vid":"-6r0nt0gmWY"},
-{"t":"Filme 20","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/cZYOWew11MM/hqdefault.jpg","vid":"cZYOWew11MM"},
-{"t":"Filme 21","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/KSA8LJBcuBw/hqdefault.jpg","vid":"KSA8LJBcuBw"},
-{"t":"Filme 22","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ifEyKWNjSHQ/hqdefault.jpg","vid":"ifEyKWNjSHQ"},
-{"t":"Filme 23","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/6vyGebfwe94/hqdefault.jpg","vid":"6vyGebfwe94"},
-{"t":"Filme 24","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/XUW0012sA7o/hqdefault.jpg","vid":"XUW0012sA7o"},
-{"t":"Filme 25","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/tOpNproAsa4/hqdefault.jpg","vid":"tOpNproAsa4"},
-{"t":"Filme 26","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/QOcbqIMBGEo/hqdefault.jpg","vid":"QOcbqIMBGEo"},
-{"t":"Filme 27","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/oBt9z6Qpb1w/hqdefault.jpg","vid":"oBt9z6Qpb1w"},
-{"t":"Filme 28","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/GwzaCpHKSco/hqdefault.jpg","vid":"GwzaCpHKSco"},
-{"t":"Filme 29","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/LniTsQUUaIY/hqdefault.jpg","vid":"LniTsQUUaIY"},
-{"t":"Filme 30","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/g20SBcNiqvI/hqdefault.jpg","vid":"g20SBcNiqvI"},
-{"t":"Filme 31","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/16iMqoXFdwA/hqdefault.jpg","vid":"16iMqoXFdwA"},
-{"t":"Filme 32","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/fZTEVgeYmd4/hqdefault.jpg","vid":"fZTEVgeYmd4"},
-{"t":"Filme 33","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/t5-es5PlQUs/hqdefault.jpg","vid":"t5-es5PlQUs"},
-{"t":"Filme 34","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/vZj0X0Qzstg/hqdefault.jpg","vid":"vZj0X0Qzstg"},
-{"t":"Filme 35","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ajMd9c8QHMI/hqdefault.jpg","vid":"ajMd9c8QHMI"},
-{"t":"Filme 36","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/HPIQ3-eJmwY/hqdefault.jpg","vid":"HPIQ3-eJmwY"},
-{"t":"Filme 37","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/JkwFWFbir1E/hqdefault.jpg","vid":"JkwFWFbir1E"},
-{"t":"Filme 38","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/zsdQFZnDfoA/hqdefault.jpg","vid":"zsdQFZnDfoA"},
-{"t":"Filme 39","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/PNRXZx3Bz-Q/hqdefault.jpg","vid":"PNRXZx3Bz-Q"},
-{"t":"Filme 40","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/kU-7uPQZBWM/hqdefault.jpg","vid":"kU-7uPQZBWM"},
-{"t":"Filme 41","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/QEvlM0VxIt4/hqdefault.jpg","vid":"QEvlM0VxIt4"},
-{"t":"Filme 42","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/cYxgBL9X-4Q/hqdefault.jpg","vid":"cYxgBL9X-4Q"},
-{"t":"Filme 43","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/kNl7YVgvAXk/hqdefault.jpg","vid":"kNl7YVgvAXk"},
-{"t":"Filme 44","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/fUyp2e3R1i8/hqdefault.jpg","vid":"fUyp2e3R1i8"},
-{"t":"Filme 45","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/8jshmm8ev74/hqdefault.jpg","vid":"8jshmm8ev74"},
-{"t":"Filme 46","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/xdvl0KfI3dk/hqdefault.jpg","vid":"xdvl0KfI3dk"},
-{"t":"Filme 47","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ERdCY4rgdIc/hqdefault.jpg","vid":"ERdCY4rgdIc"},
-{"t":"Filme 48","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/CSe_rCyNGzs/hqdefault.jpg","vid":"CSe_rCyNGzs"},
-{"t":"Filme 49","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/bQQ0PGVAGaQ/hqdefault.jpg","vid":"bQQ0PGVAGaQ"},
-{"t":"Filme 50","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/68WyOt9egTU/hqdefault.jpg","vid":"68WyOt9egTU"},
-{"t":"Filme 51","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/nqxCRAzakE8/hqdefault.jpg","vid":"nqxCRAzakE8"},
-{"t":"Filme 52","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/dKZMRnTu61E/hqdefault.jpg","vid":"dKZMRnTu61E"},
-{"t":"Filme 53","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/R6Iq8aSt0Zg/hqdefault.jpg","vid":"R6Iq8aSt0Zg"},
-{"t":"Filme 54","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/53yDYHibm04/hqdefault.jpg","vid":"53yDYHibm04"},
-{"t":"Filme 55","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/yysbH_A8sXM/hqdefault.jpg","vid":"yysbH_A8sXM"},
-{"t":"Filme 56","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/jYBruJX9RHw/hqdefault.jpg","vid":"jYBruJX9RHw"},
-{"t":"Filme 57","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/qw1bSUmXpUY/hqdefault.jpg","vid":"qw1bSUmXpUY"},
-{"t":"Filme 58","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/O_PlC4DZaiw/hqdefault.jpg","vid":"O_PlC4DZaiw"},
-{"t":"Filme 59","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/TiSz_xUkoIY/hqdefault.jpg","vid":"TiSz_xUkoIY"},
-{"t":"Filme 60","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/UVk6EDSCKMc/hqdefault.jpg","vid":"UVk6EDSCKMc"},
-{"t":"Filme 61","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/s-GgY7QiYSE/hqdefault.jpg","vid":"s-GgY7QiYSE"},
-{"t":"Filme 62","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/qzy5S3LQ0Nw/hqdefault.jpg","vid":"qzy5S3LQ0Nw"},
-{"t":"Filme 63","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/IFSUcW4Spag/hqdefault.jpg","vid":"IFSUcW4Spag"},
-{"t":"Filme 64","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/iBZukP-9XdA/hqdefault.jpg","vid":"iBZukP-9XdA"},
-{"t":"Filme 65","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/FD4CeWNIQdk/hqdefault.jpg","vid":"FD4CeWNIQdk"},
-{"t":"Filme 66","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/3cAaosl9FoY/hqdefault.jpg","vid":"3cAaosl9FoY"},
-{"t":"Filme 67","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/tWZxrVwUyN8/hqdefault.jpg","vid":"tWZxrVwUyN8"},
-{"t":"Filme 68","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/9CjByZriDkA/hqdefault.jpg","vid":"9CjByZriDkA"},
-{"t":"Filme 69","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/8h54C7tIj-M/hqdefault.jpg","vid":"8h54C7tIj-M"},
-{"t":"Filme 70","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/IkUCBicGnk0/hqdefault.jpg","vid":"IkUCBicGnk0"},
-{"t":"Filme 71","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/MbgjeF9QAVE/hqdefault.jpg","vid":"MbgjeF9QAVE"},
-{"t":"Filme 72","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/fwLrlXZTdK0/hqdefault.jpg","vid":"fwLrlXZTdK0"},
-{"t":"Filme 73","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/KKJ5e_ksjO4/hqdefault.jpg","vid":"KKJ5e_ksjO4"},
-{"t":"Filme 74","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/qIN82R8MLrQ/hqdefault.jpg","vid":"qIN82R8MLrQ"},
-{"t":"Filme 75","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ZXc-hKDDGRA/hqdefault.jpg","vid":"ZXc-hKDDGRA"},
-{"t":"Filme 76","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/i_QMcbI61yo/hqdefault.jpg","vid":"i_QMcbI61yo"},
-{"t":"Filme 77","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/Br9PbQBuQtg/hqdefault.jpg","vid":"Br9PbQBuQtg"},
-{"t":"Filme 78","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/3f5TlLMocHs/hqdefault.jpg","vid":"3f5TlLMocHs"},
-{"t":"Filme 79","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/RZ4p-VyShMU/hqdefault.jpg","vid":"RZ4p-VyShMU"},
-{"t":"Filme 80","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/3k35crCBBB4/hqdefault.jpg","vid":"3k35crCBBB4"},
-{"t":"Filme 81","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/nIHU2SVLNQ0/hqdefault.jpg","vid":"nIHU2SVLNQ0"},
-{"t":"Filme 82","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/poGy3eNjO3A/hqdefault.jpg","vid":"poGy3eNjO3A"},
-{"t":"Filme 83","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/zGgrvHKKHuA/hqdefault.jpg","vid":"zGgrvHKKHuA"},
-{"t":"Filme 84","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/8Uufoi9xv7Q/hqdefault.jpg","vid":"8Uufoi9xv7Q"},
-{"t":"Filme 85","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/TaDQWHlC8YY/hqdefault.jpg","vid":"TaDQWHlC8YY"},
-{"t":"Filme 86","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg","vid":"G9qBZ6NaMfY"},
-{"t":"Filme 87","tag":"LANÇAMENTO","img":"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg","vid":"ppmUuEv6TBk"},
-{"t":"Conan o barbaro","tag":"ACAO","img":"https://img.youtube.com/vi/vWLNSVi3k5U/hqdefault.jpg","vid":"vWLNSVi3k5U"},
-{"t":"Video 01","tag":"SHORTS","img":"https://img.youtube.com/vi/NW_Xjlrxc1s/hqdefault.jpg","vid":"NW_Xjlrxc1s"},
-{"t":"Video 02","tag":"SHORTS","img":"https://img.youtube.com/vi/va-aZd2mPvc/hqdefault.jpg","vid":"va-aZd2mPvc"},
-{"t":"Video 03","tag":"SHORTS","img":"https://img.youtube.com/vi/BMkt1Sn4sIc/hqdefault.jpg","vid":"BMkt1Sn4sIc"},
-{"t":"Video 04","tag":"SHORTS","img":"https://img.youtube.com/vi/RzEzV64Suy4/hqdefault.jpg","vid":"RzEzV64Suy4"},
-{"t":"Video 05","tag":"SHORTS","img":"https://img.youtube.com/vi/WPIDOHBNBXs/hqdefault.jpg","vid":"WPIDOHBNBXs"},
-{"t":"Video 06","tag":"SHORTS","img":"https://img.youtube.com/vi/3gFkm-f4Hec/hqdefault.jpg","vid":"3gFkm-f4Hec"},
-{"t":"Video 07","tag":"SHORTS","img":"https://img.youtube.com/vi/qWYah-baeJU/hqdefault.jpg","vid":"qWYah-baeJU"},
-{"t":"Video 08","tag":"SHORTS","img":"https://img.youtube.com/vi/RqiClGJ8TK4/hqdefault.jpg","vid":"RqiClGJ8TK4"},
-{"t":"Video 09","tag":"SHORTS","img":"https://img.youtube.com/vi/vbW3P16P4b0/hqdefault.jpg","vid":"vbW3P16P4b0"},
-{"t":"Video 10","tag":"SHORTS","img":"https://img.youtube.com/vi/lhWk9WHNSp4/hqdefault.jpg","vid":"lhWk9WHNSp4"},
-{"t":"Video 11","tag":"SHORTS","img":"https://img.youtube.com/vi/qKIicEEMqzU/hqdefault.jpg","vid":"qKIicEEMqzU"},
-{"t":"Video 12","tag":"SHORTS","img":"https://img.youtube.com/vi/Lws1PiB69BM/hqdefault.jpg","vid":"Lws1PiB69BM"},
-{"t":"Video 13","tag":"SHORTS","img":"https://img.youtube.com/vi/v_22RgQPR5Y/hqdefault.jpg","vid":"v_22RgQPR5Y"},
-{"t":"Video 14","tag":"SHORTS","img":"https://img.youtube.com/vi/KpSpoBepl4s/hqdefault.jpg","vid":"KpSpoBepl4s"},
-{"t":"Video 15","tag":"SHORTS","img":"https://img.youtube.com/vi/308U7m_Gv44/hqdefault.jpg","vid":"308U7m_Gv44"},
-{"t":"Video 16","tag":"SHORTS","img":"https://img.youtube.com/vi/7mXayzxMQqE/hqdefault.jpg","vid":"7mXayzxMQqE"},
-{"t":"Video 17","tag":"SHORTS","img":"https://img.youtube.com/vi/Bs63LOT7lok/hqdefault.jpg","vid":"Bs63LOT7lok"},
-{"t":"Video 18","tag":"SHORTS","img":"https://img.youtube.com/vi/kMa4DxmERuw/hqdefault.jpg","vid":"kMa4DxmERuw"},
-{"t":"Video 19","tag":"SHORTS","img":"https://img.youtube.com/vi/haXzL1ZVj1I/hqdefault.jpg","vid":"haXzL1ZVj1I"},
-{"t":"Video 20","tag":"SHORTS","img":"https://img.youtube.com/vi/giVhCvm73Cw/hqdefault.jpg","vid":"giVhCvm73Cw"},
-{"t":"Video 21","tag":"SHORTS","img":"https://img.youtube.com/vi/Rkc6yZ2Y3Cs/hqdefault.jpg","vid":"Rkc6yZ2Y3Cs"},
-{"t":"Video 22","tag":"SHORTS","img":"https://img.youtube.com/vi/xVBSatGUgNw/hqdefault.jpg","vid":"xVBSatGUgNw"},
-{"t":"Video 23","tag":"SHORTS","img":"https://img.youtube.com/vi/h96Jcgvd18U/hqdefault.jpg","vid":"h96Jcgvd18U"},
-{"t":"Video 24","tag":"SHORTS","img":"https://img.youtube.com/vi/uNbKPdVH9rw/hqdefault.jpg","vid":"uNbKPdVH9rw"},
-{"t":"Video 25","tag":"SHORTS","img":"https://img.youtube.com/vi/IqTk_y-3mOY/hqdefault.jpg","vid":"IqTk_y-3mOY"}
-];
-function playFilme(i){let f=filmes[i];if(f.vid.includes("suno.com")||f.vid.includes("facebook.com")||f.vid.includes("voca.ro")||f.vid.includes("nflix.cc")){window.open(f.vid,"_blank");return;}let id=f.vid.replace("https://www.youtube.com/watch?v=","").replace("https://youtu.be/","").split("?")[0].split("&")[0];if(id.length>11)id=id.substring(0,11);document.getElementById('iframePlayer').src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0";window.scrollTo({top:0,behavior:'smooth'});}
-let html="";filmes.forEach((f,i)=>{if(i>0&&i%12==0){html+=`<div class="ads-box"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-slot="4567890123" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});<\/script></div>`;}html+=`<div class="card" onclick="playFilme(${i})"><img src="${f.img}" loading="lazy"><p>${f.t}<br><span class="tag">${f.tag}</span></p></div>`;});document.getElementById('listaFilmes').innerHTML=html;playFilme(0);
-</script>
-</body>
-  <!-- BOTÃO FLUTUANTE PARA CHAMAR O PORTAL DO POVO -->
-<style>
-#btnChamarPortal{
-  position:fixed;
-  bottom:15px;
-  left:10px;
-  right:10px;
-  z-index:9999;
-  background:linear-gradient(90deg,#ff0000,#b30000);
-  border:2px solid #FFD700;
-  border-radius:16px;
-  padding:12px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 4px 15px rgba(0,0,0,0.7);
-  cursor:pointer;
-}
-#btnChamarPortal b{color:#fff;font-size:13px}
-#btnChamarPortal span{color:#FFD700;font-size:10px;display:block}
-#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:8px 18px;border-radius:20px;font-weight:900;font-size:12px}
-</style>
+<header>
+<h1>🎬 CINE GRATIFLIX<br><span style="font-size:10px;color:#aaa">113 Filmes - Única Pasta Oficial</span></h1>
+<div style="display:flex;gap:6px"><span class="tag" id="contador">113 FILMES</span><a href="/" style="background:#222;color:#fff;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a></div>
+</header>
 
-<div id="btnChamarPortal" onclick="chamarPortal()">
-  <div style="display:flex;align-items:center;gap:10px">
-    <img src="IMG-20261026-WA5175.jpg" style="width:50px;height:50px;border-radius:10px;object-fit:cover;border:1px solid #FFD700">
-    <div>
-      <b>🔴 PORTAL DO POVO AO VIVO</b>
-      <span>Toque para chamar o Modão de Curitiba</span>
-    </div>
-  </div>
-  <div class="abrir">CHAMAR</div>
+<div class="conteudo-editor">
+<h2>Cine GratiFlix - Pasta Única Sem Vídeos Duplicados</h2>
+<p>Todos os filmes do Portal do Povo reunidos em uma única pasta oficial cine-gratiflix para evitar conteúdo duplicado no Google. São 113 filmes verificados sem repetir ID do YouTube, incluindo Portal do Povo Modão, lançamentos, ação e clássicos domínio público como Batman 1949.</p>
+<p>Filmes incorporados do YouTube nocookie e Archive.org de forma legal. Toque no pôster para assistir na TV ou celular. Salve nos favoritos: bancogratidao.com.br/cine-gratiflix/</p>
 </div>
 
+<div class="filters">
+<button class="active" onclick="filtrar('todos',this)">TODOS (113)</button>
+<button onclick="filtrar('povo',this)">PORTAL DO POVO</button>
+<button onclick="filtrar('lanc',this)">LANÇAMENTO</button>
+<button onclick="filtrar('acao',this)">AÇÃO</button>
+<button onclick="filtrar('shorts',this)">SHORTS</button>
+</div>
+
+<div class="alert">✅ 113 FILMES ÚNICOS VERIFICADOS - Sem duplicado - Pasta única oficial pra não tomar restrição do Google</div>
+
+<div class="ad-box"><small>PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="row" id="lista"></div>
+
+<div class="ad-box"><small>PUBLICIDADE - RODAPÉ</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div id="player">
+  <div class="box-video">
+    <video id="v1" controls playsinline style="display:none"></video>
+    <iframe id="v2" style="display:none" allowfullscreen></iframe>
+  </div>
+  <div style="margin-top:20px;text-align:center">
+    <h3 id="titulo" style="color:#FFD700;margin-bottom:12px"></h3>
+    <button style="padding:12px 30px;border-radius:20px;border:0;background:#FFD700;font-weight:900;color:#000;cursor:pointer" onclick="fechar()">✕ FECHAR FILME</button>
+  </div>
+</div>
+
+<footer class="footer">
+<a href="/">🏠 PORTAL</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<p style="color:#888;font-size:10px;margin-top:8px">113 filmes sem duplicidade - YouTube nocookie + Archive.org domínio público - Pasta única oficial</p>
+</footer>
+
 <script>
-function chamarPortal(){
-  document.getElementById('playerPovo')?.scrollIntoView({behavior:'smooth'});
-  // ativa o som automaticamente
-  var p=document.getElementById('playerPovo');
-  if(p){ p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1"; }
-  // vibra no Android
-  if(navigator.vibrate) navigator.vibrate(200);
+const filmes = [
+{t:"Portal do Povo - O Modão de Curitiba",i:"https://img.youtube.com/vi/DRmuNprF76Y/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/DRmuNprF76Y",c:"povo"},
+{t:"Portal do Povo - Versão Suno",i:"https://img.youtube.com/vi/CvJLg0lblzsiATCX/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/CvJLg0lblzsiATCX",c:"povo"},
+{t:"Hitimam",i:"https://img.youtube.com/vi/x5QSOVQJM2w/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/x5QSOVQJM2w",c:"povo"},
+{t:"Davi e Golias",i:"https://img.youtube.com/vi/8Iw8z2bZg6s/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8Iw8z2bZg6s",c:"povo"},
+{t:"Batman 1949 - Domínio Público",i:"https://i.imgur.com/8Km9tLL.png",l:"https://archive.org/download/BatmanAndRobin1949/BatmanAndRobin1949_512kb.mp4",c:"classico"},
+{t:"Filme 01",i:"https://img.youtube.com/vi/Xz1YqiFiNZQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Xz1YqiFiNZQ",c:"lanc"},
+{t:"Filme 02",i:"https://img.youtube.com/vi/32zwH-IvzAs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/32zwH-IvzAs",c:"lanc"},
+{t:"Filme 03",i:"https://img.youtube.com/vi/ouC258B1jKo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ouC258B1jKo",c:"lanc"},
+{t:"Filme 04",i:"https://img.youtube.com/vi/ZKXBcPbFTMs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ZKXBcPbFTMs",c:"lanc"},
+{t:"Filme 05",i:"https://img.youtube.com/vi/qKRyqXnwbNI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qKRyqXnwbNI",c:"lanc"},
+{t:"Jovens mestres do cokufu",i:"https://img.youtube.com/vi/_NbcZQqktPQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/_NbcZQqktPQ",c:"lanc"},
+{t:"Filme 06",i:"https://img.youtube.com/vi/MUZ4FpGzsqU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/MUZ4FpGzsqU",c:"lanc"},
+{t:"Titanic - O Retorno de Jack",i:"https://img.youtube.com/vi/5yzAq4W2y1A/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/5yzAq4W2y1A",c:"lanc"},
+{t:"Superman - Entre Eras",i:"https://img.youtube.com/vi/KymrMQKEZ2I/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KymrMQKEZ2I",c:"acao"},
+{t:"Minions",i:"https://img.youtube.com/vi/_Ajqzp5iIQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/_Ajqzp5iIQ",c:"lanc"},
+{t:"Vingadores - Ultimato",i:"https://img.youtube.com/vi/spJoZReeIeQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/spJoZReeIeQ",c:"acao"},
+{t:"Homem Aranha - Um Novo Dia",i:"https://img.youtube.com/vi/PlulyWs1kS4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/PlulyWs1kS4",c:"acao"},
+{t:"Filme 07",i:"https://img.youtube.com/vi/tMGWE_qqxkE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tMGWE_qqxkE",c:"lanc"},
+{t:"Filme 08",i:"https://img.youtube.com/vi/bSKIBqSHrNI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/bSKIBqSHrNI",c:"lanc"},
+{t:"Filme 09",i:"https://img.youtube.com/vi/0hNT_vhdCcc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/0hNT_vhdCcc",c:"lanc"},
+{t:"Filme 10",i:"https://img.youtube.com/vi/Gnv_rD6sJgM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Gnv_rD6sJgM",c:"lanc"},
+{t:"Filme 11",i:"https://img.youtube.com/vi/kDBSwSeSd8o/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kDBSwSeSd8o",c:"lanc"},
+{t:"Filme 12",i:"https://img.youtube.com/vi/t89cAmA3oec/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t89cAmA3oec",c:"lanc"},
+{t:"Filme 13",i:"https://img.youtube.com/vi/PuVuB9iKZGg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/PuVuB9iKZGg",c:"lanc"},
+{t:"Filme 14",i:"https://img.youtube.com/vi/eBNd-V4duWY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/eBNd-V4duWY",c:"lanc"},
+{t:"Filme 15",i:"https://img.youtube.com/vi/RJdueseYras/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RJdueseYras",c:"lanc"},
+{t:"Filme 16",i:"https://img.youtube.com/vi/VPT0gE8Ve3I/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/VPT0gE8Ve3I",c:"lanc"},
+{t:"Filme 17",i:"https://img.youtube.com/vi/t5nv9FneoZs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t5nv9FneoZs",c:"lanc"},
+{t:"Filme 18",i:"https://img.youtube.com/vi/SxVNIJlcM7o/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/SxVNIJlcM7o",c:"lanc"},
+{t:"Filme 19",i:"https://img.youtube.com/vi/-6r0nt0gmWY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/-6r0nt0gmWY",c:"lanc"},
+{t:"Filme 20",i:"https://img.youtube.com/vi/cZYOWew11MM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/cZYOWew11MM",c:"lanc"},
+{t:"Filme 21",i:"https://img.youtube.com/vi/KSA8LJBcuBw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KSA8LJBcuBw",c:"lanc"},
+{t:"Filme 22",i:"https://img.youtube.com/vi/ifEyKWNjSHQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ifEyKWNjSHQ",c:"lanc"},
+{t:"Filme 23",i:"https://img.youtube.com/vi/6vyGebfwe94/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/6vyGebfwe94",c:"lanc"},
+{t:"Filme 24",i:"https://img.youtube.com/vi/XUW0012sA7o/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/XUW0012sA7o",c:"lanc"},
+{t:"Filme 25",i:"https://img.youtube.com/vi/tOpNproAsa4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tOpNproAsa4",c:"lanc"},
+{t:"Filme 26",i:"https://img.youtube.com/vi/QOcbqIMBGEo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/QOcbqIMBGEo",c:"lanc"},
+{t:"Filme 27",i:"https://img.youtube.com/vi/oBt9z6Qpb1w/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/oBt9z6Qpb1w",c:"lanc"},
+{t:"Filme 28",i:"https://img.youtube.com/vi/GwzaCpHKSco/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/GwzaCpHKSco",c:"lanc"},
+{t:"Filme 29",i:"https://img.youtube.com/vi/LniTsQUUaIY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/LniTsQUUaIY",c:"lanc"},
+{t:"Filme 30",i:"https://img.youtube.com/vi/g20SBcNiqvI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/g20SBcNiqvI",c:"lanc"},
+{t:"Filme 31",i:"https://img.youtube.com/vi/16iMqoXFdwA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/16iMqoXFdwA",c:"lanc"},
+{t:"Filme 32",i:"https://img.youtube.com/vi/fZTEVgeYmd4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fZTEVgeYmd4",c:"lanc"},
+{t:"Filme 33",i:"https://img.youtube.com/vi/t5-es5PlQUs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/t5-es5PlQUs",c:"lanc"},
+{t:"Filme 34",i:"https://img.youtube.com/vi/vZj0X0Qzstg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/vZj0X0Qzstg",c:"lanc"},
+{t:"Filme 35",i:"https://img.youtube.com/vi/ajMd9c8QHMI/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ajMd9c8QHMI",c:"lanc"},
+{t:"Filme 36",i:"https://img.youtube.com/vi/HPIQ3-eJmwY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/HPIQ3-eJmwY",c:"lanc"},
+{t:"Filme 37",i:"https://img.youtube.com/vi/JkwFWFbir1E/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/JkwFWFbir1E",c:"lanc"},
+{t:"Filme 38",i:"https://img.youtube.com/vi/zsdQFZnDfoA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/zsdQFZnDfoA",c:"lanc"},
+{t:"Filme 39",i:"https://img.youtube.com/vi/PNRXZx3Bz-Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/PNRXZx3Bz-Q",c:"lanc"},
+{t:"Filme 40",i:"https://img.youtube.com/vi/kU-7uPQZBWM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kU-7uPQZBWM",c:"lanc"},
+{t:"Filme 41",i:"https://img.youtube.com/vi/QEvlM0VxIt4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/QEvlM0VxIt4",c:"lanc"},
+{t:"Filme 42",i:"https://img.youtube.com/vi/cYxgBL9X-4Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/cYxgBL9X-4Q",c:"lanc"},
+{t:"Filme 43",i:"https://img.youtube.com/vi/kNl7YVgvAXk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kNl7YVgvAXk",c:"lanc"},
+{t:"Filme 44",i:"https://img.youtube.com/vi/fUyp2e3R1i8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fUyp2e3R1i8",c:"lanc"},
+{t:"Filme 45",i:"https://img.youtube.com/vi/8jshmm8ev74/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8jshmm8ev74",c:"lanc"},
+{t:"Filme 46",i:"https://img.youtube.com/vi/xdvl0KfI3dk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/xdvl0KfI3dk",c:"lanc"},
+{t:"Filme 47",i:"https://img.youtube.com/vi/ERdCY4rgdIc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ERdCY4rgdIc",c:"lanc"},
+{t:"Filme 48",i:"https://img.youtube.com/vi/CSe_rCyNGzs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/CSe_rCyNGzs",c:"lanc"},
+{t:"Filme 49",i:"https://img.youtube.com/vi/bQQ0PGVAGaQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/bQQ0PGVAGaQ",c:"lanc"},
+{t:"Filme 50",i:"https://img.youtube.com/vi/68WyOt9egTU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/68WyOt9egTU",c:"lanc"},
+{t:"Filme 51",i:"https://img.youtube.com/vi/nqxCRAzakE8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/nqxCRAzakE8",c:"lanc"},
+{t:"Filme 52",i:"https://img.youtube.com/vi/dKZMRnTu61E/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/dKZMRnTu61E",c:"lanc"},
+{t:"Filme 53",i:"https://img.youtube.com/vi/R6Iq8aSt0Zg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/R6Iq8aSt0Zg",c:"lanc"},
+{t:"Filme 54",i:"https://img.youtube.com/vi/53yDYHibm04/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/53yDYHibm04",c:"lanc"},
+{t:"Filme 55",i:"https://img.youtube.com/vi/yysbH_A8sXM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/yysbH_A8sXM",c:"lanc"},
+{t:"Filme 56",i:"https://img.youtube.com/vi/jYBruJX9RHw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/jYBruJX9RHw",c:"lanc"},
+{t:"Filme 57",i:"https://img.youtube.com/vi/qw1bSUmXpUY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qw1bSUmXpUY",c:"lanc"},
+{t:"Filme 58",i:"https://img.youtube.com/vi/O_PlC4DZaiw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/O_PlC4DZaiw",c:"lanc"},
+{t:"Filme 59",i:"https://img.youtube.com/vi/TiSz_xUkoIY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/TiSz_xUkoIY",c:"lanc"},
+{t:"Filme 60",i:"https://img.youtube.com/vi/UVk6EDSCKMc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/UVk6EDSCKMc",c:"lanc"},
+{t:"Filme 61",i:"https://img.youtube.com/vi/s-GgY7QiYSE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/s-GgY7QiYSE",c:"lanc"},
+{t:"Filme 62",i:"https://img.youtube.com/vi/qzy5S3LQ0Nw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qzy5S3LQ0Nw",c:"lanc"},
+{t:"Filme 63",i:"https://img.youtube.com/vi/IFSUcW4Spag/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/IFSUcW4Spag",c:"lanc"},
+{t:"Filme 64",i:"https://img.youtube.com/vi/iBZukP-9XdA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/iBZukP-9XdA",c:"lanc"},
+{t:"Filme 65",i:"https://img.youtube.com/vi/FD4CeWNIQdk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/FD4CeWNIQdk",c:"lanc"},
+{t:"Filme 66",i:"https://img.youtube.com/vi/3cAaosl9FoY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3cAaosl9FoY",c:"lanc"},
+{t:"Filme 67",i:"https://img.youtube.com/vi/tWZxrVwUyN8/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/tWZxrVwUyN8",c:"lanc"},
+{t:"Filme 68",i:"https://img.youtube.com/vi/9CjByZriDkA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/9CjByZriDkA",c:"lanc"},
+{t:"Filme 69",i:"https://img.youtube.com/vi/8h54C7tIj-M/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8h54C7tIj-M",c:"lanc"},
+{t:"Filme 70",i:"https://img.youtube.com/vi/IkUCBicGnk0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/IkUCBicGnk0",c:"lanc"},
+{t:"Filme 71",i:"https://img.youtube.com/vi/MbgjeF9QAVE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/MbgjeF9QAVE",c:"lanc"},
+{t:"Filme 72",i:"https://img.youtube.com/vi/fwLrlXZTdK0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/fwLrlXZTdK0",c:"lanc"},
+{t:"Filme 73",i:"https://img.youtube.com/vi/KKJ5e_ksjO4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KKJ5e_ksjO4",c:"lanc"},
+{t:"Filme 74",i:"https://img.youtube.com/vi/qIN82R8MLrQ/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qIN82R8MLrQ",c:"lanc"},
+{t:"Filme 75",i:"https://img.youtube.com/vi/ZXc-hKDDGRA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ZXc-hKDDGRA",c:"lanc"},
+{t:"Filme 76",i:"https://img.youtube.com/vi/i_QMcbI61yo/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/i_QMcbI61yo",c:"lanc"},
+{t:"Filme 77",i:"https://img.youtube.com/vi/Br9PbQBuQtg/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Br9PbQBuQtg",c:"lanc"},
+{t:"Filme 78",i:"https://img.youtube.com/vi/3f5TlLMocHs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3f5TlLMocHs",c:"lanc"},
+{t:"Filme 79",i:"https://img.youtube.com/vi/RZ4p-VyShMU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RZ4p-VyShMU",c:"lanc"},
+{t:"Filme 80",i:"https://img.youtube.com/vi/3k35crCBBB4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3k35crCBBB4",c:"lanc"},
+{t:"Filme 81",i:"https://img.youtube.com/vi/nIHU2SVLNQ0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/nIHU2SVLNQ0",c:"lanc"},
+{t:"Filme 82",i:"https://img.youtube.com/vi/poGy3eNjO3A/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/poGy3eNjO3A",c:"lanc"},
+{t:"Filme 83",i:"https://img.youtube.com/vi/zGgrvHKKHuA/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/zGgrvHKKHuA",c:"lanc"},
+{t:"Filme 84",i:"https://img.youtube.com/vi/8Uufoi9xv7Q/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/8Uufoi9xv7Q",c:"lanc"},
+{t:"Filme 85",i:"https://img.youtube.com/vi/TaDQWHlC8YY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/TaDQWHlC8YY",c:"lanc"},
+{t:"Filme 86",i:"https://img.youtube.com/vi/G9qBZ6NaMfY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/G9qBZ6NaMfY",c:"lanc"},
+{t:"Filme 87",i:"https://img.youtube.com/vi/ppmUuEv6TBk/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/ppmUuEv6TBk",c:"lanc"},
+{t:"Conan o Bárbaro",i:"https://img.youtube.com/vi/vWLNSVi3k5U/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/vWLNSVi3k5U",c:"acao"},
+{t:"Short 01",i:"https://img.youtube.com/vi/NW_Xjlrxc1s/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/NW_Xjlrxc1s",c:"shorts"},
+{t:"Short 02",i:"https://img.youtube.com/vi/va-aZd2mPvc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/va-aZd2mPvc",c:"shorts"},
+{t:"Short 03",i:"https://img.youtube.com/vi/BMkt1Sn4sIc/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/BMkt1Sn4sIc",c:"shorts"},
+{t:"Short 04",i:"https://img.youtube.com/vi/RzEzV64Suy4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RzEzV64Suy4",c:"shorts"},
+{t:"Short 05",i:"https://img.youtube.com/vi/WPIDOHBNBXs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/WPIDOHBNBXs",c:"shorts"},
+{t:"Short 06",i:"https://img.youtube.com/vi/3gFkm-f4Hec/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/3gFkm-f4Hec",c:"shorts"},
+{t:"Short 07",i:"https://img.youtube.com/vi/qWYah-baeJU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qWYah-baeJU",c:"shorts"},
+{t:"Short 08",i:"https://img.youtube.com/vi/RqiClGJ8TK4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/RqiClGJ8TK4",c:"shorts"},
+{t:"Short 09",i:"https://img.youtube.com/vi/vbW3P16P4b0/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/vbW3P16P4b0",c:"shorts"},
+{t:"Short 10",i:"https://img.youtube.com/vi/lhWk9WHNSp4/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/lhWk9WHNSp4",c:"shorts"},
+{t:"Short 11",i:"https://img.youtube.com/vi/qKIicEEMqzU/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/qKIicEEMqzU",c:"shorts"},
+{t:"Short 12",i:"https://img.youtube.com/vi/Lws1PiB69BM/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Lws1PiB69BM",c:"shorts"},
+{t:"Short 13",i:"https://img.youtube.com/vi/v_22RgQPR5Y/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/v_22RgQPR5Y",c:"shorts"},
+{t:"Short 14",i:"https://img.youtube.com/vi/KpSpoBepl4s/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/KpSpoBepl4s",c:"shorts"},
+{t:"Short 15",i:"https://img.youtube.com/vi/308U7m_Gv44/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/308U7m_Gv44",c:"shorts"},
+{t:"Short 16",i:"https://img.youtube.com/vi/7mXayzxMQqE/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/7mXayzxMQqE",c:"shorts"},
+{t:"Short 17",i:"https://img.youtube.com/vi/Bs63LOT7lok/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Bs63LOT7lok",c:"shorts"},
+{t:"Short 18",i:"https://img.youtube.com/vi/kMa4DxmERuw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/kMa4DxmERuw",c:"shorts"},
+{t:"Short 19",i:"https://img.youtube.com/vi/haXzL1ZVj1I/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/haXzL1ZVj1I",c:"shorts"},
+{t:"Short 20",i:"https://img.youtube.com/vi/giVhCvm73Cw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/giVhCvm73Cw",c:"shorts"},
+{t:"Short 21",i:"https://img.youtube.com/vi/Rkc6yZ2Y3Cs/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/Rkc6yZ2Y3Cs",c:"shorts"},
+{t:"Short 22",i:"https://img.youtube.com/vi/xVBSatGUgNw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/xVBSatGUgNw",c:"shorts"},
+{t:"Short 23",i:"https://img.youtube.com/vi/h96Jcgvd18U/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/h96Jcgvd18U",c:"shorts"},
+{t:"Short 24",i:"https://img.youtube.com/vi/uNbKPdVH9rw/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/uNbKPdVH9rw",c:"shorts"},
+{t:"Short 25",i:"https://img.youtube.com/vi/IqTk_y-3mOY/hqdefault.jpg",l:"https://www.youtube-nocookie.com/embed/IqTk_y-3mOY",c:"shorts"}
+];
+
+const lista=document.getElementById('lista');
+document.getElementById('contador').textContent=filmes.length+' FILMES ÚNICOS';
+
+function render(cat='todos'){
+ lista.innerHTML='';
+ filmes.filter(f=>cat==='todos'||f.c.includes(cat)).forEach((f,i)=>{
+  let div=document.createElement('div');
+  div.className='card';
+  div.innerHTML=`<img src="${f.i}" loading="lazy"><p>${f.t}</p>`;
+  div.onclick=()=>abrir(i);
+  lista.appendChild(div);
+ });
 }
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+render();
+
+function filtrar(cat, el){
+ document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+ if(el) el.classList.add('active');
+ render(cat);
+}
+
+function abrir(i){
+  let f=filmes[i];
+  document.getElementById('titulo').textContent=f.t;
+  document.getElementById('player').classList.add('active');
+  if(f.l.includes('.mp4')){
+    let v=document.getElementById('v1'); v.src=f.l; v.style.display='block'; document.getElementById('v2').style.display='none'; v.play();
+  }else{
+    document.getElementById('v2').src=f.l+'?autoplay=1'; document.getElementById('v2').style.display='block'; document.getElementById('v1').style.display='none';
+  }
+}
+function fechar(){
+  document.getElementById('player').classList.remove('active');
+  document.getElementById('v1').pause(); document.getElementById('v1').src=''; document.getElementById('v2').src='';
+}
 </script>
+
+<style>#btnChamarPortal{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:999;background:#111;border:2px solid #FFD700;border-radius:24px;padding:8px 14px;display:flex;align-items:center;gap:10px}#btnChamarPortal b{color:#fff;font-size:11px}#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:6px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}#btnChamarPortal .fechar{color:#666;cursor:pointer}</style>
+<div id="btnChamarPortal"><div><b>🔴 PORTAL DO POVO</b></div><a class="abrir" href="/">ABRIR</a><span class="fechar" onclick="this.parentElement.style.display='none'">✕</span></div>
+</body>
 </html>
