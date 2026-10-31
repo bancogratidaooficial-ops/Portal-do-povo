@@ -4,184 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
-<title>Controle de Estoque</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffcc00">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+<title>📦 Controle de Estoque - Produto, Quantidade, Preço, Local - Grátis</title>
+<meta name="description" content="Controle de estoque grátis do Banco Gratidão: cadastre produto, quantidade, mínimo, preço e local. Alerta repor, backup JSON, exportar, compartilhar no WhatsApp. Chave ESTOQUE-2026-PR.">
+<link rel="canonical" href="https://bancogratidao.com.br/estoque/">
+<meta name="theme-color" content="#FFD700">
 <style>
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:#0a0a0a;
-  color:#fff;
-  font-family:Arial, sans-serif;
-  padding:10px;
-  padding-top: 115px;
-}
-.barra-fixa{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  background:#111;
-  padding:10px 15px;
-  border-bottom:2px solid #ffcc00;
-  z-index:999;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.chave-fixa{
-  font-weight:bold;
-  color:#ffcc00;
-  font-size:15px;
-}
-.area-botoes-topo{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-}
-.area-botoes-topo button{
-  padding:7px 10px;
-  border:none;
-  border-radius:6px;
-  font-weight:bold;
-  cursor:pointer;
-  font-size:13px;
-}
-.btn-backup{background:#00ccff; color:#000;}
-.btn-restaurar{background:#00ff88; color:#000;}
-.btn-compartilhar{background:#0088ff; color:#fff;}
-.btn-convidar{background:#ffcc00; color:#000;}
-header{
-  background:#111;
-  padding:12px;
-  border-radius:12px;
-  margin:10px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-}
-header a{color:#ffcc00; text-decoration:none; font-weight:bold;}
-.box{
-  background:#111;
-  border:1px solid #222;
-  border-radius:12px;
-  padding:12px;
-  margin-bottom:10px;
-}
-.topInfo{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:6px;
-  color:#ffcc00;
-  font-weight:bold;
-}
-input{
-  width:100%;
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #333;
-  background:#000;
-  color:#fff;
-  margin:4px 0;
-}
-.grid3{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:6px;
-}
-.btn{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:none;
-  font-weight:bold;
-  margin-top:6px;
-  cursor:pointer;
-}
-.addBtn{background:#ffcc00; color:#000;}
-.item{
-  background:#1e1e1e;
-  padding:10px;
-  border-radius:10px;
-  margin:6px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.item.dados{flex:1; min-width:200px;}
-.item.botoes{display:flex; gap:6px; align-items:center;}
-.btn-qtd{
-  width:36px; height:36px;
-  border-radius:6px;
-  border:none;
-  font-weight:bold;
-  font-size:18px;
-  cursor:pointer;
-  background:#ffcc00;
-  color:#000;
-}
-.btn-lixeira{
-  background:#ff4444;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  padding:6px 10px;
-  cursor:pointer;
-  font-size:16px;
-}
+*{box-sizing:border-box;font-family:system-ui}
+body{margin:0;background:#050505;color:#fff;padding-bottom:90px;padding-top:105px}
+.barra-fixa{position:fixed;top:0;left:0;right:0;background:#000;padding:10px 12px;border-bottom:3px solid #FFD700;z-index:999;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{font-size:9px;font-weight:900;background:#FFD700;color:#000;padding:5px 10px;border-radius:20px}
+.conteudo-editor{background:#111;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px}
+.conteudo-editor h2{font-size:13px;color:#FFD700;margin:0 0 6px}
+.conteudo-editor p{font-size:11px;line-height:16px;color:#ccc;margin:0 0 6px}
+.alert{background:#1a1500;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px;font-size:11px;color:#ffeeaa}
+.ad-box{background:#0a0a0a;border:1px dashed #FFD700;border-radius:12px;padding:10px;text-align:center;margin:12px 10px}
+.chave-fixa{font-weight:900;color:#FFD700;font-size:12px}
+.area-botoes-topo{display:flex;gap:5px;flex-wrap:wrap}
+.area-botoes-topo button{padding:7px 10px;border:none;border-radius:20px;font-weight:900;cursor:pointer;font-size:11px}
+.btn-backup{background:#00ccff;color:#000}.btn-restaurar{background:#00ff88;color:#000}.btn-compartilhar{background:#0088ff;color:#fff}.btn-convidar{background:#FFD700;color:#000}
+.box{background:#111;border:1px solid #222;border-radius:14px;padding:12px;margin:10px}
+.topInfo{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;color:#FFD700;font-weight:900;font-size:13px}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #333;background:#000;color:#fff;margin:4px 0}
+.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px}
+.btn{width:100%;padding:12px;border-radius:12px;border:none;font-weight:900;margin-top:6px;cursor:pointer}
+.addBtn{background:#FFD700;color:#000}
+.item{background:#1e1e1e;padding:12px;border-radius:12px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.btn-qtd{width:36px;height:36px;border-radius:8px;border:none;font-weight:900;font-size:18px;cursor:pointer;background:#FFD700;color:#000}
+.btn-lixeira{background:#ff4444;color:#fff;border:none;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:16px}
+.footer{max-width:1000px;margin:20px auto;text-align:center;border-top:2px solid #FFD700;padding:14px}
+.footer a{color:#FFD700;text-decoration:none;font-size:11px;margin:0 6px;font-weight:800}
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer}
 </style>
 </head>
 <body>
 
 <div class="barra-fixa">
-  <div class="chave-fixa">🔑 Chave: ESTOQUE-2026-PR</div>
-  <div class="area-botoes-topo">
-    <button class="btn-backup" onclick="fazerBackup()">💾 Backup</button>
-    <button class="btn-restaurar" onclick="restaurarArquivo()">♻️ Restaurar</button>
-    <button class="btn-compartilhar" onclick="compartilhar()">🔗 Compartilhar</button>
-    <button class="btn-convidar" onclick="convidar()">👤 Convidar</button>
-  </div>
+<div style="display:flex;align-items:center;gap:8px"><div class="chave-fixa">🔑 ESTOQUE-2026-PR</div><span class="tag" id="totalTag">0 ITENS</span></div>
+<div class="area-botoes-topo">
+<button class="btn-backup" onclick="fazerBackup()">💾 BACKUP</button>
+<button class="btn-restaurar" onclick="restaurarArquivo()">♻️ RESTAURAR</button>
+<button class="btn-compartilhar" onclick="compartilhar()">🔗 COMPARTILHAR</button>
+<button class="btn-convidar" onclick="convidar()">👤 CONVIDAR</button>
+<a href="/" style="background:#222;color:#fff;padding:7px 10px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a>
+</div>
 </div>
 
-<header>
-  <a href="index.html">◀ Voltar</a>
-  <h3 style="margin:0;">📦 Controle de Estoque</h3>
-  <button onclick="exportar()" style="background:#00ff88;border:none;padding:6px 10px;border-radius:8px;font-weight:bold;cursor:pointer;">📤 Exportar</button>
-</header>
+<div class="conteudo-editor">
+<h2>Controle de Estoque Grátis - Cadastro de Produtos com Alerta de Reposição</h2>
+<p>Perdeu controle do seu estoque e não sabe o que precisa comprar? O Controle de Estoque do Banco Gratidão é grátis e salva no celular: cadastre produto, quantidade, mínimo pra repor, preço e local/gaveta. Quando a quantidade chega no mínimo, aparece alerta vermelho ⚠️ REPOR.</p>
+<p>Como usar: digite produto ex: Óleo 10W30, quantidade, mínimo 2, preço e local. Toque Adicionar. Use + e - pra dar baixa rápido. Faça backup JSON todo dia, exporte e compartilhe no WhatsApp. Chave ESTOQUE-2026-PR. Salve: bancogratidao.com.br/estoque/</p>
+</div>
 
-<div class="box">
-  <div class="topInfo">
-    <div>Itens: <span id="totalItens">0</span></div>
-    <div>Valor: R$ <span id="valorTotal">0,00</span></div>
-  </div>
+<div class="alert">📦 DICA: Defina mínimo 2 pra cada item. Quando ficar vermelho ⚠️ REPOR é hora de comprar. Backup todo dia!</div>
+
+<div class="ad-box"><small>PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
 <div class="box">
-  <div class="grid3">
-    <input id="nome" placeholder="Produto: ex: Óleo 10W30">
-    <input id="qtd" type="number" placeholder="Qtd" value="1" min="1">
-    <input id="min" type="number" placeholder="Mínimo" value="2" min="0">
-  </div>
-  <div class="grid3">
-    <input id="preco" type="number" step="0.01" placeholder="Preço R$">
-    <input id="local" placeholder="Local/Gaveta">
-    <button class="btn addBtn" onclick="adicionar()">➕ Adicionar</button>
-  </div>
-  <input id="busca" placeholder="🔍 Buscar produto..." oninput="renderizar()" style="margin-top:8px;">
+<div class="topInfo">
+<div>📦 Itens: <span id="totalItens">0</span></div>
+<div>💰 Valor Total: R$ <span id="valorTotal">0,00</span></div>
+</div>
+</div>
+
+<div class="box">
+<div class="grid3">
+<input id="nome" placeholder="Produto: ex: Óleo 10W30">
+<input id="qtd" type="number" placeholder="Qtd" value="1" min="1">
+<input id="min" type="number" placeholder="Mínimo" value="2" min="0">
+</div>
+<div class="grid3">
+<input id="preco" type="number" step="0.01" placeholder="Preço R$">
+<input id="local" placeholder="Local/Gaveta">
+<button class="btn addBtn" onclick="adicionar()">➕ ADICIONAR</button>
+</div>
+<input id="busca" placeholder="🔍 Buscar produto ou local..." oninput="renderizar()" style="margin-top:8px;">
 </div>
 
 <div class="box" id="lista"></div>
 
+<div class="ad-box"><small>PUBLICIDADE - MEIO</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="box" style="text-align:center">
+<button class="btn" style="background:#00ff88;color:#000" onclick="exportar()">📤 EXPORTAR ESTOQUE (.JSON)</button>
+<a href="/" style="display:block;margin-top:10px;background:#111;color:#FFD700;border:1px solid #FFD700;padding:12px;border-radius:12px;font-weight:900;text-decoration:none;text-align:center">◀ VOLTAR PRO PORTAL DO POVO</a>
+</div>
+
 <input type="file" id="inputRestaurar" accept=".json" style="display:none" onchange="processarRestaurar(event)">
+
+<div class="ad-box"><small>PUBLICIDADE - RODAPÉ</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer class="footer">
+<a href="/">🏠 PORTAL</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<p style="color:#888;font-size:10px;margin-top:8px">Estoque salvo no celular - Backup JSON - Alerta mínimo - 100% grátis</p>
+</footer>
 
 <script>
 const CHAVE_STORAGE = 'estoque_v2_dados';
@@ -189,9 +115,7 @@ let estoque = [];
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ SW registrado', reg))
-      .catch(err => console.log('❌ SW erro', err));
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
   });
 }
 
@@ -203,21 +127,15 @@ function adicionar(){
   const min = parseInt(document.getElementById('min').value) || 0;
   const preco = parseFloat(document.getElementById('preco').value) || 0;
   const local = document.getElementById('local').value.trim();
-
-  if(!nome || qtd <= 0){
-    alert('⚠️ Digite o nome e quantidade válida!');
-    return;
-  }
-
+  if(!nome || qtd <= 0){ alert('⚠️ Digite o nome e quantidade válida!'); return; }
   estoque.unshift({id: Date.now(), nome, qtd, min, preco, local});
   salvar(); renderizar();
-  
   document.getElementById('nome').value = '';
   document.getElementById('qtd').value = '1';
   document.getElementById('preco').value = '';
   document.getElementById('local').value = '';
+  document.getElementById('nome').focus();
 }
-
 function alterarQtd(id, delta){
   const item = estoque.find(i => i.id === id);
   if(!item) return;
@@ -225,117 +143,76 @@ function alterarQtd(id, delta){
   if(item.qtd < 0) item.qtd = 0;
   salvar(); renderizar();
 }
-
 function excluir(id){
   if(confirm('🗑️ Apagar este produto?')){
     estoque = estoque.filter(i => i.id !== id);
     salvar(); renderizar();
   }
 }
-
-function salvar(){
-  localStorage.setItem(CHAVE_STORAGE, JSON.stringify(estoque));
-}
-
+function salvar(){ localStorage.setItem(CHAVE_STORAGE, JSON.stringify(estoque)); }
 function carregar(){
   const dados = localStorage.getItem(CHAVE_STORAGE);
-  if(dados) estoque = JSON.parse(dados);
+  if(dados) try{estoque = JSON.parse(dados);}catch(e){estoque=[]}
   renderizar();
 }
-
 function fazerBackup(){
-  const dados = {
-    data: new Date().toLocaleString('pt-BR'),
-    versao: '2.0',
-    estoque: estoque
-  };
+  const dados = { data: new Date().toLocaleString('pt-BR'), versao: '2.0-estoque-ouro', estoque: estoque };
   const blob = new Blob([JSON.stringify(dados, null, 2)], {type:'application/json'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `backup_estoque_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
+  const a = document.createElement('a'); a.href = url; a.download = `backup_estoque_${new Date().toISOString().slice(0,10)}.json`; a.click();
   URL.revokeObjectURL(url);
-  alert('✅ Backup salvo! Guarde o arquivo.');
+  alert('✅ Backup salvo! Salve no Drive/WhatsApp');
 }
-
-function restaurarArquivo(){
-  document.getElementById('inputRestaurar').click();
-}
-
+function restaurarArquivo(){ document.getElementById('inputRestaurar').click(); }
 function processarRestaurar(event){
-  const arquivo = event.target.files[0];
-  if(!arquivo) return;
-  
+  const arquivo = event.target.files[0]; if(!arquivo) return;
   if(!confirm('⚠️ Isso substitui os dados atuais! Continuar?')) return;
-  
   const leitor = new FileReader();
   leitor.onload = (e) => {
     try {
       const dados = JSON.parse(e.target.result);
-      estoque = dados.estoque || dados;
+      estoque = dados.estoque || dados; if(!Array.isArray(estoque)) throw new Error();
       salvar(); renderizar();
       alert('✅ Restaurado com sucesso!');
-    } catch(err) {
-      alert('❌ Arquivo inválido!');
-    }
+    } catch(err) { alert('❌ Arquivo inválido!'); }
   };
-  leitor.readAsText(arquivo);
-  event.target.value = '';
+  leitor.readAsText(arquivo); event.target.value = '';
 }
-
 function exportar(){
-  const dados = JSON.stringify(estoque, null, 2);
-  const blob = new Blob([dados], {type:'application/json'});
+  const blob = new Blob([JSON.stringify(estoque, null, 2)], {type:'application/json'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `estoque_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
+  const a = document.createElement('a'); a.href = url; a.download = `estoque_${new Date().toISOString().slice(0,10)}.json`; a.click();
   URL.revokeObjectURL(url);
 }
-
 function compartilhar(){
   const total = estoque.reduce((s,i)=>s+(i.qtd*i.preco),0);
-  const texto = `📦 Controle de Estoque — ${estoque.length} itens\nValor total: R$ ${total.toFixed(2)}\n\n` +
-    estoque.map(i => `${i.nome}: ${i.qtd} un. | R$ ${i.preco.toFixed(2)} | ${i.local || 'Sem local'}`).join('\n');
-  
-  if(navigator.share) navigator.share({title:'Estoque', text:texto});
-  else {navigator.clipboard.writeText(texto); alert('✅ Copiado!');}
+  const texto = `📦 Controle de Estoque — ${estoque.length} itens\nValor total: R$ ${total.toFixed(2)}\n\n` + estoque.map(i => `${i.nome}: ${i.qtd} un. | R$ ${i.preco.toFixed(2)} | ${i.local || 'Sem local'}`).join('\n');
+  if(navigator.share) navigator.share({title:'Estoque', text:texto}); else {navigator.clipboard.writeText(texto); alert('✅ Copiado pro clipboard!');}
 }
-
 function convidar(){
   const link = window.location.href;
-  const msg = `Olá! Gerencie nosso estoque: ${link}`;
-  if(navigator.share) navigator.share({title:'Convite', text:msg});
-  else {navigator.clipboard.writeText(msg); alert('✅ Convite copiado!');}
+  const msg = `Olá! Gerencie nosso estoque comigo: ${link} - Chave ESTOQUE-2026-PR`;
+  if(navigator.share) navigator.share({title:'Convite Estoque', text:msg}); else {navigator.clipboard.writeText(msg); alert('✅ Convite copiado!');}
 }
-
-function calcularTotal(){
-  return estoque.reduce((s,i)=>s+(i.qtd*i.preco),0);
-}
-
+function calcularTotal(){ return estoque.reduce((s,i)=>s+(i.qtd*i.preco),0); }
 function renderizar(){
   const busca = document.getElementById('busca').value.toLowerCase();
-  const filtro = estoque.filter(i => 
-    i.nome.toLowerCase().includes(busca) || 
-    (i.local && i.local.toLowerCase().includes(busca))
-  );
-
+  const filtro = estoque.filter(i => i.nome.toLowerCase().includes(busca) || (i.local && i.local.toLowerCase().includes(busca)) );
   document.getElementById('totalItens').textContent = filtro.length;
+  document.getElementById('totalTag').textContent = estoque.length+' ITENS';
   document.getElementById('valorTotal').textContent = calcularTotal().toFixed(2);
-
   const lista = document.getElementById('lista');
+  if(filtro.length===0){ lista.innerHTML='<div style="text-align:center;color:#666;padding:20px">Nenhum produto. Adicione acima.<br><small>Ex: Óleo 10W30, Qtd 5, Mín 2</small></div>'; return; }
   lista.innerHTML = filtro.map(i => `
-    <div class="item" style="${i.qtd <= i.min ? 'border-left:3px solid #ff4444;' : ''}">
-      <div class="dados">
-        <strong>${i.nome}</strong><br>
-        💲 R$ ${i.preco.toFixed(2)} | 📍 ${i.local || 'Não informado'}<br>
-        <small style="color:#aaa">Mín: ${i.min} ${i.qtd <= i.min ? ' ⚠️ REPOR' : ''}</small>
+    <div class="item" style="${i.qtd <= i.min ? 'border-left:4px solid #ff4444;background:#2a1515' : 'border-left:4px solid #FFD700'}">
+      <div style="flex:1;min-width:180px">
+        <strong style="color:#FFD700">${i.nome}</strong><br>
+        💲 R$ ${i.preco.toFixed(2)} | 📍 ${i.local || 'Sem local'}<br>
+        <small style="color:${i.qtd <= i.min ? '#ff4444' : '#aaa'}">Mín: ${i.min} ${i.qtd <= i.min ? ' ⚠️ REPOR URGENTE' : ' ✅ OK'}</small>
       </div>
-      <div class="botoes">
+      <div style="display:flex;gap:6px;align-items:center">
         <button class="btn-qtd" onclick="alterarQtd(${i.id},-1)">−</button>
-        <strong>${i.qtd}</strong>
+        <strong style="min-width:30px;text-align:center">${i.qtd}</strong>
         <button class="btn-qtd" onclick="alterarQtd(${i.id},+1)">+</button>
         <button class="btn-lixeira" onclick="excluir(${i.id})">🗑️</button>
       </div>
@@ -343,17 +220,15 @@ function renderizar(){
   `).join('');
 }
 </script>
-<link rel="manifest" href="./manifest.json">
-<style>
-.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer;animation:pulseFab 2s infinite}
-@keyframes pulseFab{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
-</style>
+
+<link rel="manifest" href="manifest.json">
 <button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
+<style>#btnChamarPortal{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:999;background:#111;border:2px solid #FFD700;border-radius:24px;padding:8px 14px;display:flex;align-items:center;gap:10px}#btnChamarPortal b{color:#fff;font-size:11px}#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:6px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}#btnChamarPortal .fechar{color:#666;cursor:pointer}</style>
+<div id="btnChamarPortal"><div><b>🔴 PORTAL DO POVO</b></div><a class="abrir" href="/">ABRIR</a><span class="fechar" onclick="this.parentElement.style.display='none'">✕</span></div>
 <script>
 let dpMini=null;
 window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
 document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('../sw.js'); }
 </script>
 </body>
 </html>
