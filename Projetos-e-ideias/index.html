@@ -1,93 +1,132 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
-<script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
-<meta name="theme-color" content="#FFD700"><title>💡 PROJETOS E IDEIAS - Portal do Povo</title><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}.top{background:#000;padding:14px;position:sticky;top:0;z-index:20;border-bottom:2px solid #FFD700;display:flex;justify-content:space-between;align-items:center}.top b{color:#FFD700}.chips{display:flex;gap:8px;padding:10px;overflow-x:auto;background:#0a0a0a;position:sticky;top:52px;z-index:10}.chip{padding:8px 14px;border-radius:20px;background:#1a1a1a;border:1px solid #333;color:#fff;font-size:12px;white-space:nowrap;cursor:pointer;font-weight:700}.chip.ativo{background:#FFD700;color:#000;border-color:#FFD700}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}.card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative}.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#222;display:block}.card .info{padding:8px}.card .t{font-size:11px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card .tag{position:absolute;top:6px;left:6px;font-size:9px;color:#000;background:#FFD700;padding:3px 8px;border-radius:12px;font-weight:900}#player{position:fixed;inset:0;background:#000;z-index:99999;display:none;flex-direction:column}#player iframe{flex:1;border:0;width:100%}</style></head><body>
-<amp-auto-ads type="adsense" data-ad-client="ca-pub-2263470788888608"></amp-auto-ads>
-<div class="top"><div><b>💡 PROJETOS E IDEIAS</b><div style="font-size:11px;color:#aaa">Portal do Povo - YouTube</div></div><div onclick="location.href='../'" style="color:#FFD700;font-weight:900;cursor:pointer">⬅ VOLTAR</div></div><div id="chips" class="chips"></div><div id="conteudo"></div><div id="player"><div style="padding:10px;background:#000;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222"><div id="playerTitulo" style="font-weight:900;font-size:13px"></div><button onclick="fecharPlayer()" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:20px">❌ FECHAR</button></div><iframe id="iframePlayer" allowfullscreen></iframe></div><script>let filmes=[
-  {"t":"CONSTRUÇÃO DE CASAS 1","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/2SDeAgaPH1E/hqdefault.jpg","vid":"2SDeAgaPH1E"},
-  {"t":"CONSTRUÇÃO DE CASAS 2","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/bSNGENyPiII/hqdefault.jpg","vid":"bSNGENyPiII"},
-  {"t":"CONSTRUÇÃO DE CASAS 3","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/0VccxRpqeqQ/hqdefault.jpg","vid":"0VccxRpqeqQ"},
-  {"t":"CONSTRUÇÃO DE CASAS 4","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/xNUn497w8YE/hqdefault.jpg","vid":"xNUn497w8YE"},
-  {"t":"CONSTRUÇÃO DE CASAS 5","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/bvzNl82hdkM/hqdefault.jpg","vid":"bvzNl82hdkM"},
-  {"t":"CONSTRUÇÃO DE CASAS 6","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/rRBdChU-Wbc/hqdefault.jpg","vid":"rRBdChU-Wbc"},
-  {"t":"CONSTRUÇÃO DE CASAS 7","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/jyQpy7Nehz0/hqdefault.jpg","vid":"jyQpy7Nehz0"},
-  {"t":"CONSTRUÇÃO DE CASAS 8","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/dWNwHJMqcvs/hqdefault.jpg","vid":"dWNwHJMqcvs"},
-  {"t":"CONSTRUÇÃO DE CASAS 9","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/fPOn7l3aeCw/hqdefault.jpg","vid":"fPOn7l3aeCw"},
-  {"t":"CONSTRUÇÃO DE CASAS 10","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/z3OlgCnrpnM/hqdefault.jpg","vid":"z3OlgCnrpnM"},
-  {"t":"PROJETOS DE ESCADAS 11","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/XEc_-q3vvj8/hqdefault.jpg","vid":"XEc_-q3vvj8"},
-  {"t":"PROJETOS DE ESCADAS 12","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/i__f6Qu73EY/hqdefault.jpg","vid":"i__f6Qu73EY"},
-  {"t":"PROJETOS DE ESCADAS 13","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/m2fXB_aYizw/hqdefault.jpg","vid":"m2fXB_aYizw"},
-  {"t":"PROJETOS DE ESCADAS 14","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/LJeZCPBnKDY/hqdefault.jpg","vid":"LJeZCPBnKDY"},
-  {"t":"PROJETOS DE ESCADAS 15","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/sX1bX9OiTFY/hqdefault.jpg","vid":"sX1bX9OiTFY"},
-  {"t":"PROJETOS DE ESCADAS 16","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/09omWmZ6JzY/hqdefault.jpg","vid":"09omWmZ6JzY"},
-  {"t":"PROJETOS DE ESCADAS 17","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/qXqk1JeBPyg/hqdefault.jpg","vid":"qXqk1JeBPyg"},
-  {"t":"PROJETOS DE ESCADAS 18","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/-GBYq6_EUbs/hqdefault.jpg","vid":"-GBYq6_EUbs"},
-  {"t":"PROJETOS DE ESCADAS 19","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/pyyOL6Frueg/hqdefault.jpg","vid":"pyyOL6Frueg"},
-  {"t":"PROJETOS DE ESCADAS 20","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/aP79mwfpoL8/hqdefault.jpg","vid":"aP79mwfpoL8"},
-  {"t":"CONSTRUÇÃO DE CASAS 22","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/aP79mwfpoL8/hqdefault.jpg","vid":"aP79mwfpoL8"},
-  {"t":"CONSTRUÇÃO DE CASAS 23","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/2SDeAgaPH1E/hqdefault.jpg","vid":"2SDeAgaPH1E"},
-  {"t":"CONSTRUÇÃO DE CASAS 24","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/0VccxRpqeqQ/hqdefault.jpg","vid":"0VccxRpqeqQ"},
-  {"t":"CONSTRUÇÃO DE CASAS 25","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/xNUn497w8YE/hqdefault.jpg","vid":"xNUn497w8YE"},
-  {"t":"CONSTRUÇÃO DE CASAS 26","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/bvzNl82hdkM/hqdefault.jpg","vid":"bvzNl82hdkM"},
-  {"t":"CONSTRUÇÃO DE CASAS 27","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/rRBdChU-Wbc/hqdefault.jpg","vid":"rRBdChU-Wbc"},
-  {"t":"CONSTRUÇÃO DE CASAS 28","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/jyQpy7Nehz0/hqdefault.jpg","vid":"jyQpy7Nehz0"},
-  {"t":"CONSTRUÇÃO DE CASAS 29","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/dWNwHJMqcvs/hqdefault.jpg","vid":"dWNwHJMqcvs"},
-  {"t":"CONSTRUÇÃO DE CASAS 30","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/fPOn7l3aeCw/hqdefault.jpg","vid":"fPOn7l3aeCw"},
-  {"t":"CONSTRUÇÃO DE CASAS 31","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/z3OlgCnrpnM/hqdefault.jpg","vid":"z3OlgCnrpnM"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 31","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/jYbK8V3KlcM/hqdefault.jpg","vid":"jYbK8V3KlcM"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 32","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/kFmX3aw4NW8/hqdefault.jpg","vid":"kFmX3aw4NW8"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 33","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/ZloD0DS6RDM/hqdefault.jpg","vid":"ZloD0DS6RDM"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 34","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/-XvbXR-ZUNY/hqdefault.jpg","vid":"-XvbXR-ZUNY"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 35","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/M2QN_hJFsks/hqdefault.jpg","vid":"M2QN_hJFsks"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 36","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/2Tf-HkxDio4/hqdefault.jpg","vid":"2Tf-HkxDio4"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 37","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/tYCZsZ477Xc/hqdefault.jpg","vid":"tYCZsZ477Xc"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 38","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/cP7SFBicNWo/hqdefault.jpg","vid":"cP7SFBicNWo"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 39","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/sWfGr4ep1WQ/hqdefault.jpg","vid":"sWfGr4ep1WQ"},
-  {"t":"CONSTRUÇÃO COM ISOPOR 40","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/TJTKR5MfK_Q/hqdefault.jpg","vid":"TJTKR5MfK_Q"}
-];let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS","PROJETOS DE ESCADAS","CONSTRUÇÃO DE CASAS","CONSTRUÇÃO COM ISOPOR"];function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[̀-ͯ]/g,'');}let filtro='TODOS';function renderChips(){let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});document.getElementById('chips').innerHTML=h;}function setFiltro(g){filtro=g;renderChips();renderGrid();}function renderGrid(){let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));window.listaAtual=lista;let html='<div class="grid">'+lista.map((f,i)=>'<div class="card" onclick="abrirPlayer('+i+')"><span class="tag">'+f.tag+'</span><img src="'+f.img+'" loading="lazy"><div class="info"><div class="t">'+f.t+'</div></div></div>').join('')+'</div>';if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';document.getElementById('conteudo').innerHTML=html;}function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}renderChips();renderGrid();</script></body>
-<!-- BOTÃO FLUTUANTE PARA CHAMAR O PORTAL DO POVO -->
+<meta name="theme-color" content="#FFD700">
+<title>💡 PROJETOS E IDEIAS - Portal do Povo</title>
+<meta name="description" content="Projetos e ideias de construção de casas, escadas, isopor, inspirações, tutoriais e referências do Portal do Povo.">
 <style>
-#btnChamarPortal{
-  position:fixed;
-  bottom:15px;
-  left:10px;
-  right:10px;
-  z-index:9999;
-  background:linear-gradient(90deg,#ff0000,#b30000);
-  border:2px solid #FFD700;
-  border-radius:16px;
-  padding:12px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 4px 15px rgba(0,0,0,0.7);
-  cursor:pointer;
-}
-#btnChamarPortal b{color:#fff;font-size:13px}
-#btnChamarPortal span{color:#FFD700;font-size:10px;display:block}
-#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:8px 18px;border-radius:20px;font-weight:900;font-size:12px}
+*{box-sizing:border-box;margin:0;padding:0}body{background:#050505;color:#fff;font-family:Arial;padding-bottom:20px}
+.top{background:#000;padding:14px;position:sticky;top:0;z-index:20;border-bottom:3px solid #FFD700;display:flex;justify-content:space-between;align-items:center}
+.top b{color:#FFD700}
+.chips{display:flex;gap:8px;padding:10px;overflow-x:auto;background:#0a0a0a;position:sticky;top:52px;z-index:10}
+.chip{padding:8px 14px;border-radius:20px;background:#1a1a1a;border:1px solid #333;color:#fff;font-size:12px;white-space:nowrap;cursor:pointer;font-weight:700}
+.chip.ativo{background:#FFD700;color:#000;border-color:#FFD700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px}
+.card{background:#111;border-radius:12px;overflow:hidden;border:1px solid #222;cursor:pointer;position:relative}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#222;display:block}
+.card .info{padding:8px}.card .t{font-size:11px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .tag{position:absolute;top:6px;left:6px;font-size:9px;color:#000;background:#FFD700;padding:3px 8px;border-radius:12px;font-weight:900}
+.ad-mini{width:320px;height:50px;background:#fff;border:2px solid #FFD700;border-radius:10px;margin:10px auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#player{position:fixed;inset:0;background:#000;z-index:99999;display:none;flex-direction:column}
+#player iframe{flex:1;border:0;width:100%}
+.box-portal{margin:10px;background:#111;border:2px solid #FFD700;border-radius:12px;padding:12px;display:flex;align-items:center;gap:10px}
+.box-portal b{color:#fff;font-size:13px}.box-portal span{color:#FFD700;font-size:10px;display:block}
+.btn-amarelo{background:#FFD700;color:#000;padding:8px 18px;border-radius:20px;font-weight:900;font-size:12px;text-decoration:none;display:inline-block}
+.nav-fixa{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:#111;border-top:4px solid #FFD700;border-bottom:4px solid #FFD700;margin:12px 0}
+.nav-fixa a{background:#222;border:2px solid #FFD700;color:#FFD700;padding:8px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}
 </style>
+</head>
+<body>
 
-<div id="btnChamarPortal" onclick="chamarPortal()">
-  <div style="display:flex;align-items:center;gap:10px">
-    <img src="IMG-20261026-WA5175.jpg" style="width:50px;height:50px;border-radius:10px;object-fit:cover;border:1px solid #FFD700">
-    <div>
-      <b>🔴 PORTAL DO POVO AO VIVO</b>
-      <span>Toque para chamar o Modão de Curitiba</span>
-    </div>
-  </div>
-  <div class="abrir">CHAMAR</div>
+<div class="top"><div><b>💡 PROJETOS E IDEIAS</b><div style="font-size:11px;color:#aaa">Portal do Povo - YouTube</div></div><div onclick="location.href='../'" style="color:#FFD700;font-weight:900;cursor:pointer">⬅ VOLTAR</div></div>
+
+<div id="chips" class="chips"></div>
+
+<div class="ad-mini"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2263470788888608" data-ad-slot="1234567890"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="box-portal">
+<img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200" style="width:50px;height:50px;border-radius:10px;object-fit:cover;border:1px solid #FFD700">
+<div style="flex:1">
+<b>🔴 PORTAL DO POVO AO VIVO</b>
+<span>Modão de Curitiba - Toque para assistir</span>
+</div>
+<a href="#playerPovo" class="btn-amarelo" onclick="chamarPortal()">ASSISTIR</a>
 </div>
 
+<div id="playerPovoBox" style="margin:10px;border:2px solid #FFD700;border-radius:12px;overflow:hidden;background:#000">
+<iframe id="playerPovo" width="100%" height="220" src="https://www.youtube.com/embed/DRmuNprF76Y?controls=1&rel=0&playsinline=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div id="conteudo"></div>
+
+<div class="nav-fixa">
+<a href="../">🏠 PORTAL DO POVO</a>
+<a href="../Estados-do-brasil/">🇧🇷 ESTADOS DO BRASIL</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<a href="/sobre/">ℹ️ SOBRE</a>
+<a href="/ajuda/">❓ AJUDA</a>
+<a href="/termos/">📄 TERMOS</a>
+</div>
+
+<div class="ad-mini"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2263470788888608" data-ad-slot="1234567890"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div id="player"><div style="padding:10px;background:#000;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #222"><div id="playerTitulo" style="font-weight:900;font-size:13px"></div><button onclick="fecharPlayer()" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:20px">❌ FECHAR</button></div><iframe id="iframePlayer" allowfullscreen></iframe></div>
+
 <script>
-function chamarPortal(){
-  document.getElementById('playerPovo')?.scrollIntoView({behavior:'smooth'});
-  // ativa o som automaticamente
-  var p=document.getElementById('playerPovo');
-  if(p){ p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1"; }
-  // vibra no Android
-  if(navigator.vibrate) navigator.vibrate(200);
+let filmes=[
+{"t":"CONSTRUÇÃO DE CASAS 1","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/2SDeAgaPH1E/hqdefault.jpg","vid":"2SDeAgaPH1E"},
+{"t":"CONSTRUÇÃO DE CASAS 2","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/bSNGENyPiII/hqdefault.jpg","vid":"bSNGENyPiII"},
+{"t":"CONSTRUÇÃO DE CASAS 3","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/0VccxRpqeqQ/hqdefault.jpg","vid":"0VccxRpqeqQ"},
+{"t":"CONSTRUÇÃO DE CASAS 4","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/xNUn497w8YE/hqdefault.jpg","vid":"xNUn497w8YE"},
+{"t":"CONSTRUÇÃO DE CASAS 5","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/bvzNl82hdkM/hqdefault.jpg","vid":"bvzNl82hdkM"},
+{"t":"CONSTRUÇÃO DE CASAS 6","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/rRBdChU-Wbc/hqdefault.jpg","vid":"rRBdChU-Wbc"},
+{"t":"CONSTRUÇÃO DE CASAS 7","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/jyQpy7Nehz0/hqdefault.jpg","vid":"jyQpy7Nehz0"},
+{"t":"CONSTRUÇÃO DE CASAS 8","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/dWNwHJMqcvs/hqdefault.jpg","vid":"dWNwHJMqcvs"},
+{"t":"CONSTRUÇÃO DE CASAS 9","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/fPOn7l3aeCw/hqdefault.jpg","vid":"fPOn7l3aeCw"},
+{"t":"CONSTRUÇÃO DE CASAS 10","tag":"CONSTRUÇÃO DE CASAS","img":"https://img.youtube.com/vi/z3OlgCnrpnM/hqdefault.jpg","vid":"z3OlgCnrpnM"},
+{"t":"PROJETOS DE ESCADAS 11","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/XEc_-q3vvj8/hqdefault.jpg","vid":"XEc_-q3vvj8"},
+{"t":"PROJETOS DE ESCADAS 12","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/i__f6Qu73EY/hqdefault.jpg","vid":"i__f6Qu73EY"},
+{"t":"PROJETOS DE ESCADAS 13","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/m2fXB_aYizw/hqdefault.jpg","vid":"m2fXB_aYizw"},
+{"t":"PROJETOS DE ESCADAS 14","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/LJeZCPBnKDY/hqdefault.jpg","vid":"LJeZCPBnKDY"},
+{"t":"PROJETOS DE ESCADAS 15","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/sX1bX9OiTFY/hqdefault.jpg","vid":"sX1bX9OiTFY"},
+{"t":"PROJETOS DE ESCADAS 16","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/09omWmZ6JzY/hqdefault.jpg","vid":"09omWmZ6JzY"},
+{"t":"PROJETOS DE ESCADAS 17","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/qXqk1JeBPyg/hqdefault.jpg","vid":"qXqk1JeBPyg"},
+{"t":"PROJETOS DE ESCADAS 18","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/-GBYq6_EUbs/hqdefault.jpg","vid":"-GBYq6_EUbs"},
+{"t":"PROJETOS DE ESCADAS 19","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/pyyOL6Frueg/hqdefault.jpg","vid":"pyyOL6Frueg"},
+{"t":"PROJETOS DE ESCADAS 20","tag":"PROJETOS DE ESCADAS","img":"https://img.youtube.com/vi/aP79mwfpoL8/hqdefault.jpg","vid":"aP79mwfpoL8"},
+{"t":"CONSTRUÇÃO COM ISOPOR 31","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/jYbK8V3KlcM/hqdefault.jpg","vid":"jYbK8V3KlcM"},
+{"t":"CONSTRUÇÃO COM ISOPOR 32","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/kFmX3aw4NW8/hqdefault.jpg","vid":"kFmX3aw4NW8"},
+{"t":"CONSTRUÇÃO COM ISOPOR 33","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/ZloD0DS6RDM/hqdefault.jpg","vid":"ZloD0DS6RDM"},
+{"t":"CONSTRUÇÃO COM ISOPOR 34","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/-XvbXR-ZUNY/hqdefault.jpg","vid":"-XvbXR-ZUNY"},
+{"t":"CONSTRUÇÃO COM ISOPOR 35","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/M2QN_hJFsks/hqdefault.jpg","vid":"M2QN_hJFsks"},
+{"t":"CONSTRUÇÃO COM ISOPOR 36","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/2Tf-HkxDio4/hqdefault.jpg","vid":"2Tf-HkxDio4"},
+{"t":"CONSTRUÇÃO COM ISOPOR 37","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/tYCZsZ477Xc/hqdefault.jpg","vid":"tYCZsZ477Xc"},
+{"t":"CONSTRUÇÃO COM ISOPOR 38","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/cP7SFBicNWo/hqdefault.jpg","vid":"cP7SFBicNWo"},
+{"t":"CONSTRUÇÃO COM ISOPOR 39","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/sWfGr4ep1WQ/hqdefault.jpg","vid":"sWfGr4ep1WQ"},
+{"t":"CONSTRUÇÃO COM ISOPOR 40","tag":"CONSTRUÇÃO COM ISOPOR","img":"https://img.youtube.com/vi/TJTKR5MfK_Q/hqdefault.jpg","vid":"TJTKR5MfK_Q"}
+];
+let generos=["PROJETOS","IDEIAS","INSPIRAÇÕES","REFERÊNCIAS","TUTORIAIS","PORTAL DO POVO","RASCUNHOS","PROJETOS DE ESCADAS","CONSTRUÇÃO DE CASAS","CONSTRUÇÃO COM ISOPOR"];
+function normalizar(t){return t.toUpperCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+let filtro='TODOS';
+function renderChips(){
+let counts={};filmes.forEach(f=>{let k=normalizar(f.tag);counts[k]=(counts[k]||0)+1;});
+let h='<div class="chip '+(filtro==='TODOS'?'ativo':'')+'" onclick="setFiltro(\'TODOS\')">TODOS ('+filmes.length+')</div>';
+generos.forEach(g=>{let k=normalizar(g);let c=counts[k]||0;h+='<div class="chip '+(normalizar(filtro)===k?'ativo':'')+'" onclick="setFiltro(\''+g.replace(/'/g,"\\'")+'\')">'+g+' ('+c+')</div>';});
+document.getElementById('chips').innerHTML=h;
 }
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+function setFiltro(g){filtro=g;renderChips();renderGrid();}
+function renderGrid(){
+let lista=filtro==='TODOS'?filmes:filmes.filter(f=>normalizar(f.tag)===normalizar(filtro));
+window.listaAtual=lista;
+let html='<div class="grid">';
+lista.forEach((f,i)=>{
+html+=`<div class="card" onclick="abrirPlayer(${i})"><span class="tag">${f.tag}</span><img src="${f.img}" loading="lazy"><div class="info"><div class="t">${f.t}</div></div></div>`;
+});
+html+='</div>';
+if(lista.length===0) html='<div style=padding:40px;text-align:center;color:#888>Sem ideias nesta pasta<br><small>Clique em TODOS</small></div>';
+document.getElementById('conteudo').innerHTML=html;
+}
+function abrirPlayer(i){let f=window.listaAtual[i];document.getElementById('playerTitulo').innerText=f.t+' - '+f.tag;document.getElementById('iframePlayer').src='https://www.youtube.com/embed/'+f.vid+'?autoplay=1';document.getElementById('player').style.display='flex';}
+function fecharPlayer(){document.getElementById('player').style.display='none';document.getElementById('iframePlayer').src='';}
+function chamarPortal(){
+var p=document.getElementById('playerPovo');
+if(p){ p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1"; p.scrollIntoView({behavior:'smooth'}); }
+if(navigator.vibrate) navigator.vibrate(200);
+}
+renderChips();renderGrid();
 </script>
+</body>
 </html>
