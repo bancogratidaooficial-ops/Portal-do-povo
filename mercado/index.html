@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mercado - Carrinho</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<title>🛒 Mercado - Carrinho de Compras - Total no Caixa - Lista Grátis</title>
+<meta name="description" content="Carrinho de mercado grátis do Banco Gratidão: adicione produto, preço e quantidade, total no caixa automático, busca, edita preço, compartilha no WhatsApp. Salvo no celular.">
+<link rel="canonical" href="https://bancogratidao.com.br/mercado/">
+<meta name="theme-color" content="#FFD700">
+<link rel="manifest" href="./manifest.json">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#0a0a0a;color:#fff;font-family:Arial;padding:10px;padding-bottom:20px}
-header{display:flex;justify-content:space-between;align-items:center;background:#111;padding:12px;border-radius:14px;border:2px solid #ffcc00;margin-bottom:10px}
-header a{color:#ffcc00;text-decoration:none;font-weight:bold}
-.totalBox{background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000;border-radius:14px;padding:14px;text-align:center;margin-bottom:10px}
+*{box-sizing:border-box;font-family:system-ui}body{margin:0;background:#050505;color:#fff;padding-bottom:90px;padding-top:105px}
+.barra-fixa{position:fixed;top:0;left:0;right:0;background:#000;padding:10px 12px;border-bottom:3px solid #FFD700;z-index:999;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.tag{font-size:9px;font-weight:900;background:#FFD700;color:#000;padding:5px 10px;border-radius:20px}
+.conteudo-editor{background:#111;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px}
+.conteudo-editor h2{font-size:13px;color:#FFD700;margin:0 0 6px}
+.conteudo-editor p{font-size:11px;line-height:16px;color:#ccc;margin:0 0 6px}
+.alert{background:#1a1500;border:1px solid #FFD700;border-radius:12px;padding:12px;margin:10px;font-size:11px;color:#ffeeaa}
+.ad-box{background:#0a0a0a;border:1px dashed #FFD700;border-radius:12px;padding:10px;text-align:center;margin:12px 10px}
+.totalBox{background:linear-gradient(135deg,#FFD700,#FF9900);color:#000;border-radius:14px;padding:16px;text-align:center;margin:10px}
 .totalBox b{font-size:36px;display:block}
-.box{background:#111;border:1px solid #222;border-radius:12px;padding:10px;margin-bottom:10px}
-input{padding:14px;border-radius:10px;border:1px solid #333;background:#000;color:#fff}
+.box{background:#111;border:1px solid #222;border-radius:14px;padding:10px;margin:10px}
+input{padding:14px;border-radius:10px;border:1px solid #333;background:#000;color:#fff;width:100%}
 .grid{display:grid;grid-template-columns:2fr 1fr 70px;gap:6px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
-.btn{padding:14px;border-radius:10px;border:none;font-weight:bold;width:100%}
-.item{background:#1e1e1e;padding:10px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #ffcc00}
+.btn{padding:14px;border-radius:12px;border:none;font-weight:900;width:100%;cursor:pointer;font-size:13px}
+.item{background:#1e1e1e;padding:12px;border-radius:12px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #FFD700}
 .qtdCtrl{display:flex;gap:6px;align-items:center}
-.qtdCtrl button{width:36px;height:36px;border-radius:8px;border:none;font-weight:bold;font-size:18px}
+.qtdCtrl button{width:36px;height:36px;border-radius:8px;border:none;font-weight:900;font-size:18px;cursor:pointer}
+.footer{max-width:1000px;margin:20px auto;text-align:center;border-top:2px solid #FFD700;padding:14px}
+.footer a{color:#FFD700;text-decoration:none;font-size:11px;margin:0 6px;font-weight:800}
+.fab-mini{position:fixed;bottom:20px;right:15px;z-index:99999;background:linear-gradient(135deg,#FFD700,#FFA500);color:#000;width:60px;height:60px;border-radius:50%;border:2px solid #fff;display:none;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.7);cursor:pointer}
 </style>
 </head>
 <body>
-<header>
-<a href="index.html">⬅️ Voltar</a>
-<h3 style="margin:0">🛒 MERCADO</h3>
-<button onclick="limpar()" style="background:#ff4444;color:#fff;border:none;padding:8px 10px;border-radius:8px;font-weight:bold">🗑️ Limpar</button>
-</header>
+
+<div class="barra-fixa">
+<div style="display:flex;align-items:center;gap:8px"><div style="font-weight:900;color:#FFD700;font-size:12px">🛒 MERCADO</div><span class="tag" id="totalTag">0 ITENS</span></div>
+<div style="display:flex;gap:6px">
+<button onclick="limpar()" style="background:#ff4444;color:#fff;border:none;padding:7px 10px;border-radius:20px;font-weight:900;cursor:pointer;font-size:11px">🗑️ LIMPAR</button>
+<a href="/" style="background:#222;color:#fff;padding:7px 12px;border-radius:20px;font-size:11px;font-weight:900;text-decoration:none">✕ FECHAR</a>
+</div>
+</div>
+
+<div class="conteudo-editor">
+<h2>Mercado - Carrinho de Compras com Total no Caixa Automático</h2>
+<p>Vai no mercado e sempre estoura o orçamento? O Carrinho de Mercado do Banco Gratidão é grátis: adicione produto, preço e quantidade, ele calcula total no caixa na hora, mostra quantos itens e produtos tem. Não precisa mais de calculadora na mão.</p>
+<p>Como usar: digite produto ex: Arroz, preço R$, quantidade e + ADD. Busque no carrinho, clique no preço pra editar rápido, use + e - pra ajustar quantidade. Compartilhe total no WhatsApp. Tudo salvo no celular. Salve: bancogratidao.com.br/mercado/</p>
+</div>
+
+<div class="alert">🛒 DICA: Adicione tudo que pegar na prateleira. Clique no preço pra editar se errar. Total real sempre visível no topo.</div>
+
+<div class="ad-box"><small>PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
 <div class="totalBox">
-<small>🛒 TOTAL NO CAIXA</small>
+<small style="font-weight:900">🛒 TOTAL NO CAIXA</small>
 <b>R$ <span id="total">0.00</span></b>
-<span id="qtdInfo">0 itens no carrinho</span>
+<span id="qtdInfo" style="font-weight:800;font-size:12px">0 itens no carrinho</span>
 </div>
 
 <div class="box">
 <div class="grid">
 <input id="nome" placeholder="Produto ex: Arroz" style="text-transform:capitalize">
 <input id="preco" type="number" inputmode="decimal" placeholder="Preço R$" step="0.01">
-<button class="btn" style="background:#ffcc00" onclick="add()">+ ADD</button>
+<button class="btn" style="background:#FFD700;color:#000" onclick="add()">+ ADD</button>
 </div>
 <div class="grid2">
 <input id="qtd" type="number" value="1" min="1" placeholder="Qtd">
@@ -46,14 +75,31 @@ input{padding:14px;border-radius:10px;border:1px solid #333;background:#000;colo
 
 <div class="box" id="lista"></div>
 
-<div class="box" style="text-align:center">
-<button class="btn" style="background:#00ff88" onclick="compartilhar()">📤 Compartilhar total</button>
-<small style="opacity:.5;display:block;margin-top:6px">Dica: clica no preço pra editar rápido</small>
+<div class="ad-box"><small>PUBLICIDADE - MEIO</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
+
+<div class="box" style="text-align:center">
+<button class="btn" style="background:#25D366;color:#fff" onclick="compartilhar()">📤 COMPARTILHAR TOTAL NO WHATSAPP</button>
+<small style="opacity:.6;display:block;margin-top:8px;font-size:11px">Dica: clica no preço amarelo pra editar rápido ✏️ - Salvo automático no celular</small>
+<a href="/" style="display:block;margin-top:10px;background:#111;color:#FFD700;border:1px solid #FFD700;padding:12px;border-radius:12px;font-weight:900;text-decoration:none;text-align:center">◀ VOLTAR PRO PORTAL DO POVO</a>
+</div>
+
+<div class="ad-box"><small>PUBLICIDADE - RODAPÉ</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2263470788888608" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<footer class="footer">
+<a href="/">🏠 PORTAL</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<p style="color:#888;font-size:10px;margin-top:8px">Carrinho salvo no celular - Total automático - Edita preço - Compartilha - 100% grátis</p>
+</footer>
 
 <script>
 let carrinho = JSON.parse(localStorage.getItem('mercado_carrinho')||'[]');
-
 function add(){
  let nome=document.getElementById('nome').value.trim();
  let preco=parseFloat(document.getElementById('preco').value);
@@ -64,71 +110,58 @@ function add(){
  document.getElementById('nome').value='';document.getElementById('preco').value='';document.getElementById('qtd').value='1';
  document.getElementById('nome').focus();
 }
-
 function salvar(){localStorage.setItem('mercado_carrinho',JSON.stringify(carrinho));render();}
-
 function alterar(id,delta){
- let p=carrinho.find(x=>x.id==id);
- p.qtd+=delta;
- if(p.qtd<=0)p.qtd=1;
- salvar();
+ let p=carrinho.find(x=>x.id==id); if(!p)return;
+ p.qtd+=delta; if(p.qtd<=0)p.qtd=1; salvar();
 }
-
 function del(id){
- if(confirm('Devolver produto pro mercado? 🗑️')){
-   carrinho=carrinho.filter(x=>x.id!=id);
-   salvar();
- }
+ if(confirm('Devolver produto pro mercado? 🗑️')){ carrinho=carrinho.filter(x=>x.id!=id); salvar(); }
 }
-
 function editarPreco(id){
  let p=carrinho.find(x=>x.id==id);
  let novo=prompt(`Editar preço de ${p.nome}`,p.preco);
- if(novo){p.preco=parseFloat(novo);salvar();}
+ if(novo){p.preco=parseFloat(novo); if(!isNaN(p.preco)) salvar();}
 }
-
 function render(){
  let busca=(document.getElementById('busca').value||'').toUpperCase();
  let filtrados=carrinho.filter(c=>c.nome.toUpperCase().includes(busca));
- let total=0, itens=0;
  let html='';
  filtrados.forEach(c=>{
    let sub=c.preco*c.qtd;
-   total+=sub; itens+=c.qtd;
-   html+=`<div class="item"><div style="flex:1"><b>${c.nome}</b><br><small onclick="editarPreco(${c.id})" style="color:#ffcc00">R$ ${c.preco.toFixed(2)} x ${c.qtd} = <b>R$ ${sub.toFixed(2)}</b> ✏️</small></div>
-   <div class="qtdCtrl"><button onclick="alterar(${c.id},-1)" style="background:#ff4444;color:#fff">-</button><b>${c.qtd}</b><button onclick="alterar(${c.id},1)" style="background:#00ff88">+</button><button onclick="del(${c.id})" style="background:#222;margin-left:4px">🗑️</button></div></div>`;
+   html+=`<div class="item"><div style="flex:1"><b>${c.nome}</b><br><small onclick="editarPreco(${c.id})" style="color:#FFD700;cursor:pointer">R$ ${c.preco.toFixed(2)} x ${c.qtd} = <b>R$ ${sub.toFixed(2)}</b> ✏️</small></div>
+   <div class="qtdCtrl"><button onclick="alterar(${c.id},-1)" style="background:#ff4444;color:#fff">-</button><b style="min-width:24px;text-align:center">${c.qtd}</b><button onclick="alterar(${c.id},1)" style="background:#00ff88;color:#000">+</button><button onclick="del(${c.id})" style="background:#222;color:#fff;margin-left:4px">🗑️</button></div></div>`;
  });
- // total real de tudo (não só do filtro)
  let totalReal=0, itensReal=0;
  carrinho.forEach(c=>{totalReal+=c.preco*c.qtd; itensReal+=c.qtd;});
- document.getElementById('lista').innerHTML=html||'<center style="opacity:.4;padding:10px">Carrinho vazio - começa a adicionar 🛒</center>';
+ document.getElementById('lista').innerHTML=html||'<center style="opacity:.4;padding:20px">Carrinho vazio - começa a adicionar 🛒<br><small>Ex: Arroz, Feijão, Óleo</small></center>';
  document.getElementById('total').innerText=totalReal.toFixed(2);
  document.getElementById('qtdInfo').innerText=`${itensReal} itens | ${carrinho.length} produtos`;
+ document.getElementById('totalTag').innerText=`${itensReal} ITENS - R$ ${totalReal.toFixed(2)}`;
 }
-
 function limpar(){if(confirm('Limpar carrinho todo? Zera tudo pra nova compra.')){carrinho=[];salvar();}}
-
 function compartilhar(){
- let texto=`🛒 MEU CARRINHO - MERCADO\n\n`;
+ if(carrinho.length===0){alert('Carrinho vazio');return}
+ let texto=`🛒 MEU CARRINHO - MERCADO - BANCO GRATIDÃO%0A%0A`;
  let total=0;
- carrinho.forEach(c=>{let sub=c.preco*c.qtd;total+=sub; texto+=`• ${c.nome} - ${c.qtd}x R$ ${c.preco.toFixed(2)} = R$ ${sub.toFixed(2)}\n`;});
- texto+=`\nTOTAL: R$ ${total.toFixed(2)} - ${carrinho.length} produtos`;
- if(navigator.share){navigator.share({text:texto})}else{prompt('Copia:',texto)}
+ carrinho.forEach(c=>{let sub=c.preco*c.qtd;total+=sub; texto+=`• ${c.nome} - ${c.qtd}x R$ ${c.preco.toFixed(2)} = R$ ${sub.toFixed(2)}%0A`;});
+ texto+=`%0ATOTAL: R$ ${total.toFixed(2)} - ${carrinho.length} produtos - ${carrinho.reduce((s,c)=>s+c.qtd,0)} itens`;
+ window.open('https://wa.me/?text='+texto,'_blank');
 }
-
 document.getElementById('preco').addEventListener('keydown',e=>{if(e.key==='Enter')add();});
 document.getElementById('nome').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('preco').focus();});
-
 render();
 </script>
- {
-  "name": "VAGAS - Portal do Povo",
-  "short_name": "Vagas",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#FFD700",
-  "icons": [{"src": "../icon.png","sizes":"192x192","type":"image/png"}]
-}
+
+<link rel="manifest" href="./manifest.json">
+<button class="fab-mini" id="fabMini" title="Instalar">⬇️</button>
+<style>#btnChamarPortal{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:999;background:#111;border:2px solid #FFD700;border-radius:24px;padding:8px 14px;display:flex;align-items:center;gap:10px}#btnChamarPortal b{color:#fff;font-size:11px}#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:6px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}#btnChamarPortal .fechar{color:#666;cursor:pointer}</style>
+<div id="btnChamarPortal"><div><b>🔴 PORTAL DO POVO</b></div><a class="abrir" href="/">ABRIR</a><span class="fechar" onclick="this.parentElement.style.display='none'">✕</span></div>
+<script>
+let dpMini=null;
+window.addEventListener('beforeinstallprompt', e=>{e.preventDefault();dpMini=e;document.getElementById('fabMini').style.display='flex';});
+document.getElementById('fabMini').addEventListener('click', async()=>{ if(!dpMini) return; dpMini.prompt(); const o=await dpMini.userChoice; if(o.outcome==='accepted') document.getElementById('fabMini').style.display='none'; dpMini=null; });
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+</script>
 </body>
 </html>
