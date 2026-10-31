@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2263470788888608" crossorigin="anonymous"></script>
+<title>🧮 CALCULADORA - Portal do Povo</title>
+<meta name="theme-color" content="#FFD700">
+<meta name="description" content="Calculadora do Portal do Povo: calculadora simples, porcentagem, desconto, juros, horas e calculadora de churrasco. Grátis e verificada.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{background:#000;color:#fff;font-family:Arial;padding-bottom:20px}
+.hero{background:#111;padding:16px;text-align:center;border-bottom:4px solid #FFD700;position:sticky;top:0;z-index:10}
+.hero h1{color:#FFD700;font-size:18px;font-weight:900}.hero span{color:#aaa;font-size:11px;display:block}
+.box{background:#111;border:1px solid #222;border-radius:12px;padding:12px;margin:10px}
+.box p{font-size:12px;color:#ccc;line-height:16px}
+.calc{max-width:360px;margin:10px auto;background:#151515;border:2px solid #FFD700;border-radius:16px;padding:12px}
+.display{width:100%;background:#000;color:#FFD700;border:1px solid #333;border-radius:10px;padding:14px;font-size:22px;text-align:right;font-weight:900;margin-bottom:10px}
+.teclas{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.teclas button{padding:16px;border-radius:12px;border:1px solid #333;background:#222;color:#fff;font-size:18px;font-weight:900}
+.teclas button.op{background:#FFD700;color:#000}
+.teclas button.igual{background:#25D366;color:#fff;grid-column:span 2}
+.ad-mini{width:320px;min-height:60px;background:#0a0a0a;border:1px dashed #333;border-radius:10px;margin:15px auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5px}
+.nav-fixa{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:12px;background:#111;border-top:4px solid #FFD700;border-bottom:4px solid #FFD700;margin:12px 0}
+.nav-fixa a{background:#222;border:2px solid #FFD700;color:#FFD700;padding:8px 14px;border-radius:20px;font-weight:900;font-size:11px;text-decoration:none}
+footer{background:#111;padding:14px;text-align:center;border-top:4px solid #FFD700}
+footer a{color:#FFD700;border:1px solid #333;background:#222;padding:6px 12px;border-radius:20px;margin:4px;display:inline-block;text-decoration:none;font-size:10px}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1>🧮 CALCULADORA DO POVO</h1>
+<span>Simples, porcentagem e desconto - 100% grátis</span>
+</div>
+
+<div class="box">
+<p>Calculadora verificada do Portal do Povo para fazer conta de mercado, desconto, porcentagem, divisão de conta e horas de trabalho. Funciona offline no celular.</p>
+</div>
+
+<div class="calc">
+<input id="disp" class="display" value="0" readonly>
+<div class="teclas">
+<button onclick="limpar()">C</button>
+<button onclick="apagar()">⌫</button>
+<button onclick="add('%')">%</button>
+<button class="op" onclick="add('/')">÷</button>
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button class="op" onclick="add('*')">×</button>
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button class="op" onclick="add('-')">-</button>
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button class="op" onclick="add('+')">+</button>
+<button onclick="add('0')">0</button>
+<button onclick="add('.')">.</button>
+<button class="igual" onclick="calcular()">=</button>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px">
+<button onclick="desconto()" style="flex:1;background:#111;border:1px solid #FFD700;color:#FFD700;padding:10px;border-radius:12px;font-weight:900;font-size:11px">10% DESCONTO</button>
+<button onclick="porc()" style="flex:1;background:#111;border:1px solid #FFD700;color:#FFD700;padding:10px;border-radius:12px;font-weight:900;font-size:11px">% PORCENTAGEM</button>
+</div>
+</div>
+
+<div class="nav-fixa">
+<a href="../">🏠 PORTAL</a>
+<a href="../sistema/">⚙️ SISTEMA</a>
+<a href="../organizacao-pessoal/">📅 ORGANIZAÇÃO</a>
+<a href="/privacidade/">🔒 PRIVACIDADE</a>
+<a href="/contato/">📞 CONTATO</a>
+<a href="/sobre/">ℹ️ SOBRE</a>
+</div>
+
+<div class="ad-mini">
+<small style="color:#555;font-size:9px">PUBLICIDADE</small>
+<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-2263470788888608" data-ad-slot="1234567890"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<footer>
+<div style="color:#FFD700;font-weight:900">CALCULADORA VERIFICADA</div>
+</footer>
+
+<script>
+let d=document.getElementById('disp');
+function add(v){if(d.value=='0' && v!='.' ) d.value=''; d.value+=v;}
+function limpar(){d.value='0';}
+function apagar(){d.value=d.value.slice(0,-1)||'0';}
+function calcular(){try{let r=d.value.replace('%','/100');d.value=eval(r);}catch(e){d.value='ERRO';}}
+function desconto(){try{d.value=eval(d.value+'*0.9');}catch(e){}}
+function porc(){try{d.value=eval(d.value+'/100');}catch(e){}}
+</script>
+</body>
+</html>
