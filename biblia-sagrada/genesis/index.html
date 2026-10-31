@@ -1,0 +1,156 @@
+⁶<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BANCO GRATIDÃO - 62 Vídeos Dourado Editável</title>
+<style>
+body{background:#0a0a0a;color:#fff;font-family:Arial,sans-serif;margin:0;padding:10px}
+.topo{background:linear-gradient(180deg,#1a1a00,#000);text-align:center;padding:20px;border-bottom:3px solid #ffcc00;position:sticky;top:0;z-index:99;box-shadow:0 4px 15px rgba(255,204,0,0.3)}
+.topo h1{color:#ffcc00;margin:0;font-size:20px;text-shadow:0 0 10px #ffcc00}
+.busca{width:92%;padding:14px;border-radius:30px;border:2px solid #ffcc00;background:#1a1a1a;color:#fff;margin:15px auto;display:block;text-align:center;font-size:15px}
+.card{background:linear-gradient(145deg,#1a1a1a,#151515);border:1px solid #333;border-left:4px solid #ffcc00;border-radius:15px;padding:15px;margin:15px 0}
+.top-card{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.input-titulo{flex:1;background:#111;border:2px dashed #ffcc00;color:#ffcc00;padding:12px;border-radius:10px;font-weight:bold;font-size:14px}
+.btn-lapis{background:linear-gradient(145deg,#ffcc00,#ffaa00);color:#000;border:0;border-radius:12px;padding:12px 16px;font-size:22px;font-weight:bold;cursor:pointer}
+.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;border:1px solid #222}
+.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.ok{color:#00ff88;font-size:12px;display:none;margin-top:8px;font-weight:bold}
+</style>
+<script>
+function filtrar(){let t=document.getElementById('busca').value.toLowerCase();document.querySelectorAll('.card').forEach(c=>{c.style.display=c.innerText.toLowerCase().includes(t)?'block':'none'})}
+function focar(i){let el=document.getElementById('in-'+i);el.focus();el.select()}
+function salvar(i){let el=document.getElementById('in-'+i);localStorage.setItem('bg62-'+i,el.value);let ok=document.getElementById('ok-'+i);ok.style.display='block';setTimeout(()=>ok.style.display='none',1500)}
+function carregar(){document.querySelectorAll('.input-titulo').forEach(inp=>{let id=inp.dataset.id;let s=localStorage.getItem('bg62-'+id);if(s) inp.value=s})}
+window.onload=carregar;
+</script>
+</head><body>
+<div class="topo"><h1>📖 BANCO GRATIDÃO</h1><h1 style="font-size:16px;margin-top:5px">BÍBLIA EM ÁUDIO - 62 VÍDEOS - TODOS EDITÁVEIS</h1><p>Toque no ✏️ e digite o nome - salva sozinho</p><input id="busca" class="busca" placeholder="🔍 Buscar: Gênesis, Salmos, Mateus..." onkeyup="filtrar()"></div>
+
+<div class="card"><div class="top-card"><input id="in-1" data-id="1" class="input-titulo" value="🙏 01 - PAI NOSSO - Oração Poderosa" onblur="salvar('1')"><button class="btn-lapis" onclick="focar('1')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/RTrn29m5TnQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-1" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-2" data-id="2" class="input-titulo" value="02 - Toque no lápis para nomear" onblur="salvar('2')"><button class="btn-lapis" onclick="focar('2')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/UFbI-kAuCQQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-2" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-3" data-id="3" class="input-titulo" value="03 - Toque no lápis para nomear" onblur="salvar('3')"><button class="btn-lapis" onclick="focar('3')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/lHkQKAz743k" loading="lazy" allowfullscreen></iframe></div><div id="ok-3" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-4" data-id="4" class="input-titulo" value="04 - Toque no lápis para nomear" onblur="salvar('4')"><button class="btn-lapis" onclick="focar('4')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/mWxj7sGmGo4" loading="lazy" allowfullscreen></iframe></div><div id="ok-4" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-5" data-id="5" class="input-titulo" value="05 - Toque no lápis para nomear" onblur="salvar('5')"><button class="btn-lapis" onclick="focar('5')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/32nZVN5Giy4" loading="lazy" allowfullscreen></iframe></div><div id="ok-5" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-6" data-id="6" class="input-titulo" value="06 - Toque no lápis para nomear" onblur="salvar('6')"><button class="btn-lapis" onclick="focar('6')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/z6M37VjwUxY" loading="lazy" allowfullscreen></iframe></div><div id="ok-6" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-7" data-id="7" class="input-titulo" value="07 - Toque no lápis para nomear" onblur="salvar('7')"><button class="btn-lapis" onclick="focar('7')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/y90qirTUGkY" loading="lazy" allowfullscreen></iframe></div><div id="ok-7" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-8" data-id="8" class="input-titulo" value="08 - Toque no lápis para nomear" onblur="salvar('8')"><button class="btn-lapis" onclick="focar('8')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/lTi9RUANLZI" loading="lazy" allowfullscreen></iframe></div><div id="ok-8" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-9" data-id="9" class="input-titulo" value="09 - Toque no lápis para nomear" onblur="salvar('9')"><button class="btn-lapis" onclick="focar('9')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/jd8ULYrZ4dw" loading="lazy" allowfullscreen></iframe></div><div id="ok-9" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-10" data-id="10" class="input-titulo" value="10 - Toque no lápis para nomear" onblur="salvar('10')"><button class="btn-lapis" onclick="focar('10')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/6Dai2Agx6S4" loading="lazy" allowfullscreen></iframe></div><div id="ok-10" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-11" data-id="11" class="input-titulo" value="11 - Toque no lápis para nomear" onblur="salvar('11')"><button class="btn-lapis" onclick="focar('11')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/BuDW_byOPqw" loading="lazy" allowfullscreen></iframe></div><div id="ok-11" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-12" data-id="12" class="input-titulo" value="12 - Toque no lápis para nomear" onblur="salvar('12')"><button class="btn-lapis" onclick="focar('12')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/8gCEFZBljxY" loading="lazy" allowfullscreen></iframe></div><div id="ok-12" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-13" data-id="13" class="input-titulo" value="13 - Toque no lápis para nomear" onblur="salvar('13')"><button class="btn-lapis" onclick="focar('13')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/7cm8WbKkP9A" loading="lazy" allowfullscreen></iframe></div><div id="ok-13" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-14" data-id="14" class="input-titulo" value="14 - Toque no lápis para nomear" onblur="salvar('14')"><button class="btn-lapis" onclick="focar('14')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/_p2E474UTm8" loading="lazy" allowfullscreen></iframe></div><div id="ok-14" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-15" data-id="15" class="input-titulo" value="15 - Toque no lápis para nomear" onblur="salvar('15')"><button class="btn-lapis" onclick="focar('15')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/meK3fzPfqjw" loading="lazy" allowfullscreen></iframe></div><div id="ok-15" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-16" data-id="16" class="input-titulo" value="16 - Toque no lápis para nomear" onblur="salvar('16')"><button class="btn-lapis" onclick="focar('16')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/ff9bE3a3KcI" loading="lazy" allowfullscreen></iframe></div><div id="ok-16" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-17" data-id="17" class="input-titulo" value="17 - Toque no lápis para nomear" onblur="salvar('17')"><button class="btn-lapis" onclick="focar('17')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/N8KKkwruTrw" loading="lazy" allowfullscreen></iframe></div><div id="ok-17" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-18" data-id="18" class="input-titulo" value="18 - Toque no lápis para nomear" onblur="salvar('18')"><button class="btn-lapis" onclick="focar('18')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/M6_W6P755J8" loading="lazy" allowfullscreen></iframe></div><div id="ok-18" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-19" data-id="19" class="input-titulo" value="19 - Toque no lápis para nomear" onblur="salvar('19')"><button class="btn-lapis" onclick="focar('19')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/wAXKBDYhiFs" loading="lazy" allowfullscreen></iframe></div><div id="ok-19" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-20" data-id="20" class="input-titulo" value="20 - Toque no lápis para nomear" onblur="salvar('20')"><button class="btn-lapis" onclick="focar('20')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/UYViTdFn1ak" loading="lazy" allowfullscreen></iframe></div><div id="ok-20" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-21" data-id="21" class="input-titulo" value="21 - Toque no lápis para nomear" onblur="salvar('21')"><button class="btn-lapis" onclick="focar('21')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/IV-26QGpd-I" loading="lazy" allowfullscreen></iframe></div><div id="ok-21" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-22" data-id="22" class="input-titulo" value="22 - Toque no lápis para nomear" onblur="salvar('22')"><button class="btn-lapis" onclick="focar('22')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/rOjZNFOhUZo" loading="lazy" allowfullscreen></iframe></div><div id="ok-22" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-23" data-id="23" class="input-titulo" value="23 - Toque no lápis para nomear" onblur="salvar('23')"><button class="btn-lapis" onclick="focar('23')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/QeOmscBDHPk" loading="lazy" allowfullscreen></iframe></div><div id="ok-23" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-24" data-id="24" class="input-titulo" value="24 - Toque no lápis para nomear" onblur="salvar('24')"><button class="btn-lapis" onclick="focar('24')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/-piJbrmcLqc" loading="lazy" allowfullscreen></iframe></div><div id="ok-24" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-25" data-id="25" class="input-titulo" value="25 - Toque no lápis para nomear" onblur="salvar('25')"><button class="btn-lapis" onclick="focar('25')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/-3ATTP5vQUY" loading="lazy" allowfullscreen></iframe></div><div id="ok-25" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-26" data-id="26" class="input-titulo" value="26 - Toque no lápis para nomear" onblur="salvar('26')"><button class="btn-lapis" onclick="focar('26')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/zTBwUr2FVr8" loading="lazy" allowfullscreen></iframe></div><div id="ok-26" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-27" data-id="27" class="input-titulo" value="27 - Toque no lápis para nomear" onblur="salvar('27')"><button class="btn-lapis" onclick="focar('27')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/3LR2YHVfy0g" loading="lazy" allowfullscreen></iframe></div><div id="ok-27" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-28" data-id="28" class="input-titulo" value="28 - Toque no lápis para nomear" onblur="salvar('28')"><button class="btn-lapis" onclick="focar('28')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/z5lXjBN0ZME" loading="lazy" allowfullscreen></iframe></div><div id="ok-28" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-29" data-id="29" class="input-titulo" value="29 - Toque no lápis para nomear" onblur="salvar('29')"><button class="btn-lapis" onclick="focar('29')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/YU6U0sgHRKU" loading="lazy" allowfullscreen></iframe></div><div id="ok-29" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-30" data-id="30" class="input-titulo" value="30 - Toque no lápis para nomear" onblur="salvar('30')"><button class="btn-lapis" onclick="focar('30')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/6e-r5l4pJZ0" loading="lazy" allowfullscreen></iframe></div><div id="ok-30" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-31" data-id="31" class="input-titulo" value="31 - Toque no lápis para nomear" onblur="salvar('31')"><button class="btn-lapis" onclick="focar('31')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/D1IStLWFh7s" loading="lazy" allowfullscreen></iframe></div><div id="ok-31" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-32" data-id="32" class="input-titulo" value="32 - Toque no lápis para nomear" onblur="salvar('32')"><button class="btn-lapis" onclick="focar('32')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/eY4rd7sPvkQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-32" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-33" data-id="33" class="input-titulo" value="33 - Toque no lápis para nomear" onblur="salvar('33')"><button class="btn-lapis" onclick="focar('33')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/HXiznwweVCE" loading="lazy" allowfullscreen></iframe></div><div id="ok-33" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-34" data-id="34" class="input-titulo" value="34 - Toque no lápis para nomear" onblur="salvar('34')"><button class="btn-lapis" onclick="focar('34')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/bfpp9l6ejuk" loading="lazy" allowfullscreen></iframe></div><div id="ok-34" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-35" data-id="35" class="input-titulo" value="35 - Toque no lápis para nomear" onblur="salvar('35')"><button class="btn-lapis" onclick="focar('35')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/oi-Nv7_QUWk" loading="lazy" allowfullscreen></iframe></div><div id="ok-35" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-36" data-id="36" class="input-titulo" value="36 - Toque no lápis para nomear" onblur="salvar('36')"><button class="btn-lapis" onclick="focar('36')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/WgosRapshAc" loading="lazy" allowfullscreen></iframe></div><div id="ok-36" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-37" data-id="37" class="input-titulo" value="37 - Toque no lápis para nomear" onblur="salvar('37')"><button class="btn-lapis" onclick="focar('37')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/AGdGTvo35J4" loading="lazy" allowfullscreen></iframe></div><div id="ok-37" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-38" data-id="38" class="input-titulo" value="38 - Toque no lápis para nomear" onblur="salvar('38')"><button class="btn-lapis" onclick="focar('38')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/V4q9t3MZQc8" loading="lazy" allowfullscreen></iframe></div><div id="ok-38" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-39" data-id="39" class="input-titulo" value="39 - Toque no lápis para nomear" onblur="salvar('39')"><button class="btn-lapis" onclick="focar('39')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/u_BH1Or6fWI" loading="lazy" allowfullscreen></iframe></div><div id="ok-39" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-40" data-id="40" class="input-titulo" value="40 - Toque no lápis para nomear" onblur="salvar('40')"><button class="btn-lapis" onclick="focar('40')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/fLxMBkz-wZQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-40" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-41" data-id="41" class="input-titulo" value="41 - Toque no lápis para nomear" onblur="salvar('41')"><button class="btn-lapis" onclick="focar('41')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/9iIjiWBGmtE" loading="lazy" allowfullscreen></iframe></div><div id="ok-41" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-42" data-id="42" class="input-titulo" value="42 - Toque no lápis para nomear" onblur="salvar('42')"><button class="btn-lapis" onclick="focar('42')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/_wxc7c4iKNg" loading="lazy" allowfullscreen></iframe></div><div id="ok-42" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-43" data-id="43" class="input-titulo" value="43 - Toque no lápis para nomear" onblur="salvar('43')"><button class="btn-lapis" onclick="focar('43')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/T0KiWcDrLsc" loading="lazy" allowfullscreen></iframe></div><div id="ok-43" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-44" data-id="44" class="input-titulo" value="44 - Toque no lápis para nomear" onblur="salvar('44')"><button class="btn-lapis" onclick="focar('44')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/rq9ZK0V4c8c" loading="lazy" allowfullscreen></iframe></div><div id="ok-44" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-45" data-id="45" class="input-titulo" value="45 - Toque no lápis para nomear" onblur="salvar('45')"><button class="btn-lapis" onclick="focar('45')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/ECbqf9yhLd4" loading="lazy" allowfullscreen></iframe></div><div id="ok-45" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-46" data-id="46" class="input-titulo" value="46 - Toque no lápis para nomear" onblur="salvar('46')"><button class="btn-lapis" onclick="focar('46')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/f4dfJz1DaZg" loading="lazy" allowfullscreen></iframe></div><div id="ok-46" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-47" data-id="47" class="input-titulo" value="47 - Toque no lápis para nomear" onblur="salvar('47')"><button class="btn-lapis" onclick="focar('47')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/5cIJpEYFPqg" loading="lazy" allowfullscreen></iframe></div><div id="ok-47" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-48" data-id="48" class="input-titulo" value="48 - Toque no lápis para nomear" onblur="salvar('48')"><button class="btn-lapis" onclick="focar('48')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/JGLFf2EUb-4" loading="lazy" allowfullscreen></iframe></div><div id="ok-48" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-49" data-id="49" class="input-titulo" value="49 - Toque no lápis para nomear" onblur="salvar('49')"><button class="btn-lapis" onclick="focar('49')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/6r_vwTs2MaQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-49" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-50" data-id="50" class="input-titulo" value="50 - Toque no lápis para nomear" onblur="salvar('50')"><button class="btn-lapis" onclick="focar('50')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/iGK5ccSHajg" loading="lazy" allowfullscreen></iframe></div><div id="ok-50" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-51" data-id="51" class="input-titulo" value="51 - Toque no lápis para nomear" onblur="salvar('51')"><button class="btn-lapis" onclick="focar('51')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/p4cDf7OvnuY" loading="lazy" allowfullscreen></iframe></div><div id="ok-51" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-52" data-id="52" class="input-titulo" value="52 - Toque no lápis para nomear" onblur="salvar('52')"><button class="btn-lapis" onclick="focar('52')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/M3o-2e-qCnA" loading="lazy" allowfullscreen></iframe></div><div id="ok-52" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-53" data-id="53" class="input-titulo" value="53 - Toque no lápis para nomear" onblur="salvar('53')"><button class="btn-lapis" onclick="focar('53')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/sHuwvprIQ8E" loading="lazy" allowfullscreen></iframe></div><div id="ok-53" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-54" data-id="54" class="input-titulo" value="54 - Toque no lápis para nomear" onblur="salvar('54')"><button class="btn-lapis" onclick="focar('54')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/xYyT01-A2Jo" loading="lazy" allowfullscreen></iframe></div><div id="ok-54" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-55" data-id="55" class="input-titulo" value="55 - Toque no lápis para nomear" onblur="salvar('55')"><button class="btn-lapis" onclick="focar('55')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/kmdJkuVri7M" loading="lazy" allowfullscreen></iframe></div><div id="ok-55" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-56" data-id="56" class="input-titulo" value="56 - Toque no lápis para nomear" onblur="salvar('56')"><button class="btn-lapis" onclick="focar('56')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/2LyjQxGbmos" loading="lazy" allowfullscreen></iframe></div><div id="ok-56" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-57" data-id="57" class="input-titulo" value="57 - Toque no lápis para nomear" onblur="salvar('57')"><button class="btn-lapis" onclick="focar('57')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/aRfDutnVXiY" loading="lazy" allowfullscreen></iframe></div><div id="ok-57" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-58" data-id="58" class="input-titulo" value="58 - Toque no lápis para nomear" onblur="salvar('58')"><button class="btn-lapis" onclick="focar('58')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/vAm__8nxlUQ" loading="lazy" allowfullscreen></iframe></div><div id="ok-58" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-59" data-id="59" class="input-titulo" value="59 - Toque no lápis para nomear" onblur="salvar('59')"><button class="btn-lapis" onclick="focar('59')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/Hc9ASyKS6HI" loading="lazy" allowfullscreen></iframe></div><div id="ok-59" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-60" data-id="60" class="input-titulo" value="60 - Toque no lápis para nomear" onblur="salvar('60')"><button class="btn-lapis" onclick="focar('60')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/BWiep5BWC2Q" loading="lazy" allowfullscreen></iframe></div><div id="ok-60" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-61" data-id="61" class="input-titulo" value="61 - Toque no lápis para nomear" onblur="salvar('61')"><button class="btn-lapis" onclick="focar('61')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/fN4uwAxH7r4" loading="lazy" allowfullscreen></iframe></div><div id="ok-61" class="ok">✅ Salvo!</div></div>
+<div class="card"><div class="top-card"><input id="in-62" data-id="62" class="input-titulo" value="62 - Toque no lápis para nomear" onblur="salvar('62')"><button class="btn-lapis" onclick="focar('62')">✏️</button></div><div class="video"><iframe src="https://www.youtube.com/embed/3WtK7f932-A" loading="lazy" allowfullscreen></iframe></div><div id="ok-62" class="ok">✅ Salvo!</div></div>
+<div style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999">
+<button onclick="gerarFixo()" style="background:#00ff88;color:#000;border:0;padding:15px 30px;border-radius:30px;font-weight:bold;font-size:16px">💾 GERAR ARQUIVO FIXO</button>
+</div>
+<script>
+function gerarFixo(){
+let html='<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BANCO GRATIDÃO - FINAL</title><style>body{background:#0a0a0a;color:#fff;font-family:Arial;margin:0;padding:10px}.card{background:#1a1a1a;border:1px solid #333;border-left:4px solid #ffcc00;border-radius:15px;padding:15px;margin:15px 0}.titulo{color:#ffcc00;font-weight:bold;font-size:15px;margin-bottom:10px}.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000}.video iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}</style></head><body><h1 style="color:#ffcc00;text-align:center">📖 BANCO GRATIDÃO - BÍBLIA COMPLETA</h1>';
+document.querySelectorAll('.card').forEach(c=>{
+let nome=c.querySelector('.input-titulo').value;
+let iframe=c.querySelector('iframe').outerHTML;
+html+=`<div class="card"><div class="titulo">${nome}</div><div class="video">${iframe}</div></div>`;
+});
+html+='</body></html>';
+let blob=new Blob([html],{type:'text/html'});
+let a=document.createElement('a');
+a.href=URL.createObjectURL(blob);
+a.download='biblia-final-permanente.html';
+a.click();
+alert('✅ Arquivo final gerado!');
+}
+</script>
+  
+</body>
+<!-- BOTÃO FLUTUANTE PARA CHAMAR O PORTAL DO POVO -->
+<style>
+#btnChamarPortal{
+  position:fixed;
+  bottom:15px;
+  left:10px;
+  right:10px;
+  z-index:9999;
+  background:linear-gradient(90deg,#ff0000,#b30000);
+  border:2px solid #FFD700;
+  border-radius:16px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 4px 15px rgba(0,0,0,0.7);
+  cursor:pointer;
+}
+#btnChamarPortal b{color:#fff;font-size:13px}
+#btnChamarPortal span{color:#FFD700;font-size:10px;display:block}
+#btnChamarPortal .abrir{background:#FFD700;color:#000;padding:8px 18px;border-radius:20px;font-weight:900;font-size:12px}
+</style>
+
+<div id="btnChamarPortal" onclick="chamarPortal()">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="IMG-20261026-WA5175.jpg" style="width:50px;height:50px;border-radius:10px;object-fit:cover;border:1px solid #FFD700">
+    <div>
+      <b>🔴 PORTAL DO POVO AO VIVO</b>
+      <span>Toque para chamar o Modão de Curitiba</span>
+    </div>
+  </div>
+  <div class="abrir">CHAMAR</div>
+</div>
+
+<script>
+function chamarPortal(){
+  document.getElementById('playerPovo')?.scrollIntoView({behavior:'smooth'});
+  // ativa o som automaticamente
+  var p=document.getElementById('playerPovo');
+  if(p){ p.src="https://www.youtube.com/embed/DRmuNprF76Y?autoplay=1&mute=0&loop=1&playlist=DRmuNprF76Y&controls=1&rel=0&playsinline=1"; }
+  // vibra no Android
+  if(navigator.vibrate) navigator.vibrate(200);
+}
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); }
+</script>
+</html>
